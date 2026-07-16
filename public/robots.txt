@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yhl-geo-portfolio-2026.layiiii.chatgpt.site/sitemap.xml
