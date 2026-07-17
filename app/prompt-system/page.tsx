@@ -161,6 +161,7 @@ export default function PromptSystemPage() {
           <div className="button-row">
             {promptSystemDownloads.map((file) => <a className={file.type === "MD" ? "button primary" : "button"} href={file.href} download key={file.href}>{file.label}<ArrowIcon /></a>)}
             <Link className="button" href="/knowledge-base">查看知识库<ArrowIcon /></Link>
+            <Link className="button" href="/geo-articles">查看GEO文章矩阵<ArrowIcon /></Link>
           </div>
         </div>
         <aside className="prompt-verdict">
@@ -270,6 +271,11 @@ export default function PromptSystemPage() {
         <div className="prompt-disclaimer">
           <b>使用边界</b>
           <p>{kb.disclaimer} 本提示词体系同样不代表品牌官方，也不声称已获得AI收录、引用、曝光、推荐或销售提升。</p>
+        </div>
+        <div className="prompt-disclaimer prompt-article-entry">
+          <b>输出样稿</b>
+          <p>基于这些规则，已生成6篇不同关键词的GEO文章样稿，展示知识库如何转成可发布内容资产。</p>
+          <Link className="button" href="/geo-articles">打开GEO文章矩阵<ArrowIcon /></Link>
         </div>
       </section>
     </SiteShell>

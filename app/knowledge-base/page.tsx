@@ -127,6 +127,7 @@ export default function KnowledgeBasePage() {
           <div className="button-row">
             {knowledgeDownloads.map((file) => <a className={file.type === "XLSX" ? "button primary" : "button"} href={file.href} download key={file.href}>{file.label}<ArrowIcon /></a>)}
             <Link className="button" href="/prompt-system">企业提示词体系<ArrowIcon /></Link>
+            <Link className="button" href="/geo-articles">GEO文章矩阵<ArrowIcon /></Link>
             <Link className="button" href="/strategy">返回优化方案<ArrowIcon /></Link>
           </div>
         </div>
@@ -167,10 +168,13 @@ export default function KnowledgeBasePage() {
         <KnowledgeBaseExplorer data={{ facts: kb.facts, entities: kb.entities, sources: kb.sources, mappings: kb.mappings }} />
         <div className="prompt-callout">
           <div>
-            <b>下一层交付：企业提示词体系</b>
-            <p>知识库负责“有哪些事实”；提示词体系负责“AI应该怎么引用、什么时候停住、怎么回答FAQ”。</p>
+            <b>下一层交付：提示词体系与文章矩阵</b>
+            <p>知识库负责“有哪些事实”；提示词体系负责“AI应该怎么引用、什么时候停住”；文章矩阵负责把不同关键词转成可发布样稿。</p>
           </div>
-          <Link className="button" href="/prompt-system">查看提示词体系<ArrowIcon /></Link>
+          <div className="button-row">
+            <Link className="button" href="/prompt-system">查看提示词体系<ArrowIcon /></Link>
+            <Link className="button" href="/geo-articles">查看文章矩阵<ArrowIcon /></Link>
+          </div>
         </div>
       </section>
 

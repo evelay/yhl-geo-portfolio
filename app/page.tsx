@@ -39,6 +39,7 @@ export default function Home() {
               <Link className="button" href="/strategy">品牌内容优化方案<ArrowIcon /></Link>
               <Link className="button" href="/knowledge-base">企业知识库<ArrowIcon /></Link>
               <Link className="button" href="/prompt-system">企业提示词体系<ArrowIcon /></Link>
+              <Link className="button" href="/geo-articles">GEO文章矩阵<ArrowIcon /></Link>
               <Link className="button" href="/method">方法与来源<ArrowIcon /></Link>
             </div>
           </div>
@@ -152,12 +153,13 @@ export default function Home() {
         <div>
           <Eyebrow>06 / Brand content proposal</Eyebrow>
           <h2>诊断之后，下一步怎么做？</h2>
-          <p>独立14页模拟品牌提案已经把六项诊断转换为P0/P1/P2内容架构、四级事实模型、15条FAQ规范、企业知识库、企业提示词体系、90天路线图和可验收KPI。</p>
+          <p>独立14页模拟品牌提案已经把六项诊断转换为P0/P1/P2内容架构、四级事实模型、15条FAQ规范、企业知识库、企业提示词体系、GEO文章矩阵、90天路线图和可验收KPI。</p>
         </div>
         <div className="button-row">
           <Link className="button primary" href="/strategy">打开品牌内容优化方案<ArrowIcon /></Link>
           <Link className="button" href="/knowledge-base">查看企业知识库<ArrowIcon /></Link>
           <Link className="button" href="/prompt-system">查看提示词体系<ArrowIcon /></Link>
+          <Link className="button" href="/geo-articles">查看文章矩阵<ArrowIcon /></Link>
         </div>
       </section>
     </SiteShell>
