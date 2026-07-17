@@ -126,6 +126,7 @@ export default function KnowledgeBasePage() {
           <p>这不是后台系统，而是一份可审计的品牌事实底座：把实体、事实、来源、证据、FAQ和内容页面连起来，让“能回答”变成“能核验”。</p>
           <div className="button-row">
             {knowledgeDownloads.map((file) => <a className={file.type === "XLSX" ? "button primary" : "button"} href={file.href} download key={file.href}>{file.label}<ArrowIcon /></a>)}
+            <Link className="button" href="/prompt-system">企业提示词体系<ArrowIcon /></Link>
             <Link className="button" href="/strategy">返回优化方案<ArrowIcon /></Link>
           </div>
         </div>
@@ -164,6 +165,13 @@ export default function KnowledgeBasePage() {
           <p>可按事实ID、实体、问题、来源ID和关键词搜索；也可以筛选事实等级、信源状态和映射类型。</p>
         </div>
         <KnowledgeBaseExplorer data={{ facts: kb.facts, entities: kb.entities, sources: kb.sources, mappings: kb.mappings }} />
+        <div className="prompt-callout">
+          <div>
+            <b>下一层交付：企业提示词体系</b>
+            <p>知识库负责“有哪些事实”；提示词体系负责“AI应该怎么引用、什么时候停住、怎么回答FAQ”。</p>
+          </div>
+          <Link className="button" href="/prompt-system">查看提示词体系<ArrowIcon /></Link>
+        </div>
       </section>
 
       <section className="section kb-architecture-section">

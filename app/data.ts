@@ -395,6 +395,11 @@ export const knowledgeDownloads = [
   { label: "公开知识库快照", href: "/downloads/yhl-geo-knowledge-base-public.json", type: "JSON" },
 ];
 
+export const promptSystemDownloads = [
+  { label: "提示词体系 Markdown", href: "/downloads/yhl-geo-enterprise-prompt-system.md", type: "MD" },
+  { label: "公开知识库快照", href: "/downloads/yhl-geo-knowledge-base-public.json", type: "JSON" },
+];
+
 export const nav = [
   ["研究首页", "/"],
   ["品牌事实", "/facts"],
@@ -405,5 +410,6 @@ export const nav = [
   ["FAQ", "/faq"],
   ["优化方案", "/strategy"],
   ["企业知识库", "/knowledge-base"],
+  ["提示词体系", "/prompt-system"],
   ["方法与来源", "/method"],
 ];

@@ -33,6 +33,7 @@ test("server-renders the GEO portfolio homepage", async () => {
   assert.match(html, /让红木家具信息/);
   assert.match(html, /品牌内容优化方案/);
   assert.match(html, /企业知识库/);
+  assert.match(html, /企业提示词体系/);
   assert.match(html, /不代表元亨利官方/);
 });
 
@@ -58,6 +59,24 @@ test("server-renders the knowledge base page with downloads and governance", asy
   assert.match(html, /application\/ld\+json/);
 });
 
+test("server-renders the enterprise prompt system page", async () => {
+  const response = await render("/prompt-system");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /企业提示词体系｜元亨利 GEO/);
+  assert.match(html, /提示词不是口号，而是知识库接口/);
+  assert.match(html, /四个可复制的核心提示词/);
+  assert.match(html, /PROMPT-01/);
+  assert.match(html, /事实等级与边界规则/);
+  assert.match(html, /六类高风险表达/);
+  assert.match(html, /15条FAQ，转成标准问答提示词/);
+  assert.match(html, /FAQ-01/);
+  assert.match(html, /FACT-0001/);
+  assert.match(html, /yhl-geo-enterprise-prompt-system\.md/);
+  assert.match(html, /application\/ld\+json/);
+});
+
 test("knowledge base explorer supports search, filters, and expandable views", async () => {
   const root = new URL("../", import.meta.url);
   const explorer = await readFile(new URL("app/knowledge-base/KnowledgeBaseExplorer.tsx", root), "utf8");
@@ -78,6 +97,7 @@ test("ships public knowledge base files and sitemap entry", async () => {
   const root = new URL("../", import.meta.url);
   await access(new URL("public/downloads/yhl-geo-brand-fact-knowledge-base.xlsx", root));
   await access(new URL("public/downloads/yhl-geo-knowledge-base-public.json", root));
+  await access(new URL("public/downloads/yhl-geo-enterprise-prompt-system.md", root));
   await access(new URL("public/data/yhl-geo-knowledge-base-public.json", root));
 
   const snapshot = JSON.parse(await readFile(new URL("public/data/yhl-geo-knowledge-base-public.json", root), "utf8"));
@@ -89,4 +109,5 @@ test("ships public knowledge base files and sitemap entry", async () => {
 
   const sitemap = await readFile(new URL("public/sitemap.xml", root), "utf8");
   assert.match(sitemap, /\/knowledge-base<\/loc>/);
+  assert.match(sitemap, /\/prompt-system<\/loc>/);
 });
