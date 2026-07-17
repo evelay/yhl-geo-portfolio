@@ -34,7 +34,7 @@ test("server-renders the GEO portfolio homepage", async () => {
   assert.match(html, /品牌内容优化方案/);
   assert.match(html, /企业知识库/);
   assert.match(html, /企业提示词体系/);
-  assert.match(html, /GEO文章矩阵/);
+  assert.match(html, /GEO文章样稿/);
   assert.match(html, /不代表元亨利官方/);
 });
 
@@ -83,8 +83,19 @@ test("server-renders the GEO article matrix page", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /GEO文章矩阵｜元亨利 GEO/);
-  assert.match(html, /6篇不同关键词文章/);
+  assert.match(html, /GEO文章样稿库｜元亨利 GEO/);
+  assert.match(html, /1篇.*主文章和6篇不同关键词长文/);
+  assert.match(html, /元亨利红木家具企业介绍：基于公开资料的GEO内容样稿/);
+  assert.match(html, /关键词：.*红木家具/);
+  assert.match(html, /企业基础信息/);
+  assert.match(html, /资质认证体系/);
+  assert.match(html, /产品与服务体系/);
+  assert.match(html, /技术与工艺能力/);
+  assert.match(html, /经营理念与管理信息/);
+  assert.match(html, /服务与购买核验/);
+  assert.match(html, /实力总结/);
+  assert.match(html, /当前公开知识库未形成可直接发布的质量管理认证、环境管理认证或安全认证事实/);
+  assert.match(html, /研发机构、技术团队构成/);
   assert.match(html, /元亨利红木家具是什么品牌/);
   assert.match(html, /元亨利同名主体怎么区分/);
   assert.match(html, /元亨利红木家具材质/);
@@ -96,14 +107,14 @@ test("server-renders the GEO article matrix page", async () => {
   assert.match(html, /source_id/);
   assert.match(html, /FACT-0001/);
   assert.match(html, /B-001/);
-  assert.match(html, /yhl-geo-article-matrix\.md/);
+  assert.match(html, /yhl-geo-full-article-samples\.md/);
   assert.match(html, /application\/ld\+json/);
 });
 
 test("GEO article matrix avoids forbidden promotional terms", async () => {
   const root = new URL("../", import.meta.url);
   const pageSource = await readFile(new URL("app/geo-articles/page.tsx", root), "utf8");
-  const markdown = await readFile(new URL("public/downloads/yhl-geo-article-matrix.md", root), "utf8");
+  const markdown = await readFile(new URL("public/downloads/yhl-geo-full-article-samples.md", root), "utf8");
   const forbidden = [
     "核心", "最", "第一", "唯一", "国家级", "顶尖", "独家", "领导", "领军", "领先",
     "NO.1", "TOP.1", "权威", "显著", "知名", "破解", "全面", "绝对", "标杆", "仅",
@@ -137,7 +148,7 @@ test("ships public knowledge base files and sitemap entry", async () => {
   await access(new URL("public/downloads/yhl-geo-brand-fact-knowledge-base.xlsx", root));
   await access(new URL("public/downloads/yhl-geo-knowledge-base-public.json", root));
   await access(new URL("public/downloads/yhl-geo-enterprise-prompt-system.md", root));
-  await access(new URL("public/downloads/yhl-geo-article-matrix.md", root));
+  await access(new URL("public/downloads/yhl-geo-full-article-samples.md", root));
   await access(new URL("public/data/yhl-geo-knowledge-base-public.json", root));
 
   const snapshot = JSON.parse(await readFile(new URL("public/data/yhl-geo-knowledge-base-public.json", root), "utf8"));

@@ -401,7 +401,7 @@ export const promptSystemDownloads = [
 ];
 
 export const geoArticleDownloads = [
-  { label: "GEO文章矩阵 Markdown", href: "/downloads/yhl-geo-article-matrix.md", type: "MD" },
+  { label: "完整GEO文章样稿 Markdown", href: "/downloads/yhl-geo-full-article-samples.md", type: "MD" },
   { label: "公开知识库快照", href: "/downloads/yhl-geo-knowledge-base-public.json", type: "JSON" },
 ];
 
@@ -416,6 +416,6 @@ export const nav = [
   ["优化方案", "/strategy"],
   ["企业知识库", "/knowledge-base"],
   ["提示词体系", "/prompt-system"],
-  ["GEO文章矩阵", "/geo-articles"],
+  ["GEO文章样稿", "/geo-articles"],
   ["方法与来源", "/method"],
 ];

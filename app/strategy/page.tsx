@@ -51,11 +51,11 @@ export default function StrategyPage() {
           <div><b>控制风险</b><p>价格、门店、售后与收藏表达保留时间和适用边界。</p></div>
         </div>
         <div className="knowledge-callout">
-          <div><b>新增交付：企业知识库 + 企业提示词体系 + GEO文章矩阵</b><p>11表品牌事实知识库把27条信源、41条事实原子、30个问题和15条FAQ连成统一事实底座；提示词体系再把事实等级、边界规则和标准回答转成AI可执行协议；文章矩阵负责展示不同关键词下的内容资产生成方式。</p></div>
+          <div><b>新增交付：企业知识库 + 企业提示词体系 + 完整GEO文章样稿</b><p>11表品牌事实知识库把27条信源、41条事实原子、30个问题和15条FAQ连成统一事实底座；提示词体系再把事实等级、边界规则和标准回答转成AI可执行协议；文章样稿负责展示不同关键词下的内容资产生成方式。</p></div>
           <div className="button-row">
             <Link className="button" href="/knowledge-base">查看知识库<ArrowIcon /></Link>
             <Link className="button" href="/prompt-system">查看提示词体系<ArrowIcon /></Link>
-            <Link className="button" href="/geo-articles">查看文章矩阵<ArrowIcon /></Link>
+            <Link className="button" href="/geo-articles">查看文章样稿<ArrowIcon /></Link>
           </div>
         </div>
       </section>
@@ -101,7 +101,7 @@ export default function StrategyPage() {
           <div><span>可控硬指标</span><ul><li>30/30问题有内容承接</li><li>24题完整回答、6题边界回答</li><li>6个P0资产、15条FAQ、24条可用信源</li><li>页面五项字段质检100%通过</li><li>来源、更新时间、内部链接与元数据齐全</li></ul></div>
           <div><span>第二阶段观察指标</span><ul><li>10题×5平台在线复测</li><li>品牌自然提及、有效来源覆盖与确认幻觉变化</li><li>不把单轮变化写成平台收录或效果归因</li><li>不声称曝光、销售、推荐或品牌影响力提升</li></ul></div>
         </div>
-        <div className="download-panel"><div><b>完整执行文件</b><p>14页主方案、可编辑版、7工作表的90天执行工作簿、独立企业知识库、企业提示词体系，以及6篇GEO文章矩阵。数据口径与本网站一致。更新：{updatedAt}</p></div><div className="button-row">{[...strategyDownloads, ...knowledgeDownloads].map((file) => <a className="button" href={file.href} download key={file.href}>{file.type}<ArrowIcon /></a>)}<Link className="button" href="/prompt-system">PROMPT<ArrowIcon /></Link><Link className="button" href="/geo-articles">ARTICLES<ArrowIcon /></Link></div></div>
+        <div className="download-panel"><div><b>完整执行文件</b><p>14页主方案、可编辑版、7工作表的90天执行工作簿、独立企业知识库、企业提示词体系，以及完整GEO文章样稿。数据口径与本网站一致。更新：{updatedAt}</p></div><div className="button-row">{[...strategyDownloads, ...knowledgeDownloads].map((file) => <a className="button" href={file.href} download key={file.href}>{file.type}<ArrowIcon /></a>)}<Link className="button" href="/prompt-system">PROMPT<ArrowIcon /></Link><Link className="button" href="/geo-articles">ARTICLES<ArrowIcon /></Link></div></div>
         <p className="strategy-disclaimer">研究声明：本方案为个人公开研究与模拟品牌提案，不代表元亨利官方或品牌委托；不声称已经获得AI收录、引用、曝光、推荐或销售提升。</p>
       </section>
     </SiteShell>

@@ -161,7 +161,7 @@ export default function PromptSystemPage() {
           <div className="button-row">
             {promptSystemDownloads.map((file) => <a className={file.type === "MD" ? "button primary" : "button"} href={file.href} download key={file.href}>{file.label}<ArrowIcon /></a>)}
             <Link className="button" href="/knowledge-base">查看知识库<ArrowIcon /></Link>
-            <Link className="button" href="/geo-articles">查看GEO文章矩阵<ArrowIcon /></Link>
+            <Link className="button" href="/geo-articles">查看GEO文章样稿<ArrowIcon /></Link>
           </div>
         </div>
         <aside className="prompt-verdict">
@@ -274,8 +274,8 @@ export default function PromptSystemPage() {
         </div>
         <div className="prompt-disclaimer prompt-article-entry">
           <b>输出样稿</b>
-          <p>基于这些规则，已生成6篇不同关键词的GEO文章样稿，展示知识库如何转成可发布内容资产。</p>
-          <Link className="button" href="/geo-articles">打开GEO文章矩阵<ArrowIcon /></Link>
+          <p>基于这些规则，已生成1篇主文章和6篇不同关键词长文，展示知识库如何转成可发布内容资产。</p>
+          <Link className="button" href="/geo-articles">打开GEO文章样稿<ArrowIcon /></Link>
         </div>
       </section>
     </SiteShell>
