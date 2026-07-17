@@ -1,7 +1,16 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowIcon, BarChart, Eyebrow, Metric, SiteShell } from "./components";
-import { categoryScores, diagnoses, platformScores, riskTags } from "./data";
+import {
+  categoryScoresV2,
+  completionAnswers,
+  diagnoses,
+  hallucinationByDataset,
+  naturalMentionByPlatform,
+  platformScores,
+  riskAndMissingTags,
+  sourceCoverageByPlatform,
+} from "./data";
 
 export const metadata: Metadata = {
   title: "公开研究首页",
@@ -27,13 +36,14 @@ export default function Home() {
             <p className="lede">一个不代表品牌官方的公开研究案例：用225条AI回答识别实体、来源与高客单决策风险，再把诊断转化为可引用内容资产。</p>
             <div className="button-row">
               <a className="button primary" href="#diagnoses">查看六项诊断<ArrowIcon /></a>
+              <Link className="button" href="/strategy">品牌内容优化方案<ArrowIcon /></Link>
               <Link className="button" href="/method">方法与来源<ArrowIcon /></Link>
             </div>
           </div>
           <aside className="hero-note">
-            <div className="index">75%</div>
-            <h3>从审计到投递收口</h3>
-            <p>数据与方法已基本完成；本版补齐证据索引、信源边界、四张核心图表、五页内容资产与可公开展示结构。</p>
+            <div className="index">V2</div>
+            <h3>投递版分类与结论已收口</h3>
+            <p>五类表现、平台自然提及、幻觉与来源覆盖已经分开统计；六个招聘方最关心的问题可直接回答。</p>
           </aside>
         </div>
       </section>
@@ -51,15 +61,49 @@ export default function Home() {
         </div>
         <div className="chart-grid">
           <div className="chart-card"><h3>五平台平均总分</h3><p>Baseline150；0–20分</p><BarChart data={platformScores} max={20} /></div>
-          <div className="chart-card"><h3>品牌词 / 非品牌词明确提及</h3><p>品牌词提示150条；非品牌词自然提及30条</p><div className="mention-chart"><div className="mention-col"><b>100.0%</b><i style={{height:"100%"}}/><span>品牌词提示</span></div><div className="mention-col"><b>66.7%</b><i style={{height:"66.7%"}}/><span>非品牌词自然提及</span></div></div></div>
-          <div className="chart-card"><h3>问题类别平均分</h3><p>Baseline150；类别来自30题研究设计</p><BarChart data={categoryScores} max={20} /></div>
-          <div className="chart-card"><h3>高频错误与缺失标签</h3><p>225条回答；一条回答可有多个标签</p><BarChart data={riskTags} max={150} accent /></div>
+          <div className="chart-card"><h3>五平台非品牌词自然提及率</h3><p>UserIntent子样本；每个平台n=6</p><BarChart data={naturalMentionByPlatform} max={100} unit="%" /></div>
+          <div className="chart-card"><h3>五类问题平均分</h3><p>Baseline150；q01–q28主意图互斥，q29–q30单列</p><BarChart data={categoryScoresV2} max={20} /></div>
+          <div className="chart-card wide-labels"><h3>高频风险与信息缺失</h3><p>Baseline150；一条回答可命中多个标签</p><BarChart data={riskAndMissingTags} max={100} accent /></div>
         </div>
+        <div className="chart-grid auxiliary-charts">
+          <div className="chart-card">
+            <h3>五平台确认幻觉率</h3>
+            <p>蓝绿为Baseline150；朱砂为UserIntent75，两组不合并排名</p>
+            <div className="compare-chart">
+              {hallucinationByDataset.map((item) => (
+                <div className="compare-row" key={item.label}>
+                  <span>{item.label}</span>
+                  <div><i style={{width: `${item.baseline / 60 * 100}%`}} /><i className="intent" style={{width: `${item.userIntent / 60 * 100}%`}} /></div>
+                  <b>{item.baseline.toFixed(1)}% / {item.userIntent.toFixed(1)}%</b>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="chart-card"><h3>五平台有效来源覆盖率</h3><p>Baseline150；可核验页面或官网/政府域名线索</p><BarChart data={sourceCoverageByPlatform} max={20} unit="%" /></div>
+        </div>
+      </section>
+
+      <section className="section conclusions-section" id="conclusions">
+        <div className="section-head">
+          <div><Eyebrow>02 / Direct answers</Eyebrow><h2>六个问题，必须能够直接回答</h2></div>
+          <p>结论先给答案，再说明数据组、分母和限制；不从并列结果中制造唯一排名。</p>
+        </div>
+        <div className="conclusion-grid">
+          {completionAnswers.map((item) => (
+            <article className="conclusion-card" key={item.id}>
+              <span>{item.id}</span>
+              <h3>{item.question}</h3>
+              <strong>{item.answer}</strong>
+              <p>{item.note}</p>
+            </article>
+          ))}
+        </div>
+        <div className="geo-verdict"><b>一句话结论</b><p>元亨利当前最大的GEO问题，不是AI不知道这个品牌，而是AI知道品牌名称，却缺少足够可靠的来源来准确回答品牌身份、荣誉、材质、价格和购买决策问题。</p></div>
       </section>
 
       <section className="section dark" id="diagnoses">
         <div className="section-head">
-          <div><Eyebrow>02 / Findings</Eyebrow><h2>六项诊断不是观点，<br />而是证据链</h2></div>
+          <div><Eyebrow>03 / Findings</Eyebrow><h2>六项诊断不是观点，<br />而是证据链</h2></div>
           <p>每项诊断均连接工作簿原始行、回答摘录、来源状态和优化页面。历史截图无法找回时，证据统一标注为“工作簿原始回答摘录”。</p>
         </div>
         <div className="diagnosis-grid">
@@ -78,7 +122,7 @@ export default function Home() {
 
       <section className="section alt" id="content-assets">
         <div className="section-head">
-          <div><Eyebrow>03 / Content system</Eyebrow><h2>五个独立页面，承接三十个问题</h2></div>
+          <div><Eyebrow>04 / Content system</Eyebrow><h2>五个独立页面，承接三十个问题</h2></div>
           <p>每页都有直接答案、来源链接、事实边界、更新时间与相关问题。另设15条FAQ，补充高频问法和边界回答。</p>
         </div>
         <div className="asset-grid">
@@ -89,7 +133,7 @@ export default function Home() {
 
       <section className="section dark">
         <div className="section-head">
-          <div><Eyebrow>04 / Method & limits</Eyebrow><h2>这是一套可审计的内容作品，<br />不是效果归因报告</h2></div>
+          <div><Eyebrow>05 / Method & limits</Eyebrow><h2>这是一套可审计的内容作品，<br />不是效果归因报告</h2></div>
         </div>
         <div className="method-grid">
           <div className="method-steps">
@@ -100,6 +144,15 @@ export default function Home() {
           </div>
           <div className="limit-card"><h3>明确不声称</h3><ul><li>不声称真实曝光、销售或AI推荐提升。</li><li>不声称50条在线复测已经完成。</li><li>不把“疑似幻觉”直接当成确认错误。</li><li>不反推历史联网状态、模型版本或引用来源。</li><li>不把国家标准或行业常识当作单件产品证明。</li></ul><Link className="button" href="/method">查看完整方法与信源<ArrowIcon /></Link></div>
         </div>
+      </section>
+
+      <section className="section strategy-entry">
+        <div>
+          <Eyebrow>06 / Brand content proposal</Eyebrow>
+          <h2>诊断之后，下一步怎么做？</h2>
+          <p>独立14页模拟品牌提案已经把六项诊断转换为P0/P1/P2内容架构、四级事实模型、15条FAQ规范、90天路线图和可验收KPI。</p>
+        </div>
+        <Link className="button primary" href="/strategy">打开品牌内容优化方案<ArrowIcon /></Link>
       </section>
     </SiteShell>
   );
