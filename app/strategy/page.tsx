@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowIcon, Eyebrow, Metric, SiteShell } from "../components";
-import { contentStrategyAssets, factLevels, roadmap90, strategyDownloads, updatedAt } from "../data";
+import { contentStrategyAssets, factLevels, knowledgeDownloads, roadmap90, strategyDownloads, updatedAt } from "../data";
 
 export const metadata: Metadata = {
   title: "品牌内容优化方案",
@@ -50,6 +50,10 @@ export default function StrategyPage() {
           <div><b>拆分层级</b><p>第三方事实、品牌自述、待补信息和单件证据不混写。</p></div>
           <div><b>控制风险</b><p>价格、门店、售后与收藏表达保留时间和适用边界。</p></div>
         </div>
+        <div className="knowledge-callout">
+          <div><b>新增交付：企业知识库</b><p>11表品牌事实知识库把27条信源、41条事实原子、30个问题和15条FAQ连成统一事实底座，并导出公开JSON快照。</p></div>
+          <Link className="button" href="/knowledge-base">查看知识库<ArrowIcon /></Link>
+        </div>
       </section>
 
       <section className="section strategy-architecture">
@@ -93,7 +97,7 @@ export default function StrategyPage() {
           <div><span>可控硬指标</span><ul><li>30/30问题有内容承接</li><li>24题完整回答、6题边界回答</li><li>6个P0资产、15条FAQ、24条可用信源</li><li>页面五项字段质检100%通过</li><li>来源、更新时间、内部链接与元数据齐全</li></ul></div>
           <div><span>第二阶段观察指标</span><ul><li>10题×5平台在线复测</li><li>品牌自然提及、有效来源覆盖与确认幻觉变化</li><li>不把单轮变化写成平台收录或效果归因</li><li>不声称曝光、销售、推荐或品牌影响力提升</li></ul></div>
         </div>
-        <div className="download-panel"><div><b>完整执行文件</b><p>14页主方案、可编辑版和7工作表的90天执行工作簿，数据口径与本网站一致。更新：{updatedAt}</p></div><div className="button-row">{strategyDownloads.map((file) => <a className="button" href={file.href} download key={file.href}>{file.type}<ArrowIcon /></a>)}</div></div>
+        <div className="download-panel"><div><b>完整执行文件</b><p>14页主方案、可编辑版、7工作表的90天执行工作簿，以及独立企业知识库。数据口径与本网站一致。更新：{updatedAt}</p></div><div className="button-row">{[...strategyDownloads, ...knowledgeDownloads].map((file) => <a className="button" href={file.href} download key={file.href}>{file.type}<ArrowIcon /></a>)}</div></div>
         <p className="strategy-disclaimer">研究声明：本方案为个人公开研究与模拟品牌提案，不代表元亨利官方或品牌委托；不声称已经获得AI收录、引用、曝光、推荐或销售提升。</p>
       </section>
     </SiteShell>

@@ -1,0 +1,2714 @@
+{
+  "version": "1.0",
+  "updatedAt": "2026-07-17",
+  "disclaimer": "个人公开研究和作品集执行版，不代表元亨利官方或品牌委托；不包含未公开资料，不声称AI收录、曝光、推荐或销售提升。",
+  "summary": {
+    "entities": 22,
+    "facts": 41,
+    "publicFacts": 41,
+    "sources": 27,
+    "usableSources": 24,
+    "pendingSources": 3,
+    "diagnosticQuestions": 30,
+    "faq": 15,
+    "contentAssets": 14,
+    "completeAnswers": 24,
+    "boundaryAnswers": 6,
+    "evidenceIndex": 12
+  },
+  "schema": {
+    "entityId": "ENT-0001",
+    "factId": "FACT-0001",
+    "relationId": "REL-0001",
+    "productId": "PROD-0001",
+    "dynamicId": "DYN-0001",
+    "sourceId": "保留原source_id",
+    "evidenceId": "保留原evidence_id",
+    "contentId": "保留原content_id",
+    "faqId": "FAQ-01",
+    "questionId": "q01"
+  },
+  "evidenceLevels": [
+    {
+      "id": "L1",
+      "label": "已核验第三方事实",
+      "rule": "可直接陈述，但需保留原始来源与更新时间。"
+    },
+    {
+      "id": "L2",
+      "label": "品牌一手自述",
+      "rule": "必须标注“品牌官网/官方账号公开称”，不得写成第三方认证。"
+    },
+    {
+      "id": "L3",
+      "label": "待官方补充",
+      "rule": "只能写资料不足和核验路径，不得写成确定结论。"
+    },
+    {
+      "id": "L4",
+      "label": "需单件证据",
+      "rule": "合同、标识、证书、检测、发票、交付和售后资料优先。"
+    }
+  ],
+  "architecture": [
+    {
+      "order": 1,
+      "sheet": "使用说明"
+    },
+    {
+      "order": 2,
+      "sheet": "实体主表"
+    },
+    {
+      "order": 3,
+      "sheet": "事实原子库"
+    },
+    {
+      "order": 4,
+      "sheet": "实体关系"
+    },
+    {
+      "order": 5,
+      "sheet": "产品证据"
+    },
+    {
+      "order": 6,
+      "sheet": "动态信息"
+    },
+    {
+      "order": 7,
+      "sheet": "信源主表"
+    },
+    {
+      "order": 8,
+      "sheet": "内容FAQ映射"
+    },
+    {
+      "order": 9,
+      "sheet": "版本审核"
+    },
+    {
+      "order": 10,
+      "sheet": "查询与看板"
+    },
+    {
+      "order": 11,
+      "sheet": "字段字典"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ENT-0001",
+      "type": "品牌",
+      "name": "元亨利红木家具",
+      "description": "红木家具语境中的品牌识别对象",
+      "sourceIds": [
+        "A-001",
+        "A-003",
+        "B-011"
+      ],
+      "boundary": "与同名字号主体分开核验",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0002",
+      "type": "企业",
+      "name": "北京元亨利硬木家具有限公司",
+      "description": "官网与主体核验涉及的企业名称",
+      "sourceIds": [
+        "S0-001",
+        "A-001"
+      ],
+      "boundary": "工商细节以实时查询结果为准",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0003",
+      "type": "人物",
+      "name": "杨波",
+      "description": "公开页面与媒体报道涉及的人物实体",
+      "sourceIds": [
+        "A-005",
+        "B-009",
+        "B-011"
+      ],
+      "boundary": "称号、职务和时间需回原文",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0004",
+      "type": "官网/域名",
+      "name": "bjyuanhengli.com",
+      "description": "项目用于识别官网和备案核验的域名",
+      "sourceIds": [
+        "S0-002",
+        "S0-004",
+        "A-001"
+      ],
+      "boundary": "备案和域名状态需按日期复核",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0005",
+      "type": "材料概念",
+      "name": "红木",
+      "description": "国家标准和红木家具内容的基础材料概念",
+      "sourceIds": [
+        "B-001",
+        "B-002",
+        "B-003"
+      ],
+      "boundary": "标准术语不等于单件材质证明",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0006",
+      "type": "材料概念",
+      "name": "黄花梨",
+      "description": "明清家具与红木材料语境中出现的材料名称",
+      "sourceIds": [
+        "B-001",
+        "B-012"
+      ],
+      "boundary": "俗称和规范名称需分开",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0007",
+      "type": "材料概念",
+      "name": "紫檀",
+      "description": "明清家具与红木材料语境中出现的材料名称",
+      "sourceIds": [
+        "B-001",
+        "B-012"
+      ],
+      "boundary": "不能替代产品证书",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0008",
+      "type": "材料概念",
+      "name": "酸枝",
+      "description": "红木材料语境中常见名称",
+      "sourceIds": [
+        "B-001",
+        "B-002"
+      ],
+      "boundary": "商业俗称需回到规范名称",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0009",
+      "type": "风格/地域",
+      "name": "京作家具",
+      "description": "北京地域与传统家具表达的风格/工艺语境",
+      "sourceIds": [
+        "B-009",
+        "B-007"
+      ],
+      "boundary": "资格身份需主管机构或证书",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0010",
+      "type": "风格",
+      "name": "明式家具",
+      "description": "家具史与审美风格概念",
+      "sourceIds": [
+        "B-012"
+      ],
+      "boundary": "不能由风格词推导年代",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0011",
+      "type": "风格",
+      "name": "清式家具",
+      "description": "家具史与审美风格概念",
+      "sourceIds": [
+        "B-012"
+      ],
+      "boundary": "不能由风格词推导馆藏",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0012",
+      "type": "国家标准",
+      "name": "GB/T 18107-2017《红木》",
+      "description": "红木术语和树种边界来源",
+      "sourceIds": [
+        "B-001"
+      ],
+      "boundary": "按标准原文解释",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0013",
+      "type": "国家标准",
+      "name": "GB/T 35475-2017《红木制品用材规范》",
+      "description": "红木制品用材表达来源",
+      "sourceIds": [
+        "B-002"
+      ],
+      "boundary": "按标准原文解释",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0014",
+      "type": "国家标准",
+      "name": "GB/T 28010-2011《红木家具通用技术条件》",
+      "description": "红木家具通用技术条件来源",
+      "sourceIds": [
+        "B-003"
+      ],
+      "boundary": "不证明单件产品",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0015",
+      "type": "机构",
+      "name": "中国家具协会",
+      "description": "行业信息入口",
+      "sourceIds": [
+        "B-008"
+      ],
+      "boundary": "不直接证明品牌排名",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0016",
+      "type": "机构",
+      "name": "北京家具行业协会",
+      "description": "行业协会与公开活动来源",
+      "sourceIds": [
+        "B-009"
+      ],
+      "boundary": "只证明特定页面语境",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0017",
+      "type": "机构",
+      "name": "木材工业研究所",
+      "description": "木材科研体系背景来源",
+      "sourceIds": [
+        "B-010"
+      ],
+      "boundary": "不证明品牌产品材质",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0018",
+      "type": "媒体",
+      "name": "人民网",
+      "description": "公开采访来源",
+      "sourceIds": [
+        "B-011"
+      ],
+      "boundary": "只适用于报道时间与文本语境",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0019",
+      "type": "博物馆",
+      "name": "中国国家博物馆",
+      "description": "明清家具背景来源及馆藏核验入口",
+      "sourceIds": [
+        "B-006",
+        "B-012"
+      ],
+      "boundary": "馆藏结论需具体检索原页",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0020",
+      "type": "品牌空间",
+      "name": "元亨利文化示范馆",
+      "description": "官网文化展示内容涉及实体",
+      "sourceIds": [
+        "A-008"
+      ],
+      "boundary": "品牌一手展示",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0021",
+      "type": "品牌内容",
+      "name": "贞穆堂",
+      "description": "官网文化内容涉及名称",
+      "sourceIds": [
+        "A-008"
+      ],
+      "boundary": "不延伸为第三方认证",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "ENT-0022",
+      "type": "产品类别",
+      "name": "红木家具",
+      "description": "本项目内容承接的产品类别",
+      "sourceIds": [
+        "B-003",
+        "B-004",
+        "B-005"
+      ],
+      "boundary": "购买需单件证据",
+      "updatedAt": "2026-07-17"
+    }
+  ],
+  "facts": [
+    {
+      "id": "FACT-0001",
+      "entityId": "ENT-0002",
+      "entityName": "北京元亨利硬木家具有限公司",
+      "type": "主体核验",
+      "statement": "国家企业信用信息公示系统可用于核验北京元亨利硬木家具有限公司的主体登记信息。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "S0-001"
+      ],
+      "sourceUrls": [
+        "https://www.gsxt.gov.cn/"
+      ],
+      "evidenceIds": [
+        "EV-006"
+      ],
+      "questionIds": [
+        "q12",
+        "q13",
+        "q14",
+        "q20"
+      ],
+      "allowedWording": "写为“可通过工商系统核验主体信息”。",
+      "boundary": "这是查询入口和核验方法，不替代实时查询结果。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0002",
+      "entityId": "ENT-0004",
+      "entityName": "bjyuanhengli.com",
+      "type": "官网核验",
+      "statement": "ICP备案系统可用于核验 bjyuanhengli.com 的备案主体和网站名称。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "S0-002"
+      ],
+      "sourceUrls": [
+        "https://beian.miit.gov.cn/"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q13",
+        "q18",
+        "q20"
+      ],
+      "allowedWording": "写为“备案信息需按查询日期核验”。",
+      "boundary": "备案结果会变化，必须记录查询日期。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0003",
+      "entityId": "ENT-0001",
+      "entityName": "元亨利红木家具",
+      "type": "商标核验",
+      "statement": "商标查询系统可用于核验“元亨利”相关商标申请或注册信息。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "S0-003"
+      ],
+      "sourceUrls": [
+        "https://sbj.cnipa.gov.cn/sbj/sbcx/"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q14"
+      ],
+      "allowedWording": "写为“商标状态需回到商标系统”。",
+      "boundary": "商标类别、权利人和状态需以查询结果为准。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0004",
+      "entityId": "ENT-0004",
+      "entityName": "bjyuanhengli.com",
+      "type": "域名核验",
+      "statement": "WHOIS和域名工具可用于核验 bjyuanhengli.com 的注册、解析和时间线索。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "S0-004"
+      ],
+      "sourceUrls": [
+        "https://www.cnnic.cn/"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q13",
+        "q20"
+      ],
+      "allowedWording": "写为“域名线索需与备案和官网内容交叉核验”。",
+      "boundary": "域名信息不是品牌事实的充分证明。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0005",
+      "entityId": "ENT-0002",
+      "entityName": "北京元亨利硬木家具有限公司",
+      "type": "官方联系",
+      "statement": "品牌官网联系页使用“北京元亨利硬木家具有限公司”作为联系主体线索。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-001"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/contact.html"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q01",
+        "q13",
+        "q18"
+      ],
+      "allowedWording": "写为“官网联系页显示/使用该主体名称”。",
+      "boundary": "品牌官网属于一手自述或联系方式线索。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0006",
+      "entityId": "ENT-0004",
+      "entityName": "bjyuanhengli.com",
+      "type": "官方网站",
+      "statement": "本项目将 bjyuanhengli.com 作为红木家具语境下的品牌官网线索。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-001"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/contact.html"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q01",
+        "q13"
+      ],
+      "allowedWording": "写为“官网线索为 bjyuanhengli.com”。",
+      "boundary": "需与备案、页面更新时间和截图共同使用。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0007",
+      "entityId": "ENT-0001",
+      "entityName": "元亨利红木家具",
+      "type": "产品栏目",
+      "statement": "品牌官网产品页包含家具产品展示栏目，可作为产品内容入口。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-002"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/product.html"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q16",
+        "q17",
+        "q19"
+      ],
+      "allowedWording": "写为“官网产品栏目显示相关家具内容”。",
+      "boundary": "产品栏目不是单件证据。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0008",
+      "entityId": "ENT-0001",
+      "entityName": "元亨利红木家具",
+      "type": "品牌介绍",
+      "statement": "品牌官网存在企业/品牌介绍页面，可作为品牌一手自述入口。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-003"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/about.html"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q01",
+        "q02",
+        "q12"
+      ],
+      "allowedWording": "写为“品牌官网介绍称/显示”。",
+      "boundary": "官网自述与第三方事实分开。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0009",
+      "entityId": "ENT-0001",
+      "entityName": "元亨利红木家具",
+      "type": "品牌自述",
+      "statement": "品牌官网企业介绍包含发展、活动、荣誉或协会等自述信息，需要逐项分层引用。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-004"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/about-us/introdction.html"
+      ],
+      "evidenceIds": [
+        "EV-002",
+        "EV-004"
+      ],
+      "questionIds": [
+        "q02",
+        "q15",
+        "q24",
+        "q25"
+      ],
+      "allowedWording": "可引用具体自述，并保留“官网称”。",
+      "boundary": "强定位需第三方评选主体、年份和原页。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0010",
+      "entityId": "ENT-0003",
+      "entityName": "杨波",
+      "type": "人物自述",
+      "statement": "品牌官网人物页面包含杨波相关介绍，属于品牌一手信息。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-005"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/about-us/brand.html"
+      ],
+      "evidenceIds": [
+        "EV-001"
+      ],
+      "questionIds": [
+        "q12",
+        "q13"
+      ],
+      "allowedWording": "写为“官网人物页面介绍”。",
+      "boundary": "职务、称号、年份需回到原文。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0011",
+      "entityId": "ENT-0001",
+      "entityName": "元亨利红木家具",
+      "type": "荣誉边界",
+      "statement": "官网荣誉图片需要补足文字化信息、发证主体和时间后，才可写成具体荣誉事实。",
+      "evidenceLevel": "L3",
+      "sourceIds": [
+        "A-006"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/about-us/honor.html"
+      ],
+      "evidenceIds": [
+        "EV-002",
+        "EV-004"
+      ],
+      "questionIds": [
+        "q02",
+        "q15",
+        "q25"
+      ],
+      "allowedWording": "写为“荣誉资料待文字化核验”。",
+      "boundary": "当前作为待补证据，不作为强事实。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0012",
+      "entityId": "ENT-0001",
+      "entityName": "元亨利红木家具",
+      "type": "工艺自述",
+      "statement": "官网工艺栏目出现“刮磨”相关内容，可作为品牌工艺自述。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-007"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/process.html"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q23"
+      ],
+      "allowedWording": "写为“官网工艺栏目展示刮磨内容”。",
+      "boundary": "行业通用工艺和品牌自述需分开。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0013",
+      "entityId": "ENT-0001",
+      "entityName": "元亨利红木家具",
+      "type": "工艺自述",
+      "statement": "官网工艺栏目出现“打磨”相关内容，可作为品牌工艺自述。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-007"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/process.html"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q23"
+      ],
+      "allowedWording": "写为“官网工艺栏目展示打磨内容”。",
+      "boundary": "需连接具体产品时另需单件资料。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0014",
+      "entityId": "ENT-0001",
+      "entityName": "元亨利红木家具",
+      "type": "工艺自述",
+      "statement": "官网工艺栏目出现“烫蜡”相关内容，可作为品牌工艺自述。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-007"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/process.html"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q23"
+      ],
+      "allowedWording": "写为“官网工艺栏目展示烫蜡内容”。",
+      "boundary": "品牌一手自述边界。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0015",
+      "entityId": "ENT-0001",
+      "entityName": "元亨利红木家具",
+      "type": "工艺自述",
+      "statement": "官网工艺栏目出现“包浆”相关内容，可作为品牌工艺自述。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-007"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/process.html"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q23"
+      ],
+      "allowedWording": "写为“官网工艺栏目展示包浆内容”。",
+      "boundary": "工艺描述不等于金融回报。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0016",
+      "entityId": "ENT-0020",
+      "entityName": "元亨利文化示范馆",
+      "type": "文化展示",
+      "statement": "官网文化示范馆页面属于品牌一手展示内容。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-008"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/culture.html"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q21"
+      ],
+      "allowedWording": "写为“官网文化示范馆页面显示”。",
+      "boundary": "展示空间与馆藏/资质需分开。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0017",
+      "entityId": "ENT-0021",
+      "entityName": "贞穆堂",
+      "type": "文化展示",
+      "statement": "官网文化页面涉及“贞穆堂”等品牌文化内容名称。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-008"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/culture.html"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q21"
+      ],
+      "allowedWording": "写为“官网文化页面涉及”。",
+      "boundary": "品牌内容名称需保留来源身份。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0018",
+      "entityId": "ENT-0001",
+      "entityName": "元亨利红木家具",
+      "type": "渠道入口",
+      "statement": "官网存在门店或渠道入口，但门店、价格和售后均需动态复核。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-009"
+      ],
+      "sourceUrls": [
+        "http://www.bjyuanhengli.com/yhl/stores.html"
+      ],
+      "evidenceIds": [
+        "EV-010"
+      ],
+      "questionIds": [
+        "q18",
+        "q20"
+      ],
+      "allowedWording": "写为“官网有渠道入口，购买前需复核”。",
+      "boundary": "动态信息必须记录核验日期和失效日期。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0019",
+      "entityId": "ENT-0001",
+      "entityName": "元亨利红木家具",
+      "type": "官方内容",
+      "statement": "品牌官方账号可作为品牌发布内容的一手来源线索。",
+      "evidenceLevel": "L2",
+      "sourceIds": [
+        "A-010"
+      ],
+      "sourceUrls": [
+        "https://mp.weixin.qq.com/s/BrckeApucl9fUML2yqNnxA"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q01",
+        "q18"
+      ],
+      "allowedWording": "写为“官方账号发布/展示”。",
+      "boundary": "需保存原文链接或截图。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0020",
+      "entityId": "ENT-0001",
+      "entityName": "元亨利红木家具",
+      "type": "待补材料",
+      "statement": "官方视频数据仍待补原文、发布时间和文字化摘录，不用于强事实。",
+      "evidenceLevel": "L3",
+      "sourceIds": [
+        "A-011"
+      ],
+      "sourceUrls": [
+        "https://weixin.qq.com/sph/AWAxHKBzku"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q15",
+        "q21"
+      ],
+      "allowedWording": "写为“待补官方视频原文”。",
+      "boundary": "当前只作为补强任务。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0021",
+      "entityId": "ENT-0005",
+      "entityName": "红木",
+      "type": "材料标准",
+      "statement": "GB/T 18107-2017《红木》用于解释红木树种和术语边界。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "B-001"
+      ],
+      "sourceUrls": [
+        "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=6E961C6DB78254EF883B5053D08BFA3B"
+      ],
+      "evidenceIds": [
+        "EV-007"
+      ],
+      "questionIds": [
+        "q03",
+        "q04",
+        "q05"
+      ],
+      "allowedWording": "写为“按国家标准解释红木术语”。",
+      "boundary": "标准是术语边界，不是单件证明。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0022",
+      "entityId": "ENT-0005",
+      "entityName": "红木",
+      "type": "用材规范",
+      "statement": "GB/T 35475-2017《红木制品用材规范》用于说明红木制品用材表达。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "B-002"
+      ],
+      "sourceUrls": [
+        "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=6184A4513320719C1FDC5F377C2A7DC0"
+      ],
+      "evidenceIds": [
+        "EV-007"
+      ],
+      "questionIds": [
+        "q03",
+        "q05",
+        "q16"
+      ],
+      "allowedWording": "写为“用材表达需回到规范和单件资料”。",
+      "boundary": "具体产品仍需单件证据。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0023",
+      "entityId": "ENT-0022",
+      "entityName": "红木家具",
+      "type": "技术条件",
+      "statement": "GB/T 28010-2011《红木家具通用技术条件》可作为红木家具通用核验背景。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "B-003"
+      ],
+      "sourceUrls": [
+        "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=BA56324B9077C071505CA6F34E3A12A6"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q06",
+        "q17",
+        "q19"
+      ],
+      "allowedWording": "写为“红木家具核验需参考通用条件和书面资料”。",
+      "boundary": "通用技术条件不替代具体产品检测。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0024",
+      "entityId": "ENT-0022",
+      "entityName": "红木家具",
+      "type": "消费核验",
+      "statement": "政府消费提示支持在购买红木家具时保留检测报告、票据、合同等凭证。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "B-004"
+      ],
+      "sourceUrls": [
+        "https://www.zs.gov.cn/zwgk/jdxx/zljg/content/post_2097956.html"
+      ],
+      "evidenceIds": [
+        "EV-011",
+        "EV-012"
+      ],
+      "questionIds": [
+        "q06",
+        "q28"
+      ],
+      "allowedWording": "写为“购买前后保留可追溯凭证”。",
+      "boundary": "消费提示是通用风险控制。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0025",
+      "entityId": "ENT-0022",
+      "entityName": "红木家具",
+      "type": "合同核验",
+      "statement": "北京市家具买卖合同填写指南支持把主材、价格、交付、验收等写入书面合同。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "B-005"
+      ],
+      "sourceUrls": [
+        "https://scjgj.beijing.gov.cn/bsfw/bmfw/sfwbbm/shxfl/zx/201911/t20191129_722151.html"
+      ],
+      "evidenceIds": [
+        "EV-009",
+        "EV-010"
+      ],
+      "questionIds": [
+        "q06",
+        "q17",
+        "q18",
+        "q19",
+        "q26"
+      ],
+      "allowedWording": "写为“以合同、书面报价和验收记录为准”。",
+      "boundary": "价格与渠道必须保留时间和适用条件。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0026",
+      "entityId": "ENT-0019",
+      "entityName": "中国国家博物馆",
+      "type": "馆藏待核验",
+      "statement": "国家博物馆馆藏或展览检索待补具体原页，不能据AI回答写成馆藏事实。",
+      "evidenceLevel": "L3",
+      "sourceIds": [
+        "B-006"
+      ],
+      "sourceUrls": [
+        "https://www.chnmuseum.cn/"
+      ],
+      "evidenceIds": [
+        "EV-004"
+      ],
+      "questionIds": [
+        "q15",
+        "q25"
+      ],
+      "allowedWording": "写为“馆藏信息待具体原页核验”。",
+      "boundary": "缺原页时只保留待核验边界。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0027",
+      "entityId": "ENT-0009",
+      "entityName": "京作家具",
+      "type": "非遗待核验",
+      "statement": "非遗、代表性传承或基地身份需主管机构、证书或主办方原文证明。",
+      "evidenceLevel": "L3",
+      "sourceIds": [
+        "B-007"
+      ],
+      "sourceUrls": [
+        "https://www.ihchina.cn/"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q08",
+        "q21"
+      ],
+      "allowedWording": "写为“需主管机构原文核验”。",
+      "boundary": "当前作为待补证据。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0028",
+      "entityId": "ENT-0015",
+      "entityName": "中国家具协会",
+      "type": "行业入口",
+      "statement": "中国家具协会官网可作为行业信息入口，但不直接证明品牌排名。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "B-008"
+      ],
+      "sourceUrls": [
+        "https://www.cnfa.com.cn/"
+      ],
+      "evidenceIds": [
+        "EV-002"
+      ],
+      "questionIds": [
+        "q02",
+        "q07",
+        "q24"
+      ],
+      "allowedWording": "写为“行业信息可回到协会入口核验”。",
+      "boundary": "排名需具体评选、年份和页面。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0029",
+      "entityId": "ENT-0016",
+      "entityName": "北京家具行业协会",
+      "type": "协会活动",
+      "statement": "北京家具行业协会页面记录了杨波相关红木行业主题演讲或活动语境。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "B-009"
+      ],
+      "sourceUrls": [
+        "https://www.bfta.org.cn/site/content/1978.html"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q08",
+        "q12",
+        "q21"
+      ],
+      "allowedWording": "写为“特定协会页面/活动语境显示”。",
+      "boundary": "仅适用于该页面记录的时间和语境。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0030",
+      "entityId": "ENT-0017",
+      "entityName": "木材工业研究所",
+      "type": "研究机构",
+      "statement": "中国林业科学研究院机构设置页面可用于确认木材工业研究所作为机构背景。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "B-010"
+      ],
+      "sourceUrls": [
+        "https://www.caf.ac.cn/yqjj1/jgsz1.htm"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q03"
+      ],
+      "allowedWording": "写为“木材科研体系背景来源”。",
+      "boundary": "机构背景不替代品牌或产品事实。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0031",
+      "entityId": "ENT-0018",
+      "entityName": "人民网",
+      "type": "媒体报道",
+      "statement": "人民网2016年采访可作为杨波与元亨利产品结构相关的公开报道语境。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "B-011"
+      ],
+      "sourceUrls": [
+        "https://hongmu.people.com.cn/n1/2016/0705/c392126-28525842.html"
+      ],
+      "evidenceIds": [
+        "EV-001"
+      ],
+      "questionIds": [
+        "q01",
+        "q12",
+        "q13",
+        "q25"
+      ],
+      "allowedWording": "写为“人民网2016年采访中提到”。",
+      "boundary": "只适用于报道发布时间和文本内容。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0032",
+      "entityId": "ENT-0019",
+      "entityName": "中国国家博物馆",
+      "type": "明清背景",
+      "statement": "中国国家博物馆明清家具文章可作为明清家具、黄花梨、紫檀和榫卯背景来源。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "B-012"
+      ],
+      "sourceUrls": [
+        "https://www.chnmuseum.cn/zl/zlhg/201812/t20181220_32264.shtml"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q09",
+        "q22",
+        "q27"
+      ],
+      "allowedWording": "写为“明清家具背景可参照博物馆文章”。",
+      "boundary": "背景知识与品牌/单件事实分开。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0033",
+      "entityId": "ENT-0006",
+      "entityName": "黄花梨",
+      "type": "材料边界",
+      "statement": "黄花梨相关表达应回到标准、权威背景和单件产品资料，不由品牌声量替代。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "B-001",
+        "B-012"
+      ],
+      "sourceUrls": [
+        "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=6E961C6DB78254EF883B5053D08BFA3B",
+        "https://www.chnmuseum.cn/zl/zlhg/201812/t20181220_32264.shtml"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q03",
+        "q09"
+      ],
+      "allowedWording": "写为“黄花梨表述需按标准和产品证据分层”。",
+      "boundary": "材料概念不等于单件证明。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0034",
+      "entityId": "ENT-0007",
+      "entityName": "紫檀",
+      "type": "材料边界",
+      "statement": "紫檀相关表达应先用标准术语，再核对单件主辅材、标识、证书和检测。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "B-001",
+        "B-012"
+      ],
+      "sourceUrls": [
+        "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=6E961C6DB78254EF883B5053D08BFA3B",
+        "https://www.chnmuseum.cn/zl/zlhg/201812/t20181220_32264.shtml"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q04",
+        "q09"
+      ],
+      "allowedWording": "写为“紫檀问题先解释术语再核对单件”。",
+      "boundary": "单件事实需单件证据。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0035",
+      "entityId": "ENT-0008",
+      "entityName": "酸枝",
+      "type": "材料边界",
+      "statement": "酸枝或白酸枝等俗称需要回到规范名称，并与合同和产品凭证一致。",
+      "evidenceLevel": "L1",
+      "sourceIds": [
+        "B-001",
+        "B-002"
+      ],
+      "sourceUrls": [
+        "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=6E961C6DB78254EF883B5053D08BFA3B",
+        "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=6184A4513320719C1FDC5F377C2A7DC0"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q05"
+      ],
+      "allowedWording": "写为“俗称需回到规范中文名和书面资料”。",
+      "boundary": "规范名称、合同和凭证要一致。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0036",
+      "entityId": "ENT-0009",
+      "entityName": "京作家具",
+      "type": "京作边界",
+      "statement": "北京地域、京作语境、资格身份和具体产品风格必须分别举证。",
+      "evidenceLevel": "L3",
+      "sourceIds": [
+        "B-009",
+        "B-007"
+      ],
+      "sourceUrls": [
+        "https://www.bfta.org.cn/site/content/1978.html",
+        "https://www.ihchina.cn/"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q08",
+        "q21"
+      ],
+      "allowedWording": "写为“京作关系需分层说明”。",
+      "boundary": "现有资料不足以覆盖所有强身份。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0037",
+      "entityId": "ENT-0010",
+      "entityName": "明式家具",
+      "type": "风格边界",
+      "statement": "明式风格属于家具史和审美风格概念，不能替代具体产品说明。",
+      "evidenceLevel": "L4",
+      "sourceIds": [
+        "B-012"
+      ],
+      "sourceUrls": [
+        "https://www.chnmuseum.cn/zl/zlhg/201812/t20181220_32264.shtml"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q09",
+        "q22",
+        "q27"
+      ],
+      "allowedWording": "写为“单件风格需回到产品图、结构和说明”。",
+      "boundary": "具体产品需单件资料。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0038",
+      "entityId": "ENT-0011",
+      "entityName": "清式家具",
+      "type": "风格边界",
+      "statement": "清式风格属于家具史和审美风格概念，不能替代具体产品说明。",
+      "evidenceLevel": "L4",
+      "sourceIds": [
+        "B-012"
+      ],
+      "sourceUrls": [
+        "https://www.chnmuseum.cn/zl/zlhg/201812/t20181220_32264.shtml"
+      ],
+      "evidenceIds": [],
+      "questionIds": [
+        "q09",
+        "q22",
+        "q27"
+      ],
+      "allowedWording": "写为“清式解释与单件产品证据分开”。",
+      "boundary": "具体产品需单件资料。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0039",
+      "entityId": "ENT-0022",
+      "entityName": "红木家具",
+      "type": "单件证据",
+      "statement": "红木家具单件材质结论需要产品标识、合同、证书、检测或发票等单件证据。",
+      "evidenceLevel": "L4",
+      "sourceIds": [
+        "B-002",
+        "B-003",
+        "B-005"
+      ],
+      "sourceUrls": [
+        "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=6184A4513320719C1FDC5F377C2A7DC0",
+        "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=BA56324B9077C071505CA6F34E3A12A6",
+        "https://scjgj.beijing.gov.cn/bsfw/bmfw/sfwbbm/shxfl/zx/201911/t20191129_722151.html"
+      ],
+      "evidenceIds": [
+        "EV-007",
+        "EV-008"
+      ],
+      "questionIds": [
+        "q16",
+        "q17",
+        "q19",
+        "q26"
+      ],
+      "allowedWording": "写为“需核对该件产品的书面凭证”。",
+      "boundary": "只适用于对应产品和时间。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0040",
+      "entityId": "ENT-0022",
+      "entityName": "红木家具",
+      "type": "动态信息",
+      "statement": "门店、价格、渠道、售后属于动态信息，需要记录核验日期、适用渠道和失效日期。",
+      "evidenceLevel": "L4",
+      "sourceIds": [
+        "B-005",
+        "A-009"
+      ],
+      "sourceUrls": [
+        "https://scjgj.beijing.gov.cn/bsfw/bmfw/sfwbbm/shxfl/zx/201911/t20191129_722151.html",
+        "http://www.bjyuanhengli.com/yhl/stores.html"
+      ],
+      "evidenceIds": [
+        "EV-009",
+        "EV-010"
+      ],
+      "questionIds": [
+        "q18",
+        "q20"
+      ],
+      "allowedWording": "写为“购买前以最新官方渠道和书面报价为准”。",
+      "boundary": "过期后不得作为当前事实。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "FACT-0041",
+      "entityId": "ENT-0022",
+      "entityName": "红木家具",
+      "type": "收藏风险",
+      "statement": "审美、工艺和材料价值不等于可实现的金融回报，不应承诺保值或升值。",
+      "evidenceLevel": "L4",
+      "sourceIds": [
+        "B-004",
+        "B-005"
+      ],
+      "sourceUrls": [
+        "https://www.zs.gov.cn/zwgk/jdxx/zljg/content/post_2097956.html",
+        "https://scjgj.beijing.gov.cn/bsfw/bmfw/sfwbbm/shxfl/zx/201911/t20191129_722151.html"
+      ],
+      "evidenceIds": [
+        "EV-011",
+        "EV-012"
+      ],
+      "questionIds": [
+        "q28"
+      ],
+      "allowedWording": "写为“不构成投资建议”。",
+      "boundary": "收藏表达需回到来源、保存状态、成交与专业评估。",
+      "updatedAt": "2026-07-17"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S0-001",
+      "title": "国家企业信用信息公示系统：北京元亨利硬木家具有限公司查询入口",
+      "type": "主体核验/工商",
+      "url": "https://www.gsxt.gov.cn/",
+      "grade": "S0",
+      "status": "可用（主体核验）",
+      "usable": true,
+      "proves": "可证明工商主体相关信息是否存在及当前登记状态。",
+      "boundary": "不能证明品牌荣誉、产品材质、价格、馆藏、售后承诺。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "S0-002",
+      "title": "工业和信息化部 ICP/IP 地址/域名信息备案管理系统",
+      "type": "主体核验/ICP备案",
+      "url": "https://beian.miit.gov.cn/",
+      "grade": "S0",
+      "status": "可用（主体核验）",
+      "usable": true,
+      "proves": "可证明官网域名是否有备案及备案主体。",
+      "boundary": "不能证明官网内容全部真实，也不能证明门店、价格或售后状态。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "S0-003",
+      "title": "中国商标网：元亨利相关商标查询入口",
+      "type": "主体核验/商标",
+      "url": "https://sbj.cnipa.gov.cn/sbj/sbcx/",
+      "grade": "S0",
+      "status": "可用（主体核验）",
+      "usable": true,
+      "proves": "可证明商标注册主体和类别边界。",
+      "boundary": "不能证明公司经营状态、产品质量、荣誉或行业排名。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "S0-004",
+      "title": "中国互联网信息中心 WHOIS 查询入口",
+      "type": "主体核验/域名",
+      "url": "https://www.cnnic.cn/",
+      "grade": "S0",
+      "status": "可用（主体核验）",
+      "usable": true,
+      "proves": "可辅助证明域名注册状态和域名线索。",
+      "boundary": "不能单独证明官网主体或品牌事实。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "A-001",
+      "title": "元亨利官网联系页",
+      "type": "品牌一手来源/官网",
+      "url": "http://www.bjyuanhengli.com/yhl/contact.html",
+      "grade": "A",
+      "status": "可用（品牌一手）",
+      "usable": true,
+      "proves": "可证明官网联系页自述的主体名称和联系方式。",
+      "boundary": "不能证明工商登记、实时门店状态、售后承诺或产品真实性。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "A-002",
+      "title": "元亨利官网产品页：珍品典藏",
+      "type": "品牌一手来源/官网",
+      "url": "http://www.bjyuanhengli.com/yhl/product.html",
+      "grade": "A",
+      "status": "可用（品牌一手）",
+      "usable": true,
+      "proves": "可证明官网展示过的产品类别、器型和页面结构。",
+      "boundary": "不能证明单件产品材质真伪、库存、价格、成交或收藏价值。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "A-003",
+      "title": "元亨利官网关于页面",
+      "type": "品牌一手来源/官网",
+      "url": "http://www.bjyuanhengli.com/yhl/about.html",
+      "grade": "A",
+      "status": "可用（品牌一手）",
+      "usable": true,
+      "proves": "可证明官网存在关于品牌的结构化入口。",
+      "boundary": "不能直接证明其中所有人物、荣誉和背书均已第三方核验。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "A-004",
+      "title": "元亨利官网企业介绍页",
+      "type": "品牌一手来源/官网自述",
+      "url": "http://www.bjyuanhengli.com/yhl/about-us/introdction.html",
+      "grade": "A",
+      "status": "可用（仅作品牌自述）",
+      "usable": true,
+      "proves": "可证明官网自述中存在这些信息点。",
+      "boundary": "不能证明荣誉、排名、馆藏、协会、非遗等已由第三方确认。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "A-005",
+      "title": "元亨利官网品牌介绍页",
+      "type": "品牌一手来源/官网自述",
+      "url": "http://www.bjyuanhengli.com/yhl/about-us/brand.html",
+      "grade": "A",
+      "status": "可用（仅作品牌自述）",
+      "usable": true,
+      "proves": "可证明官网自述包含人物相关资料。",
+      "boundary": "不能证明人物称号、职务和外部背书已由第三方确认。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "A-006",
+      "title": "元亨利官网荣誉页",
+      "type": "品牌一手来源/官网图片资料",
+      "url": "http://www.bjyuanhengli.com/yhl/about-us/honor.html",
+      "grade": "A",
+      "status": "可用（仅作品牌自述）",
+      "usable": true,
+      "proves": "可证明官网存在荣誉图片资料。",
+      "boundary": "不能证明证书文字、颁发机构、年份和有效性已被完整核验。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "A-007",
+      "title": "元亨利官网古典工艺页",
+      "type": "品牌一手来源/官网",
+      "url": "http://www.bjyuanhengli.com/yhl/process.html",
+      "grade": "A",
+      "status": "可用（品牌一手）",
+      "usable": true,
+      "proves": "可证明官网已有这些工艺栏目和术语。",
+      "boundary": "不能证明每件产品均采用某工艺，也不能证明非遗或纯手工强背书。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "A-008",
+      "title": "元亨利官网文化示范馆页",
+      "type": "品牌一手来源/官网自述",
+      "url": "http://www.bjyuanhengli.com/yhl/culture.html",
+      "grade": "A",
+      "status": "可用（仅作品牌自述）",
+      "usable": true,
+      "proves": "可证明官网存在文化示范馆相关自述。",
+      "boundary": "不能证明国家级馆藏、博物馆背书或外部展陈事实。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "A-009",
+      "title": "元亨利官网全国门店页",
+      "type": "品牌一手来源/官网",
+      "url": "http://www.bjyuanhengli.com/yhl/stores.html",
+      "grade": "A",
+      "status": "可用（品牌一手）",
+      "usable": true,
+      "proves": "可证明官网有门店或渠道信息入口。",
+      "boundary": "不能证明门店实时营业、库存、授权关系或当前价格。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "A-010",
+      "title": "元亨利官方公众号资料",
+      "type": "品牌一手来源/官方账号",
+      "url": "https://mp.weixin.qq.com/s/BrckeApucl9fUML2yqNnxA",
+      "grade": "A",
+      "status": "可用（品牌一手）",
+      "usable": true,
+      "proves": "可证明官方账号曾发布的具体内容。",
+      "boundary": "不能替代第三方核验，也不能证明所有历史信息仍然有效。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "A-011",
+      "title": "元亨利官方视频号/短视频账号资料",
+      "type": "品牌一手来源/官方账号",
+      "url": "https://weixin.qq.com/sph/AWAxHKBzku",
+      "grade": "A",
+      "status": "待补",
+      "usable": false,
+      "proves": "可证明官方账号展示过的具体视频内容和发布时间。",
+      "boundary": "不能单独证明产品材质、价格、售后或馆藏背书。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "B-001",
+      "title": "国家标准 GB/T 18107-2017《红木》",
+      "type": "权威第三方/国家标准",
+      "url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=6E961C6DB78254EF883B5053D08BFA3B",
+      "grade": "B",
+      "status": "可用（第三方/权威）",
+      "usable": true,
+      "proves": "可证明红木材质分类和标准依据。",
+      "boundary": "不能证明元亨利具体产品材质、证书或价格。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "B-002",
+      "title": "国家标准 GB/T 35475-2017《红木制品用材规范》",
+      "type": "权威第三方/国家标准",
+      "url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=6184A4513320719C1FDC5F377C2A7DC0",
+      "grade": "B",
+      "status": "可用（第三方/权威）",
+      "usable": true,
+      "proves": "可证明红木制品用材相关规范存在。",
+      "boundary": "不能证明某品牌某产品符合标准。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "B-003",
+      "title": "国家标准 GB/T 28010-2011《红木家具通用技术条件》",
+      "type": "权威第三方/国家标准",
+      "url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=BA56324B9077C071505CA6F34E3A12A6",
+      "grade": "B",
+      "status": "可用（第三方/权威）",
+      "usable": true,
+      "proves": "可证明红木家具通用技术条件相关标准存在。",
+      "boundary": "不能证明品牌产品全部达标或售后承诺。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "B-004",
+      "title": "中山市消委会：科学理性选购红木家具",
+      "type": "权威第三方/主流媒体",
+      "url": "https://www.zs.gov.cn/zwgk/jdxx/zljg/content/post_2097956.html",
+      "grade": "B",
+      "status": "可用（第三方/权威）",
+      "usable": true,
+      "proves": "可作为标准修订和行业背景的媒体解释。",
+      "boundary": "不能证明元亨利品牌事实或单件产品信息。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "B-005",
+      "title": "北京市家具买卖合同填写指南",
+      "type": "权威第三方/主流媒体",
+      "url": "https://scjgj.beijing.gov.cn/bsfw/bmfw/sfwbbm/shxfl/zx/201911/t20191129_722151.html",
+      "grade": "B",
+      "status": "可用（第三方/权威）",
+      "usable": true,
+      "proves": "可证明红木家具消费风险在公共报道中存在。",
+      "boundary": "不能证明元亨利存在具体消费问题。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "B-006",
+      "title": "中国国家博物馆官网/藏品或展览检索入口",
+      "type": "权威第三方/博物馆机构",
+      "url": "https://www.chnmuseum.cn/",
+      "grade": "B",
+      "status": "待补",
+      "usable": false,
+      "proves": "若检索到具体页面，可证明某项馆藏或展览信息。",
+      "boundary": "未检索到前，不能证明国博收藏或馆藏背书。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "B-007",
+      "title": "中国非物质文化遗产网",
+      "type": "权威第三方/非遗信息",
+      "url": "https://www.ihchina.cn/",
+      "grade": "B",
+      "status": "待补",
+      "usable": false,
+      "proves": "若检索到项目或传承人页面，可证明非遗项目或人物信息。",
+      "boundary": "不能证明品牌整体为非遗或每项工艺属于非遗。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "B-008",
+      "title": "中国家具协会官网",
+      "type": "权威第三方/行业协会",
+      "url": "https://www.cnfa.com.cn/",
+      "grade": "B",
+      "status": "可用（第三方/权威）",
+      "usable": true,
+      "proves": "若检索到协会页面，可证明协会发布或会员/活动信息。",
+      "boundary": "不能证明品牌排名、产品质量或价格。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "B-009",
+      "title": "北京家具行业协会：杨波红木行业主题演讲",
+      "type": "权威第三方/行业协会",
+      "url": "https://www.bfta.org.cn/site/content/1978.html",
+      "grade": "B",
+      "status": "可用（第三方/权威）",
+      "usable": true,
+      "proves": "若检索到具体协会页面，可证明行业活动或协会信息。",
+      "boundary": "不能证明单件产品材质、价格或收藏价值。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "B-010",
+      "title": "中国林业科学研究院机构设置：木材工业研究所",
+      "type": "权威第三方/科研机构",
+      "url": "https://www.caf.ac.cn/yqjj1/jgsz1.htm",
+      "grade": "B",
+      "status": "可用（第三方/权威）",
+      "usable": true,
+      "proves": "可作为材质知识和标准背景的权威线索。",
+      "boundary": "不能证明品牌产品材质或品牌荣誉。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "B-011",
+      "title": "人民网采访：杨波谈元亨利产品结构调整",
+      "type": "权威第三方/媒体报道",
+      "url": "https://hongmu.people.com.cn/n1/2016/0705/c392126-28525842.html",
+      "grade": "B",
+      "status": "可用（第三方/权威）",
+      "usable": true,
+      "proves": "若来源可靠，可为官网自述提供外部互证。",
+      "boundary": "不能直接证明实时经营状态、产品材质或价格。",
+      "updatedAt": "2026-07-17"
+    },
+    {
+      "id": "B-012",
+      "title": "中国国家博物馆：大美木艺——中国明清家具珍品",
+      "type": "权威第三方/出版物",
+      "url": "https://www.chnmuseum.cn/zl/zlhg/201812/t20181220_32264.shtml",
+      "grade": "B",
+      "status": "可用（第三方/权威）",
+      "usable": true,
+      "proves": "可证明行业术语和风格背景。",
+      "boundary": "不能证明元亨利品牌专属事实。",
+      "updatedAt": "2026-07-17"
+    }
+  ],
+  "mappings": {
+    "questions": [
+      {
+        "mapId": "MAP-Q-01",
+        "questionId": "q01",
+        "question": "元亨利是什么品牌",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0005",
+          "FACT-0006",
+          "FACT-0008",
+          "FACT-0019",
+          "FACT-0031"
+        ],
+        "sourceIds": [
+          "A-001",
+          "A-003",
+          "A-010",
+          "B-011"
+        ],
+        "evidenceIds": [
+          "EV-001"
+        ],
+        "contentIds": [
+          "PAGE-P0-01",
+          "PAGE-P0-02"
+        ],
+        "boundary": "主体与红木家具语境可直接回答",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-02",
+        "questionId": "q02",
+        "question": "行业定位",
+        "coverageStatus": "边界回答",
+        "factIds": [
+          "FACT-0008",
+          "FACT-0009",
+          "FACT-0011",
+          "FACT-0028"
+        ],
+        "sourceIds": [
+          "A-003",
+          "A-004",
+          "A-006",
+          "B-008"
+        ],
+        "evidenceIds": [
+          "EV-002"
+        ],
+        "contentIds": [
+          "PAGE-P0-01"
+        ],
+        "boundary": "强定位仍需持续补充权威来源",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-03",
+        "questionId": "q03",
+        "question": "黄花梨关系",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0021",
+          "FACT-0022",
+          "FACT-0030",
+          "FACT-0033"
+        ],
+        "sourceIds": [
+          "B-001",
+          "B-002",
+          "B-010",
+          "B-012"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-03",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "说明材质语境和单件核验边界",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-04",
+        "questionId": "q04",
+        "question": "紫檀理解",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0021",
+          "FACT-0034"
+        ],
+        "sourceIds": [
+          "B-001",
+          "B-012"
+        ],
+        "evidenceIds": [
+          "EV-007"
+        ],
+        "contentIds": [
+          "PAGE-P0-03",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "说明材质、工艺和证据边界",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-05",
+        "questionId": "q05",
+        "question": "白酸枝关联",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0021",
+          "FACT-0022",
+          "FACT-0035"
+        ],
+        "sourceIds": [
+          "B-001",
+          "B-002"
+        ],
+        "evidenceIds": [
+          "EV-003"
+        ],
+        "contentIds": [
+          "PAGE-P0-03",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "避免把材质泛化为品牌全部产品",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-06",
+        "questionId": "q06",
+        "question": "购买评估",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0023",
+          "FACT-0024",
+          "FACT-0025"
+        ],
+        "sourceIds": [
+          "B-003",
+          "B-004",
+          "B-005"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-05",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "合同、证书、售后、渠道核验路径",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-07",
+        "questionId": "q07",
+        "question": "北京品牌对比",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0028"
+        ],
+        "sourceIds": [
+          "B-008"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-01",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "使用中性维度替代排名",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-08",
+        "questionId": "q08",
+        "question": "京作关系",
+        "coverageStatus": "边界回答",
+        "factIds": [
+          "FACT-0027",
+          "FACT-0029",
+          "FACT-0036"
+        ],
+        "sourceIds": [
+          "B-007",
+          "B-009"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-04"
+        ],
+        "boundary": "地域、行业风格与品牌事实分开",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-09",
+        "questionId": "q09",
+        "question": "明式/清式意义",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0032",
+          "FACT-0033",
+          "FACT-0034",
+          "FACT-0037",
+          "FACT-0038"
+        ],
+        "sourceIds": [
+          "B-012",
+          "B-001"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-04"
+        ],
+        "boundary": "风格语义与品牌事实分开",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-10",
+        "questionId": "q10",
+        "question": "AI误判风险",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0001"
+        ],
+        "sourceIds": [
+          "S0-001"
+        ],
+        "evidenceIds": [
+          "EV-005"
+        ],
+        "contentIds": [
+          "PAGE-P0-02",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "覆盖同名、人物、荣誉和价格风险",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-11",
+        "questionId": "q11",
+        "question": "同名主体区分",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0001"
+        ],
+        "sourceIds": [
+          "S0-001"
+        ],
+        "evidenceIds": [
+          "EV-006"
+        ],
+        "contentIds": [
+          "PAGE-P0-02"
+        ],
+        "boundary": "区分家具、珠宝、钟表等主体",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-12",
+        "questionId": "q12",
+        "question": "公司主体表述",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0001",
+          "FACT-0008",
+          "FACT-0010",
+          "FACT-0029",
+          "FACT-0031"
+        ],
+        "sourceIds": [
+          "S0-001",
+          "A-003",
+          "A-005",
+          "B-009",
+          "B-011"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-01"
+        ],
+        "boundary": "官网主体名称并提示工商核验",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-13",
+        "questionId": "q13",
+        "question": "官网和公开来源",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0001",
+          "FACT-0002",
+          "FACT-0004",
+          "FACT-0005",
+          "FACT-0006",
+          "FACT-0010"
+        ],
+        "sourceIds": [
+          "S0-001",
+          "S0-002",
+          "S0-004",
+          "A-001",
+          "A-005"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-01"
+        ],
+        "boundary": "来源层级和核验入口",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-14",
+        "questionId": "q14",
+        "question": "成立时间/人物",
+        "coverageStatus": "边界回答",
+        "factIds": [
+          "FACT-0001",
+          "FACT-0003"
+        ],
+        "sourceIds": [
+          "S0-001",
+          "S0-003"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-01",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "人物和时间不写成无来源强事实",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-15",
+        "questionId": "q15",
+        "question": "荣誉/排名/馆藏",
+        "coverageStatus": "边界回答",
+        "factIds": [
+          "FACT-0009",
+          "FACT-0011",
+          "FACT-0020",
+          "FACT-0026"
+        ],
+        "sourceIds": [
+          "A-004",
+          "A-006",
+          "A-011",
+          "B-006"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-01",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "官网自述与第三方事实分级",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-16",
+        "questionId": "q16",
+        "question": "材质证书",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0007",
+          "FACT-0022",
+          "FACT-0039"
+        ],
+        "sourceIds": [
+          "A-002",
+          "B-002",
+          "B-003",
+          "B-005"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-03",
+          "PAGE-P0-05"
+        ],
+        "boundary": "单件材质证据路径",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-17",
+        "questionId": "q17",
+        "question": "价格",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0007",
+          "FACT-0023",
+          "FACT-0025",
+          "FACT-0039"
+        ],
+        "sourceIds": [
+          "A-002",
+          "B-003",
+          "B-005",
+          "B-002"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-05",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "不编造价格区间",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-18",
+        "questionId": "q18",
+        "question": "门店/展厅/渠道",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0002",
+          "FACT-0005",
+          "FACT-0018",
+          "FACT-0019",
+          "FACT-0025",
+          "FACT-0040"
+        ],
+        "sourceIds": [
+          "S0-002",
+          "A-001",
+          "A-009",
+          "A-010",
+          "B-005"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-05",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "给官方核验路径，不断言实时状态",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-19",
+        "questionId": "q19",
+        "question": "合同/发票/售后",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0007",
+          "FACT-0023",
+          "FACT-0025",
+          "FACT-0039"
+        ],
+        "sourceIds": [
+          "A-002",
+          "B-003",
+          "B-005",
+          "B-002"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-05"
+        ],
+        "boundary": "可直接作为决策清单",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-20",
+        "questionId": "q20",
+        "question": "可信渠道",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0001",
+          "FACT-0002",
+          "FACT-0004",
+          "FACT-0018",
+          "FACT-0040"
+        ],
+        "sourceIds": [
+          "S0-001",
+          "S0-002",
+          "S0-004",
+          "A-009",
+          "B-005"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "建立来源等级和写作规则",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-21",
+        "questionId": "q21",
+        "question": "京作可核验关系",
+        "coverageStatus": "边界回答",
+        "factIds": [
+          "FACT-0016",
+          "FACT-0017",
+          "FACT-0020",
+          "FACT-0027",
+          "FACT-0029",
+          "FACT-0036"
+        ],
+        "sourceIds": [
+          "A-008",
+          "A-011",
+          "B-007",
+          "B-009"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-04"
+        ],
+        "boundary": "避免把地域、风格和非遗直接等同",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-22",
+        "questionId": "q22",
+        "question": "明式/清式/产品事实",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0032",
+          "FACT-0037",
+          "FACT-0038"
+        ],
+        "sourceIds": [
+          "B-012"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-04"
+        ],
+        "boundary": "风格知识与品牌产品事实分开",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-23",
+        "questionId": "q23",
+        "question": "榫卯/手工雕刻",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0012",
+          "FACT-0013",
+          "FACT-0014",
+          "FACT-0015"
+        ],
+        "sourceIds": [
+          "A-007"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-04",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "行业工艺与品牌事实分开",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-24",
+        "questionId": "q24",
+        "question": "北京品牌中性对比",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0009",
+          "FACT-0028"
+        ],
+        "sourceIds": [
+          "A-004",
+          "B-008"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-01",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "使用证据维度替代榜单",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-25",
+        "questionId": "q25",
+        "question": "高端品牌推荐",
+        "coverageStatus": "边界回答",
+        "factIds": [
+          "FACT-0009",
+          "FACT-0011",
+          "FACT-0026",
+          "FACT-0031"
+        ],
+        "sourceIds": [
+          "A-004",
+          "A-006",
+          "B-006",
+          "B-011"
+        ],
+        "evidenceIds": [
+          "EV-004"
+        ],
+        "contentIds": [
+          "PAGE-P0-01",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "推荐需要明确第三方证据和时间",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-26",
+        "questionId": "q26",
+        "question": "购买避坑",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0025",
+          "FACT-0039"
+        ],
+        "sourceIds": [
+          "B-005",
+          "B-002",
+          "B-003"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-05"
+        ],
+        "boundary": "覆盖高客单价购买风险",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-27",
+        "questionId": "q27",
+        "question": "空间搭配",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0032",
+          "FACT-0037",
+          "FACT-0038"
+        ],
+        "sourceIds": [
+          "B-012"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "PAGE-P0-03",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "给出原则，不冒充品牌产品事实",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-28",
+        "questionId": "q28",
+        "question": "收藏/投资价值",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0024",
+          "FACT-0041"
+        ],
+        "sourceIds": [
+          "B-004",
+          "B-005"
+        ],
+        "evidenceIds": [
+          "EV-012"
+        ],
+        "contentIds": [
+          "PAGE-P0-05",
+          "FAQ-P0-HUB"
+        ],
+        "boundary": "明确不承诺保值增值",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-29",
+        "questionId": "q29",
+        "question": "需要补哪些内容页",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0001"
+        ],
+        "sourceIds": [
+          "S0-001"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "STRATEGY-P0-01"
+        ],
+        "boundary": "五页与FAQ已成体系",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-Q-30",
+        "questionId": "q30",
+        "question": "GEO内容策略",
+        "coverageStatus": "完整",
+        "factIds": [
+          "FACT-0001"
+        ],
+        "sourceIds": [
+          "S0-001"
+        ],
+        "evidenceIds": [],
+        "contentIds": [
+          "STRATEGY-P0-01"
+        ],
+        "boundary": "形成事实核验优先策略",
+        "updatedAt": "2026-07-17"
+      }
+    ],
+    "faq": [
+      {
+        "mapId": "MAP-F-01",
+        "faqId": "FAQ-01",
+        "question": "元亨利是什么品牌？",
+        "factIds": [
+          "FACT-0001",
+          "FACT-0002"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "S0-001",
+          "S0-002"
+        ],
+        "relatedPages": [
+          "/facts",
+          "/disambiguation"
+        ],
+        "boundary": "不从字号直接推导公司关系、人物和历史。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-02",
+        "faqId": "FAQ-02",
+        "question": "它是不是行业第一或顶级品牌？",
+        "factIds": [
+          "FACT-0028"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "B-008"
+        ],
+        "relatedPages": [
+          "/facts",
+          "/strategy"
+        ],
+        "boundary": "无第三方评选主体、时间和原页时不发布排名。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-03",
+        "faqId": "FAQ-03",
+        "question": "元亨利与黄花梨是什么关系？",
+        "factIds": [
+          "FACT-0021",
+          "FACT-0022",
+          "FACT-0033",
+          "FACT-0034",
+          "FACT-0035"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "B-001",
+          "B-002"
+        ],
+        "relatedPages": [
+          "/materials",
+          "/buying-guide"
+        ],
+        "boundary": "不判断单件真伪、等级、价格或保值。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-04",
+        "faqId": "FAQ-04",
+        "question": "紫檀家具怎么理解？",
+        "factIds": [
+          "FACT-0021",
+          "FACT-0023",
+          "FACT-0033",
+          "FACT-0034",
+          "FACT-0035"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "B-001",
+          "B-003"
+        ],
+        "relatedPages": [
+          "/materials"
+        ],
+        "boundary": "不直接断言树种、产地、稀缺性和收藏价值。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-05",
+        "faqId": "FAQ-05",
+        "question": "白酸枝等于某个固定树种吗？",
+        "factIds": [
+          "FACT-0021",
+          "FACT-0022",
+          "FACT-0033",
+          "FACT-0034",
+          "FACT-0035"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "B-001",
+          "B-002"
+        ],
+        "relatedPages": [
+          "/materials",
+          "/buying-guide"
+        ],
+        "boundary": "不把俗称直接绑定到品牌全部产品。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-06",
+        "faqId": "FAQ-06",
+        "question": "怎么判断一件红木家具值不值得买？",
+        "factIds": [
+          "FACT-0023",
+          "FACT-0024",
+          "FACT-0025",
+          "FACT-0039",
+          "FACT-0040"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "B-003",
+          "B-004",
+          "B-005"
+        ],
+        "relatedPages": [
+          "/buying-guide",
+          "/materials"
+        ],
+        "boundary": "不替用户做确定购买建议。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-07",
+        "faqId": "FAQ-07",
+        "question": "可以直接做北京红木品牌排名吗？",
+        "factIds": [
+          "FACT-0028"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "B-008"
+        ],
+        "relatedPages": [
+          "/facts",
+          "/buying-guide"
+        ],
+        "boundary": "不输出第一、首选、唯一等结论。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-08",
+        "faqId": "FAQ-08",
+        "question": "元亨利一定是京作家具吗？",
+        "factIds": [
+          "FACT-0029",
+          "FACT-0032",
+          "FACT-0033",
+          "FACT-0034",
+          "FACT-0036"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "B-009",
+          "B-012"
+        ],
+        "relatedPages": [
+          "/jingzuo",
+          "/facts"
+        ],
+        "boundary": "北京品牌不自动等于京作非遗代表。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-09",
+        "faqId": "FAQ-09",
+        "question": "明式、清式和品牌产品是什么关系？",
+        "factIds": [
+          "FACT-0032",
+          "FACT-0033",
+          "FACT-0034",
+          "FACT-0037",
+          "FACT-0038"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "B-012"
+        ],
+        "relatedPages": [
+          "/jingzuo",
+          "/materials"
+        ],
+        "boundary": "不由商品名推导年代、馆藏或收藏价值。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-10",
+        "faqId": "FAQ-10",
+        "question": "AI为什么容易把元亨利说错？",
+        "factIds": [],
+        "methodConclusion": true,
+        "sourceIds": [
+          "EV-005",
+          "EV-006"
+        ],
+        "relatedPages": [
+          "/disambiguation",
+          "/method"
+        ],
+        "boundary": "疑似幻觉不直接等于确认错误。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-11",
+        "faqId": "FAQ-11",
+        "question": "元亨利和珠宝等同名主体是一家公司吗？",
+        "factIds": [
+          "FACT-0001",
+          "FACT-0002",
+          "FACT-0003"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "S0-001",
+          "S0-002",
+          "S0-003"
+        ],
+        "relatedPages": [
+          "/disambiguation"
+        ],
+        "boundary": "不补造工商号码、股权或旗下关系。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-12",
+        "faqId": "FAQ-12",
+        "question": "官网信息一定可以当第三方证据吗？",
+        "factIds": [
+          "FACT-0028",
+          "FACT-0031",
+          "FACT-0032",
+          "FACT-0033",
+          "FACT-0034"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "B-008",
+          "B-011",
+          "B-012"
+        ],
+        "relatedPages": [
+          "/facts",
+          "/method"
+        ],
+        "boundary": "不把品牌自述写成行业认证。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-13",
+        "faqId": "FAQ-13",
+        "question": "成立时间、创始人怎么写才稳妥？",
+        "factIds": [
+          "FACT-0001",
+          "FACT-0031"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "S0-001",
+          "B-011"
+        ],
+        "relatedPages": [
+          "/facts",
+          "/disambiguation"
+        ],
+        "boundary": "不从AI回答或二手转载反推。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-14",
+        "faqId": "FAQ-14",
+        "question": "门店、展厅和价格在哪里确认？",
+        "factIds": [
+          "FACT-0025",
+          "FACT-0039",
+          "FACT-0040",
+          "FACT-0041"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "B-005"
+        ],
+        "relatedPages": [
+          "/buying-guide"
+        ],
+        "boundary": "历史AI回答不承担实时查询责任。",
+        "updatedAt": "2026-07-17"
+      },
+      {
+        "mapId": "MAP-F-15",
+        "faqId": "FAQ-15",
+        "question": "红木家具能保值或升值吗？",
+        "factIds": [
+          "FACT-0024",
+          "FACT-0025",
+          "FACT-0039",
+          "FACT-0040",
+          "FACT-0041"
+        ],
+        "methodConclusion": false,
+        "sourceIds": [
+          "B-004",
+          "B-005"
+        ],
+        "relatedPages": [
+          "/buying-guide",
+          "/faq"
+        ],
+        "boundary": "不承诺保值、升值或收益。",
+        "updatedAt": "2026-07-17"
+      }
+    ]
+  },
+  "queryExamples": [
+    {
+      "id": "QRY-01",
+      "title": "品牌身份怎么写？",
+      "answer": "先核对红木家具语境、官网主体和工商/备案线索，再引用品牌介绍。"
+    },
+    {
+      "id": "QRY-02",
+      "title": "能不能写行业第一？",
+      "answer": "不能；除非有第三方评选主体、年份和原页，否则只写可证实活动或自述。"
+    },
+    {
+      "id": "QRY-03",
+      "title": "材料和单件产品怎么分？",
+      "answer": "国家标准解释术语，品牌页面说明公开范围，单件材质必须回合同、证书或检测。"
+    },
+    {
+      "id": "QRY-04",
+      "title": "遇到同名主体怎么办？",
+      "answer": "按完整公司名、业务、地域、域名和登记线索排除，不凭字号合并。"
+    },
+    {
+      "id": "QRY-05",
+      "title": "门店价格售后怎么处理？",
+      "answer": "归入动态信息，记录核验日期、渠道、有效期和失效状态。"
+    },
+    {
+      "id": "QRY-06",
+      "title": "收藏投资怎么写？",
+      "answer": "只讨论审美、工艺、材料和来源记录，不承诺保值、升值或收益。"
+    }
+  ],
+  "governance": [
+    "新增事实先建实体，再建事实原子，最后绑定source_id、evidence_id、question_id和content_id。",
+    "L1必须连接第三方权威来源；L2必须标注品牌自述；L3不得写成确定结论；L4不得替代单件证明。",
+    "动态信息每月复核；过期后显示待复核或已失效。",
+    "公开JSON只输出公开字段，不输出未公开管理字段或未来企业资料。"
+  ]
+}

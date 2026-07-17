@@ -379,15 +379,20 @@ export const contentStrategyAssets = [
 ];
 
 export const roadmap90 = [
-  { phase: "0–30天", title: "事实基础", actions: ["冻结口径与四级事实模型", "完善5个P0页面和15条FAQ", "补齐来源、边界、更新时间与页面元数据"] },
+  { phase: "0–30天", title: "事实基础", actions: ["冻结口径与四级事实模型", "建立11表品牌事实知识库与公开JSON", "完善5个P0页面和15条FAQ", "补齐来源、边界、更新时间与页面元数据"] },
   { phase: "31–60天", title: "解释差异", actions: ["证据足够后拆分品牌定位页", "增加风格专题与单件产品证据模板", "完成P0/P1内部链接与来源回链"] },
-  { phase: "61–90天", title: "复测维护", actions: ["复核价格、门店、售后等动态信息", "执行10题×5平台在线复测", "形成前后对比与下一轮P2 backlog"] },
+  { phase: "61–90天", title: "复测维护", actions: ["知识库月度复核与动态信息失效检查", "复核价格、门店、售后等动态信息", "执行10题×5平台在线复测", "形成前后对比与下一轮P2 backlog"] },
 ];
 
 export const strategyDownloads = [
   { label: "14页方案 PDF", href: "/downloads/yhl-geo-brand-content-optimization-plan.pdf", type: "PDF" },
   { label: "可编辑方案 DOCX", href: "/downloads/yhl-geo-brand-content-optimization-plan.docx", type: "DOCX" },
   { label: "90天执行工作簿", href: "/downloads/yhl-geo-90-day-content-execution.xlsx", type: "XLSX" },
+];
+
+export const knowledgeDownloads = [
+  { label: "品牌事实知识库", href: "/downloads/yhl-geo-brand-fact-knowledge-base.xlsx", type: "XLSX" },
+  { label: "公开知识库快照", href: "/downloads/yhl-geo-knowledge-base-public.json", type: "JSON" },
 ];
 
 export const nav = [
@@ -399,5 +404,6 @@ export const nav = [
   ["购买核验", "/buying-guide"],
   ["FAQ", "/faq"],
   ["优化方案", "/strategy"],
+  ["企业知识库", "/knowledge-base"],
   ["方法与来源", "/method"],
 ];
