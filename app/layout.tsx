@@ -25,6 +25,7 @@ function inferSiteUrl() {
 }
 
 const siteUrl = inferSiteUrl();
+const faviconUrl = `${siteUrl}/favicon.svg`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -38,8 +39,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: faviconUrl,
+    shortcut: faviconUrl,
   },
 };
 

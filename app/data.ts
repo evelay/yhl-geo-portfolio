@@ -1,5 +1,32 @@
 export const updatedAt = "2026-07-17";
 
+function normalizeBasePath(value: string | undefined) {
+  if (!value) return "";
+  const trimmed = value.trim().replace(/^\/+|\/+$/g, "");
+  return trimmed ? `/${trimmed}` : "";
+}
+
+function inferBasePath() {
+  const explicit = process.env.NEXT_PUBLIC_BASE_PATH;
+  if (explicit !== undefined) return normalizeBasePath(explicit);
+
+  if (process.env.GITHUB_PAGES !== "true") return "";
+
+  const repository = process.env.GITHUB_REPOSITORY;
+  if (!repository) return "";
+
+  const [owner, repo] = repository.split("/");
+  if (!owner || !repo || repo === `${owner}.github.io`) return "";
+
+  return normalizeBasePath(repo);
+}
+
+const basePath = inferBasePath();
+
+function downloadPath(fileName: string) {
+  return `${basePath}/downloads/${fileName}`;
+}
+
 export const platformScores = [
   { label: "豆包", value: 17.93 },
   { label: "文心一言", value: 16.03 },
@@ -385,24 +412,24 @@ export const roadmap90 = [
 ];
 
 export const strategyDownloads = [
-  { label: "14页方案 PDF", href: "/downloads/yhl-geo-brand-content-optimization-plan.pdf", type: "PDF" },
-  { label: "可编辑方案 DOCX", href: "/downloads/yhl-geo-brand-content-optimization-plan.docx", type: "DOCX" },
-  { label: "90天执行工作簿", href: "/downloads/yhl-geo-90-day-content-execution.xlsx", type: "XLSX" },
+  { label: "14页方案 PDF", href: downloadPath("yhl-geo-brand-content-optimization-plan.pdf"), type: "PDF" },
+  { label: "可编辑方案 DOCX", href: downloadPath("yhl-geo-brand-content-optimization-plan.docx"), type: "DOCX" },
+  { label: "90天执行工作簿", href: downloadPath("yhl-geo-90-day-content-execution.xlsx"), type: "XLSX" },
 ];
 
 export const knowledgeDownloads = [
-  { label: "品牌事实知识库", href: "/downloads/yhl-geo-brand-fact-knowledge-base.xlsx", type: "XLSX" },
-  { label: "公开知识库快照", href: "/downloads/yhl-geo-knowledge-base-public.json", type: "JSON" },
+  { label: "品牌事实知识库", href: downloadPath("yhl-geo-brand-fact-knowledge-base.xlsx"), type: "XLSX" },
+  { label: "公开知识库快照", href: downloadPath("yhl-geo-knowledge-base-public.json"), type: "JSON" },
 ];
 
 export const promptSystemDownloads = [
-  { label: "提示词体系 Markdown", href: "/downloads/yhl-geo-enterprise-prompt-system.md", type: "MD" },
-  { label: "公开知识库快照", href: "/downloads/yhl-geo-knowledge-base-public.json", type: "JSON" },
+  { label: "提示词体系 Markdown", href: downloadPath("yhl-geo-enterprise-prompt-system.md"), type: "MD" },
+  { label: "公开知识库快照", href: downloadPath("yhl-geo-knowledge-base-public.json"), type: "JSON" },
 ];
 
 export const geoArticleDownloads = [
-  { label: "完整GEO文章样稿 Markdown", href: "/downloads/yhl-geo-full-article-samples.md", type: "MD" },
-  { label: "公开知识库快照", href: "/downloads/yhl-geo-knowledge-base-public.json", type: "JSON" },
+  { label: "完整GEO文章样稿 Markdown", href: downloadPath("yhl-geo-full-article-samples.md"), type: "MD" },
+  { label: "公开知识库快照", href: downloadPath("yhl-geo-knowledge-base-public.json"), type: "JSON" },
 ];
 
 export const nav = [
