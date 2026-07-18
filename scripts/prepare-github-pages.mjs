@@ -1,9 +1,24 @@
-import { access, readFile, writeFile } from "node:fs/promises";
+import { access, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 const root = process.cwd();
 const outDir = join(root, "out");
-const previousSiteUrl = "https://yhl-geo-portfolio-2026.layiiii.chatgpt.site";
+const defaultSiteUrl = "https://evelay.github.io/yhl-geo-portfolio";
+const sitemapPaths = [
+  "/",
+  "/facts",
+  "/disambiguation",
+  "/materials",
+  "/jingzuo",
+  "/buying-guide",
+  "/faq",
+  "/strategy",
+  "/knowledge-base",
+  "/prompt-system",
+  "/geo-articles",
+  "/method",
+];
+const lastmod = "2026-07-17";
 
 function normalizeUrl(value) {
   return value.replace(/\/+$/, "");
@@ -15,10 +30,10 @@ function inferGitHubPagesUrl() {
   }
 
   const repository = process.env.GITHUB_REPOSITORY;
-  if (!repository) return previousSiteUrl;
+  if (!repository) return defaultSiteUrl;
 
   const [owner, repo] = repository.split("/");
-  if (!owner || !repo) return previousSiteUrl;
+  if (!owner || !repo) return defaultSiteUrl;
 
   if (repo === `${owner}.github.io`) {
     return `https://${owner}.github.io`;
@@ -27,7 +42,7 @@ function inferGitHubPagesUrl() {
   return `https://${owner}.github.io/${repo}`;
 }
 
-async function replaceSiteUrl(fileName, siteUrl) {
+async function writePreparedFile(fileName, siteUrl) {
   const filePath = join(outDir, fileName);
 
   try {
@@ -36,16 +51,31 @@ async function replaceSiteUrl(fileName, siteUrl) {
     return;
   }
 
-  const content = await readFile(filePath, "utf8");
-  await writeFile(filePath, content.replaceAll(previousSiteUrl, siteUrl));
+  const content = fileName === "robots.txt" ? renderRobots(siteUrl) : renderSitemap(siteUrl);
+  await writeFile(filePath, content);
+}
+
+function renderRobots(siteUrl) {
+  return `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`;
+}
+
+function renderSitemap(siteUrl) {
+  const entries = sitemapPaths
+    .map((path) => {
+      const loc = path === "/" ? `${siteUrl}/` : `${siteUrl}${path}`;
+      return `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod></url>`;
+    })
+    .join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
 }
 
 async function main() {
   await access(outDir);
 
   const siteUrl = inferGitHubPagesUrl();
-  await replaceSiteUrl("robots.txt", siteUrl);
-  await replaceSiteUrl("sitemap.xml", siteUrl);
+  await writePreparedFile("robots.txt", siteUrl);
+  await writePreparedFile("sitemap.xml", siteUrl);
   await writeFile(join(outDir, ".nojekyll"), "");
 
   if (process.env.GITHUB_PAGES_CNAME) {

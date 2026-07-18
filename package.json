@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
     "build": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
-    "build:github": "GITHUB_PAGES=true next build && node scripts/prepare-github-pages.mjs",
+    "build:github": "GITHUB_PAGES=true GITHUB_REPOSITORY=${GITHUB_REPOSITORY:-evelay/yhl-geo-portfolio} NEXT_PUBLIC_BASE_PATH=${NEXT_PUBLIC_BASE_PATH:-/yhl-geo-portfolio} NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-https://evelay.github.io/yhl-geo-portfolio} next build && GITHUB_REPOSITORY=${GITHUB_REPOSITORY:-evelay/yhl-geo-portfolio} NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-https://evelay.github.io/yhl-geo-portfolio} node scripts/prepare-github-pages.mjs",
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
