@@ -1,7 +1,30 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yhl-geo-portfolio-2026.layiiii.chatgpt.site";
+const defaultSiteUrl = "https://yhl-geo-portfolio-2026.layiiii.chatgpt.site";
+
+function normalizeUrl(value: string) {
+  return value.replace(/\/+$/, "");
+}
+
+function inferSiteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return normalizeUrl(process.env.NEXT_PUBLIC_SITE_URL);
+  }
+
+  if (process.env.GITHUB_PAGES === "true" && process.env.GITHUB_REPOSITORY) {
+    const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
+    if (owner && repo) {
+      return repo === `${owner}.github.io`
+        ? `https://${owner}.github.io`
+        : `https://${owner}.github.io/${repo}`;
+    }
+  }
+
+  return defaultSiteUrl;
+}
+
+const siteUrl = inferSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
