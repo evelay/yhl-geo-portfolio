@@ -1,0 +1,88 @@
+{
+  "audit_id": "06b-page-audit-pilot",
+  "site_name": "元亨利 GEO 作品集",
+  "site_base_url": "https://evelay.github.io/yhl-geo-portfolio",
+  "base_path": "/yhl-geo-portfolio",
+  "input_dir": "out",
+  "output_dir": "tools/geo-skill/reports/page-audit-pilot",
+  "docs_findings_csv": "docs/06b-page-audit-findings.csv",
+  "skill_source": {
+    "repo": "https://github.com/yaojingang/yao-geo-skills",
+    "commit": "dc10716d97c40fed0a0a08e538a236b5e16b4822",
+    "skill_path": "skills/yao-geo-page-audit",
+    "local_upstream_path": "tools/geo-skill/upstream/yao-geo-page-audit"
+  },
+  "audited_routes": [
+    {
+      "route": "/",
+      "label": "首页",
+      "page_type": "home",
+      "html_path": "index.html",
+      "selection_reason": "代表作品集整体叙事和项目身份",
+      "expectations": {
+        "requires_metric_source_summary": true,
+        "requires_context_independent_summary": true,
+        "requires_breadcrumb": false,
+        "requires_entity_in_h1": true,
+        "requires_step_source_mapping": false,
+        "requires_fact_kv_module": false
+      }
+    },
+    {
+      "route": "/facts",
+      "label": "品牌事实页",
+      "page_type": "brand-fact",
+      "html_path": "facts/index.html",
+      "selection_reason": "代表品牌事实与证据表达",
+      "expectations": {
+        "requires_metric_source_summary": false,
+        "requires_context_independent_summary": true,
+        "requires_breadcrumb": true,
+        "requires_entity_in_h1": true,
+        "requires_step_source_mapping": false,
+        "requires_fact_kv_module": true
+      }
+    },
+    {
+      "route": "/buying-guide",
+      "label": "购买指南页",
+      "page_type": "decision-guide",
+      "html_path": "buying-guide/index.html",
+      "selection_reason": "代表决策型 GEO 内容",
+      "expectations": {
+        "requires_metric_source_summary": false,
+        "requires_context_independent_summary": true,
+        "requires_breadcrumb": true,
+        "requires_entity_in_h1": true,
+        "requires_step_source_mapping": true,
+        "requires_fact_kv_module": false
+      }
+    }
+  ],
+  "excluded_paths": [
+    "internal-review/",
+    "archive/",
+    "first_setup/",
+    "final/",
+    "external canonical workbooks",
+    "raw AI answers",
+    "human scoring workbooks",
+    "app/",
+    "public/"
+  ],
+  "forbidden_outputs": [
+    "AI 引用概率",
+    "AI 收录概率",
+    "GEO 排名分数",
+    "品牌召回率",
+    "引用份额",
+    "优化后提升预测"
+  ],
+  "evidence_status_values": [
+    "observed",
+    "source-confirmed",
+    "inferred",
+    "input-gap",
+    "not-applicable"
+  ]
+}
