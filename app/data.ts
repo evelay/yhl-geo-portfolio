@@ -121,6 +121,27 @@ export const completionAnswers = [
 
 export const sources = [
   {
+    id: "S0-001",
+    title: "国家企业信用信息公示系统：主体登记核验入口",
+    type: "主体核验",
+    url: "https://www.gsxt.gov.cn/",
+    use: "企业主体、登记状态和经营范围等实时核验入口",
+  },
+  {
+    id: "S0-002",
+    title: "工业和信息化部 ICP/IP 地址/域名信息备案管理系统",
+    type: "主体核验",
+    url: "https://beian.miit.gov.cn/",
+    use: "官网域名、备案主体和网站名称核验入口",
+  },
+  {
+    id: "S0-003",
+    title: "中国商标网：商标查询入口",
+    type: "主体核验",
+    url: "https://sbj.cnipa.gov.cn/sbj/sbcx/",
+    use: "商标申请人、类别、状态和注册范围核验入口",
+  },
+  {
     id: "B-001",
     title: "国家标准 GB/T 18107-2017《红木》",
     type: "国家标准",
@@ -279,14 +300,14 @@ export const faq = [
     directAnswer: "在本案例中，“元亨利”指红木家具语境中的品牌/企业主体。",
     detail: "回答前先核对完整名称、业务、地域与官网；遇到同名字号，不把其他行业主体的信息拼接进来。",
     boundary: "不从字号推导公司关系、人物经历或品牌历史。",
-    sourceIds: ["B-011"], related: [{ label: "品牌事实", href: "/facts" }, { label: "同名消歧", href: "/disambiguation" }],
+    sourceIds: ["S0-001", "S0-002"], related: [{ label: "品牌事实", href: "/facts" }, { label: "同名消歧", href: "/disambiguation" }],
   },
   {
     id: "FAQ-02", question: "它是不是行业第一或顶级品牌？",
     directAnswer: "没有足以支持统一排名的公开证据，不写“第一”或“顶级”。",
     detail: "可陈述有具体日期和出处的活动、报道或品牌自述，并把评价主体与事实来源分开。",
     boundary: "无第三方评选主体、年份和原页面时，不发布排名结论。",
-    sourceIds: ["B-008", "B-011"], related: [{ label: "品牌事实", href: "/facts" }, { label: "优化方案", href: "/strategy" }],
+    sourceIds: ["B-008"], related: [{ label: "品牌事实", href: "/facts" }, { label: "优化方案", href: "/strategy" }],
   },
   {
     id: "FAQ-03", question: "元亨利与黄花梨是什么关系？",
@@ -324,13 +345,6 @@ export const faq = [
     sourceIds: ["B-008"], related: [{ label: "品牌事实", href: "/facts" }, { label: "购买核验", href: "/buying-guide" }],
   },
   {
-    id: "FAQ-08", question: "元亨利一定是京作家具吗？",
-    directAnswer: "地域、行业语境、资格和具体产品必须分别举证。",
-    detail: "“京作”可以指历史语境、地域传统或行业表达；品牌公开活动不自动等于所有产品都可作同样归类。",
-    boundary: "非遗、代表、传承等身份需有明确授予主体和原始材料。",
-    sourceIds: ["B-009", "B-012"], related: [{ label: "京作与明清边界", href: "/jingzuo" }, { label: "品牌事实", href: "/facts" }],
-  },
-  {
     id: "FAQ-09", question: "明式、清式和品牌产品是什么关系？",
     directAnswer: "风格知识不能替代具体产品说明。",
     detail: "明式、清式属于家具史与审美风格概念；具体产品要回到造型、比例、装饰、材质与公开说明。",
@@ -338,18 +352,11 @@ export const faq = [
     sourceIds: ["B-012"], related: [{ label: "京作与明清边界", href: "/jingzuo" }, { label: "材质边界", href: "/materials" }],
   },
   {
-    id: "FAQ-10", question: "AI为什么容易把元亨利说错？",
-    directAnswer: "同名、强营销与动态信息会促使模型合并不同层级资料。",
-    detail: "缺少统一实体页、可追溯事实条目和时间边界时，模型容易把品牌自述、行业常识与未核验细节拼接。",
-    boundary: "本研究不反推历史测试的联网状态、模型版本或引用来源。",
-    sourceIds: [], related: [{ label: "同名消歧", href: "/disambiguation" }, { label: "研究方法", href: "/method" }],
-  },
-  {
     id: "FAQ-11", question: "元亨利和珠宝等同名主体是一家公司吗？",
     directAnswer: "不能只凭字号判断，必须核对主体链。",
     detail: "核对完整公司名、主营业务、地域、官网域名和主体登记线索；只有主体证据稳定后才建立关系。",
     boundary: "不补造统一社会信用代码，不从相似名称推导股权关系。",
-    sourceIds: [], related: [{ label: "同名消歧", href: "/disambiguation" }],
+    sourceIds: ["S0-001", "S0-002", "S0-003"], related: [{ label: "同名消歧", href: "/disambiguation" }],
   },
   {
     id: "FAQ-12", question: "官网信息一定可以当第三方证据吗？",
@@ -363,7 +370,7 @@ export const faq = [
     directAnswer: "只有具体原页面可核验时才写确定事实，否则标记待补。",
     detail: "优先使用工商或官方原始页面；品牌官网自述要保留来源身份和核验日期。",
     boundary: "不从AI回答或二手转载反推人物与时间。",
-    sourceIds: ["B-011"], related: [{ label: "品牌事实", href: "/facts" }, { label: "同名消歧", href: "/disambiguation" }],
+    sourceIds: ["S0-001", "B-011"], related: [{ label: "品牌事实", href: "/facts" }, { label: "同名消歧", href: "/disambiguation" }],
   },
   {
     id: "FAQ-14", question: "门店、展厅和价格在哪里确认？",
@@ -414,22 +421,18 @@ export const roadmap90 = [
 export const strategyDownloads = [
   { label: "14页方案 PDF", href: downloadPath("yhl-geo-brand-content-optimization-plan.pdf"), type: "PDF" },
   { label: "可编辑方案 DOCX", href: downloadPath("yhl-geo-brand-content-optimization-plan.docx"), type: "DOCX" },
-  { label: "90天执行工作簿", href: downloadPath("yhl-geo-90-day-content-execution.xlsx"), type: "XLSX" },
 ];
 
 export const knowledgeDownloads = [
-  { label: "品牌事实知识库", href: downloadPath("yhl-geo-brand-fact-knowledge-base.xlsx"), type: "XLSX" },
-  { label: "公开知识库快照", href: downloadPath("yhl-geo-knowledge-base-public.json"), type: "JSON" },
+  { label: "安全公开知识库快照", href: downloadPath("yhl-geo-knowledge-base-public.json"), type: "JSON" },
 ];
 
 export const promptSystemDownloads = [
-  { label: "提示词体系 Markdown", href: downloadPath("yhl-geo-enterprise-prompt-system.md"), type: "MD" },
-  { label: "公开知识库快照", href: downloadPath("yhl-geo-knowledge-base-public.json"), type: "JSON" },
+  { label: "安全公开知识库快照", href: downloadPath("yhl-geo-knowledge-base-public.json"), type: "JSON" },
 ];
 
 export const geoArticleDownloads = [
-  { label: "完整GEO文章样稿 Markdown", href: downloadPath("yhl-geo-full-article-samples.md"), type: "MD" },
-  { label: "公开知识库快照", href: downloadPath("yhl-geo-knowledge-base-public.json"), type: "JSON" },
+  { label: "安全公开知识库快照", href: downloadPath("yhl-geo-knowledge-base-public.json"), type: "JSON" },
 ];
 
 export const nav = [

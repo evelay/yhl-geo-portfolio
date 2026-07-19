@@ -54,6 +54,15 @@ export function Eyebrow({ children }: { children: React.ReactNode }) {
   return <div className="eyebrow"><span />{children}</div>;
 }
 
+export function ProjectDisclaimer({ className = "" }: { className?: string }) {
+  return (
+    <div className={`project-disclaimer ${className}`.trim()}>
+      <b>项目声明</b>
+      <p>本项目为基于公开资料完成的独立 GEO 研究与求职作品集，不是元亨利官方委托，不代表品牌官方立场。页面中的内容、提示词与文章均为研究或示范用途，品牌事实以标注的公开来源和审核状态为准。</p>
+    </div>
+  );
+}
+
 export function BarChart({ data, max, unit = "", accent = false }: { data: {label:string; value:number}[]; max: number; unit?: string; accent?: boolean }) {
   return (
     <div className={`bar-chart ${accent ? "bar-chart-accent" : ""}`}>

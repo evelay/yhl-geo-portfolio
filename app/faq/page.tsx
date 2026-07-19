@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowIcon, Eyebrow, SiteShell, SourceLinks } from "../components";
+import { ArrowIcon, Eyebrow, ProjectDisclaimer, SiteShell, SourceLinks } from "../components";
 import { faq, updatedAt } from "../data";
 
-export const metadata: Metadata = { title: "15条高频FAQ", description: "元亨利红木家具GEO项目的15条直接答案与事实边界。" };
+export const metadata: Metadata = { title: "公开FAQ", description: "元亨利红木家具GEO项目中已完成公开发布检查的高频FAQ与事实边界。" };
 
 export default function FaqPage() {
   return (
     <SiteShell>
       <section className="faq-page">
-        <Eyebrow>15 direct answers</Eyebrow>
+        <Eyebrow>Reviewed direct answers</Eyebrow>
         <h1>高频问题 FAQ</h1>
-        <p className="intro">每条答案都包含直接结论、详细说明、信息边界、来源、更新时间和相关页面。涉及价格、门店、售后、单件材质或收藏价值时，统一提示重新核验。</p>
+        <p className="intro">当前公开 {faq.length} 条已通过来源与发布检查的 FAQ；未完成 source_id 或事实等级审核的问答暂不展示，并保留在审计记录中。</p>
+        <ProjectDisclaimer />
         <div className="faq-list">
           {faq.map((item) => (
             <article className="faq-item" key={item.id}>

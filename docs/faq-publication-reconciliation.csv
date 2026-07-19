@@ -1,0 +1,16 @@
+faq_id,question,current_source_id,canonical_source_id,source_match,canonical_status,publication_decision,action_taken,notes
+FAQ-01,元亨利是什么品牌？,B-011,S0-001;S0-002,mismatch,approved,publish,displayed on /faq with canonical source_id,"Canonical FAQ mapping is reviewed, public, and uses valid source_id."
+FAQ-02,它是不是行业第一或顶级品牌？,B-008;B-011,B-008,mismatch,approved,publish,displayed on /faq with canonical source_id,"Canonical FAQ mapping is reviewed, public, and uses valid source_id."
+FAQ-03,元亨利与黄花梨是什么关系？,B-001;B-002,B-001;B-002,match,approved,publish,displayed on /faq,"Canonical FAQ mapping is reviewed, public, and uses valid source_id."
+FAQ-04,紫檀家具怎么理解？,B-001;B-003,B-001;B-003,match,approved,publish,displayed on /faq,"Canonical FAQ mapping is reviewed, public, and uses valid source_id."
+FAQ-05,白酸枝等于某个固定树种吗？,B-001;B-002,B-001;B-002,match,approved,publish,displayed on /faq,"Canonical FAQ mapping is reviewed, public, and uses valid source_id."
+FAQ-06,怎么判断一件红木家具值不值得买？,B-003;B-004;B-005,B-003;B-004;B-005,match,approved,publish,displayed on /faq,"Canonical FAQ mapping is reviewed, public, and uses valid source_id."
+FAQ-07,可以和其他北京红木品牌直接排排名吗？,B-008,B-008,match,approved,publish,displayed on /faq,"Canonical FAQ mapping is reviewed, public, and uses valid source_id."
+FAQ-08,元亨利一定是京作家具吗？,B-009;B-012,B-009;B-012,match,blocked:non_public_fact:FACT-0036,remove-from-public,removed from /faq public display,Kept in reconciliation record for human review; not rewritten into a new answer.
+FAQ-09,明式、清式和品牌产品是什么关系？,B-012,B-012,match,approved,publish,displayed on /faq,"Canonical FAQ mapping is reviewed, public, and uses valid source_id."
+FAQ-10,AI为什么容易把元亨利说错？,,EV-005;EV-006,not-comparable,blocked:invalid_or_pending_source:EV-005;EV-006|method_conclusion_without_brand_source,remove-from-public,removed from /faq public display,Kept in reconciliation record for human review; not rewritten into a new answer.
+FAQ-11,元亨利和珠宝等同名主体是一家公司吗？,,S0-001;S0-002;S0-003,missing,approved,publish,displayed on /faq with canonical source_id,"Canonical FAQ mapping is reviewed, public, and uses valid source_id."
+FAQ-12,官网信息一定可以当第三方证据吗？,B-008;B-011;B-012,B-008;B-011;B-012,match,approved,publish,displayed on /faq,"Canonical FAQ mapping is reviewed, public, and uses valid source_id."
+FAQ-13,成立时间、创始人怎么写才稳妥？,B-011,S0-001;B-011,mismatch,approved,publish,displayed on /faq with canonical source_id,"Canonical FAQ mapping is reviewed, public, and uses valid source_id."
+FAQ-14,门店、展厅和价格在哪里确认？,B-005,B-005,match,approved,publish,displayed on /faq,"Canonical FAQ mapping is reviewed, public, and uses valid source_id."
+FAQ-15,红木家具能保值或升值吗？,B-004;B-005,B-004;B-005,match,approved,publish,displayed on /faq,"Canonical FAQ mapping is reviewed, public, and uses valid source_id."

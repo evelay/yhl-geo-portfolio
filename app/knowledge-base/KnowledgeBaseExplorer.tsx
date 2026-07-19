@@ -83,11 +83,11 @@ const tabs: { key: TabKey; label: string }[] = [
   { key: "entities", label: "实体主表" },
   { key: "sources", label: "信源主表" },
   { key: "questions", label: "30题映射" },
-  { key: "faq", label: "15条FAQ映射" },
+  { key: "faq", label: "公开FAQ映射" },
 ];
 
-const levelOptions = ["全部等级", "L1", "L2", "L3", "L4"];
-const sourceOptions = ["全部信源", "可用信源", "待补信源"];
+const levelOptions = ["全部等级", "L1", "L2", "L4"];
+const sourceOptions = ["全部信源", "可用信源"];
 const mappingOptions = ["全部映射", "完整回答", "边界回答", "研究方法结论"];
 
 function textOf(value: unknown): string {
@@ -109,7 +109,6 @@ function levelLabel(level: string) {
   const labels: Record<string, string> = {
     L1: "L1 已核验第三方",
     L2: "L2 品牌一手自述",
-    L3: "L3 待官方补充",
     L4: "L4 需单件证据",
   };
   return labels[level] ?? level;
@@ -139,8 +138,7 @@ export function KnowledgeBaseExplorer({ data }: { data: KnowledgeBaseData }) {
       return data.sources.filter((item) => {
         const byStatus =
           sourceFilter === "全部信源" ||
-          (sourceFilter === "可用信源" && item.usable) ||
-          (sourceFilter === "待补信源" && !item.usable);
+          (sourceFilter === "可用信源" && item.usable);
         return byStatus && matchesQuery(item, query);
       });
     }
@@ -263,7 +261,7 @@ export function KnowledgeBaseExplorer({ data }: { data: KnowledgeBaseData }) {
         {activeTab === "sources" && (rows as Source[]).map((source) => (
           <article className="kb-record" key={source.id}>
             <button type="button" onClick={() => setExpandedId(expandedId === source.id ? null : source.id)}>
-              <span className={`kb-pill ${source.usable ? "usable" : "pending"}`}>{source.usable ? "可用" : "待补"}</span>
+              <span className={`kb-pill ${source.usable ? "usable" : "review"}`}>{source.usable ? "可用" : "需复核"}</span>
               <b>{source.id} · {source.title}</b>
               <small>{source.grade} · {source.type}</small>
             </button>
@@ -280,7 +278,7 @@ export function KnowledgeBaseExplorer({ data }: { data: KnowledgeBaseData }) {
         {activeTab === "questions" && (rows as QuestionMapping[]).map((item) => (
           <article className="kb-record" key={item.mapId}>
             <button type="button" onClick={() => setExpandedId(expandedId === item.mapId ? null : item.mapId)}>
-              <span className={`kb-pill ${item.coverageStatus.includes("完整") ? "usable" : "pending"}`}>{item.coverageStatus}</span>
+              <span className={`kb-pill ${item.coverageStatus.includes("完整") ? "usable" : "review"}`}>{item.coverageStatus}</span>
               <b>{item.questionId} · {item.question}</b>
               <small>{joinIds(item.contentIds)}</small>
             </button>
@@ -298,7 +296,7 @@ export function KnowledgeBaseExplorer({ data }: { data: KnowledgeBaseData }) {
         {activeTab === "faq" && (rows as FaqMapping[]).map((item) => (
           <article className="kb-record" key={item.mapId}>
             <button type="button" onClick={() => setExpandedId(expandedId === item.mapId ? null : item.mapId)}>
-              <span className={`kb-pill ${item.methodConclusion ? "pending" : "usable"}`}>{item.methodConclusion ? "方法结论" : "事实映射"}</span>
+              <span className={`kb-pill ${item.methodConclusion ? "review" : "usable"}`}>{item.methodConclusion ? "方法结论" : "事实映射"}</span>
               <b>{item.faqId} · {item.question}</b>
               <small>{joinIds(item.relatedPages, "无相关页面")}</small>
             </button>

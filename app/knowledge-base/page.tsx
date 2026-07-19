@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowIcon, Eyebrow, Metric, SiteShell } from "../components";
-import { knowledgeDownloads, updatedAt } from "../data";
+import { ArrowIcon, Eyebrow, Metric, ProjectDisclaimer, SiteShell } from "../components";
+import { knowledgeDownloads } from "../data";
 import { KnowledgeBaseExplorer } from "./KnowledgeBaseExplorer";
 import knowledgeBase from "./knowledge-base-public.json";
 
 export const metadata: Metadata = {
   title: "企业知识库",
-  description: "元亨利红木家具GEO品牌事实知识库：11表结构、四级事实模型、27条信源迁移、30题与15条FAQ映射。",
+  description: "元亨利红木家具GEO品牌事实知识库的安全公开快照：仅展示已审核、可追溯、适合公开发布的记录。",
 };
 
 type PublicFact = {
@@ -123,9 +123,10 @@ export default function KnowledgeBasePage() {
         <div>
           <Eyebrow>Knowledge base · Portfolio execution</Eyebrow>
           <h1>企业知识库</h1>
-          <p>这不是后台系统，而是一份可审计的品牌事实底座：把实体、事实、来源、证据、FAQ和内容页面连起来，让“能回答”变成“能核验”。</p>
+          <p>这不是后台系统，而是一份安全过滤后的公开快照：把已审核的实体、事实、来源、证据、FAQ和内容页面连起来，让“能回答”变成“能核验”。</p>
+          <ProjectDisclaimer />
           <div className="button-row">
-            {knowledgeDownloads.map((file) => <a className={file.type === "XLSX" ? "button primary" : "button"} href={file.href} download key={file.href}>{file.label}<ArrowIcon /></a>)}
+            {knowledgeDownloads.map((file) => <a className="button primary" href={file.href} download key={file.href}>{file.label}<ArrowIcon /></a>)}
             <Link className="button" href="/prompt-system">企业提示词体系<ArrowIcon /></Link>
             <Link className="button" href="/geo-articles">GEO文章样稿<ArrowIcon /></Link>
             <Link className="button" href="/strategy">返回优化方案<ArrowIcon /></Link>
@@ -140,19 +141,19 @@ export default function KnowledgeBasePage() {
 
       <section className="section alt">
         <div className="section-head">
-          <div><Eyebrow>01 / Snapshot</Eyebrow><h2>当前知识库完整度</h2></div>
-          <p>Excel是事实主库；JSON是公开快照。网页直接读取公开快照，避免手工重复录入导致数字不一致。</p>
+          <div><Eyebrow>01 / Snapshot</Eyebrow><h2>当前公开快照范围</h2></div>
+          <p>外部工作簿是事实主库；本页只读取由主库过滤生成的公开 JSON，不展示待复核事实或不可用信源。</p>
         </div>
         <div className="metric-grid">
-          <Metric value="11" label="工作表" note="独立知识库结构" />
-          <Metric value={`${kb.summary.sources}`} label="信源迁移" note={`${kb.summary.usableSources}可用 / ${kb.summary.pendingSources}待补`} />
-          <Metric value={`${kb.summary.facts}`} label="事实原子" note={`${kb.summary.publicFacts}条进入公开快照`} />
-          <Metric value="45" label="映射记录" note="30题 + 15条FAQ" />
+          <Metric value="11" label="工作表" note="外部主库结构" />
+          <Metric value={`${kb.summary.sources}`} label="公开信源" note="仅保留可用 source_id" />
+          <Metric value={`${kb.summary.facts}`} label="公开事实原子" note={`${kb.summary.excludedFacts}条已排除`} />
+          <Metric value={`${kb.summary.diagnosticQuestions + kb.summary.faq}`} label="公开映射记录" note={`${kb.summary.diagnosticQuestions}题 + ${kb.summary.faq}条FAQ`} />
         </div>
         <div className="kb-download-panel">
           <div>
             <b>附件下载</b>
-            <p>网页已支持在线查看；工作簿和JSON保留为投递附件与复盘材料。两者均更新于 {updatedAt}。</p>
+            <p>网页已支持在线查看；公开下载仅保留安全过滤版 JSON。完整工作簿进入内部复核，不作为公开附件。更新：{kb.updatedAt}。</p>
           </div>
           <div className="button-row">
             {knowledgeDownloads.map((file) => <a className="button" href={file.href} download key={file.href}>{file.type}<ArrowIcon /></a>)}
@@ -168,12 +169,12 @@ export default function KnowledgeBasePage() {
         <KnowledgeBaseExplorer data={{ facts: kb.facts, entities: kb.entities, sources: kb.sources, mappings: kb.mappings }} />
         <div className="prompt-callout">
           <div>
-            <b>下一层交付：提示词体系与完整文章样稿</b>
-            <p>知识库负责“有哪些事实”；提示词体系负责“AI应该怎么引用、什么时候停住”；文章样稿负责把不同关键词转成完整GEO内容。</p>
+            <b>下一层交付：提示词公开说明与文章审核状态</b>
+            <p>知识库负责“有哪些事实”；提示词页面只公开方法和边界；文章页面只公开样稿审核状态，不展示未审核完整正文。</p>
           </div>
           <div className="button-row">
             <Link className="button" href="/prompt-system">查看提示词体系<ArrowIcon /></Link>
-            <Link className="button" href="/geo-articles">查看文章样稿<ArrowIcon /></Link>
+            <Link className="button" href="/geo-articles">查看文章审核状态<ArrowIcon /></Link>
           </div>
         </div>
       </section>
@@ -190,8 +191,8 @@ export default function KnowledgeBasePage() {
 
       <section className="section dark">
         <div className="section-head">
-          <div><Eyebrow>04 / Evidence model</Eyebrow><h2>四级事实模型</h2></div>
-          <p>事实等级决定能不能写、怎么写、写到哪里停。</p>
+          <div><Eyebrow>04 / Evidence model</Eyebrow><h2>公开事实等级</h2></div>
+          <p>公开快照只保留已通过本阶段检查的事实等级；被排除记录继续留在内部审核链路。</p>
         </div>
         <div className="kb-level-grid">
           {levelCounts.map((level) => <article key={level.id}><span>{level.id}</span><h3>{level.label}</h3><strong>{level.count}条</strong><p>{level.rule}</p></article>)}

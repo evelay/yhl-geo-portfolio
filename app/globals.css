@@ -80,6 +80,9 @@ h1, h2, h3 { font-family: "Songti SC", STSong, SimSun, serif; font-weight: 700; 
 .button { display: inline-flex; align-items: center; gap: 12px; padding: 13px 18px; border: 1px solid var(--ink); font-weight: 700; font-size: 13px; border-radius: 3px; transition: .2s ease; }
 .button.primary { background: var(--ink); color: var(--white); }
 .button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(24,35,32,.12); }
+.project-disclaimer { max-width: 920px; margin: 24px 0 0; padding: 16px 18px; background: rgba(255,253,248,.72); border-left: 4px solid var(--teal); color: #3f4d49; }
+.project-disclaimer b { display: block; color: var(--teal-dark); font-size: 12px; letter-spacing: .08em; margin-bottom: 4px; }
+.project-disclaimer p { margin: 0; color: #485650; font-size: 12px; line-height: 1.75; }
 .hero-note { background: rgba(255,253,248,.78); border: 1px solid rgba(24,35,32,.12); box-shadow: var(--shadow); padding: 28px; border-radius: 5px; }
 .hero-note .index { font: 52px/1 STKaiti, KaiTi, serif; color: var(--cinnabar); }
 .hero-note h3 { font-size: 22px; margin: 18px 0 8px; }
@@ -340,7 +343,7 @@ h1, h2, h3 { font-family: "Songti SC", STSong, SimSun, serif; font-weight: 700; 
 .kb-pill { display: inline-flex; width: max-content; max-width: 100%; align-items: center; padding: 7px 9px; border-radius: 3px; font: 800 10px/1.2 ui-monospace,monospace; letter-spacing: .04em; white-space: nowrap; }
 .kb-pill.level-l1, .kb-pill.usable { background: #dcefe9; color: #0b4944; }
 .kb-pill.level-l2 { background: #f4ebd9; color: #795a26; }
-.kb-pill.level-l3, .kb-pill.pending { background: #f1e2dc; color: #8f3526; }
+.kb-pill.review { background: #f1e2dc; color: #8f3526; }
 .kb-pill.level-l4 { background: #e8e1ef; color: #57386c; }
 .kb-pill.neutral { background: var(--paper-2); color: var(--teal-dark); }
 .kb-record-detail { margin: 0 24px 20px 187px; padding: 16px; background: #f8f4ec; border-left: 3px solid var(--teal); display: grid; gap: 10px; }
@@ -376,6 +379,7 @@ h1, h2, h3 { font-family: "Songti SC", STSong, SimSun, serif; font-weight: 700; 
 .prompt-rule-grid p { color: #cbd5d1; font-size: 13px; margin: 0; }
 .prompt-template-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; }
 .prompt-template-grid article { min-height: 250px; padding: 24px; background: var(--white); border: 1px solid var(--line); }
+.prompt-output-grid { margin-top: 14px; }
 .prompt-template-grid span { color: var(--teal); font: 800 11px/1 ui-monospace,monospace; }
 .prompt-template-grid h3 { font-size: 22px; margin: 18px 0 12px; }
 .prompt-template-grid p { margin: 0; color: var(--muted); font-size: 13px; }
