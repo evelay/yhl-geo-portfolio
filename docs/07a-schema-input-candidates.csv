@@ -1,7 +1,7 @@
 candidate_id,schema_target,entity_or_relation_id,evidence_ids,confidence,publication_safety,eligible_for_07b,block_reason,requires_human_review,notes
 SC-07A-0001,Brand or Organization page entity,brand:yuanhengli,EV-002|EV-004|EV-010,medium,review-required,no,disambiguation_conflict,yes,Entity candidate only; this stage does not generate Schema.
 SC-07A-0002,Organization candidate,organization:beijing-yuanhengli-hardwood-furniture,EV-006,high,review-required,no,disambiguation_conflict,yes,Entity candidate only; this stage does not generate Schema.
-SC-07A-0003,Article or FAQ topic entity,material:redwood,EV-007,high,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
+SC-07A-0003,Article or FAQ topic entity,material:redwood,EV-007,high,public-safe,no,page_dependency_not_verified,yes,Entity candidate only; this stage does not generate Schema. 07A2 classification=article-page-dependent; conditional only after public page review and metadata confirmation.
 SC-07A-0004,Article or FAQ topic entity,material:huanghuali,,medium,review-required,no,disambiguation_conflict,yes,Entity candidate only; this stage does not generate Schema.
 SC-07A-0005,Article or FAQ topic entity,material:zitan,,medium,review-required,no,disambiguation_conflict,yes,Entity candidate only; this stage does not generate Schema.
 SC-07A-0006,Article or FAQ topic entity,material:suanzhi,,medium,review-required,no,publication_safety_not_public_safe,yes,Entity candidate only; this stage does not generate Schema.
@@ -32,18 +32,18 @@ SC-07A-0030,citation/source evidence node,source:b-009,,high,public-safe,no,miss
 SC-07A-0031,citation/source evidence node,source:b-010,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
 SC-07A-0032,citation/source evidence node,source:b-011,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
 SC-07A-0033,citation/source evidence node,source:b-012,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
-SC-07A-0034,Organization candidate,organization:china-furniture-association,EV-002,medium,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
+SC-07A-0034,Organization candidate,organization:china-furniture-association,EV-002,medium,public-safe,no,organization_schema_deferred,no,Entity candidate only; this stage does not generate Schema. 07A2 classification=reject-schema; Organization Schema is deferred and this source organization remains citation/background context only.
 SC-07A-0035,Organization candidate,organization:beijing-furniture-trade-association,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
 SC-07A-0036,Organization candidate,organization:wood-industry-research-institute,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
-SC-07A-0037,Organization candidate,organization:people-cn,EV-001,medium,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
+SC-07A-0037,Organization candidate,organization:people-cn,EV-001,medium,public-safe,no,organization_schema_deferred,no,Entity candidate only; this stage does not generate Schema. 07A2 classification=reject-schema; Organization Schema is deferred and this media organization remains source context only.
 SC-07A-0038,Organization candidate,organization:national-museum-of-china,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
 SC-07A-0039,FAQ or Article safety boundary,boundary:no-brand-org-equivalence,EV-005|EV-006,high,review-required,no,publication_safety_not_public_safe,yes,Entity candidate only; this stage does not generate Schema.
-SC-07A-0040,FAQ or Article safety boundary,boundary:no-material-generalization,EV-007|EV-008,high,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
-SC-07A-0041,FAQ or Article safety boundary,boundary:single-item-evidence,EV-007|EV-008|EV-009,high,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
+SC-07A-0040,FAQ or Article safety boundary,boundary:no-material-generalization,EV-007|EV-008,high,public-safe,no,content_governance_only,no,Entity candidate only; this stage does not generate Schema. 07A2 classification=content-governance-only; BoundaryRule may guide content review but is not production Schema.
+SC-07A-0041,FAQ or Article safety boundary,boundary:single-item-evidence,EV-007|EV-008|EV-009,high,public-safe,no,content_governance_only,no,Entity candidate only; this stage does not generate Schema. 07A2 classification=content-governance-only; BoundaryRule may guide content review but is not production Schema.
 SC-07A-0042,FAQ or Article safety boundary,boundary:no-style-as-date,,medium,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
-SC-07A-0043,FAQ or Article safety boundary,boundary:no-ranking-claim,EV-002,high,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
-SC-07A-0044,FAQ or Article safety boundary,boundary:dynamic-channel-review,EV-009|EV-010,high,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
-SC-07A-0045,FAQ or Article safety boundary,boundary:no-investment-return,EV-011|EV-012,high,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
+SC-07A-0043,FAQ or Article safety boundary,boundary:no-ranking-claim,EV-002,high,public-safe,no,content_governance_only,no,Entity candidate only; this stage does not generate Schema. 07A2 classification=content-governance-only; BoundaryRule may guide content review but is not production Schema.
+SC-07A-0044,FAQ or Article safety boundary,boundary:dynamic-channel-review,EV-009|EV-010,high,public-safe,no,content_governance_only,no,Entity candidate only; this stage does not generate Schema. 07A2 classification=content-governance-only; BoundaryRule may guide content review but is not production Schema.
+SC-07A-0045,FAQ or Article safety boundary,boundary:no-investment-return,EV-011|EV-012,high,public-safe,no,content_governance_only,no,Entity candidate only; this stage does not generate Schema. 07A2 classification=content-governance-only; BoundaryRule may guide content review but is not production Schema.
 SC-07A-0046,FAQ or Article safety boundary,boundary:no-official-commission,,medium,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
 SC-07A-0047,FAQ or Article safety boundary,boundary:no-jingzuo-identity-without-evidence,,medium,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
 SC-07A-0048,FAQPage candidate input,intent:q01,EV-001,medium,review-required,no,publication_safety_not_public_safe,yes,Entity candidate only; this stage does not generate Schema.
@@ -93,12 +93,12 @@ SC-07A-0091,Organization/Brand relationship candidate,REL-07A-0006,EV-002|EV-004
 SC-07A-0092,Organization/Brand relationship candidate,REL-07A-0007,EV-001,medium,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
 SC-07A-0093,Organization/Brand relationship candidate,REL-07A-0008,,low,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
 SC-07A-0094,Organization/Brand relationship candidate,REL-07A-0009,EV-010,medium,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
-SC-07A-0095,Article or FAQ relationship input,REL-07A-0010,EV-007,high,public-safe,yes,,no,Relation candidate only; this stage does not generate Schema.
-SC-07A-0096,Article or FAQ relationship input,REL-07A-0011,EV-007,high,public-safe,yes,,no,Relation candidate only; this stage does not generate Schema.
+SC-07A-0095,Article or FAQ relationship input,REL-07A-0010,EV-007,high,public-safe,no,page_dependency_not_verified,yes,Relation candidate only; this stage does not generate Schema. 07A2 classification=article-page-dependent; conditional only after public page review and metadata confirmation.
+SC-07A-0096,Article or FAQ relationship input,REL-07A-0011,EV-007,high,public-safe,no,page_dependency_not_verified,yes,Relation candidate only; this stage does not generate Schema. 07A2 classification=article-page-dependent; conditional only after public page review and metadata confirmation.
 SC-07A-0097,Article or FAQ relationship input,REL-07A-0012,,medium,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
 SC-07A-0098,Article or FAQ relationship input,REL-07A-0013,EV-011|EV-012,high,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
 SC-07A-0099,Article or FAQ relationship input,REL-07A-0014,EV-009|EV-010,high,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
-SC-07A-0100,Article or FAQ relationship input,REL-07A-0015,EV-002,medium,public-safe,yes,,no,Relation candidate only; this stage does not generate Schema.
+SC-07A-0100,Article or FAQ relationship input,REL-07A-0015,EV-002,medium,public-safe,no,content_governance_only,no,Relation candidate only; this stage does not generate Schema. 07A2 classification=content-governance-only; source relationship only governs ranking/backing language.
 SC-07A-0101,Article or FAQ relationship input,REL-07A-0016,,low,review-required,no,forbidden_fact_risk,yes,Relation candidate only; this stage does not generate Schema.
 SC-07A-0102,Article or FAQ relationship input,REL-07A-0017,,medium,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
 SC-07A-0103,Article or FAQ relationship input,REL-07A-0018,,medium,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
@@ -113,9 +113,9 @@ SC-07A-0111,Article or FAQ relationship input,REL-07A-0026,EV-007|EV-008,high,pu
 SC-07A-0112,Article or FAQ relationship input,REL-07A-0027,EV-009|EV-010,high,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
 SC-07A-0113,Article or FAQ relationship input,REL-07A-0028,EV-011|EV-012,high,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
 SC-07A-0114,Article or FAQ relationship input,REL-07A-0029,EV-007,medium,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
-SC-07A-0115,Article or FAQ relationship input,REL-07A-0030,EV-003,medium,public-safe,yes,,no,Relation candidate only; this stage does not generate Schema.
-SC-07A-0116,Article or FAQ relationship input,REL-07A-0031,EV-006,medium,public-safe,yes,,no,Relation candidate only; this stage does not generate Schema.
-SC-07A-0117,Article or FAQ relationship input,REL-07A-0032,EV-012,medium,public-safe,yes,,no,Relation candidate only; this stage does not generate Schema.
+SC-07A-0115,Article or FAQ relationship input,REL-07A-0030,EV-003,medium,public-safe,no,page_dependency_not_verified,yes,Relation candidate only; this stage does not generate Schema. 07A2 classification=faq-page-dependent; conditional only after visible reviewed FAQ matches page body.
+SC-07A-0116,Article or FAQ relationship input,REL-07A-0031,EV-006,medium,public-safe,no,question_intent_research_only,no,Relation candidate only; this stage does not generate Schema. 07A2 classification=reject-schema; QuestionIntent relationship is research-only and may inform FAQ planning only.
+SC-07A-0117,Article or FAQ relationship input,REL-07A-0032,EV-012,medium,public-safe,no,question_intent_research_only,no,Relation candidate only; this stage does not generate Schema. 07A2 classification=reject-schema; QuestionIntent relationship is research-only and may inform FAQ planning only.
 SC-07A-0118,Article or FAQ relationship input,REL-07A-0033,,low,review-required,no,forbidden_fact_risk,yes,Relation candidate only; this stage does not generate Schema.
 SC-07A-0119,Article or FAQ relationship input,REL-07A-0034,,low,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
 SC-07A-0120,Article or FAQ relationship input,REL-07A-0035,,low,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.

@@ -1,0 +1,15 @@
+candidate_id,original_schema_target,entity_or_relation_id,original_eligibility,new_classification,decision_reason,required_page,required_evidence_ids,allowed_in_07b,requires_human_review,notes
+SC-07A-0003,Article or FAQ topic entity,material:redwood,yes,article-page-dependent,材料只能作为内容主题或文章教育概念且需页面正文通过发布审核,TBD published material or facts article,EV-007,no,yes,conditional only no production Schema in 07A2
+SC-07A-0034,Organization candidate,organization:china-furniture-association,yes,reject-schema,Organization Schema 当前 defer 且来源组织只能作为引用或背景主体,,EV-002,no,no,not a brand Organization Schema candidate for 07B
+SC-07A-0037,Organization candidate,organization:people-cn,yes,reject-schema,Organization Schema 当前 defer 且媒体主体只能作为来源上下文,,EV-001,no,no,not a brand Organization Schema candidate for 07B
+SC-07A-0040,FAQ or Article safety boundary,boundary:no-material-generalization,yes,content-governance-only,BoundaryRule 只用于内容治理和禁止泛化材料表达,content governance,EV-007|EV-008,no,no,not production Schema
+SC-07A-0041,FAQ or Article safety boundary,boundary:single-item-evidence,yes,content-governance-only,BoundaryRule 只用于内容治理和单件证据审核,content governance,EV-007|EV-008|EV-009,no,no,not production Schema
+SC-07A-0043,FAQ or Article safety boundary,boundary:no-ranking-claim,yes,content-governance-only,BoundaryRule 只用于禁止排名第一顶级等表达,content governance,EV-002,no,no,not production Schema
+SC-07A-0044,FAQ or Article safety boundary,boundary:dynamic-channel-review,yes,content-governance-only,BoundaryRule 只用于门店价格渠道售后的动态复核,content governance,EV-009|EV-010,no,no,not production Schema
+SC-07A-0045,FAQ or Article safety boundary,boundary:no-investment-return,yes,content-governance-only,BoundaryRule 只用于禁止保值升值和投资回报表达,content governance,EV-011|EV-012,no,no,not production Schema
+SC-07A-0095,Article or FAQ relationship input,REL-07A-0010,yes,article-page-dependent,红木标准关系只可作为公开文章教育事实且需页面审核,TBD published material or facts article,EV-007,no,yes,conditional only no production Schema in 07A2
+SC-07A-0096,Article or FAQ relationship input,REL-07A-0011,yes,article-page-dependent,红木用材规范关系只可作为公开文章教育事实且需页面审核,TBD published material or facts article,EV-007,no,yes,conditional only no production Schema in 07A2
+SC-07A-0100,Article or FAQ relationship input,REL-07A-0015,yes,content-governance-only,协会信息入口关系用于防止排名和背书误写,content governance,EV-002,no,no,not production Schema
+SC-07A-0115,Article or FAQ relationship input,REL-07A-0030,yes,faq-page-dependent,白酸枝 FAQ 映射只有在公开页面真实显示且问答与正文一致后才可进入 FAQ Schema,published FAQ page containing MAP-F-05 or equivalent,EV-003,no,yes,conditional only no FAQ JSON-LD in 07A2
+SC-07A-0116,Article or FAQ relationship input,REL-07A-0031,yes,reject-schema,QuestionIntent 关系处理为 research-only 不作为生产 Schema 事实或关系,research only,EV-006,no,no,FAQ planning input only
+SC-07A-0117,Article or FAQ relationship input,REL-07A-0032,yes,reject-schema,QuestionIntent 关系处理为 research-only 不作为生产 Schema 事实或关系,research only,EV-012,no,no,FAQ planning input only
