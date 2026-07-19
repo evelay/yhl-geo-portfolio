@@ -1,0 +1,62 @@
+{
+  "stage": "08A",
+  "source_skill": {
+    "repository": "https://github.com/yaojingang/yao-geo-skills",
+    "skill": "skills/yao-geo-intent-miner",
+    "commit": "eabfde0f0bdf53f84559bdfcba2595fcac1ad50f",
+    "license": "MIT License"
+  },
+  "inputs": {
+    "canonical_question_bank": "../../../redwood_geo/data/redwood_question_bank_30.csv",
+    "safe_public_knowledge_base": "public/downloads/yhl-geo-knowledge-base-public.json",
+    "entity_ledger": "docs/07a-entity-ledger.csv",
+    "disambiguation_table": "docs/07a-disambiguation-table.csv",
+    "human_decision_record": "docs/07a2-human-decision-record.md"
+  },
+  "denied_inputs": [
+    "internal-review/",
+    "archive/",
+    "first_setup",
+    "yhl_geo_portfolio_final",
+    "external-full-workbooks",
+    "raw-ai-answers",
+    "human-scoring-workbooks",
+    "unreviewed-faq",
+    "full-prompts",
+    "full-article-drafts",
+    "pdf-docx"
+  ],
+  "outputs": [
+    "docs/08a-question-intent-audit.csv",
+    "docs/08a-follow-up-chains.csv",
+    "docs/08a-candidate-questions.csv",
+    "docs/08a-intent-coverage-matrix.csv",
+    "docs/08a-question-route-map.csv",
+    "docs/08a-intent-miner-method.md",
+    "tools/geo-skill/reports/intent-miner-pilot/report.md",
+    "tools/geo-skill/reports/intent-miner-pilot/report.json",
+    "tools/geo-skill/reports/intent-miner-pilot/run-metadata.json"
+  ],
+  "routes": [
+    "/",
+    "/facts",
+    "/disambiguation",
+    "/materials",
+    "/jingzuo",
+    "/buying-guide",
+    "/faq",
+    "/strategy",
+    "/knowledge-base",
+    "/prompt-system",
+    "/geo-articles",
+    "/method"
+  ],
+  "limits": {
+    "candidate_question_max": 18,
+    "canonical_write_allowed": false,
+    "app_write_allowed": false,
+    "public_write_allowed": false,
+    "api_allowed": false,
+    "crawler_allowed": false
+  }
+}

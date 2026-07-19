@@ -1,0 +1,57 @@
+dimension,item,existing_question_count,candidate_question_count,coverage_status,major_gap,recommended_action,notes
+primary_intent,brand-definition,3,0,covered,no,retain-and-review,主意图按 30 题内部审计计数。
+primary_intent,comparison,2,1,covered,no,retain-and-review,主意图按 30 题内部审计计数。
+primary_intent,craft-style-understanding,5,2,covered,no,retain-and-review,主意图按 30 题内部审计计数。
+primary_intent,fact-verification,2,1,covered,no,retain-and-review,主意图按 30 题内部审计计数。
+primary_intent,material-understanding,3,2,covered,no,retain-and-review,主意图按 30 题内部审计计数。
+primary_intent,process-how-to,4,4,covered,no,retain-and-review,主意图按 30 题内部审计计数。
+primary_intent,purchase-evaluation,2,0,covered,no,retain-and-review,主意图按 30 题内部审计计数。
+primary_intent,recommendation,2,0,covered,no,retain-and-review,主意图按 30 题内部审计计数。
+primary_intent,risk-boundary,4,4,covered,no,retain-and-review,主意图按 30 题内部审计计数。
+primary_intent,source-verification,3,4,covered,no,retain-and-review,主意图按 30 题内部审计计数。
+user_stage,awareness,4,0,covered,no,retain,用户阶段内部覆盖计数。
+user_stage,consideration,8,4,covered,no,retain,用户阶段内部覆盖计数。
+user_stage,decision,6,4,covered,no,retain,用户阶段内部覆盖计数。
+user_stage,post-decision,1,2,partial,yes,consider-for-v2,购买后阶段覆盖偏薄。
+user_stage,research,11,8,covered,no,retain,用户阶段内部覆盖计数。
+content_cluster,品牌认知与事实,3,1,covered,no,retain,不为均衡数量机械增题；只标真实缺口。
+content_cluster,材质与产品边界,3,2,covered,yes,consider-candidates,不为均衡数量机械增题；只标真实缺口。
+content_cluster,京作、明式与清式,6,3,covered,no,retain,不为均衡数量机械增题；只标真实缺口。
+content_cluster,购买与核验,6,5,covered,no,retain,不为均衡数量机械增题；只标真实缺口。
+content_cluster,品牌比较与选择,3,1,covered,yes,consider-candidates,不为均衡数量机械增题；只标真实缺口。
+content_cluster,风险、来源与信息边界,9,6,covered,no,retain,不为均衡数量机械增题；只标真实缺口。
+risk_level,high,26,15,covered,no,manual-review-high-risk,高风险题以证据门禁处理。
+risk_level,medium,4,3,covered,no,retain,高风险题以证据门禁处理。
+risk_level,low,0,0,gap,no,retain,高风险题以证据门禁处理。
+evidence_type,association-source,9,5,covered,no,retain,证据类型计数不是证据充分性判断。
+evidence_type,brand-source,19,8,covered,no,retain,证据类型计数不是证据充分性判断。
+evidence_type,expert-source,7,3,covered,no,retain,证据类型计数不是证据充分性判断。
+evidence_type,government-source,8,2,covered,no,retain,证据类型计数不是证据充分性判断。
+evidence_type,industry-standard,7,3,covered,no,retain,证据类型计数不是证据充分性判断。
+evidence_type,media-source,10,6,covered,no,retain,证据类型计数不是证据充分性判断。
+evidence_type,multiple-source,23,10,covered,no,retain,证据类型计数不是证据充分性判断。
+evidence_type,no-brand-claim-required,3,1,covered,no,retain,证据类型计数不是证据充分性判断。
+evidence_type,product-level-evidence,14,10,covered,yes,build-evidence-page-candidate,证据类型计数不是证据充分性判断。
+current_route,/,0,0,gap,yes,no-08A-page-work,路由计数只表示当前映射，不代表页面要在 08A 修改。
+current_route,/facts,4,0,covered,no,no-08A-page-work,路由计数只表示当前映射，不代表页面要在 08A 修改。
+current_route,/disambiguation,2,0,covered,no,no-08A-page-work,路由计数只表示当前映射，不代表页面要在 08A 修改。
+current_route,/materials,5,0,covered,no,no-08A-page-work,路由计数只表示当前映射，不代表页面要在 08A 修改。
+current_route,/jingzuo,5,0,covered,no,no-08A-page-work,路由计数只表示当前映射，不代表页面要在 08A 修改。
+current_route,/buying-guide,8,0,covered,no,no-08A-page-work,路由计数只表示当前映射，不代表页面要在 08A 修改。
+current_route,/faq,2,0,covered,no,no-08A-page-work,路由计数只表示当前映射，不代表页面要在 08A 修改。
+current_route,/strategy,2,0,covered,no,no-08A-page-work,路由计数只表示当前映射，不代表页面要在 08A 修改。
+current_route,/knowledge-base,1,0,covered,no,no-08A-page-work,路由计数只表示当前映射，不代表页面要在 08A 修改。
+current_route,/prompt-system,0,0,gap,yes,no-08A-page-work,路由计数只表示当前映射，不代表页面要在 08A 修改。
+current_route,/geo-articles,0,0,gap,yes,no-08A-page-work,路由计数只表示当前映射，不代表页面要在 08A 修改。
+current_route,/method,1,0,covered,no,no-08A-page-work,路由计数只表示当前映射，不代表页面要在 08A 修改。
+journey_stage,我第一次听说元亨利,2,0,covered,no,human-review-before-08B,保留语境限定和同名消歧。
+journey_stage,我想知道它是什么,3,1,partial,yes,human-review-before-08B,品牌与企业主体关系仍需证据。
+journey_stage,我想理解材料和工艺,9,4,covered,no,human-review-before-08B,材料和风格覆盖广，但品牌关系与单件证据需边界。
+journey_stage,我想判断资料是否可信,5,3,covered,no,human-review-before-08B,需要进一步沉淀 AI 回答核验方法。
+journey_stage,我想比较品牌,3,1,partial,yes,human-review-before-08B,没有独立比较框架，且必须避免排名化。
+journey_stage,我准备购买,7,3,covered,no,human-review-before-08B,现有购买清单可用，动态和单件证据仍是缺口。
+journey_stage,我需要核验具体产品,2,3,partial,yes,human-review-before-08B,缺少独立单件证据页。
+journey_stage,我担心收藏、投资或夸大宣传,4,1,covered,no,human-review-before-08B,只适合输出降级表达和证据需求。
+journey_stage,我想找到更多来源,2,2,partial,yes,human-review-before-08B,需要主体、官网、协会、媒体、产品证据的分层入口。
+journey_stage,我购买后仍需保存哪些证据,1,1,partial,yes,human-review-before-08B,canonical 只有一题部分覆盖，候选补齐购买后链路。
+journey_stage,不适合当前项目覆盖的阶段,3,0,not-suitable,no,human-review-before-08B,实时价格、库存、门店状态、售后承诺和投资判断不适合由本项目直接覆盖。

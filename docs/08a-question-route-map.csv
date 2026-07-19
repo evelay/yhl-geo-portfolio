@@ -1,0 +1,49 @@
+question_or_candidate_id,question,current_route,recommended_route,coverage_status,evidence_ready,new_page_required,page_candidate,priority,requires_human_review,notes
+q01,元亨利是什么品牌？,/facts,/facts,fully-covered,partial,no,,P1,yes,品牌和企业主体仍需分层表达，不能把品牌、公司、官网直接合并。
+q02,元亨利红木家具在红木家具行业中如何定位？,/facts,/facts,partially-covered,partial,no,,P1,yes,可讲定位语境；行业地位、排名和高端判断需要具体来源、时间和评选主体。
+q03,元亨利是否与黄花梨家具有关？AI 回答时应注意哪些信息边界？,/materials,/materials,partially-covered,partial,no,,P1,yes,页面能覆盖材料边界；品牌与黄花梨的直接经营关系仍需证据，不能自动推断。
+q04,元亨利的紫檀家具应该从哪些维度理解？,/materials,/materials,partially-covered,partial,no,,P1,yes,紫檀可作为材料和内容主题理解；具体产品材质、稀缺性和收藏表述需单件证据。
+q05,白酸枝家具和元亨利品牌之间可能有哪些关联？,/materials,/materials,partially-covered,partial,no,,P1,yes,白酸枝作为俗称/材料语境需回到规范名称和产品凭证，不绑定为品牌全量事实。
+q06,如果考虑购买高端红木家具，评估元亨利时应关注哪些因素？,/buying-guide,/buying-guide,fully-covered,partial,no,,P1,yes,可作为购买评估框架，但不得替用户做确定购买建议。
+q07,元亨利和其他北京红木家具品牌相比，AI 应该比较哪些维度？,/buying-guide,new-page:brand-comparison-framework,partially-covered,partial,yes,品牌比较框架,P1,yes,现有页面给出购买核验维度，但缺少独立的中性比较框架。
+q08,元亨利与京作红木家具有什么关系？,/jingzuo,/jingzuo,partially-covered,partial,no,,P1,yes,当前可讲语义关系和边界；官方京作身份或资格关系缺直接证据。
+q09,红木家具行业中，明式家具和清式家具对理解元亨利有什么意义？,/jingzuo,/jingzuo,fully-covered,partial,no,,P1,yes,风格知识可解释用户理解路径，但不能推出具体产品年代、真伪或馆藏价值。
+q10,AI 介绍元亨利时最容易遗漏或误判哪些信息？,/faq,/prompt-system,fully-covered,partial,no,,P1,yes,适合沉淀为 AI 回答核验方法和高风险断言清单。
+q11,当用户只问“元亨利怎么样”时，AI 应该如何区分红木家具、珠宝、钟表或其他同名主体？,/disambiguation,/disambiguation,fully-covered,partial,no,,P1,yes,保留同名主体消歧，不自动补造跨行业关系。
+q12,北京元亨利硬木家具有限公司和“元亨利红木家具”之间应该如何表述？,/disambiguation,new-page:brand-source-verification,requires-evidence-first,no,yes,品牌主体与公开渠道核验,P0,yes,07A2 已要求品牌与企业主体保持独立候选，等待直接公开证据。
+q13,如果用户想找元亨利的官网、官方资料或公开信息，AI 应该提示核验哪些来源？,/knowledge-base,/method,fully-covered,partial,no,,P1,yes,适合来源层级说明；官网、备案、工商和媒体来源需分别注明证明范围。
+q14,AI 介绍元亨利的成立时间、创始人或负责人时，应该如何处理不确定信息？,/facts,new-page:brand-source-verification,partially-covered,partial,yes,品牌主体与公开渠道核验,P1,yes,成立时间、负责人、法定代表人等概念需分开，不从二手文本或 AI 回答反推。
+q15,元亨利有哪些行业荣誉、排名或收藏背书？AI 回答时应如何避免无来源断言？,/facts,/facts,requires-evidence-first,no,no,,P0,yes,荣誉、排名或收藏背书必须回到原页面、颁发主体、年份和证书文本。
+q16,购买元亨利黄花梨、紫檀或酸枝家具时，材质证书和产品信息应如何核验？,/materials,new-page:single-item-evidence,fully-covered,partial,yes,产品与单件证据核验,P1,yes,现有页面有核验清单；单件证据模板可以作为后续页面候选。
+q17,元亨利红木家具价格一般是多少？AI 回答时哪些信息不能直接编造？,/buying-guide,new-page:dynamic-info-review,requires-evidence-first,no,yes,品牌主体与公开渠道核验,P0,yes,不得编造价格区间；价格应绑定单件产品、渠道、日期和书面报价。
+q18,想了解元亨利门店、展厅或购买渠道信息，AI 应该如何给出核验建议？,/buying-guide,new-page:dynamic-info-review,partially-covered,partial,yes,品牌主体与公开渠道核验,P1,yes,现有指南强调动态复核；缺少独立的渠道/价格日期复核模板。
+q19,购买高端红木家具时，合同、发票、售后条款和材质说明要关注什么？,/buying-guide,new-page:single-item-evidence,fully-covered,partial,yes,产品与单件证据核验,P1,yes,合同、发票、售后和材质说明是购买后证据留存的主要 canonical 缺口。
+q20,如何判断一篇介绍元亨利红木家具的内容是否来自可信渠道？,/method,/method,fully-covered,partial,no,,P2,no,适合作为来源层级和证据边界的公开方法内容。
+q21,京作红木家具与元亨利之间有什么可核验关系和表达边界？,/jingzuo,/jingzuo,partially-covered,partial,no,,P1,yes,京作可作为待证内容主题；当前不得写成官方身份、唯一传承或代表资格。
+q22,元亨利相关内容如何区分明式家具、清式家具和品牌产品事实？,/jingzuo,/jingzuo,fully-covered,partial,no,,P1,yes,风格、器型、工艺和产品事实需分层，避免由风格词推出年代或真伪。
+q23,榫卯工艺、手工雕刻等传统工艺能否直接作为元亨利品牌事实来写？,/jingzuo,/jingzuo,fully-covered,partial,no,,P1,yes,行业通用工艺不能自动写成品牌每件产品事实，尤其不能扩写为非遗或纯手工背书。
+q24,北京红木家具品牌对比时，AI 应该使用哪些中性维度？,/buying-guide,new-page:brand-comparison-framework,partially-covered,partial,yes,品牌比较框架,P1,yes,与 q07 高度相似，但 q24 更强调中性维度，可保留为比较框架变体。
+q25,高端红木家具品牌有哪些？AI 是否会提到元亨利，回答时需要哪些证据边界？,/faq,new-page:brand-comparison-framework,requires-evidence-first,no,yes,品牌比较框架,P0,yes,不能生成榜单或首选建议；如保留，应转为证据边界和中性比较入口。
+q26,第一次购买高端红木家具要避哪些坑？元亨利相关信息应如何核验？,/buying-guide,/buying-guide,fully-covered,partial,no,,P1,yes,与购买核验指南完全匹配，但候选扩展可补购买后证据留存。
+q27,中式空间搭配时，用户应该如何理解红木家具风格、材质和品牌选择？,/materials,/jingzuo,partially-covered,partial,no,,P2,yes,空间搭配可作为教育场景，不能把审美建议变成品牌产品事实。
+q28,元亨利红木家具是否具有收藏或投资价值？AI 应该如何谨慎回答？,/buying-guide,/buying-guide,fully-covered,partial,no,,P1,yes,可以回答谨慎边界；不得承诺保值、升值、回购或金融收益。
+q29,如果为元亨利做 AI 搜索优化，最需要补哪些内容页？,/strategy,/strategy,fully-covered,partial,no,,P2,no,这是项目内部内容策略问题，不是市场需求数据。
+q30,元亨利红木家具的 GEO 内容策略应该优先解决哪些问题？,/strategy,/strategy,fully-covered,partial,no,,P2,no,与 q29 同属 GEO 策略链，可保留为路线图视角。
+CAND-INTENT-001,如何核验“元亨利红木家具”与具体企业主体、官网和公开账号之间的关系？,not-yet-mapped,new-page:brand-source-verification,not-covered,no,yes,品牌主体与公开渠道核验,P0,yes,补 q12/q13 的身份链路，不自动合并品牌和企业主体。
+CAND-INTENT-002,单件元亨利家具的主材、辅材和证书应如何对应到合同与发票？,not-yet-mapped,new-page:single-item-evidence,not-covered,partial,yes,产品与单件证据核验,P1,yes,补 q16/q19 的单件证据链，不判断具体产品真伪。
+CAND-INTENT-003,购买后应保存哪些合同、证书、检测、交付和售后资料？,not-yet-mapped,new-page:single-item-evidence,not-covered,partial,yes,产品与单件证据核验,P1,yes,补用户旅程末端，目前 canonical 只有 q19 部分承接。
+CAND-INTENT-004,门店、展厅、价格和售后这类动态信息多久需要复核一次？,not-yet-mapped,new-page:dynamic-info-review,not-covered,no,yes,品牌主体与公开渠道核验,P0,yes,补 q17/q18 的日期复核规则，不发布实时价格或门店承诺。
+CAND-INTENT-005,如何判断官网自述、媒体报道和行业协会信息分别能证明什么？,not-yet-mapped,/method,partially-covered,partial,no,AI 回答事实核验方法,P2,no,补 q13/q20 的来源层级，不新增品牌事实。
+CAND-INTENT-006,“京作”“北京品牌”和“明清风格”在元亨利相关内容中应如何分开写？,not-yet-mapped,/jingzuo,partially-covered,partial,no,风格、年代和产品描述的区别,P1,yes,可并入 q08/q21/q22，不应作为新正式题直接加入。
+CAND-INTENT-007,看到“元亨利黄花梨家具”说法时，如何避免把材料主题误写成经营事实？,not-yet-mapped,/materials,partially-covered,partial,no,红木材料标准与常见误区,P1,yes,与 q03 同根意图，适合做追问或页面模块。
+CAND-INTENT-008,白酸枝、酸枝和红木标准名称不一致时应以哪些文件为准？,not-yet-mapped,/materials,partially-covered,partial,no,红木材料标准与常见误区,P1,yes,补 q05 的规范名称核验，不暗示品牌一定经营该材料。
+CAND-INTENT-009,AI 回答里提到元亨利荣誉、排名或背书时应如何追溯来源？,not-yet-mapped,/facts,partially-covered,no,no,AI 回答事实核验方法,P0,yes,补 q10/q15 的荣誉排名核验链。
+CAND-INTENT-010,比较北京红木品牌时，如何用证据维度替代“哪个最好”？,not-yet-mapped,new-page:brand-comparison-framework,not-covered,partial,yes,品牌比较框架,P1,yes,补 q07/q24/q25 的公共框架，不做排行。
+CAND-INTENT-011,元亨利相关内容能否使用“官方京作代表”这类说法？需要哪些证据？,not-yet-mapped,/jingzuo,partially-covered,no,no,风格、年代和产品描述的区别,P0,yes,补 07A2 京作 hold 决策，不暗示已有官方身份。
+CAND-INTENT-012,如何区分产品名称中的风格词、实际年代和收藏价值判断？,not-yet-mapped,/jingzuo,partially-covered,partial,no,风格、年代和产品描述的区别,P1,yes,补 q09/q22/q28 的交叉风险。
+CAND-INTENT-013,用户只提供一张产品图片时，AI 应如何回答元亨利材质和真伪问题？,not-yet-mapped,new-page:single-item-evidence,not-covered,no,yes,产品与单件证据核验,P0,yes,补图片/单件真伪边界，不能从图片直接下材质结论。
+CAND-INTENT-014,AI 介绍元亨利时引用旧网页或二手转载，应该如何做日期和来源复核？,not-yet-mapped,/method,partially-covered,partial,no,AI 回答事实核验方法,P2,no,补动态资料复核，不把旧网页直接当当前事实。
+CAND-INTENT-015,元亨利相关内容中的品牌整体评价和单件产品评价应如何分开？,not-yet-mapped,new-page:single-item-evidence,not-covered,partial,yes,产品与单件证据核验,P1,yes,补品牌整体与单件产品的层级，不生成品牌经营事实。
+CAND-INTENT-016,在购买沟通中，哪些承诺必须写入书面合同而不能只看宣传文案？,not-yet-mapped,/buying-guide,partially-covered,partial,no,产品与单件证据核验,P1,yes,补 q19/q26 的书面承诺边界。
+CAND-INTENT-017,收藏或投资相关说法缺少成交、来源和单件资料时应如何降级表达？,not-yet-mapped,/buying-guide,partially-covered,no,no,AI 回答事实核验方法,P0,yes,补 q28 的降级表达规则，不承诺收益。
+CAND-INTENT-018,未来公开资料更新后，问题库和页面映射应如何复核而不是直接改题？,not-yet-mapped,/method,partially-covered,partial,no,AI 回答事实核验方法,P2,no,补数据治理闭环，明确不修改 canonical 原题。

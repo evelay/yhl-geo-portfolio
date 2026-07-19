@@ -1,0 +1,482 @@
+{
+  "stage": "08A",
+  "report_type": "internal-intent-audit",
+  "source_skill": {
+    "repository": "https://github.com/yaojingang/yao-geo-skills",
+    "skill": "skills/yao-geo-intent-miner",
+    "commit": "eabfde0f0bdf53f84559bdfcba2595fcac1ad50f",
+    "license": "MIT License"
+  },
+  "canonical_question_bank": "redwood_question_bank_30.csv",
+  "counts": {
+    "canonical_questions": 30,
+    "follow_up_chains": 8,
+    "follow_up_candidates": 24,
+    "candidate_questions": 18,
+    "high_risk_questions": 26,
+    "similar_groups": 6,
+    "exact_duplicates": 0
+  },
+  "distributions": {
+    "primary_intent": {
+      "brand-definition": 3,
+      "comparison": 2,
+      "craft-style-understanding": 5,
+      "fact-verification": 2,
+      "material-understanding": 3,
+      "process-how-to": 4,
+      "purchase-evaluation": 2,
+      "recommendation": 2,
+      "risk-boundary": 4,
+      "source-verification": 3
+    },
+    "user_stage": {
+      "awareness": 4,
+      "consideration": 8,
+      "decision": 6,
+      "post-decision": 1,
+      "research": 11
+    },
+    "content_cluster": {
+      "京作、明式与清式": 6,
+      "品牌比较与选择": 3,
+      "品牌认知与事实": 3,
+      "材质与产品边界": 3,
+      "购买与核验": 6,
+      "风险、来源与信息边界": 9
+    },
+    "risk_level": {
+      "high": 26,
+      "medium": 4
+    },
+    "coverage_status": {
+      "fully-covered": 15,
+      "partially-covered": 11,
+      "requires-evidence-first": 4
+    },
+    "evidence_requirements": {
+      "association-source": 9,
+      "brand-source": 19,
+      "expert-source": 7,
+      "government-source": 8,
+      "industry-standard": 7,
+      "media-source": 10,
+      "multiple-source": 23,
+      "no-brand-claim-required": 3,
+      "product-level-evidence": 14
+    }
+  },
+  "page_coverage_canonical": {
+    "fully-covered": 15,
+    "partially-covered": 11,
+    "requires-evidence-first": 4
+  },
+  "high_risk_question_ids": [
+    "q01",
+    "q02",
+    "q03",
+    "q04",
+    "q05",
+    "q06",
+    "q07",
+    "q08",
+    "q09",
+    "q10",
+    "q11",
+    "q12",
+    "q13",
+    "q14",
+    "q15",
+    "q16",
+    "q17",
+    "q18",
+    "q19",
+    "q21",
+    "q22",
+    "q23",
+    "q24",
+    "q25",
+    "q26",
+    "q28"
+  ],
+  "duplicate_and_similarity_groups": [
+    {
+      "group_id": "SIM-08A-001",
+      "question_ids": [
+        "q07",
+        "q24"
+      ],
+      "type": "同一根意图的不同问法",
+      "recommendation": "retain-as-variant",
+      "notes": "均指向中性比较维度；q07带品牌对象，q24更通用。"
+    },
+    {
+      "group_id": "SIM-08A-002",
+      "question_ids": [
+        "q08",
+        "q21"
+      ],
+      "type": "上下位问题",
+      "recommendation": "retain-as-variant",
+      "notes": "q08问关系语义，q21强调可核验证据和表达边界。"
+    },
+    {
+      "group_id": "SIM-08A-003",
+      "question_ids": [
+        "q03",
+        "q04",
+        "q05",
+        "q16"
+      ],
+      "type": "同一根意图的不同材料分支",
+      "recommendation": "retain-as-variant",
+      "notes": "不能合并为单题，否则会丢失黄花梨、紫檀、白酸枝和证书链路差异。"
+    },
+    {
+      "group_id": "SIM-08A-004",
+      "question_ids": [
+        "q12",
+        "q13",
+        "q14",
+        "q20"
+      ],
+      "type": "来源核验链",
+      "recommendation": "retain-as-variant",
+      "notes": "主体、官网来源、不确定人物事实和内容可信度是同一核验链的不同节点。"
+    },
+    {
+      "group_id": "SIM-08A-005",
+      "question_ids": [
+        "q06",
+        "q16",
+        "q19",
+        "q26"
+      ],
+      "type": "购买任务链",
+      "recommendation": "retain-as-variant",
+      "notes": "覆盖评估、单件材质、合同售后和避坑，不建议删除。"
+    },
+    {
+      "group_id": "SIM-08A-006",
+      "question_ids": [
+        "q29",
+        "q30"
+      ],
+      "type": "上下位问题",
+      "recommendation": "retain-as-variant",
+      "notes": "q29是页面缺口，q30是策略优先级。"
+    }
+  ],
+  "new_page_candidates": [
+    {
+      "page_candidate": "产品与单件证据核验",
+      "question_ids": [
+        "q16",
+        "q17",
+        "q19",
+        "CAND-INTENT-002",
+        "CAND-INTENT-003",
+        "CAND-INTENT-013",
+        "CAND-INTENT-015",
+        "CAND-INTENT-016"
+      ],
+      "user_task": "把品牌整体判断落到具体产品、合同、证书、检测、交付和售后资料。",
+      "required_evidence": "product-level-evidence|industry-standard|brand-source",
+      "evidence_available": "partial",
+      "difference": "不同于 /materials 的概念解释和 /buying-guide 的购买清单，专门承接单件证据链。",
+      "build_now": "no-08A-only",
+      "needs_brand_official_material": "yes-for-product-documents"
+    },
+    {
+      "page_candidate": "品牌主体与公开渠道核验",
+      "question_ids": [
+        "q11",
+        "q12",
+        "q13",
+        "q18",
+        "CAND-INTENT-001",
+        "CAND-INTENT-004"
+      ],
+      "user_task": "核验品牌、企业主体、官网、备案、商标、门店和公开账号之间的关系。",
+      "required_evidence": "government-source|brand-source|multiple-source",
+      "evidence_available": "partial",
+      "difference": "不同于 /disambiguation 的消歧模板，强调渠道和主体关系的证据链。",
+      "build_now": "no-08A-only",
+      "needs_brand_official_material": "yes"
+    },
+    {
+      "page_candidate": "红木材料标准与常见误区",
+      "question_ids": [
+        "q03",
+        "q04",
+        "q05",
+        "q16",
+        "CAND-INTENT-007",
+        "CAND-INTENT-008"
+      ],
+      "user_task": "理解标准术语、俗称、品牌材料语境和单件产品凭证的区别。",
+      "required_evidence": "industry-standard|expert-source|product-level-evidence",
+      "evidence_available": "partial",
+      "difference": "比 /materials 更聚焦误区和问答式核验，不替代具体产品证据页。",
+      "build_now": "not-immediate",
+      "needs_brand_official_material": "optional-for-brand-examples"
+    },
+    {
+      "page_candidate": "风格、年代和产品描述的区别",
+      "question_ids": [
+        "q08",
+        "q09",
+        "q21",
+        "q22",
+        "q23",
+        "q27",
+        "CAND-INTENT-006",
+        "CAND-INTENT-011",
+        "CAND-INTENT-012"
+      ],
+      "user_task": "把京作、北京品牌、明式、清式、产品年代和工艺事实分开。",
+      "required_evidence": "expert-source|association-source|product-level-evidence",
+      "evidence_available": "partial",
+      "difference": "现有 /jingzuo 是边界页；新页可扩成风格和年代误区核验。",
+      "build_now": "not-immediate",
+      "needs_brand_official_material": "yes-for-brand-identity-claims"
+    },
+    {
+      "page_candidate": "AI 回答事实核验方法",
+      "question_ids": [
+        "q10",
+        "q14",
+        "q15",
+        "q20",
+        "q28",
+        "CAND-INTENT-005",
+        "CAND-INTENT-009",
+        "CAND-INTENT-014",
+        "CAND-INTENT-017",
+        "CAND-INTENT-018"
+      ],
+      "user_task": "检查 AI 回答中的来源、日期、同名主体、荣誉、价格、材料和投资断言。",
+      "required_evidence": "multiple-source|media-source|brand-source|product-level-evidence",
+      "evidence_available": "partial",
+      "difference": "不同于 /prompt-system 的方法说明，面向用户核验 AI 输出。",
+      "build_now": "not-immediate",
+      "needs_brand_official_material": "no-for-method; yes-for-specific-claims"
+    },
+    {
+      "page_candidate": "品牌比较框架",
+      "question_ids": [
+        "q07",
+        "q24",
+        "q25",
+        "CAND-INTENT-010"
+      ],
+      "user_task": "在不做排名的前提下比较北京红木品牌的主体、材料、工艺、证据和售后维度。",
+      "required_evidence": "multiple-source|association-source|media-source|brand-source",
+      "evidence_available": "limited",
+      "difference": "当前 /buying-guide 只覆盖购买核验，不提供独立比较框架。",
+      "build_now": "not-until-evidence-framework-approved",
+      "needs_brand_official_material": "yes-for-brand-side-comparison"
+    }
+  ],
+  "journey_coverage": [
+    {
+      "stage": "我第一次听说元亨利",
+      "existing_question_ids": [
+        "q01",
+        "q11"
+      ],
+      "candidate_ids": [],
+      "coverage_status": "covered",
+      "notes": "保留语境限定和同名消歧。"
+    },
+    {
+      "stage": "我想知道它是什么",
+      "existing_question_ids": [
+        "q01",
+        "q02",
+        "q12"
+      ],
+      "candidate_ids": [
+        "CAND-INTENT-001"
+      ],
+      "coverage_status": "partial",
+      "notes": "品牌与企业主体关系仍需证据。"
+    },
+    {
+      "stage": "我想理解材料和工艺",
+      "existing_question_ids": [
+        "q03",
+        "q04",
+        "q05",
+        "q08",
+        "q09",
+        "q21",
+        "q22",
+        "q23",
+        "q27"
+      ],
+      "candidate_ids": [
+        "CAND-INTENT-006",
+        "CAND-INTENT-007",
+        "CAND-INTENT-008",
+        "CAND-INTENT-012"
+      ],
+      "coverage_status": "covered",
+      "notes": "材料和风格覆盖广，但品牌关系与单件证据需边界。"
+    },
+    {
+      "stage": "我想判断资料是否可信",
+      "existing_question_ids": [
+        "q10",
+        "q13",
+        "q14",
+        "q15",
+        "q20"
+      ],
+      "candidate_ids": [
+        "CAND-INTENT-005",
+        "CAND-INTENT-009",
+        "CAND-INTENT-014"
+      ],
+      "coverage_status": "covered",
+      "notes": "需要进一步沉淀 AI 回答核验方法。"
+    },
+    {
+      "stage": "我想比较品牌",
+      "existing_question_ids": [
+        "q07",
+        "q24",
+        "q25"
+      ],
+      "candidate_ids": [
+        "CAND-INTENT-010"
+      ],
+      "coverage_status": "partial",
+      "notes": "没有独立比较框架，且必须避免排名化。"
+    },
+    {
+      "stage": "我准备购买",
+      "existing_question_ids": [
+        "q06",
+        "q16",
+        "q17",
+        "q18",
+        "q19",
+        "q26",
+        "q28"
+      ],
+      "candidate_ids": [
+        "CAND-INTENT-002",
+        "CAND-INTENT-004",
+        "CAND-INTENT-016"
+      ],
+      "coverage_status": "covered",
+      "notes": "现有购买清单可用，动态和单件证据仍是缺口。"
+    },
+    {
+      "stage": "我需要核验具体产品",
+      "existing_question_ids": [
+        "q16",
+        "q19"
+      ],
+      "candidate_ids": [
+        "CAND-INTENT-002",
+        "CAND-INTENT-013",
+        "CAND-INTENT-015"
+      ],
+      "coverage_status": "partial",
+      "notes": "缺少独立单件证据页。"
+    },
+    {
+      "stage": "我担心收藏、投资或夸大宣传",
+      "existing_question_ids": [
+        "q15",
+        "q17",
+        "q25",
+        "q28"
+      ],
+      "candidate_ids": [
+        "CAND-INTENT-017"
+      ],
+      "coverage_status": "covered",
+      "notes": "只适合输出降级表达和证据需求。"
+    },
+    {
+      "stage": "我想找到更多来源",
+      "existing_question_ids": [
+        "q13",
+        "q20"
+      ],
+      "candidate_ids": [
+        "CAND-INTENT-005",
+        "CAND-INTENT-014"
+      ],
+      "coverage_status": "partial",
+      "notes": "需要主体、官网、协会、媒体、产品证据的分层入口。"
+    },
+    {
+      "stage": "我购买后仍需保存哪些证据",
+      "existing_question_ids": [
+        "q19"
+      ],
+      "candidate_ids": [
+        "CAND-INTENT-003"
+      ],
+      "coverage_status": "partial",
+      "notes": "canonical 只有一题部分覆盖，候选补齐购买后链路。"
+    },
+    {
+      "stage": "不适合当前项目覆盖的阶段",
+      "existing_question_ids": [
+        "q17",
+        "q18",
+        "q28"
+      ],
+      "candidate_ids": [],
+      "coverage_status": "not-suitable",
+      "notes": "实时价格、库存、门店状态、售后承诺和投资判断不适合由本项目直接覆盖。"
+    }
+  ],
+  "major_gaps": [
+    "产品级证据页和单件资料核验不足。",
+    "品牌主体、官网、公开账号与企业主体关系仍需直接证据。",
+    "品牌比较问题缺少可审核的中性比较框架。",
+    "购买后证据留存只有部分覆盖。",
+    "动态价格、门店、售后和公开资料更新需要日期复核规则。"
+  ],
+  "safe_context": {
+    "knowledge_base_summary": {
+      "entities": 20,
+      "facts": 36,
+      "publicFacts": 36,
+      "sources": 24,
+      "usableSources": 24,
+      "diagnosticQuestions": 25,
+      "faq": 13,
+      "contentAssets": 0,
+      "completeAnswers": 24,
+      "boundaryAnswers": 1,
+      "evidenceIndex": 13,
+      "excludedFacts": 5,
+      "excludedSources": 3,
+      "excludedFaq": 2
+    },
+    "knowledge_base_version": "1.1-public-filtered",
+    "entity_count": 98,
+    "ambiguity_count": 7,
+    "inputs_read": [
+      "redwood_question_bank_30.csv",
+      "public/downloads/yhl-geo-knowledge-base-public.json",
+      "docs/07a-entity-ledger.csv",
+      "docs/07a-disambiguation-table.csv",
+      "docs/07a2-human-decision-record.md"
+    ]
+  },
+  "matrix_rows": 56,
+  "route_rows": 48,
+  "limitations": [
+    "本报告是项目内部意图覆盖审计，不代表市场规模或平台效果数据。",
+    "未修改 canonical 问题库，未生成正式答案，未创建页面。",
+    "候选问题仅供人工审核，不自动进入 canonical。"
+  ]
+}

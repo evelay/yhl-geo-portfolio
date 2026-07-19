@@ -1,0 +1,25 @@
+chain_id,root_question_id,root_question,parent_question_id,candidate_question_id,candidate_question,depth,intent,user_stage,evidence_requirements,target_route,canonical_status,requires_human_review,notes
+CHAIN-08A-001,q01,元亨利是什么品牌？,q01,CAND-FU-001,如何分别核验“元亨利”品牌、企业主体和官网信息？,1,source-verification,research,brand-source|government-source|multiple-source,/disambiguation,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-001,q01,元亨利是什么品牌？,q01,CAND-FU-002,哪些公开来源可以支持元亨利红木家具的基础介绍？,1,source-verification,research,brand-source|media-source|multiple-source,/facts,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-001,q01,元亨利是什么品牌？,q01,CAND-FU-003,AI 在没有完整主体信息时应如何限定元亨利语境？,1,risk-boundary,awareness,government-source|brand-source|multiple-source,/disambiguation,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-002,q08,元亨利与京作红木家具有什么关系？,q08,CAND-FU-004,判断元亨利与京作相关表达时需要哪些公开证据？,1,source-verification,research,association-source|brand-source|expert-source,/jingzuo,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-002,q08,元亨利与京作红木家具有什么关系？,q08,CAND-FU-005,“北京红木品牌”和“京作家具”在回答中应如何区分？,1,craft-style-understanding,consideration,expert-source|no-brand-claim-required,/jingzuo,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-002,q08,元亨利与京作红木家具有什么关系？,q08,CAND-FU-006,哪些京作相关说法应先标为待核验？,1,risk-boundary,research,association-source|brand-source|multiple-source,/jingzuo,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-003,q03,元亨利是否与黄花梨家具有关？AI 回答时应注意哪些信息边界？,q03,CAND-FU-007,如何区分黄花梨材料知识和元亨利单件产品材质事实？,1,material-understanding,consideration,industry-standard|product-level-evidence,/materials,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-003,q03,元亨利是否与黄花梨家具有关？AI 回答时应注意哪些信息边界？,q03,CAND-FU-008,看到元亨利黄花梨家具说法时应核对哪些凭证？,1,process-how-to,decision,product-level-evidence|brand-source,/buying-guide,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-003,q03,元亨利是否与黄花梨家具有关？AI 回答时应注意哪些信息边界？,q03,CAND-FU-009,AI 是否可以根据品牌介绍推断产品材质？,1,risk-boundary,research,industry-standard|product-level-evidence,/materials,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-004,q04,元亨利的紫檀家具应该从哪些维度理解？,q04,CAND-FU-010,紫檀相关内容需要区分哪些术语、树种和产品证据？,1,material-understanding,consideration,industry-standard|expert-source|product-level-evidence,/materials,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-004,q04,元亨利的紫檀家具应该从哪些维度理解？,q04,CAND-FU-011,元亨利紫檀家具的收藏表述为什么需要谨慎？,1,risk-boundary,decision,product-level-evidence|media-source|multiple-source,/buying-guide,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-004,q04,元亨利的紫檀家具应该从哪些维度理解？,q04,CAND-FU-012,单件紫檀家具的证书、合同和检测报告应怎样对应？,1,process-how-to,decision,product-level-evidence,/buying-guide,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-005,q05,白酸枝家具和元亨利品牌之间可能有哪些关联？,q05,CAND-FU-013,白酸枝作为俗称时应如何回到规范名称？,1,material-understanding,research,industry-standard|expert-source,/materials,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-005,q05,白酸枝家具和元亨利品牌之间可能有哪些关联？,q05,CAND-FU-014,白酸枝相关回答如何避免变成品牌全量材质断言？,1,risk-boundary,consideration,industry-standard|product-level-evidence,/materials,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-005,q05,白酸枝家具和元亨利品牌之间可能有哪些关联？,q05,CAND-FU-015,购买白酸枝家具时合同里应写清哪些材料信息？,1,process-how-to,decision,product-level-evidence|industry-standard,/buying-guide,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-006,q06,如果考虑购买高端红木家具，评估元亨利时应关注哪些因素？,q06,CAND-FU-016,评估元亨利家具前应先确认哪些主体和渠道信息？,1,source-verification,decision,brand-source|government-source|multiple-source,/buying-guide,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-006,q06,如果考虑购买高端红木家具，评估元亨利时应关注哪些因素？,q06,CAND-FU-017,对比产品时哪些证据比口碑或图片更关键？,1,purchase-evaluation,decision,product-level-evidence|multiple-source,/buying-guide,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-006,q06,如果考虑购买高端红木家具，评估元亨利时应关注哪些因素？,q06,CAND-FU-018,为什么 AI 不能替用户作出确定购买建议？,1,risk-boundary,decision,product-level-evidence|multiple-source,/buying-guide,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-007,q07,元亨利和其他北京红木家具品牌相比，AI 应该比较哪些维度？,q07,CAND-FU-019,北京红木品牌比较可以使用哪些不带排名的维度？,1,comparison,consideration,association-source|media-source|multiple-source,new-page:brand-comparison-framework,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-007,q07,元亨利和其他北京红木家具品牌相比，AI 应该比较哪些维度？,q07,CAND-FU-020,比较元亨利与其他品牌时哪些事实需要分别核验？,1,source-verification,consideration,brand-source|multiple-source,new-page:brand-comparison-framework,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-007,q07,元亨利和其他北京红木家具品牌相比，AI 应该比较哪些维度？,q07,CAND-FU-021,没有统一评选来源时应如何处理“哪家更好”的问题？,1,risk-boundary,consideration,association-source|media-source|multiple-source,/faq,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-008,q10,AI 介绍元亨利时最容易遗漏或误判哪些信息？,q10,CAND-FU-022,AI 回答元亨利时哪些说法最容易越过证据边界？,1,risk-boundary,research,multiple-source|product-level-evidence,/prompt-system,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-008,q10,AI 介绍元亨利时最容易遗漏或误判哪些信息？,q10,CAND-FU-023,如何核验 AI 回答里提到的价格、门店和荣誉？,1,source-verification,research,brand-source|government-source|media-source|product-level-evidence,/buying-guide,candidate,yes,自然追问候选，不写入 canonical。
+CHAIN-08A-008,q10,AI 介绍元亨利时最容易遗漏或误判哪些信息？,q10,CAND-FU-024,发现 AI 把同名主体混在一起时应如何纠正？,1,source-verification,research,government-source|brand-source|multiple-source,/disambiguation,candidate,yes,自然追问候选，不写入 canonical。

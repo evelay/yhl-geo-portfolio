@@ -1,0 +1,39 @@
+{
+  "stage": "08A",
+  "generated_at": "2026-07-20",
+  "branch": "refactor/portfolio-v2",
+  "upstream": "origin/refactor/portfolio-v2",
+  "ahead_behind": "0\t0",
+  "source_skill_commit": "eabfde0f0bdf53f84559bdfcba2595fcac1ad50f",
+  "canonical_question_bank": "redwood_question_bank_30.csv",
+  "canonical_sha256_before": "ab0661732fffc3e0aa25adabadf5d3b9c58f00baa1c5bf045f5190ebcc596936",
+  "canonical_sha256_after": "ab0661732fffc3e0aa25adabadf5d3b9c58f00baa1c5bf045f5190ebcc596936",
+  "canonical_hash_unchanged": true,
+  "network_used_for_upstream_clone": true,
+  "audit_network_used": false,
+  "api_used": false,
+  "model_api_used": false,
+  "crawler_used": false,
+  "internal_review_read": false,
+  "app_written": false,
+  "public_written": false,
+  "outputs_written": {
+    "question_intent_audit": "docs/08a-question-intent-audit.csv",
+    "follow_up_chains": "docs/08a-follow-up-chains.csv",
+    "candidate_questions": "docs/08a-candidate-questions.csv",
+    "coverage_matrix": "docs/08a-intent-coverage-matrix.csv",
+    "question_route_map": "docs/08a-question-route-map.csv",
+    "method": "docs/08a-intent-miner-method.md",
+    "report_md": "tools/geo-skill/reports/intent-miner-pilot/report.md",
+    "report_json": "tools/geo-skill/reports/intent-miner-pilot/report.json",
+    "run_metadata": "tools/geo-skill/reports/intent-miner-pilot/run-metadata.json"
+  },
+  "inputs_read": [
+    "redwood_question_bank_30.csv",
+    "public/downloads/yhl-geo-knowledge-base-public.json",
+    "docs/07a-entity-ledger.csv",
+    "docs/07a-disambiguation-table.csv",
+    "docs/07a2-human-decision-record.md"
+  ],
+  "notes": "Audit run is offline and writes only docs/ and tools/geo-skill/reports/intent-miner-pilot/."
+}
