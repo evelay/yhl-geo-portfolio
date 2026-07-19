@@ -1,0 +1,11 @@
+route,check,before_value,after_value,before_status,after_status,evidence_file,notes
+/facts,BreadcrumbList,0 parsed BreadcrumbList,1 parsed BreadcrumbList,open,resolved,tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/report.json,Injected in app/facts/page.tsx as fixed BreadcrumbList JSON-LD
+/buying-guide,BreadcrumbList,0 parsed BreadcrumbList,1 parsed BreadcrumbList,open,resolved,tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/report.json,Injected in app/buying-guide/page.tsx as fixed BreadcrumbList JSON-LD
+/facts,canonical,https://evelay.github.io/yhl-geo-portfolio/facts/,https://evelay.github.io/yhl-geo-portfolio/facts/,pass,pass,out/facts/index.html,Canonical unchanged and matches BreadcrumbList position 2 item
+/buying-guide,canonical,https://evelay.github.io/yhl-geo-portfolio/buying-guide/,https://evelay.github.io/yhl-geo-portfolio/buying-guide/,pass,pass,out/buying-guide/index.html,Canonical unchanged and matches BreadcrumbList position 2 item
+/facts,H1,品牌事实与定位,品牌事实与定位,pass,pass,out/facts/index.html,H1 unchanged and matches BreadcrumbList position 2 name
+/buying-guide,H1,购买核验指南,购买核验指南,pass,pass,out/buying-guide/index.html,H1 unchanged and matches BreadcrumbList position 2 name
+/,BreadcrumbList,0 parsed BreadcrumbList,0 parsed BreadcrumbList,pass,pass,out/index.html,Homepage remains a root item only and has no page BreadcrumbList
+all,Schema-related finding count,3 open Schema findings,1 open Schema finding,open,partially-resolved,docs/06b-page-audit-findings.csv,"/facts and /buying-guide Schema findings resolved; homepage Schema finding remains open"
+all,target-page forbidden marker scan,not applicable,no forbidden markers in target HTML,not-run,pass,out/facts/index.html; out/buying-guide/index.html,Target HTML has no chatgpt.site localhost local absolute path marker or duplicate basePath
+all,full out forbidden marker scan,pre-existing markers in public manifest and vendor chunk,pre-existing markers still present,open,open,out/downloads/manifest.json; out/_next/static/chunks/03~yq9q893hmn.js,Unrelated to Breadcrumb injection and not remediated because this stage forbids public and non-Schema cleanup

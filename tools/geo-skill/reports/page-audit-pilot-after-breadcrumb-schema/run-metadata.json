@@ -1,0 +1,41 @@
+{
+  "run_id": "07b2-page-audit-after-breadcrumb-schema",
+  "generated_at": "2026-07-19T18:18:23+08:00",
+  "git_commit": "ace27b1189c04e476419a7daa1e64ef791f33da0",
+  "branch": "refactor/portfolio-v2",
+  "skill_source_repo": "https://github.com/yaojingang/yao-geo-skills",
+  "skill_source_commit": "dc10716d97c40fed0a0a08e538a236b5e16b4822",
+  "audited_routes": [
+    "/",
+    "/facts",
+    "/buying-guide"
+  ],
+  "build_method": "GitHub Pages equivalent executed with bundled Node on PATH: GITHUB_PAGES=true GITHUB_REPOSITORY=evelay/yhl-geo-portfolio NEXT_PUBLIC_BASE_PATH=/yhl-geo-portfolio NEXT_PUBLIC_SITE_URL=https://evelay.github.io/yhl-geo-portfolio node node_modules/next/dist/bin/next build; GITHUB_REPOSITORY=evelay/yhl-geo-portfolio NEXT_PUBLIC_SITE_URL=https://evelay.github.io/yhl-geo-portfolio node scripts/prepare-github-pages.mjs",
+  "input_paths": [
+    "out/index.html",
+    "out/facts/index.html",
+    "out/buying-guide/index.html",
+    "out/robots.txt",
+    "out/sitemap.xml"
+  ],
+  "excluded_paths": [
+    "internal-review/",
+    "archive/",
+    "first_setup/",
+    "final/",
+    "external canonical workbooks",
+    "raw AI answers",
+    "human scoring workbooks",
+    "app/",
+    "public/"
+  ],
+  "network_used": false,
+  "api_used": false,
+  "source_retrieval_network_used": false,
+  "output_files": [
+    "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/report.md",
+    "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/report.json",
+    "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/run-metadata.json",
+    "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/findings.csv"
+  ]
+}

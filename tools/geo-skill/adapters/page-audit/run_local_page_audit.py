@@ -260,7 +260,7 @@ def write_json(path: Path, payload: dict[str, Any]) -> None:
 def write_csv(path: Path, findings: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=FINDING_FIELDS)
+        writer = csv.DictWriter(handle, fieldnames=FINDING_FIELDS, lineterminator="\n")
         writer.writeheader()
         for finding in findings:
             writer.writerow({field: finding.get(field, "") for field in FINDING_FIELDS})
@@ -318,6 +318,17 @@ def json_ld_types(items: list[dict[str, Any]]) -> list[str]:
         elif value:
             types.append(str(value))
     return sorted(set(types))
+
+
+def json_ld_type_count(items: list[dict[str, Any]], type_name: str) -> int:
+    count = 0
+    for item in items:
+        value = item.get("@type")
+        if isinstance(value, list):
+            count += sum(1 for part in value if str(part) == type_name)
+        elif value == type_name:
+            count += 1
+    return count
 
 
 def has_sitemap_route(sitemap_xml: str, base_url: str, route: str) -> bool:
@@ -430,6 +441,7 @@ def audit_page(ctx: AuditContext, route_config: dict[str, Any], robots_text: str
         for marker in ("独立 GEO 研究", "未受元亨利委托", "不代表品牌官方立场")
     )
     schema_types = json_ld_types(json_ld)
+    breadcrumb_list_count = json_ld_type_count(json_ld, "BreadcrumbList")
     meta_robots = meta_content(parser, "name", "robots")
     description = meta_content(parser, "name", "description")
     og_tags = {
@@ -518,6 +530,7 @@ def audit_page(ctx: AuditContext, route_config: dict[str, Any], robots_text: str
         "schema": {
             "json_ld_present": {"ok": bool(json_ld), "count": len(json_ld), "evidence_status": "observed"},
             "schema_types": {"ok": bool(schema_types), "types": schema_types, "evidence_status": "observed" if schema_types else "not-applicable"},
+            "breadcrumb_list_present": {"ok": breadcrumb_list_count > 0, "count": breadcrumb_list_count, "evidence_status": "observed" if breadcrumb_list_count else "not-applicable"},
             "schema_body_consistency": {"ok": True if not json_ld else None, "evidence_status": "not-applicable" if not json_ld else "input-gap"},
             "missing_required_fields": {"ok": True if not json_ld else None, "evidence_status": "not-applicable" if not json_ld else "input-gap"},
             "schema_facts_absent_from_body": {"ok": False if json_ld and any("_parse_error" in item for item in json_ld) else True, "evidence_status": "not-applicable" if not json_ld else "inferred"},
@@ -545,7 +558,9 @@ def audit_page(ctx: AuditContext, route_config: dict[str, Any], robots_text: str
             "canonical": canonical,
             "h1": h1s,
             "main_text_length": len(main_text),
+            "json_ld_count": len(json_ld),
             "json_ld_types": schema_types,
+            "breadcrumb_list_count": breadcrumb_list_count,
             "internal_link_count": len(int_links),
             "external_source_link_count": len(ext_links),
             "updated": updated,
@@ -789,22 +804,48 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
         for finding in findings
         if finding["priority"] == "P1" and finding["audit_dimension"] == DIMENSION_KEYS["discovery_crawl"]
     ]
-    canonical_by_route = {page["route"]: page["summary"]["canonical"] for page in pages}
+    summary_by_route = {page["route"]: page["summary"] for page in pages}
+    canonical_by_route = {route: summary["canonical"] for route, summary in summary_by_route.items()}
+    json_ld_missing_routes = [
+        route for route, summary in summary_by_route.items() if not summary.get("json_ld_count", 0)
+    ]
+    breadcrumb_list_routes = [
+        route for route, summary in summary_by_route.items() if summary.get("breadcrumb_list_count", 0)
+    ]
+    schema_common_lines = []
+    if json_ld_missing_routes:
+        schema_common_lines.append(f"- 仍未发现 JSON-LD 的页面：{', '.join(json_ld_missing_routes)}。")
+    if "/" in json_ld_missing_routes:
+        schema_common_lines.append("- 首页 `/` 仍未发现 JSON-LD；原首页 Schema finding 保持 open。")
+    if breadcrumb_list_routes:
+        schema_common_lines.append(
+            f"- 已识别 BreadcrumbList JSON-LD 的页面：{', '.join(breadcrumb_list_routes)}；这只表达页面层级，不代表 Organization、Article、FAQPage 或其他 Schema 已完成。"
+        )
+    if not schema_common_lines:
+        schema_common_lines.append("- 三个审计页面均已存在 JSON-LD；仍需分别审核具体 Schema 类型和正文证据一致性。")
     canonical_common_line = (
         "- 两个内容子页面缺少页面级 canonical 和面包屑，页面路径与层级主要依赖全局导航表达。"
         if canonical_routes
-        else "- 三个审计页面 canonical 均已指向对应公开 URL；内容子页面仍缺少面包屑。"
+        else "- 三个审计页面 canonical 均已指向对应公开 URL；内容子页面仍缺少可见 breadcrumb 标记。"
     )
-    facts_specific = (
-        "- `/facts`：最重要的特有问题是 canonical 指向首页，而不是 `/facts` 页面 URL。"
-        if "/facts" in canonical_routes
-        else f"- `/facts`：canonical 已指向 `{canonical_by_route.get('/facts', '缺失')}`；仍未处理 JSON-LD、面包屑和 H1 实体表达。"
-    )
-    buying_specific = (
-        "- `/buying-guide`：最重要的特有问题是 canonical 指向首页，而不是 `/buying-guide` 页面 URL。"
-        if "/buying-guide" in canonical_routes
-        else f"- `/buying-guide`：canonical 已指向 `{canonical_by_route.get('/buying-guide', '缺失')}`；仍未处理 JSON-LD、面包屑和 H1 实体表达。"
-    )
+
+    def page_specific_line(route: str) -> str:
+        if route in canonical_routes:
+            return f"- `{route}`：最重要的特有问题是 canonical 指向首页，而不是 `{route}` 页面 URL。"
+        summary = summary_by_route.get(route, {})
+        breadcrumb_count = summary.get("breadcrumb_list_count", 0)
+        schema_note = (
+            f"已发现 BreadcrumbList JSON-LD {breadcrumb_count} 个"
+            if breadcrumb_count
+            else "仍未发现 JSON-LD"
+        )
+        return (
+            f"- `{route}`：canonical 已指向 `{canonical_by_route.get(route, '缺失')}`；"
+            f"{schema_note}；可见 breadcrumb 标记和 H1 实体表达仍未处理。"
+        )
+
+    facts_specific = page_specific_line("/facts")
+    buying_specific = page_specific_line("/buying-guide")
     if canonical_routes:
         recommended_next_steps = [
             "1. 先处理 P1 canonical，保证每个公开路由的页面级 canonical 正确。",
@@ -814,8 +855,8 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
     else:
         recommended_next_steps = [
             "1. P1 canonical 已由本次复测确认解决。",
-            "2. 后续再处理 P2 页面主题：让 H1 或紧邻摘要能独立识别元亨利品牌实体。",
-            "3. 最后处理 P2/P3 结构增强：人工审核后的 JSON-LD 候选和子页面面包屑。",
+            "2. 两个试点内容页的 BreadcrumbList 可单独复核；它不替代 Organization、Article、FAQPage 或可见 breadcrumb UI。",
+            "3. 后续再处理 P2 页面主题：让 H1 或紧邻摘要能独立识别元亨利品牌实体。",
         ]
     lines = [
         "# 阶段 06B 页面审计模块试点报告",
@@ -843,7 +884,7 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
                 f"- canonical：{summary['canonical'] or '缺失'}",
                 f"- H1：{', '.join(summary['h1']) if summary['h1'] else '缺失'}",
                 f"- 静态 main 正文长度：{summary['main_text_length']}",
-                f"- JSON-LD 类型：{', '.join(summary['json_ld_types']) if summary['json_ld_types'] else '未发现'}",
+                f"- JSON-LD 类型：{', '.join(summary['json_ld_types']) if summary['json_ld_types'] else '未发现'}；BreadcrumbList 数量：{summary['breadcrumb_list_count']}",
                 f"- 内链数量：{summary['internal_link_count']}；外部来源链接数量：{summary['external_source_link_count']}",
             ]
         )
@@ -883,7 +924,7 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
         [
             "",
             "## 三个页面的共性问题",
-            "- 三页都未发现 JSON-LD；本阶段只记录缺口，不生成或写入 Schema。",
+            *schema_common_lines,
             "- 三页 H1 都偏主题化，没有直接写出“元亨利”品牌实体，独立引用标题时语境不够完整。",
             canonical_common_line,
             "",
@@ -939,9 +980,15 @@ def run_audit(
     git_commit: str | None = None,
     branch: str | None = None,
     build_method: str = "GitHub Pages equivalent: next build + scripts/prepare-github-pages.mjs",
+    output_dir: str | None = None,
+    docs_findings_csv: str | None = None,
 ) -> dict[str, Any]:
     project_root = project_root.resolve()
     config = read_json(config_path)
+    if output_dir:
+        config["output_dir"] = output_dir
+    if docs_findings_csv:
+        config["docs_findings_csv"] = docs_findings_csv
     generated_at = generated_at or datetime.now().astimezone().isoformat(timespec="seconds")
     run_id = run_id or "06b-page-audit-" + re.sub(r"[^0-9A-Za-z]", "", generated_at)
     ctx = AuditContext(
@@ -1005,6 +1052,8 @@ def main() -> int:
     parser.add_argument("--git-commit")
     parser.add_argument("--branch")
     parser.add_argument("--build-method", default="GitHub Pages equivalent: next build + scripts/prepare-github-pages.mjs")
+    parser.add_argument("--output-dir")
+    parser.add_argument("--docs-findings-csv")
     args = parser.parse_args()
 
     report = run_audit(
@@ -1015,6 +1064,8 @@ def main() -> int:
         git_commit=args.git_commit,
         branch=args.branch,
         build_method=args.build_method,
+        output_dir=args.output_dir,
+        docs_findings_csv=args.docs_findings_csv,
     )
     print(json.dumps({"run_id": report["run_metadata"]["run_id"], "counts": report["counts"]}, ensure_ascii=False, indent=2))
     return 0

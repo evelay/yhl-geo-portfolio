@@ -1,0 +1,1141 @@
+{
+  "run_metadata": {
+    "run_id": "07b2-page-audit-after-breadcrumb-schema",
+    "generated_at": "2026-07-19T18:18:23+08:00",
+    "git_commit": "ace27b1189c04e476419a7daa1e64ef791f33da0",
+    "branch": "refactor/portfolio-v2",
+    "skill_source_repo": "https://github.com/yaojingang/yao-geo-skills",
+    "skill_source_commit": "dc10716d97c40fed0a0a08e538a236b5e16b4822",
+    "audited_routes": [
+      "/",
+      "/facts",
+      "/buying-guide"
+    ],
+    "build_method": "GitHub Pages equivalent executed with bundled Node on PATH: GITHUB_PAGES=true GITHUB_REPOSITORY=evelay/yhl-geo-portfolio NEXT_PUBLIC_BASE_PATH=/yhl-geo-portfolio NEXT_PUBLIC_SITE_URL=https://evelay.github.io/yhl-geo-portfolio node node_modules/next/dist/bin/next build; GITHUB_REPOSITORY=evelay/yhl-geo-portfolio NEXT_PUBLIC_SITE_URL=https://evelay.github.io/yhl-geo-portfolio node scripts/prepare-github-pages.mjs",
+    "input_paths": [
+      "out/index.html",
+      "out/facts/index.html",
+      "out/buying-guide/index.html",
+      "out/robots.txt",
+      "out/sitemap.xml"
+    ],
+    "excluded_paths": [
+      "internal-review/",
+      "archive/",
+      "first_setup/",
+      "final/",
+      "external canonical workbooks",
+      "raw AI answers",
+      "human scoring workbooks",
+      "app/",
+      "public/"
+    ],
+    "network_used": false,
+    "api_used": false,
+    "source_retrieval_network_used": false,
+    "output_files": [
+      "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/report.md",
+      "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/report.json",
+      "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/run-metadata.json",
+      "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/findings.csv"
+    ]
+  },
+  "skill_source": {
+    "repo": "https://github.com/yaojingang/yao-geo-skills",
+    "commit": "dc10716d97c40fed0a0a08e538a236b5e16b4822",
+    "skill_path": "skills/yao-geo-page-audit",
+    "local_upstream_path": "tools/geo-skill/upstream/yao-geo-page-audit"
+  },
+  "pages": [
+    {
+      "route": "/",
+      "label": "首页",
+      "page_type": "home",
+      "selection_reason": "代表作品集整体叙事和项目身份",
+      "input_path": "out/index.html",
+      "html_sha256": "c7d57f65d22ff3827f7d8d07c89234a33a9853be1d497c46e5f627953f0d6283",
+      "summary": {
+        "title": "公开研究首页",
+        "description": "元亨利红木家具GEO公开研究案例：225条AI回答、6项核心诊断、5个内容资产与13条公开FAQ。",
+        "canonical": "https://evelay.github.io/yhl-geo-portfolio/",
+        "h1": [
+          "让红木家具信息变得可回答、可核验"
+        ],
+        "main_text_length": 5358,
+        "json_ld_count": 0,
+        "json_ld_types": [],
+        "breadcrumb_list_count": 0,
+        "internal_link_count": 30,
+        "external_source_link_count": 0,
+        "updated": "2026-07-13"
+      },
+      "checks": {
+        "discovery_crawl": {
+          "html_generated": {
+            "ok": true,
+            "evidence_status": "observed",
+            "evidence": "out/index.html"
+          },
+          "canonical": {
+            "ok": true,
+            "matches_route": true,
+            "value": "https://evelay.github.io/yhl-geo-portfolio/",
+            "evidence_status": "observed"
+          },
+          "robots": {
+            "ok": true,
+            "allows_root": true,
+            "evidence_status": "observed"
+          },
+          "sitemap": {
+            "ok": true,
+            "covers_route": true,
+            "evidence_status": "observed"
+          },
+          "meta_robots": {
+            "ok": false,
+            "value": "absent; default index/follow assumed",
+            "evidence_status": "observed"
+          },
+          "base_path_assets": {
+            "ok": true,
+            "issues": [],
+            "evidence_status": "observed"
+          },
+          "main_content_static_html": {
+            "ok": true,
+            "main_text_length": 5358,
+            "evidence_status": "observed"
+          }
+        },
+        "metadata": {
+          "title": {
+            "ok": true,
+            "value": "公开研究首页",
+            "evidence_status": "observed"
+          },
+          "description": {
+            "ok": true,
+            "value": "元亨利红木家具GEO公开研究案例：225条AI回答、6项核心诊断、5个内容资产与13条公开FAQ。",
+            "evidence_status": "observed"
+          },
+          "open_graph": {
+            "ok": true,
+            "fields": [
+              "og:description",
+              "og:image",
+              "og:image:height",
+              "og:image:width",
+              "og:title",
+              "og:type"
+            ],
+            "evidence_status": "observed"
+          },
+          "language": {
+            "ok": true,
+            "value": "zh-CN",
+            "evidence_status": "observed"
+          },
+          "unique_h1": {
+            "ok": true,
+            "values": [
+              "让红木家具信息变得可回答、可核验"
+            ],
+            "evidence_status": "observed"
+          },
+          "updated_time": {
+            "ok": true,
+            "value": "2026-07-13",
+            "evidence_status": "observed"
+          },
+          "project_identity": {
+            "ok": true,
+            "evidence_status": "observed"
+          }
+        },
+        "semantic_structure": {
+          "main": {
+            "ok": true,
+            "count": 1,
+            "evidence_status": "observed"
+          },
+          "article": {
+            "ok": true,
+            "count": 6,
+            "evidence_status": "not-applicable"
+          },
+          "header_nav_footer": {
+            "ok": true,
+            "counts": {
+              "header": 1,
+              "nav": 1,
+              "footer": 1
+            },
+            "evidence_status": "observed"
+          },
+          "h1_h3_hierarchy": {
+            "ok": false,
+            "h2_count": 6,
+            "h3_count": 25,
+            "evidence_status": "observed"
+          },
+          "lists": {
+            "ok": true,
+            "count": 7,
+            "evidence_status": "observed"
+          },
+          "tables": {
+            "ok": false,
+            "count": 0,
+            "max_columns": 0,
+            "evidence_status": "observed"
+          },
+          "faq": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "breadcrumbs": {
+            "ok": true,
+            "markers": [],
+            "evidence_status": "not-applicable"
+          },
+          "internal_links": {
+            "ok": true,
+            "count": 30,
+            "evidence_status": "observed"
+          },
+          "anchor_text": {
+            "ok": true,
+            "short_anchor_count": 0,
+            "evidence_status": "observed"
+          }
+        },
+        "brand_evidence": {
+          "conclusion_first": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "full_brand_name": {
+            "ok": false,
+            "evidence_status": "observed"
+          },
+          "source_links": {
+            "ok": true,
+            "external_link_count": 0,
+            "evidence_status": "observed"
+          },
+          "source_id_traceable": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "fact_judgment_recommendation_distinction": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "freshness": {
+            "ok": true,
+            "value": "2026-07-13",
+            "evidence_status": "observed"
+          },
+          "source_accountability": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "unsupported_effect_promise": {
+            "ok": true,
+            "evidence_status": "observed"
+          }
+        },
+        "ai_extractability": {
+          "context_independent_summary": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "atomic_facts": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "key_value_information": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "qa_structure": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "step_structure": {
+            "ok": false,
+            "evidence_status": "observed"
+          },
+          "comparison_or_judgment_dimensions": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "paragraph_independence": {
+            "ok": true,
+            "dense_paragraph_count": 0,
+            "evidence_status": "inferred"
+          },
+          "entity_ambiguity": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "chunk_citation_readiness": {
+            "ok": true,
+            "evidence_status": "inferred"
+          }
+        },
+        "schema": {
+          "json_ld_present": {
+            "ok": false,
+            "count": 0,
+            "evidence_status": "observed"
+          },
+          "schema_types": {
+            "ok": false,
+            "types": [],
+            "evidence_status": "not-applicable"
+          },
+          "breadcrumb_list_present": {
+            "ok": false,
+            "count": 0,
+            "evidence_status": "not-applicable"
+          },
+          "schema_body_consistency": {
+            "ok": true,
+            "evidence_status": "not-applicable"
+          },
+          "missing_required_fields": {
+            "ok": true,
+            "evidence_status": "not-applicable"
+          },
+          "schema_facts_absent_from_body": {
+            "ok": true,
+            "evidence_status": "not-applicable"
+          }
+        },
+        "ux": {
+          "clear_navigation": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "too_long_or_dense": {
+            "ok": true,
+            "main_text_length": 5358,
+            "evidence_status": "inferred"
+          },
+          "main_conclusion_easy_to_find": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "data_table_readability": {
+            "ok": true,
+            "evidence_status": "not-applicable"
+          },
+          "mobile_structure_risk": {
+            "ok": true,
+            "viewport": "width=device-width, initial-scale=1",
+            "evidence_status": "observed"
+          },
+          "next_step_clear": {
+            "ok": true,
+            "evidence_status": "observed"
+          }
+        }
+      },
+      "raw_counts": {
+        "headings": {
+          "h1": 1,
+          "h2": 6,
+          "h3": 25
+        },
+        "lists": 7,
+        "tables": 0,
+        "paragraphs": 74,
+        "source_id_like_tokens_visible": true,
+        "entity_in_h1": false,
+        "step_items": 17
+      },
+      "expectations": {
+        "requires_metric_source_summary": true,
+        "requires_context_independent_summary": true,
+        "requires_breadcrumb": false,
+        "requires_entity_in_h1": true,
+        "requires_step_source_mapping": false,
+        "requires_fact_kv_module": false
+      }
+    },
+    {
+      "route": "/facts",
+      "label": "品牌事实页",
+      "page_type": "brand-fact",
+      "selection_reason": "代表品牌事实与证据表达",
+      "input_path": "out/facts/index.html",
+      "html_sha256": "f6920bb6557f208f8887b7fe7536c641b544b753340c8ffdeb8825f8f996f5c0",
+      "summary": {
+        "title": "品牌事实与定位｜元亨利 GEO",
+        "description": "元亨利红木家具品牌事实、公开定位、品牌自述与待核验项的分层页面。",
+        "canonical": "https://evelay.github.io/yhl-geo-portfolio/facts/",
+        "h1": [
+          "品牌事实与定位"
+        ],
+        "main_text_length": 916,
+        "json_ld_count": 1,
+        "json_ld_types": [
+          "BreadcrumbList"
+        ],
+        "breadcrumb_list_count": 1,
+        "internal_link_count": 17,
+        "external_source_link_count": 3,
+        "updated": "2026-07-17"
+      },
+      "checks": {
+        "discovery_crawl": {
+          "html_generated": {
+            "ok": true,
+            "evidence_status": "observed",
+            "evidence": "out/facts/index.html"
+          },
+          "canonical": {
+            "ok": true,
+            "matches_route": true,
+            "value": "https://evelay.github.io/yhl-geo-portfolio/facts/",
+            "evidence_status": "observed"
+          },
+          "robots": {
+            "ok": true,
+            "allows_root": true,
+            "evidence_status": "observed"
+          },
+          "sitemap": {
+            "ok": true,
+            "covers_route": true,
+            "evidence_status": "observed"
+          },
+          "meta_robots": {
+            "ok": false,
+            "value": "absent; default index/follow assumed",
+            "evidence_status": "observed"
+          },
+          "base_path_assets": {
+            "ok": true,
+            "issues": [],
+            "evidence_status": "observed"
+          },
+          "main_content_static_html": {
+            "ok": true,
+            "main_text_length": 916,
+            "evidence_status": "observed"
+          }
+        },
+        "metadata": {
+          "title": {
+            "ok": true,
+            "value": "品牌事实与定位｜元亨利 GEO",
+            "evidence_status": "observed"
+          },
+          "description": {
+            "ok": true,
+            "value": "元亨利红木家具品牌事实、公开定位、品牌自述与待核验项的分层页面。",
+            "evidence_status": "observed"
+          },
+          "open_graph": {
+            "ok": true,
+            "fields": [
+              "og:description",
+              "og:image",
+              "og:image:height",
+              "og:image:width",
+              "og:title",
+              "og:type"
+            ],
+            "evidence_status": "observed"
+          },
+          "language": {
+            "ok": true,
+            "value": "zh-CN",
+            "evidence_status": "observed"
+          },
+          "unique_h1": {
+            "ok": true,
+            "values": [
+              "品牌事实与定位"
+            ],
+            "evidence_status": "observed"
+          },
+          "updated_time": {
+            "ok": true,
+            "value": "2026-07-17",
+            "evidence_status": "observed"
+          },
+          "project_identity": {
+            "ok": true,
+            "evidence_status": "observed"
+          }
+        },
+        "semantic_structure": {
+          "main": {
+            "ok": true,
+            "count": 1,
+            "evidence_status": "observed"
+          },
+          "article": {
+            "ok": true,
+            "count": 1,
+            "evidence_status": "observed"
+          },
+          "header_nav_footer": {
+            "ok": true,
+            "counts": {
+              "header": 1,
+              "nav": 1,
+              "footer": 1
+            },
+            "evidence_status": "observed"
+          },
+          "h1_h3_hierarchy": {
+            "ok": true,
+            "h2_count": 5,
+            "h3_count": 3,
+            "evidence_status": "observed"
+          },
+          "lists": {
+            "ok": true,
+            "count": 1,
+            "evidence_status": "observed"
+          },
+          "tables": {
+            "ok": false,
+            "count": 0,
+            "max_columns": 0,
+            "evidence_status": "observed"
+          },
+          "faq": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "breadcrumbs": {
+            "ok": false,
+            "markers": [],
+            "evidence_status": "observed"
+          },
+          "internal_links": {
+            "ok": true,
+            "count": 17,
+            "evidence_status": "observed"
+          },
+          "anchor_text": {
+            "ok": true,
+            "short_anchor_count": 0,
+            "evidence_status": "observed"
+          }
+        },
+        "brand_evidence": {
+          "conclusion_first": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "full_brand_name": {
+            "ok": false,
+            "evidence_status": "observed"
+          },
+          "source_links": {
+            "ok": true,
+            "external_link_count": 3,
+            "evidence_status": "observed"
+          },
+          "source_id_traceable": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "fact_judgment_recommendation_distinction": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "freshness": {
+            "ok": true,
+            "value": "2026-07-17",
+            "evidence_status": "observed"
+          },
+          "source_accountability": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "unsupported_effect_promise": {
+            "ok": true,
+            "evidence_status": "observed"
+          }
+        },
+        "ai_extractability": {
+          "context_independent_summary": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "atomic_facts": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "key_value_information": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "qa_structure": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "step_structure": {
+            "ok": false,
+            "evidence_status": "observed"
+          },
+          "comparison_or_judgment_dimensions": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "paragraph_independence": {
+            "ok": true,
+            "dense_paragraph_count": 0,
+            "evidence_status": "inferred"
+          },
+          "entity_ambiguity": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "chunk_citation_readiness": {
+            "ok": true,
+            "evidence_status": "inferred"
+          }
+        },
+        "schema": {
+          "json_ld_present": {
+            "ok": true,
+            "count": 1,
+            "evidence_status": "observed"
+          },
+          "schema_types": {
+            "ok": true,
+            "types": [
+              "BreadcrumbList"
+            ],
+            "evidence_status": "observed"
+          },
+          "breadcrumb_list_present": {
+            "ok": true,
+            "count": 1,
+            "evidence_status": "observed"
+          },
+          "schema_body_consistency": {
+            "ok": null,
+            "evidence_status": "input-gap"
+          },
+          "missing_required_fields": {
+            "ok": null,
+            "evidence_status": "input-gap"
+          },
+          "schema_facts_absent_from_body": {
+            "ok": true,
+            "evidence_status": "inferred"
+          }
+        },
+        "ux": {
+          "clear_navigation": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "too_long_or_dense": {
+            "ok": true,
+            "main_text_length": 916,
+            "evidence_status": "inferred"
+          },
+          "main_conclusion_easy_to_find": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "data_table_readability": {
+            "ok": true,
+            "evidence_status": "not-applicable"
+          },
+          "mobile_structure_risk": {
+            "ok": true,
+            "viewport": "width=device-width, initial-scale=1",
+            "evidence_status": "observed"
+          },
+          "next_step_clear": {
+            "ok": true,
+            "evidence_status": "observed"
+          }
+        }
+      },
+      "raw_counts": {
+        "headings": {
+          "h1": 1,
+          "h2": 5,
+          "h3": 3
+        },
+        "lists": 1,
+        "tables": 0,
+        "paragraphs": 9,
+        "source_id_like_tokens_visible": true,
+        "entity_in_h1": false,
+        "step_items": 3
+      },
+      "expectations": {
+        "requires_metric_source_summary": false,
+        "requires_context_independent_summary": true,
+        "requires_breadcrumb": true,
+        "requires_entity_in_h1": true,
+        "requires_step_source_mapping": false,
+        "requires_fact_kv_module": true
+      }
+    },
+    {
+      "route": "/buying-guide",
+      "label": "购买指南页",
+      "page_type": "decision-guide",
+      "selection_reason": "代表决策型 GEO 内容",
+      "input_path": "out/buying-guide/index.html",
+      "html_sha256": "d9933fea193ce713c065baf24627b544035eca17dce33c1296851bbbacab2391",
+      "summary": {
+        "title": "购买核验指南｜元亨利 GEO",
+        "description": "红木家具价格、门店、合同、证书、交付、售后和收藏表达的核验清单。",
+        "canonical": "https://evelay.github.io/yhl-geo-portfolio/buying-guide/",
+        "h1": [
+          "购买核验指南"
+        ],
+        "main_text_length": 826,
+        "json_ld_count": 1,
+        "json_ld_types": [
+          "BreadcrumbList"
+        ],
+        "breadcrumb_list_count": 1,
+        "internal_link_count": 17,
+        "external_source_link_count": 3,
+        "updated": "2026-07-17"
+      },
+      "checks": {
+        "discovery_crawl": {
+          "html_generated": {
+            "ok": true,
+            "evidence_status": "observed",
+            "evidence": "out/buying-guide/index.html"
+          },
+          "canonical": {
+            "ok": true,
+            "matches_route": true,
+            "value": "https://evelay.github.io/yhl-geo-portfolio/buying-guide/",
+            "evidence_status": "observed"
+          },
+          "robots": {
+            "ok": true,
+            "allows_root": true,
+            "evidence_status": "observed"
+          },
+          "sitemap": {
+            "ok": true,
+            "covers_route": true,
+            "evidence_status": "observed"
+          },
+          "meta_robots": {
+            "ok": false,
+            "value": "absent; default index/follow assumed",
+            "evidence_status": "observed"
+          },
+          "base_path_assets": {
+            "ok": true,
+            "issues": [],
+            "evidence_status": "observed"
+          },
+          "main_content_static_html": {
+            "ok": true,
+            "main_text_length": 826,
+            "evidence_status": "observed"
+          }
+        },
+        "metadata": {
+          "title": {
+            "ok": true,
+            "value": "购买核验指南｜元亨利 GEO",
+            "evidence_status": "observed"
+          },
+          "description": {
+            "ok": true,
+            "value": "红木家具价格、门店、合同、证书、交付、售后和收藏表达的核验清单。",
+            "evidence_status": "observed"
+          },
+          "open_graph": {
+            "ok": true,
+            "fields": [
+              "og:description",
+              "og:image",
+              "og:image:height",
+              "og:image:width",
+              "og:title",
+              "og:type"
+            ],
+            "evidence_status": "observed"
+          },
+          "language": {
+            "ok": true,
+            "value": "zh-CN",
+            "evidence_status": "observed"
+          },
+          "unique_h1": {
+            "ok": true,
+            "values": [
+              "购买核验指南"
+            ],
+            "evidence_status": "observed"
+          },
+          "updated_time": {
+            "ok": true,
+            "value": "2026-07-17",
+            "evidence_status": "observed"
+          },
+          "project_identity": {
+            "ok": true,
+            "evidence_status": "observed"
+          }
+        },
+        "semantic_structure": {
+          "main": {
+            "ok": true,
+            "count": 1,
+            "evidence_status": "observed"
+          },
+          "article": {
+            "ok": true,
+            "count": 1,
+            "evidence_status": "observed"
+          },
+          "header_nav_footer": {
+            "ok": true,
+            "counts": {
+              "header": 1,
+              "nav": 1,
+              "footer": 1
+            },
+            "evidence_status": "observed"
+          },
+          "h1_h3_hierarchy": {
+            "ok": true,
+            "h2_count": 5,
+            "h3_count": 0,
+            "evidence_status": "observed"
+          },
+          "lists": {
+            "ok": true,
+            "count": 2,
+            "evidence_status": "observed"
+          },
+          "tables": {
+            "ok": false,
+            "count": 0,
+            "max_columns": 0,
+            "evidence_status": "observed"
+          },
+          "faq": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "breadcrumbs": {
+            "ok": false,
+            "markers": [],
+            "evidence_status": "observed"
+          },
+          "internal_links": {
+            "ok": true,
+            "count": 17,
+            "evidence_status": "observed"
+          },
+          "anchor_text": {
+            "ok": true,
+            "short_anchor_count": 0,
+            "evidence_status": "observed"
+          }
+        },
+        "brand_evidence": {
+          "conclusion_first": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "full_brand_name": {
+            "ok": false,
+            "evidence_status": "observed"
+          },
+          "source_links": {
+            "ok": true,
+            "external_link_count": 3,
+            "evidence_status": "observed"
+          },
+          "source_id_traceable": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "fact_judgment_recommendation_distinction": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "freshness": {
+            "ok": true,
+            "value": "2026-07-17",
+            "evidence_status": "observed"
+          },
+          "source_accountability": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "unsupported_effect_promise": {
+            "ok": true,
+            "evidence_status": "observed"
+          }
+        },
+        "ai_extractability": {
+          "context_independent_summary": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "atomic_facts": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "key_value_information": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "qa_structure": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "step_structure": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "comparison_or_judgment_dimensions": {
+            "ok": false,
+            "evidence_status": "observed"
+          },
+          "paragraph_independence": {
+            "ok": true,
+            "dense_paragraph_count": 0,
+            "evidence_status": "inferred"
+          },
+          "entity_ambiguity": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "chunk_citation_readiness": {
+            "ok": true,
+            "evidence_status": "inferred"
+          }
+        },
+        "schema": {
+          "json_ld_present": {
+            "ok": true,
+            "count": 1,
+            "evidence_status": "observed"
+          },
+          "schema_types": {
+            "ok": true,
+            "types": [
+              "BreadcrumbList"
+            ],
+            "evidence_status": "observed"
+          },
+          "breadcrumb_list_present": {
+            "ok": true,
+            "count": 1,
+            "evidence_status": "observed"
+          },
+          "schema_body_consistency": {
+            "ok": null,
+            "evidence_status": "input-gap"
+          },
+          "missing_required_fields": {
+            "ok": null,
+            "evidence_status": "input-gap"
+          },
+          "schema_facts_absent_from_body": {
+            "ok": true,
+            "evidence_status": "inferred"
+          }
+        },
+        "ux": {
+          "clear_navigation": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "too_long_or_dense": {
+            "ok": true,
+            "main_text_length": 826,
+            "evidence_status": "inferred"
+          },
+          "main_conclusion_easy_to_find": {
+            "ok": true,
+            "evidence_status": "observed"
+          },
+          "data_table_readability": {
+            "ok": true,
+            "evidence_status": "not-applicable"
+          },
+          "mobile_structure_risk": {
+            "ok": true,
+            "viewport": "width=device-width, initial-scale=1",
+            "evidence_status": "observed"
+          },
+          "next_step_clear": {
+            "ok": true,
+            "evidence_status": "observed"
+          }
+        }
+      },
+      "raw_counts": {
+        "headings": {
+          "h1": 1,
+          "h2": 5,
+          "h3": 0
+        },
+        "lists": 2,
+        "tables": 0,
+        "paragraphs": 7,
+        "source_id_like_tokens_visible": true,
+        "entity_in_h1": false,
+        "step_items": 9
+      },
+      "expectations": {
+        "requires_metric_source_summary": false,
+        "requires_context_independent_summary": true,
+        "requires_breadcrumb": true,
+        "requires_entity_in_h1": true,
+        "requires_step_source_mapping": true,
+        "requires_fact_kv_module": false
+      }
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "06B-PA-001",
+      "route": "/",
+      "audit_dimension": "Schema",
+      "evidence_status": "observed",
+      "severity": "low",
+      "priority": "P2",
+      "owner": "development",
+      "observed_evidence": "未发现 application/ld+json。",
+      "issue": "当前页面没有 JSON-LD，机器只能依赖正文和链接结构理解页面实体与类型。",
+      "recommended_action": "后续人工审核后再考虑页面级 JSON-LD 候选；本阶段不生成或写入 Schema。",
+      "acceptance_test": "后续若接入 Schema，JSON-LD 字段必须能逐项回溯到页面正文。",
+      "skill_source": "yao-geo-page-audit@dc10716d97c40fed0a0a08e538a236b5e16b4822",
+      "requires_human_review": "yes",
+      "status": "open",
+      "notes": "本发现不代表 AI 引用概率或排名判断。"
+    },
+    {
+      "finding_id": "06B-PA-002",
+      "route": "/",
+      "audit_dimension": "AI 可抽取性",
+      "evidence_status": "inferred",
+      "severity": "medium",
+      "priority": "P2",
+      "owner": "content",
+      "observed_evidence": "H1=['让红木家具信息变得可回答、可核验']",
+      "issue": "H1 未包含品牌实体，单独引用页面标题时容易脱离元亨利语境。",
+      "recommended_action": "后续内容修复可在 H1 或紧邻摘要中加入完整品牌实体与页面类型。",
+      "acceptance_test": "抽取 H1 与首段文本时可独立识别本页服务的品牌实体。",
+      "skill_source": "yao-geo-page-audit@dc10716d97c40fed0a0a08e538a236b5e16b4822",
+      "requires_human_review": "yes",
+      "status": "open",
+      "notes": ""
+    },
+    {
+      "finding_id": "06B-PA-003",
+      "route": "/facts",
+      "audit_dimension": "语义结构",
+      "evidence_status": "observed",
+      "severity": "low",
+      "priority": "P3",
+      "owner": "design",
+      "observed_evidence": "未发现 breadcrumb/面包屑标记。",
+      "issue": "子页面缺少面包屑，页面层级主要依赖全局导航表达。",
+      "recommended_action": "后续设计修复时为内容页补充可见或语义化面包屑。",
+      "acceptance_test": "构建后页面存在 breadcrumb 语义标记，且链接指向首页与上级页面。",
+      "skill_source": "yao-geo-page-audit@dc10716d97c40fed0a0a08e538a236b5e16b4822",
+      "requires_human_review": "no",
+      "status": "open",
+      "notes": ""
+    },
+    {
+      "finding_id": "06B-PA-004",
+      "route": "/facts",
+      "audit_dimension": "AI 可抽取性",
+      "evidence_status": "inferred",
+      "severity": "medium",
+      "priority": "P2",
+      "owner": "content",
+      "observed_evidence": "H1=['品牌事实与定位']",
+      "issue": "H1 未包含品牌实体，单独引用页面标题时容易脱离元亨利语境。",
+      "recommended_action": "后续内容修复可在 H1 或紧邻摘要中加入完整品牌实体与页面类型。",
+      "acceptance_test": "抽取 H1 与首段文本时可独立识别本页服务的品牌实体。",
+      "skill_source": "yao-geo-page-audit@dc10716d97c40fed0a0a08e538a236b5e16b4822",
+      "requires_human_review": "yes",
+      "status": "open",
+      "notes": ""
+    },
+    {
+      "finding_id": "06B-PA-005",
+      "route": "/buying-guide",
+      "audit_dimension": "语义结构",
+      "evidence_status": "observed",
+      "severity": "low",
+      "priority": "P3",
+      "owner": "design",
+      "observed_evidence": "未发现 breadcrumb/面包屑标记。",
+      "issue": "子页面缺少面包屑，页面层级主要依赖全局导航表达。",
+      "recommended_action": "后续设计修复时为内容页补充可见或语义化面包屑。",
+      "acceptance_test": "构建后页面存在 breadcrumb 语义标记，且链接指向首页与上级页面。",
+      "skill_source": "yao-geo-page-audit@dc10716d97c40fed0a0a08e538a236b5e16b4822",
+      "requires_human_review": "no",
+      "status": "open",
+      "notes": ""
+    },
+    {
+      "finding_id": "06B-PA-006",
+      "route": "/buying-guide",
+      "audit_dimension": "AI 可抽取性",
+      "evidence_status": "inferred",
+      "severity": "medium",
+      "priority": "P2",
+      "owner": "content",
+      "observed_evidence": "H1=['购买核验指南']",
+      "issue": "H1 未包含品牌实体，单独引用页面标题时容易脱离元亨利语境。",
+      "recommended_action": "后续内容修复可在 H1 或紧邻摘要中加入完整品牌实体与页面类型。",
+      "acceptance_test": "抽取 H1 与首段文本时可独立识别本页服务的品牌实体。",
+      "skill_source": "yao-geo-page-audit@dc10716d97c40fed0a0a08e538a236b5e16b4822",
+      "requires_human_review": "yes",
+      "status": "open",
+      "notes": ""
+    }
+  ],
+  "counts": {
+    "by_priority": {
+      "P0": 0,
+      "P1": 0,
+      "P2": 4,
+      "P3": 2
+    },
+    "by_dimension": {
+      "发现与抓取": 0,
+      "页面元信息": 0,
+      "语义结构": 2,
+      "品牌事实与证据": 0,
+      "AI 可抽取性": 3,
+      "Schema": 1,
+      "用户体验": 0
+    },
+    "by_route": {
+      "/": 2,
+      "/buying-guide": 2,
+      "/facts": 2
+    },
+    "total": 6
+  },
+  "forbidden_conclusions_generated": []
+}

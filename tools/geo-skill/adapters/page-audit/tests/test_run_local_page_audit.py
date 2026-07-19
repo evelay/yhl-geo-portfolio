@@ -219,6 +219,31 @@ class PageAuditAdapterTests(unittest.TestCase):
         self.assertIsInstance(json.loads(report_json.read_text(encoding="utf-8")), dict)
         self.assertIsInstance(json.loads(metadata_json.read_text(encoding="utf-8")), dict)
 
+    def test_cli_output_overrides_keep_previous_reports_separate(self):
+        report = audit_module.run_audit(
+            self.root,
+            self.config_path,
+            generated_at="2026-07-19T16:30:00+08:00",
+            run_id="test-run",
+            git_commit="abc123",
+            branch="refactor/portfolio-v2",
+            build_method="test build",
+            output_dir="tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema",
+            docs_findings_csv="tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/findings.csv",
+        )
+
+        self.assertEqual(
+            report["run_metadata"]["output_files"],
+            [
+                "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/report.md",
+                "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/report.json",
+                "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/run-metadata.json",
+                "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/findings.csv",
+            ],
+        )
+        self.assertTrue((self.root / "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/report.json").exists())
+        self.assertFalse((self.root / "tools/geo-skill/reports/page-audit-pilot/report.json").exists())
+
     def test_outputs_have_no_absolute_user_paths_or_forbidden_fields(self):
         report = self.run_adapter()
         report_text = (self.root / "tools/geo-skill/reports/page-audit-pilot/report.json").read_text(encoding="utf-8")
@@ -265,6 +290,36 @@ class PageAuditAdapterTests(unittest.TestCase):
             if finding["priority"] == "P1" and finding["audit_dimension"] == "发现与抓取"
         ]
         self.assertEqual(canonical_p1_findings, [])
+
+    def test_identifies_breadcrumb_list_json_ld_separately_from_visible_breadcrumbs(self):
+        breadcrumb_json_ld = """
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://evelay.github.io/yhl-geo-portfolio/"},{"@type":"ListItem","position":2,"name":"品牌事实与定位","item":"https://evelay.github.io/yhl-geo-portfolio/facts/"}]}</script>
+"""
+        (self.root / "out/facts/index.html").write_text(
+            page_html(
+                "品牌事实",
+                "品牌事实描述",
+                "/facts",
+                "品牌事实与定位",
+                """
+<article><section><h2>可核验来源</h2><p>直接答案：元亨利红木家具品牌事实需要区分事实、判断、建议和待核验项，source_id B-001 可追溯，更新时间 2026-07-17。</p><ul><li>事实层</li><li>品牌自述层</li></ul><a href="https://example.com/source">来源 B-001</a></section></article>
+""",
+                json_ld=breadcrumb_json_ld,
+            ),
+            encoding="utf-8",
+        )
+
+        report = self.run_adapter()
+        facts = next(page for page in report["pages"] if page["route"] == "/facts")
+        self.assertEqual(facts["summary"]["json_ld_types"], ["BreadcrumbList"])
+        self.assertEqual(facts["summary"]["breadcrumb_list_count"], 1)
+        self.assertFalse(facts["checks"]["semantic_structure"]["breadcrumbs"]["ok"])
+        self.assertFalse(
+            any(
+                finding["route"] == "/facts" and finding["audit_dimension"] == "Schema"
+                for finding in report["findings"]
+            )
+        )
 
 
 if __name__ == "__main__":
