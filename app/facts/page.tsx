@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { ArticlePage } from "../components";
 
-export const metadata: Metadata = { title: "品牌事实与定位", description: "元亨利红木家具品牌事实、公开定位、品牌自述与待核验项的分层页面。" };
+export const metadata: Metadata = {
+  title: "品牌事实与定位",
+  description: "元亨利红木家具品牌事实、公开定位、品牌自述与待核验项的分层页面。",
+  alternates: { canonical: "https://evelay.github.io/yhl-geo-portfolio/facts/" },
+};
 
 export default function FactsPage() {
   return <ArticlePage

@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { ArticlePage } from "../components";
 
-export const metadata: Metadata = { title: "购买核验指南", description: "红木家具价格、门店、合同、证书、交付、售后和收藏表达的核验清单。" };
+export const metadata: Metadata = {
+  title: "购买核验指南",
+  description: "红木家具价格、门店、合同、证书、交付、售后和收藏表达的核验清单。",
+  alternates: { canonical: "https://evelay.github.io/yhl-geo-portfolio/buying-guide/" },
+};
 
 export default function BuyingGuidePage() {
   return <ArticlePage

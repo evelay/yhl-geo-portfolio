@@ -242,6 +242,30 @@ class PageAuditAdapterTests(unittest.TestCase):
         self.assertNotIn("citation_probability", keys)
         self.assertEqual(report["forbidden_conclusions_generated"], [])
 
+    def test_page_level_canonicals_remove_p1_findings(self):
+        (self.root / "out/facts/index.html").write_text(
+            page_html(
+                "品牌事实",
+                "品牌事实描述",
+                "/facts",
+                "品牌事实与定位",
+                """
+<article><section><h2>可核验来源</h2><p>直接答案：元亨利红木家具品牌事实需要区分事实、判断、建议和待核验项，source_id B-001 可追溯，更新时间 2026-07-17。</p><ul><li>事实层</li><li>品牌自述层</li></ul><a href="https://example.com/source">来源 B-001</a></section></article>
+""",
+            ),
+            encoding="utf-8",
+        )
+        report = self.run_adapter()
+        canonicals = {page["route"]: page["summary"]["canonical"] for page in report["pages"]}
+        self.assertEqual(canonicals["/facts"], f"{BASE_URL}/facts")
+        self.assertEqual(canonicals["/buying-guide"], f"{BASE_URL}/buying-guide")
+        canonical_p1_findings = [
+            finding
+            for finding in report["findings"]
+            if finding["priority"] == "P1" and finding["audit_dimension"] == "发现与抓取"
+        ]
+        self.assertEqual(canonical_p1_findings, [])
+
 
 if __name__ == "__main__":
     unittest.main()

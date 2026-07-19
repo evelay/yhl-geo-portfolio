@@ -784,6 +784,39 @@ def summarize_counts(findings: list[dict[str, Any]]) -> dict[str, Any]:
 
 def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findings: list[dict[str, Any]], metadata: dict[str, Any]) -> str:
     counts = summarize_counts(findings)
+    canonical_routes = [
+        finding["route"]
+        for finding in findings
+        if finding["priority"] == "P1" and finding["audit_dimension"] == DIMENSION_KEYS["discovery_crawl"]
+    ]
+    canonical_by_route = {page["route"]: page["summary"]["canonical"] for page in pages}
+    canonical_common_line = (
+        "- 两个内容子页面缺少页面级 canonical 和面包屑，页面路径与层级主要依赖全局导航表达。"
+        if canonical_routes
+        else "- 三个审计页面 canonical 均已指向对应公开 URL；内容子页面仍缺少面包屑。"
+    )
+    facts_specific = (
+        "- `/facts`：最重要的特有问题是 canonical 指向首页，而不是 `/facts` 页面 URL。"
+        if "/facts" in canonical_routes
+        else f"- `/facts`：canonical 已指向 `{canonical_by_route.get('/facts', '缺失')}`；仍未处理 JSON-LD、面包屑和 H1 实体表达。"
+    )
+    buying_specific = (
+        "- `/buying-guide`：最重要的特有问题是 canonical 指向首页，而不是 `/buying-guide` 页面 URL。"
+        if "/buying-guide" in canonical_routes
+        else f"- `/buying-guide`：canonical 已指向 `{canonical_by_route.get('/buying-guide', '缺失')}`；仍未处理 JSON-LD、面包屑和 H1 实体表达。"
+    )
+    if canonical_routes:
+        recommended_next_steps = [
+            "1. 先处理 P1 canonical，保证每个公开路由的页面级 canonical 正确。",
+            "2. 再处理 P2 页面主题：让 H1 或紧邻摘要能独立识别元亨利品牌实体。",
+            "3. 最后处理 P2/P3 结构增强：人工审核后的 JSON-LD 候选和子页面面包屑。",
+        ]
+    else:
+        recommended_next_steps = [
+            "1. P1 canonical 已由本次复测确认解决。",
+            "2. 后续再处理 P2 页面主题：让 H1 或紧邻摘要能独立识别元亨利品牌实体。",
+            "3. 最后处理 P2/P3 结构增强：人工审核后的 JSON-LD 候选和子页面面包屑。",
+        ]
     lines = [
         "# 阶段 06B 页面审计模块试点报告",
         "",
@@ -852,17 +885,15 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
             "## 三个页面的共性问题",
             "- 三页都未发现 JSON-LD；本阶段只记录缺口，不生成或写入 Schema。",
             "- 三页 H1 都偏主题化，没有直接写出“元亨利”品牌实体，独立引用标题时语境不够完整。",
-            "- 两个内容子页面缺少页面级 canonical 和面包屑，页面路径与层级主要依赖全局导航表达。",
+            canonical_common_line,
             "",
             "## 页面特有问题",
             "- `/`：最重要的特有问题是 H1 未直接包含品牌实体，首页标题脱离上下文后偏泛化。",
-            "- `/facts`：最重要的特有问题是 canonical 指向首页，而不是 `/facts` 页面 URL。",
-            "- `/buying-guide`：最重要的特有问题是 canonical 指向首页，而不是 `/buying-guide` 页面 URL。",
+            facts_specific,
+            buying_specific,
             "",
             "## 建议修复顺序",
-            "1. 先处理 P1 canonical，保证每个公开路由的页面级 canonical 正确。",
-            "2. 再处理 P2 页面主题：让 H1 或紧邻摘要能独立识别元亨利品牌实体。",
-            "3. 最后处理 P2/P3 结构增强：人工审核后的 JSON-LD 候选和子页面面包屑。",
+            *recommended_next_steps,
             "",
             "## 审计限制",
             "- 本报告只基于构建后的静态 HTML、robots 和 sitemap。",
@@ -894,7 +925,7 @@ def build_metadata(ctx: AuditContext, pages: list[dict[str, Any]], output_files:
         "excluded_paths": ctx.config["excluded_paths"],
         "network_used": False,
         "api_used": False,
-        "source_retrieval_network_used": True,
+        "source_retrieval_network_used": False,
         "output_files": output_files,
     }
 

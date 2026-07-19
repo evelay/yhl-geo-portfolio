@@ -1,0 +1,9 @@
+route,check,before_value,after_value,before_status,after_status,evidence_file,notes
+/facts,canonical,https://evelay.github.io/yhl-geo-portfolio/,https://evelay.github.io/yhl-geo-portfolio/facts/,open,resolved,tools/geo-skill/reports/page-audit-pilot-after-canonical-fix/report.json,06B-PA-003 resolved by page-level metadata alternates.canonical
+/buying-guide,canonical,https://evelay.github.io/yhl-geo-portfolio/,https://evelay.github.io/yhl-geo-portfolio/buying-guide/,open,resolved,tools/geo-skill/reports/page-audit-pilot-after-canonical-fix/report.json,06B-PA-007 resolved by page-level metadata alternates.canonical
+/,canonical,https://evelay.github.io/yhl-geo-portfolio/,https://evelay.github.io/yhl-geo-portfolio/,pass,pass,out/index.html,Homepage canonical unchanged
+/,page_generated,out/index.html,out/index.html,generated,generated,tools/geo-skill/reports/page-audit-pilot-after-canonical-fix/report.json,Home route generated in static output
+/facts,page_generated,out/facts/index.html,out/facts/index.html,generated,generated,tools/geo-skill/reports/page-audit-pilot-after-canonical-fix/report.json,Facts route generated in static output
+/buying-guide,page_generated,out/buying-guide/index.html,out/buying-guide/index.html,generated,generated,tools/geo-skill/reports/page-audit-pilot-after-canonical-fix/report.json,Buying guide route generated in static output
+all,P1_finding_count,2,0,open,resolved,tools/geo-skill/reports/page-audit-pilot-after-canonical-fix/report.json,Canonical P1 findings cleared by after-audit
+all,P2_P3_open_count,8,8,open,open,tools/geo-skill/reports/page-audit-pilot-after-canonical-fix/report.json,P2 and P3 findings intentionally left open
