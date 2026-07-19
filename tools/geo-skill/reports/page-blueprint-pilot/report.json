@@ -1,0 +1,343 @@
+{
+  "run_metadata": {
+    "run_id": "07c1-page-blueprint-pilot",
+    "generated_at": "2026-07-19T23:00:35+08:00",
+    "project_git_commit": "1e70b57d8cfdfef79aebc97249220f78080ecf77",
+    "branch": "refactor/portfolio-v2",
+    "skill_source_repo": "https://github.com/yaojingang/yao-geo-skills",
+    "skill_source_commit": "eabfde0f0bdf53f84559bdfcba2595fcac1ad50f",
+    "skill_path": "skills/yao-geo-page-blueprint",
+    "network_used_for_source_retrieval": true,
+    "network_used_for_blueprint_generation": false,
+    "api_used": false,
+    "model_used": false
+  },
+  "scope": {
+    "routes": [
+      "/",
+      "/facts",
+      "/buying-guide"
+    ],
+    "visible_breadcrumb_routes": [
+      "/facts",
+      "/buying-guide"
+    ],
+    "implementation_performed": false,
+    "forbidden_outputs": [
+      "GEO total score",
+      "AI citation probability",
+      "indexing probability",
+      "ranking score",
+      "H1 uplift prediction"
+    ]
+  },
+  "project_boundaries": {
+    "portfolio_identity": "Independent public-research job portfolio, not an official Yuanhengli commission.",
+    "website_copy_role": "app/data.ts observed only as website-copy for navigation and current public labels.",
+    "internal_review_used": false,
+    "first_setup_used": false,
+    "final_used": false,
+    "unsupported_brand_facts_added": false,
+    "unsupported_results_added": false
+  },
+  "current_pages": [
+    {
+      "route": "/",
+      "title": "公开研究首页",
+      "meta_description": "元亨利红木家具GEO公开研究案例：225条AI回答、6项核心诊断、5个内容资产与13条公开FAQ。",
+      "h1": "让红木家具信息变得可回答、可核验",
+      "summary_below_h1": "一个基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例：用225条AI回答识别实体、来源与高客单决策风险，再把诊断转化为可核验内容资产。",
+      "project_identity": "页脚研究声明说明独立 GEO 研究与求职作品集，未受元亨利委托，不代表官方立场，不声称 AI 收录、引用、曝光、推荐或销售提升。",
+      "canonical": "https://evelay.github.io/yhl-geo-portfolio/",
+      "visible_navigation": [
+        "研究首页",
+        "品牌事实",
+        "同名消歧",
+        "材质边界",
+        "京作/明清",
+        "购买核验",
+        "FAQ",
+        "优化方案",
+        "企业知识库",
+        "提示词体系",
+        "GEO文章样稿",
+        "方法与来源"
+      ],
+      "visible_breadcrumb": false,
+      "breadcrumb_list_json_ld": [],
+      "semantic_structure": {
+        "main": 1,
+        "article": 6,
+        "header": 1,
+        "footer": 1
+      },
+      "heading_counts": {
+        "h1": 1,
+        "h2": 6,
+        "h3": 25
+      },
+      "first_screen_expression": "页眉品牌为“元亨利 GEO / 公开研究案例”；H1 偏泛化，lede 才说明元亨利和独立研究身份。",
+      "next_step_entry": [
+        "查看六项诊断",
+        "品牌内容优化方案",
+        "企业知识库",
+        "提示词体系",
+        "GEO文章样稿",
+        "方法与来源"
+      ]
+    },
+    {
+      "route": "/facts",
+      "title": "品牌事实与定位｜元亨利 GEO",
+      "meta_description": "元亨利红木家具品牌事实、公开定位、品牌自述与待核验项的分层页面。",
+      "h1": "品牌事实与定位",
+      "summary_below_h1": "在本案例中，“元亨利”指红木家具语境中的品牌/企业主体。可核验页面能说明其公开活动、受访身份和部分产品方向，但不足以支持统一的“行业第一”“顶级品牌”或永久排名。",
+      "project_identity": "页脚研究声明说明独立 GEO 研究与求职作品集，未受元亨利委托，不代表官方立场，不声称效果提升。",
+      "canonical": "https://evelay.github.io/yhl-geo-portfolio/facts/",
+      "visible_navigation": [
+        "研究首页",
+        "品牌事实",
+        "同名消歧",
+        "材质边界",
+        "京作/明清",
+        "购买核验",
+        "FAQ",
+        "优化方案",
+        "企业知识库",
+        "提示词体系",
+        "GEO文章样稿",
+        "方法与来源"
+      ],
+      "visible_breadcrumb": false,
+      "breadcrumb_list_json_ld": [
+        {
+          "position": 1,
+          "name": "首页",
+          "item": "https://evelay.github.io/yhl-geo-portfolio/"
+        },
+        {
+          "position": 2,
+          "name": "品牌事实与定位",
+          "item": "https://evelay.github.io/yhl-geo-portfolio/facts/"
+        }
+      ],
+      "semantic_structure": {
+        "main": 1,
+        "article": 1,
+        "header": 1,
+        "footer": 1
+      },
+      "heading_counts": {
+        "h1": 1,
+        "h2": 5,
+        "h3": 3
+      },
+      "first_screen_expression": "内容资产 01 + H1 + 直接答案框；H1 不含元亨利，lede 才补充品牌语境。",
+      "next_step_entry": [
+        "如何区分同名主体？",
+        "官网一定是第三方证据吗？",
+        "查看方法与来源",
+        "可核验来源"
+      ]
+    },
+    {
+      "route": "/buying-guide",
+      "title": "购买核验指南｜元亨利 GEO",
+      "meta_description": "红木家具价格、门店、合同、证书、交付、售后和收藏表达的核验清单。",
+      "h1": "购买核验指南",
+      "summary_below_h1": "高客单红木家具不应依据AI给出的价格区间、门店地址或“保值升值”判断购买。把决策落到具体型号、主辅材、书面合同、证书、交付验收、发票和售后责任主体。",
+      "project_identity": "页脚研究声明说明独立 GEO 研究与求职作品集，未受元亨利委托，不代表官方立场，不声称效果提升。",
+      "canonical": "https://evelay.github.io/yhl-geo-portfolio/buying-guide/",
+      "visible_navigation": [
+        "研究首页",
+        "品牌事实",
+        "同名消歧",
+        "材质边界",
+        "京作/明清",
+        "购买核验",
+        "FAQ",
+        "优化方案",
+        "企业知识库",
+        "提示词体系",
+        "GEO文章样稿",
+        "方法与来源"
+      ],
+      "visible_breadcrumb": false,
+      "breadcrumb_list_json_ld": [
+        {
+          "position": 1,
+          "name": "首页",
+          "item": "https://evelay.github.io/yhl-geo-portfolio/"
+        },
+        {
+          "position": 2,
+          "name": "购买核验指南",
+          "item": "https://evelay.github.io/yhl-geo-portfolio/buying-guide/"
+        }
+      ],
+      "semantic_structure": {
+        "main": 1,
+        "article": 1,
+        "header": 1,
+        "footer": 1
+      },
+      "heading_counts": {
+        "h1": 1,
+        "h2": 5,
+        "h3": 0
+      },
+      "first_screen_expression": "内容资产 05 + H1 + 直接答案框；H1 不含元亨利或红木家具，lede 才补充用户任务。",
+      "next_step_entry": [
+        "材质证据怎么分层？",
+        "同名主体怎么确认？",
+        "查看公开FAQ",
+        "可核验来源"
+      ]
+    }
+  ],
+  "h1_recommendations": {
+    "/": {
+      "recommended": "元亨利红木家具 GEO 诊断与可核验内容体系",
+      "rationale": "明确品牌、品类、GEO 诊断和可核验内容体系；与现有 lede 和项目声明一致，不暗示官方委托或增长结果。",
+      "schema_update_required": false,
+      "title_update_suggested": true,
+      "description_update_suggested": "optional"
+    },
+    "/facts": {
+      "recommended": "元亨利品牌事实、来源与信息边界",
+      "rationale": "贴近页面事实分层、来源边界和待核验表达；不把待确认事实写成确认事实。",
+      "schema_update_required": "optional: only if BreadcrumbList name is aligned to full H1",
+      "title_update_suggested": true,
+      "description_update_suggested": true
+    },
+    "/buying-guide": {
+      "recommended": "元亨利红木家具购买核验指南",
+      "rationale": "明确用户任务、品牌和品类；保持核验而非购买推荐或背书。",
+      "schema_update_required": "optional: only if BreadcrumbList name is aligned to full H1",
+      "title_update_suggested": true,
+      "description_update_suggested": "optional"
+    }
+  },
+  "breadcrumb_recommendation": {
+    "recommended_scheme": "short visible names",
+    "routes": {
+      "/facts": {
+        "visible_hierarchy": "首页 -> 品牌事实与定位",
+        "json_ld_name_change_required": false,
+        "notes": "Recommended as short page name even if H1 is expanded."
+      },
+      "/buying-guide": {
+        "visible_hierarchy": "首页 -> 购买核验指南",
+        "json_ld_name_change_required": false,
+        "notes": "Recommended as short page name even if H1 is expanded."
+      }
+    },
+    "alternative_scheme": "full H1 names",
+    "alternative_requires_json_ld_name_sync": true
+  },
+  "component_blueprint": {
+    "implementation_code_written": false,
+    "placement": "Inside inner page main content above H1, preferably within article hero between eyebrow and H1.",
+    "semantic_html": "<nav aria-label=\"面包屑导航\"><ol><li><a href=\"/\">首页</a></li><li aria-current=\"page\">当前页面</li></ol></nav>",
+    "accessibility": [
+      "nav",
+      "aria-label",
+      "ol/li",
+      "aria-current=\"page\"",
+      "clear link text"
+    ],
+    "basepath": "Must support /yhl-geo-portfolio; prefer existing Next Link and path helper behavior; do not hard-code duplicate basePath.",
+    "style": [
+      "existing visual language",
+      "low emphasis",
+      "no complex card",
+      "mobile wrapping allowed",
+      "no global redesign"
+    ]
+  },
+  "summary_blueprints": [
+    {
+      "route": "/",
+      "needed": true,
+      "draft": "本页汇总基于公开资料的元亨利红木家具 GEO 基线诊断、风险边界和内容资产设计，说明研究范围、数据口径与后续核验入口。",
+      "solves": "Makes the homepage purpose context-independent after a more specific H1.",
+      "is_reorganization_of_existing_copy": true,
+      "requires_human_review": true
+    },
+    {
+      "route": "/facts",
+      "needed": true,
+      "draft": "本页用于说明元亨利红木家具相关品牌事实的来源层级、可写边界与待核验事项，避免把品牌自述、行业印象或排名推断写成确认事实。",
+      "solves": "Clarifies source and boundary context around the facts page.",
+      "is_reorganization_of_existing_copy": true,
+      "requires_human_review": true
+    },
+    {
+      "route": "/buying-guide",
+      "needed": true,
+      "draft": "本页把元亨利红木家具购买前后的核验动作整理为清单，聚焦合同、材质、证书、交付、售后和动态信息复核，不提供购买推荐或投资判断。",
+      "solves": "Clarifies the user task and non-endorsement boundary.",
+      "is_reorganization_of_existing_copy": true,
+      "requires_human_review": true
+    }
+  ],
+  "schema_impact": [
+    {
+      "route": "/",
+      "breadcrumb_list_name_affected": false,
+      "canonical_affected": false,
+      "title_affected": "suggested",
+      "meta_description_affected": "optional",
+      "url_affected": false,
+      "sitemap_affected": false,
+      "rerun_page_audit": true,
+      "rerun_schema_injection_test": false
+    },
+    {
+      "route": "/facts",
+      "breadcrumb_list_name_affected": "optional",
+      "canonical_affected": false,
+      "title_affected": "suggested",
+      "meta_description_affected": "suggested",
+      "url_affected": false,
+      "sitemap_affected": false,
+      "rerun_page_audit": true,
+      "rerun_schema_injection_test": true
+    },
+    {
+      "route": "/buying-guide",
+      "breadcrumb_list_name_affected": "optional",
+      "canonical_affected": false,
+      "title_affected": "suggested",
+      "meta_description_affected": "optional",
+      "url_affected": false,
+      "sitemap_affected": false,
+      "rerun_page_audit": true,
+      "rerun_schema_injection_test": true
+    }
+  ],
+  "human_review_required": [
+    "Homepage final H1",
+    "/facts final H1",
+    "/buying-guide final H1",
+    "Whether to add or adjust three page summaries",
+    "Short breadcrumb names vs full H1 names",
+    "Whether to update existing BreadcrumbList name fields",
+    "Confirm URL and canonical remain unchanged",
+    "Confirm visible breadcrumb only for two inner pages",
+    "Approval to enter 07C2 implementation"
+  ],
+  "validation_expectations": {
+    "git_diff_allowed_roots": [
+      "docs/",
+      "tools/geo-skill/"
+    ],
+    "app_modified": false,
+    "public_modified": false,
+    "internal_review_content_read": false,
+    "report_contains_absolute_user_paths": false,
+    "report_json_parseable": true,
+    "run_metadata_json_parseable": true
+  },
+  "forbidden_conclusions_generated": []
+}

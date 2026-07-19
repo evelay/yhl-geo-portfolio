@@ -1,0 +1,11 @@
+option_id,route,current_h1,proposed_h1,brand_context,project_context,user_task_clarity,official_implication_risk,unsupported_result_risk,schema_update_required,title_update_suggested,description_update_suggested,recommendation,requires_human_review,notes
+H1-HOME-A,/,让红木家具信息变得可回答、可核验,元亨利品牌 GEO 诊断与内容体系设计,clear,clear,medium,low,low,no,yes,optional,alternative,yes,明确品牌和GEO项目类型；“品牌”一词需要依靠现有项目声明避免被理解为官方委托。
+H1-HOME-B,/,让红木家具信息变得可回答、可核验,元亨利 GEO 可见度诊断与品牌知识体系,clear,clear,medium,low,low,no,yes,optional,alternative,yes,能说明诊断与知识体系；“可见度”需避免被解读为已完成增长结果。
+H1-HOME-C,/,让红木家具信息变得可回答、可核验,元亨利品牌在 AI 搜索中的认知诊断与内容优化,clear,medium,medium,medium,medium,no,yes,yes,alternative,yes,容易理解AI搜索语境；“内容优化”有被误读为已实施优化的风险。
+H1-HOME-D,/,让红木家具信息变得可回答、可核验,元亨利红木家具 GEO 诊断与可核验内容体系,clear,clear,clear,low,low,no,yes,optional,recommended,yes,同时说明品牌、品类、GEO诊断和可核验内容体系；不暗示官方委托或增长结果。
+H1-FACTS-A,/facts,品牌事实与定位,品牌事实与定位,unclear,medium,medium,low,low,no,no,no,alternative,yes,保留当前最小变更；但不能独立说明页面服务的是元亨利语境。
+H1-FACTS-B,/facts,品牌事实与定位,元亨利品牌事实与定位,clear,medium,medium,low,low,optional,yes,optional,alternative,yes,补足品牌实体且与现有title和description容易同步；对来源边界表达不如C充分。
+H1-FACTS-C,/facts,品牌事实与定位,元亨利品牌事实、来源与信息边界,clear,clear,clear,low,low,optional,yes,yes,recommended,yes,最贴近当前页面的事实分层、来源边界和待核验表达；需要人工确认是否替代“定位”一词。
+H1-BUY-A,/buying-guide,购买核验指南,购买核验指南,unclear,medium,medium,low,low,no,no,no,alternative,yes,保留当前最小变更；但脱离导航后不能说明元亨利或红木家具语境。
+H1-BUY-B,/buying-guide,购买核验指南,元亨利红木家具购买核验指南,clear,clear,clear,low,low,optional,yes,optional,recommended,yes,直接说明品牌、品类和用户任务；“核验指南”避免变成购买推荐或品牌背书。
+H1-BUY-C,/buying-guide,购买核验指南,评估元亨利红木家具时应核验什么,clear,clear,clear,low,low,optional,yes,yes,alternative,yes,任务感最强且更少背书风险；但作为页面H1较口语化，title和breadcrumb同步需重新审核。

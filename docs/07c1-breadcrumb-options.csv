@@ -1,0 +1,7 @@
+option_id,route,visible_hierarchy,current_schema_name,proposed_visible_name,proposed_schema_name,h1_alignment,mobile_risk,accessibility_status,basepath_risk,recommendation,requires_human_review,notes
+BC-FACTS-A,/facts,首页 -> 品牌事实与定位,品牌事实与定位,品牌事实与定位,品牌事实与定位,partial-if-H1-updated,low,requires-visible-nav-ol-aria-current,low-if-existing-link-helper-reused,recommended,yes,简短、可读、移动端风险低；若H1改为完整品牌表达，可解释为breadcrumb使用短页面名。
+BC-FACTS-B,/facts,首页 -> 元亨利品牌事实与定位,品牌事实与定位,元亨利品牌事实与定位,元亨利品牌事实与定位,exact-if-H1-B,medium,requires-visible-nav-ol-aria-current,low-if-existing-link-helper-reused,alternative,yes,与完整H1一致性更强；但与页眉品牌和H1可能重复，需要同步JSON-LD name。
+BC-FACTS-C,/facts,首页 -> 元亨利品牌事实、来源与信息边界,品牌事实与定位,元亨利品牌事实、来源与信息边界,元亨利品牌事实、来源与信息边界,exact-if-H1-C,high,requires-visible-nav-ol-aria-current,low-if-existing-link-helper-reused,alternative,yes,与推荐H1完全一致；移动端较长，品牌词重复明显，必须同步JSON-LD name。
+BC-BUY-A,/buying-guide,首页 -> 购买核验指南,购买核验指南,购买核验指南,购买核验指南,partial-if-H1-updated,low,requires-visible-nav-ol-aria-current,low-if-existing-link-helper-reused,recommended,yes,保留现有JSON-LD短名称，可读且移动端稳；若H1加品牌品类，breadcrumb仍可作为短页面名。
+BC-BUY-B,/buying-guide,首页 -> 元亨利红木家具购买核验指南,购买核验指南,元亨利红木家具购买核验指南,元亨利红木家具购买核验指南,exact-if-H1-B,medium,requires-visible-nav-ol-aria-current,low-if-existing-link-helper-reused,alternative,yes,与推荐H1完全一致；页面头部已有品牌标识时会偏长，需同步JSON-LD name。
+BC-BUY-C,/buying-guide,首页 -> 评估元亨利红木家具时应核验什么,购买核验指南,评估元亨利红木家具时应核验什么,评估元亨利红木家具时应核验什么,exact-if-H1-C,high,requires-visible-nav-ol-aria-current,low-if-existing-link-helper-reused,alternative,yes,任务语义最完整；但不太像导航名，移动端长度和JSON-LD name可读性风险高。

@@ -1,0 +1,94 @@
+{
+  "run_id": "07c1-page-blueprint-pilot",
+  "generated_at": "2026-07-19T23:00:35+08:00",
+  "project_git_commit": "1e70b57d8cfdfef79aebc97249220f78080ecf77",
+  "branch": "refactor/portfolio-v2",
+  "upstream": "origin/refactor/portfolio-v2",
+  "ahead_behind_at_start": {
+    "ahead": 0,
+    "behind": 0
+  },
+  "working_tree_at_start": "clean",
+  "skill_source": {
+    "repo": "https://github.com/yaojingang/yao-geo-skills",
+    "commit": "eabfde0f0bdf53f84559bdfcba2595fcac1ad50f",
+    "skill_path": "skills/yao-geo-page-blueprint",
+    "local_upstream_path": "tools/geo-skill/upstream/yao-geo-page-blueprint",
+    "license": "MIT"
+  },
+  "audited_routes": [
+    "/",
+    "/facts",
+    "/buying-guide"
+  ],
+  "visible_breadcrumb_routes": [
+    "/facts",
+    "/buying-guide"
+  ],
+  "input_paths": [
+    "docs/data-governance-decisions.md",
+    "docs/data-sync-policy.md",
+    "docs/publication-readiness.md",
+    "docs/p1-quality-remediation-report.md",
+    "docs/06b-page-audit-method.md",
+    "docs/06b-page-audit-findings.csv",
+    "docs/06b2-canonical-remediation-report.md",
+    "docs/07b-breadcrumb-schema-method.md",
+    "docs/07b2-breadcrumb-injection-report.md",
+    "docs/07b2-schema-before-after.csv",
+    "docs/07b3-public-path-sanitization-report.md",
+    "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/report.md",
+    "tools/geo-skill/reports/page-audit-pilot-after-breadcrumb-schema/report.json",
+    "app/page.tsx",
+    "app/facts/page.tsx",
+    "app/buying-guide/page.tsx",
+    "app/components.tsx",
+    "app/data.ts",
+    "app/globals.css",
+    "app/layout.tsx",
+    "out/index.html",
+    "out/facts/index.html",
+    "out/buying-guide/index.html"
+  ],
+  "excluded_inputs": [
+    "internal-review file contents",
+    "first_setup",
+    "final",
+    "archive",
+    "outdated files",
+    "external canonical workbooks",
+    "raw AI answers",
+    "human scoring workbooks",
+    "unrelated upstream skills",
+    "upstream examples",
+    "screenshots"
+  ],
+  "actions": {
+    "page_files_modified": false,
+    "public_files_modified": false,
+    "json_ld_modified": false,
+    "canonical_modified": false,
+    "sitemap_modified": false,
+    "robots_modified": false,
+    "dependencies_installed": false,
+    "word_pdf_generated": false,
+    "global_skill_installed": false
+  },
+  "network": {
+    "source_retrieval_network_used": true,
+    "blueprint_generation_network_used": false,
+    "api_used": false,
+    "model_used": false,
+    "crawler_used": false
+  },
+  "output_files": [
+    "docs/07c1-page-blueprint-method.md",
+    "docs/07c1-h1-options.csv",
+    "docs/07c1-breadcrumb-options.csv",
+    "docs/07c1-human-review.md",
+    "tools/geo-skill/reports/page-blueprint-pilot/report.md",
+    "tools/geo-skill/reports/page-blueprint-pilot/report.json",
+    "tools/geo-skill/reports/page-blueprint-pilot/run-metadata.json"
+  ],
+  "forbidden_conclusions_generated": []
+}
