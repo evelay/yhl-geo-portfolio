@@ -396,12 +396,12 @@ export const factLevels = [
 ];
 
 export const contentStrategyAssets = [
-  { id: "PAGE-P0-01", priority: "P0", title: "品牌事实与定位MVP", href: "/facts", questionIds: ["q01", "q02", "q12", "q13", "q14", "q15", "q24", "q25"], evidenceLevels: ["L1", "L2", "L3"], updatedAt, status: "已发布" },
-  { id: "PAGE-P0-02", priority: "P0", title: "同名主体消歧", href: "/disambiguation", questionIds: ["q01", "q10", "q11", "q16", "q26", "q27"], evidenceLevels: ["L1", "L2", "L3"], updatedAt, status: "已发布" },
-  { id: "PAGE-P0-03", priority: "P0", title: "材质与产品关系", href: "/materials", questionIds: ["q03", "q04", "q05", "q16", "q27"], evidenceLevels: ["L1", "L2", "L4"], updatedAt, status: "已发布" },
-  { id: "PAGE-P0-04", priority: "P0", title: "京作/明清风格边界", href: "/jingzuo", questionIds: ["q08", "q09", "q21", "q22", "q23", "q27"], evidenceLevels: ["L1", "L2", "L3", "L4"], updatedAt, status: "已发布" },
-  { id: "PAGE-P0-05", priority: "P0", title: "购买核验指南", href: "/buying-guide", questionIds: ["q06", "q07", "q17", "q18", "q19", "q24", "q25", "q26", "q28"], evidenceLevels: ["L1", "L4"], updatedAt, status: "已发布" },
-  { id: "FAQ-P0-HUB", priority: "P0", title: "15条FAQ", href: "/faq", questionIds: ["q01", "q03", "q04", "q05", "q06", "q07", "q10", "q14", "q15", "q17", "q18", "q20", "q24", "q25", "q28"], evidenceLevels: ["L1", "L2", "L3", "L4"], updatedAt, status: "已发布" },
+  { id: "PAGE-P0-01", priority: "P0", title: "品牌事实与定位MVP", href: "/facts", questionIds: ["q01", "q02", "q12", "q13", "q14", "q15", "q24", "q25"], evidenceLevels: ["L1", "L2", "L3"], updatedAt, status: "公开页可发布" },
+  { id: "PAGE-P0-02", priority: "P0", title: "同名主体消歧", href: "/disambiguation", questionIds: ["q01", "q10", "q11", "q16", "q26", "q27"], evidenceLevels: ["L1", "L2", "L3"], updatedAt, status: "公开页可发布" },
+  { id: "PAGE-P0-03", priority: "P0", title: "材质与产品关系", href: "/materials", questionIds: ["q03", "q04", "q05", "q16", "q27"], evidenceLevels: ["L1", "L2", "L4"], updatedAt, status: "公开页可发布" },
+  { id: "PAGE-P0-04", priority: "P0", title: "京作/明清风格边界", href: "/jingzuo", questionIds: ["q08", "q09", "q21", "q22", "q23", "q27"], evidenceLevels: ["L1", "L2", "L3", "L4"], updatedAt, status: "公开页可发布" },
+  { id: "PAGE-P0-05", priority: "P0", title: "购买核验指南", href: "/buying-guide", questionIds: ["q06", "q07", "q17", "q18", "q19", "q24", "q25", "q26", "q28"], evidenceLevels: ["L1", "L4"], updatedAt, status: "公开页可发布" },
+  { id: "FAQ-P0-HUB", priority: "P0", title: "13条公开FAQ（2条hold）", href: "/faq", questionIds: ["q01", "q03", "q04", "q05", "q06", "q07", "q10", "q14", "q15", "q17", "q18", "q20", "q24", "q25", "q28"], evidenceLevels: ["L1", "L2", "L3", "L4"], updatedAt, status: "13条公开，2条暂缓" },
   { id: "PAGE-P1-01", priority: "P1", title: "品牌定位深度页", href: "", questionIds: ["q02", "q07", "q24", "q25"], evidenceLevels: ["L1", "L2", "L3"], updatedAt, status: "待证据" },
   { id: "PAGE-P1-02", priority: "P1", title: "明式/清式风格指南", href: "", questionIds: ["q09", "q22", "q27"], evidenceLevels: ["L1", "L4"], updatedAt, status: "待开始" },
   { id: "PAGE-P1-03", priority: "P1", title: "材质专题组", href: "", questionIds: ["q03", "q04", "q05", "q16"], evidenceLevels: ["L1", "L4"], updatedAt, status: "待开始" },
@@ -413,15 +413,12 @@ export const contentStrategyAssets = [
 ];
 
 export const roadmap90 = [
-  { phase: "0–30天", title: "事实基础", actions: ["冻结口径与四级事实模型", "建立11表品牌事实知识库与公开JSON", "完善5个P0页面和15条FAQ", "补齐来源、边界、更新时间与页面元数据"] },
+  { phase: "0–30天", title: "事实基础", actions: ["冻结口径与四级事实模型", "建立11表品牌事实知识库与安全公开JSON", "完善5个P0页面和13条公开FAQ，保留2条hold记录", "补齐来源、边界、更新时间与页面元数据"] },
   { phase: "31–60天", title: "解释差异", actions: ["证据足够后拆分品牌定位页", "增加风格专题与单件产品证据模板", "完成P0/P1内部链接与来源回链"] },
   { phase: "61–90天", title: "复测维护", actions: ["知识库月度复核与动态信息失效检查", "复核价格、门店、售后等动态信息", "执行10题×5平台在线复测", "形成前后对比与下一轮P2 backlog"] },
 ];
 
-export const strategyDownloads = [
-  { label: "14页方案 PDF", href: downloadPath("yhl-geo-brand-content-optimization-plan.pdf"), type: "PDF" },
-  { label: "可编辑方案 DOCX", href: downloadPath("yhl-geo-brand-content-optimization-plan.docx"), type: "DOCX" },
-];
+export const strategyDownloads = [] as { label: string; href: string; type: string }[];
 
 export const knowledgeDownloads = [
   { label: "安全公开知识库快照", href: downloadPath("yhl-geo-knowledge-base-public.json"), type: "JSON" },

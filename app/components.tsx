@@ -36,7 +36,7 @@ export function Footer() {
     <footer className="site-footer">
       <div>
         <b>研究声明</b>
-        <p>本项目为公开资料研究与求职作品集，不代表元亨利官方，不声称已提升AI收录、曝光或销售。</p>
+        <p>本项目为基于公开资料完成的独立 GEO 研究与求职作品集，未受元亨利委托，不代表品牌官方立场；不声称已提升 AI 收录、引用、曝光、推荐或销售。</p>
       </div>
       <div className="footer-meta">
         <span>更新：{updatedAt}</span>
@@ -58,7 +58,7 @@ export function ProjectDisclaimer({ className = "" }: { className?: string }) {
   return (
     <div className={`project-disclaimer ${className}`.trim()}>
       <b>项目声明</b>
-      <p>本项目为基于公开资料完成的独立 GEO 研究与求职作品集，不是元亨利官方委托，不代表品牌官方立场。页面中的内容、提示词与文章均为研究或示范用途，品牌事实以标注的公开来源和审核状态为准。</p>
+      <p>本项目为基于公开资料完成的独立 GEO 研究与求职作品集，未受元亨利委托，不代表品牌官方立场。页面中的内容、提示词与文章均为研究或示范用途，品牌事实以标注的公开来源和审核状态为准。</p>
     </div>
   );
 }

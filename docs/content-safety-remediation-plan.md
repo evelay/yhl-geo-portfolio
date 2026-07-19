@@ -3,7 +3,7 @@
 审计日期：2026-07-19
 
 适用阶段：阶段 0.4A 之后的修复阶段
-执行状态：本文件只制定计划，不执行修复，不修改页面、数据、下载件或外部 canonical。
+执行状态：阶段 0.4B 已隔离 P0 公开风险；阶段 0.4C 已完成 P1 作品集质量与发布一致性修复。本文件保留原计划，并追加当前完成状态。
 
 ## P0：公开前必须修复
 
@@ -49,11 +49,31 @@
 
 ## 本阶段未执行的事项
 
-- 未修改 `app/data.ts`
-- 未修改页面正文
-- 未修改组件
-- 未修改下载文件
+- 未修改外部 canonical 工作簿
+- 未修改原始 AI 回答
+- 未修改人工评分
+- 未修改核心指标
 - 未修改外部 canonical 文件
-- 未创建同步脚本
 - 未接入 GEO Skill
 - 未创建 Pull Request
+
+## 阶段 0.4B / 0.4C 完成状态
+
+| 问题 ID | 当前状态 | 完成说明 |
+| --- | --- | --- |
+| `CS-001` | resolved | FAQ 页面保留公开，但只展示 13 条已通过来源与发布检查的 FAQ；FAQ-08、FAQ-10 继续 hold。 |
+| `CS-002` | resolved | 公开 FAQ source_id 已使用品牌事实知识库 FAQ 映射，差异记录见 `docs/faq-publication-reconciliation.csv`。 |
+| `CS-003` | mitigated | `/prompt-system` 只公开方法说明、流程、输入输出结构、审核节点和脱敏短示例；完整提示词继续在 `internal-review/downloads`。 |
+| `CS-004` | mitigated | `/geo-articles` 只公开标题、研究目的和审核状态；文章矩阵和完整文章样稿继续在 `internal-review/downloads`。 |
+| `CS-005` | resolved | 公开知识库 JSON 已过滤为 36 条公开事实、24 条可用信源和 13 条 FAQ 映射；完整 XLSX 继续内部复核。 |
+| `CS-006` | mitigated | 首页和策略页已区分内容承接、公开发布状态和复测结果；90 天执行工作簿继续内部复核。 |
+| `CS-007` | resolved | 首页、策略页和方法页已补充 baseline 数据版本、测试日期、平台范围、人工评分说明和主源说明。 |
+| `CS-008` | resolved | `public/downloads/manifest.json` 和 `docs/download-manifest.md` 已同步实际目录、哈希、发布状态、审核状态和验证日期。 |
+| `CS-013` | mitigated | 三份 Markdown 已从公开下载范围移入内部复核；manifest 已记录 internal-review/blocked 状态。文件内审核字段仍待人工补齐后再决定是否公开。 |
+| `CS-014` | resolved | 全站页脚和 metadata description 已补充独立研究、基于公开资料、非官方委托和不代表品牌官方立场。 |
+
+## 阶段 0.4C 新增处理
+
+- `yhl-geo-brand-content-optimization-plan.pdf` 和 `yhl-geo-brand-content-optimization-plan.docx` 经只读文本审计发现旧 `chatgpt.site` 地址，已移入 `internal-review/downloads`。
+- 公开页面已撤下 PDF/DOCX 下载入口；当前公开下载仅保留安全知识库 JSON 和机器可读 manifest。
+- 旧测试已替换为当前发布规则测试：内部文件不得进入 `public/downloads`，但必须存在于 `internal-review/downloads`；公开页面不得链接 blocked/internal-review 文件。

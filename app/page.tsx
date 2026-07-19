@@ -14,7 +14,7 @@ import {
 
 export const metadata: Metadata = {
   title: "公开研究首页",
-  description: "元亨利红木家具GEO公开研究案例：225条AI回答、6项核心诊断、5个内容资产与15条FAQ。",
+  description: "元亨利红木家具GEO公开研究案例：225条AI回答、6项核心诊断、5个内容资产与13条公开FAQ。",
 };
 
 const assets = [
@@ -33,7 +33,7 @@ export default function Home() {
           <div>
             <Eyebrow>GEO · Generative Engine Optimization</Eyebrow>
             <h1>让红木家具信息<br />变得<em>可回答、可核验</em></h1>
-            <p className="lede">一个不代表品牌官方的公开研究案例：用225条AI回答识别实体、来源与高客单决策风险，再把诊断转化为可引用内容资产。</p>
+            <p className="lede">一个基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例：用225条AI回答识别实体、来源与高客单决策风险，再把诊断转化为可核验内容资产。</p>
             <div className="button-row">
               <a className="button primary" href="#diagnoses">查看六项诊断<ArrowIcon /></a>
               <Link className="button" href="/strategy">品牌内容优化方案<ArrowIcon /></Link>
@@ -61,6 +61,10 @@ export default function Home() {
           <Metric value="75" label="用户搜索校准组" note="15题 × 5平台" />
           <Metric value="17.2" label="Baseline平均总分" note="四维总分，满分20" />
           <Metric value="14.9" label="UserIntent平均总分" note="独立报告，不与主样本合并" />
+        </div>
+        <div className="data-version-note">
+          <b>数据版本：baseline 基线，尚未完成复测</b>
+          <p>测试日期按主工作簿记录为 2026-07-13（Baseline 原始日期为 Excel 序列值 46216）；平台范围为豆包、文心一言、通义千问、Kimi、腾讯元宝。四维分数为人工评分，不是模型自动评分；原始数据主源为《元亨利GEO_投递版数据与分析.xlsx》。当前指标不代表优化后增长或长期趋势。</p>
         </div>
         <div className="chart-grid">
           <div className="chart-card"><h3>五平台平均总分</h3><p>Baseline150；0–20分</p><BarChart data={platformScores} max={20} /></div>
@@ -126,12 +130,12 @@ export default function Home() {
       <section className="section alt" id="content-assets">
         <div className="section-head">
           <div><Eyebrow>04 / Content system</Eyebrow><h2>五个独立页面，承接三十个问题</h2></div>
-          <p>每页都有直接答案、来源链接、事实边界、更新时间与相关问题。另设15条FAQ，补充高频问法和边界回答。</p>
+          <p>每页都有直接答案、来源链接、事实边界、更新时间与相关问题。另设13条公开FAQ，补充高频问法和边界回答；FAQ-08、FAQ-10继续hold。</p>
         </div>
         <div className="asset-grid">
           {assets.map(([index,title,desc,href]) => <div className="asset-card" data-index={index} key={href}><span>ASSET {index}</span><h3>{title}</h3><p>{desc}</p><Link href={href}>打开页面<ArrowIcon /></Link></div>)}
         </div>
-        <div className="coverage-band"><strong>30 / 30</strong><p>优化后所有问题均有承接：24题可在证据边界内完整回答，6题明确提示需补官方、第三方或单件资料；不为追求覆盖而虚构事实。</p><Link className="button" href="/faq">查看15条FAQ<ArrowIcon /></Link></div>
+        <div className="coverage-band"><strong>30 / 30</strong><p>内容承接口径覆盖30个基线问题：24题可在证据边界内完整回答，6题明确提示需补官方、第三方或单件资料；这不是平台复测结果，也不为追求覆盖而虚构事实。</p><Link className="button" href="/faq">查看公开FAQ<ArrowIcon /></Link></div>
       </section>
 
       <section className="section dark">
@@ -143,7 +147,7 @@ export default function Home() {
             <div className="method-step"><b>冻结原始回答</b><p>不改写225条历史样本；主案例与校准组分表保存。</p></div>
             <div className="method-step"><b>四维评分与标签</b><p>品牌识别、实体准确、属性覆盖、可靠性各0–5分。</p></div>
             <div className="method-step"><b>证据与信源索引</b><p>evidence_id连接原始行、摘录、来源状态与优化页面。</p></div>
-            <div className="method-step"><b>内容覆盖验证</b><p>以公开资料为优化前基线，以五页内容与FAQ为优化后。</p></div>
+            <div className="method-step"><b>内容承接验证</b><p>以公开资料样本作为 baseline 基线，检查五页内容与公开FAQ是否承接问题，不代表AI复测增长。</p></div>
           </div>
           <div className="limit-card"><h3>明确不声称</h3><ul><li>不声称真实曝光、销售或AI推荐提升。</li><li>不声称50条在线复测已经完成。</li><li>不把“疑似幻觉”直接当成确认错误。</li><li>不反推历史联网状态、模型版本或引用来源。</li><li>不把国家标准或行业常识当作单件产品证明。</li></ul><Link className="button" href="/method">查看完整方法与信源<ArrowIcon /></Link></div>
         </div>
@@ -153,7 +157,7 @@ export default function Home() {
         <div>
           <Eyebrow>06 / Brand content proposal</Eyebrow>
           <h2>诊断之后，下一步怎么做？</h2>
-          <p>独立14页模拟品牌提案已经把六项诊断转换为P0/P1/P2内容架构、四级事实模型、15条FAQ规范、企业知识库、企业提示词体系、完整GEO文章样稿、90天路线图和可验收KPI。</p>
+          <p>独立模拟品牌提案已经把六项诊断转换为P0/P1/P2内容架构、四级事实模型、13条公开FAQ与2条hold记录、安全知识库、提示词公开说明、文章审核状态、90天路线图和可验收KPI。</p>
         </div>
         <div className="button-row">
           <Link className="button primary" href="/strategy">打开品牌内容优化方案<ArrowIcon /></Link>

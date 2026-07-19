@@ -17,5 +17,7 @@
 - `yhl-geo-knowledge-base-public.json`：旧版未过滤公开快照，已由 `public/downloads/yhl-geo-knowledge-base-public.json` 的安全过滤版替换。
 - `yhl-geo-brand-fact-knowledge-base.xlsx`：品牌事实知识库下载副本，外部 canonical 为 `/Users/lay/Documents/New project/outputs/yhl_geo_portfolio_delivery/knowledge_base/元亨利GEO品牌事实知识库.xlsx`，公开下载暂缓。
 - `yhl-geo-90-day-content-execution.xlsx`：90 天执行工作簿下载副本，外部 canonical 为 `/Users/lay/Documents/New project/outputs/yhl_geo_portfolio_delivery/strategy/元亨利红木家具GEO_90天内容执行工作簿.xlsx`，公开下载暂缓。
+- `yhl-geo-brand-content-optimization-plan.pdf`：只读审计发现旧 `chatgpt.site` 公开地址，需重新制作并复核后再决定是否公开。
+- `yhl-geo-brand-content-optimization-plan.docx`：只读审计发现旧 `chatgpt.site` 公开地址，需重新制作并复核后再决定是否公开。
 
-生成时间：2026-07-19T14:40:43+08:00
+生成时间：2026-07-19T15:10:01+08:00

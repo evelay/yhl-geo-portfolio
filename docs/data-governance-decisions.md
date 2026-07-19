@@ -23,9 +23,9 @@
 | 原始回答、人工评分、核心指标 | 投递版数据与分析工作簿 | `/Users/lay/Documents/New project/outputs/yhl_geo_portfolio_delivery/元亨利GEO_投递版数据与分析.xlsx` | canonical |
 | 问题库 | Redwood 30 题问题库 CSV | `/Users/lay/Documents/New project/redwood_geo/data/redwood_question_bank_30.csv` | canonical |
 | 品牌事实、信源、FAQ 映射 | 品牌事实知识库工作簿 | `/Users/lay/Documents/New project/outputs/yhl_geo_portfolio_delivery/knowledge_base/元亨利GEO品牌事实知识库.xlsx` | canonical |
-| 企业提示词体系 | Markdown 源文件 | `/Users/lay/Documents/New project/outputs/yhl_geo_portfolio_delivery/website/public/downloads/yhl-geo-enterprise-prompt-system.md` | canonical |
-| GEO 文章矩阵 | Markdown 源文件 | `/Users/lay/Documents/New project/outputs/yhl_geo_portfolio_delivery/website/public/downloads/yhl-geo-article-matrix.md` | canonical |
-| GEO 完整文章样稿 | Markdown 源文件 | `/Users/lay/Documents/New project/outputs/yhl_geo_portfolio_delivery/website/public/downloads/yhl-geo-full-article-samples.md` | canonical |
+| 企业提示词体系 | Markdown 源文件 | `/Users/lay/Documents/New project/outputs/yhl_geo_portfolio_delivery/website/internal-review/downloads/yhl-geo-enterprise-prompt-system.md` | canonical，当前 internal-review，不公开下载 |
+| GEO 文章矩阵 | Markdown 源文件 | `/Users/lay/Documents/New project/outputs/yhl_geo_portfolio_delivery/website/internal-review/downloads/yhl-geo-article-matrix.md` | canonical，当前 internal-review，不公开下载 |
+| GEO 完整文章样稿 | Markdown 源文件 | `/Users/lay/Documents/New project/outputs/yhl_geo_portfolio_delivery/website/internal-review/downloads/yhl-geo-full-article-samples.md` | canonical，当前 internal-review，不公开下载 |
 | 90 天内容执行计划 | 90 天内容执行工作簿 | `/Users/lay/Documents/New project/outputs/yhl_geo_portfolio_delivery/strategy/元亨利红木家具GEO_90天内容执行工作簿.xlsx` | canonical |
 
 ## 3. 每类数据的主从角色
@@ -62,7 +62,7 @@
 
 角色规则：
 
-- Markdown 源文件：canonical
+- Markdown 源文件：canonical，当前位于 `internal-review/downloads`，不得作为公开下载素材
 - TSX 页面内容：website-copy 或 presentation
 - 构建后的 HTML：derived
 
@@ -70,9 +70,9 @@
 
 | 内容 | Markdown canonical | TSX website-copy / presentation | 状态 |
 |---|---|---|---|
-| 企业提示词体系 | `public/downloads/yhl-geo-enterprise-prompt-system.md` | `app/prompt-system/page.tsx` | 已确认对应 |
-| GEO 文章矩阵 | `public/downloads/yhl-geo-article-matrix.md` | `app/geo-articles/page.tsx` | 已确认对应 |
-| GEO 完整文章样稿 | `public/downloads/yhl-geo-full-article-samples.md` | `app/geo-articles/page.tsx` | 已确认对应 |
+| 企业提示词体系 | `internal-review/downloads/yhl-geo-enterprise-prompt-system.md` | `app/prompt-system/page.tsx` | 已确认对应；完整版本不公开 |
+| GEO 文章矩阵 | `internal-review/downloads/yhl-geo-article-matrix.md` | `app/geo-articles/page.tsx` | 已确认对应；继续审核 |
+| GEO 完整文章样稿 | `internal-review/downloads/yhl-geo-full-article-samples.md` | `app/geo-articles/page.tsx` | 已确认对应；完整正文不公开 |
 
 本次检查未发现“只有 TSX、没有 Markdown”的提示词体系或 GEO 文章样稿项；因此本类当前没有 `missing-canonical-source` 项。
 
@@ -113,7 +113,8 @@
 - `app/data.ts`：展示副本，承载指标、FAQ、信源子集、诊断卡、路线图和下载链接。
 - `app/knowledge-base/knowledge-base-public.json`：公开知识库 JSON 的网站内派生副本。
 - `public/data/yhl-geo-knowledge-base-public.json`：公开知识库 JSON 的 public 数据副本。
-- `public/downloads/*`：交付下载副本或 Markdown canonical。
+- `public/downloads/*`：仅存放 approved / conditional 的公开下载副本和下载清单。
+- `internal-review/downloads/*`：存放 blocked / internal-review 下载件和完整 Markdown canonical。
 - TSX 页面：展示副本或 presentation，不作为核心数据 canonical。
 
 ## 5. 需要人工确认的数据

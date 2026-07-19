@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const priorities = [
-  { id: "P0", label: "先建立可回答的事实底座", note: "5个内容页 + 15条FAQ；直接解决主体、来源、材质、风格和购买核验。" },
+  { id: "P0", label: "先建立可回答的事实底座", note: "5个内容页 + 13条公开FAQ，2条FAQ继续hold；直接解决主体、来源、材质、风格和购买核验。" },
   { id: "P1", label: "再解释差异与产品证据", note: "品牌定位、风格专题、材质专题与单件产品证据模板。" },
   { id: "P2", label: "最后形成可维护内容系统", note: "产品数据库、展览案例、工艺专题与中性品牌比较页。" },
 ];
@@ -23,7 +23,8 @@ export default function StrategyPage() {
           <h1>品牌内容优化方案</h1>
           <p>核心不是继续增加营销文案，而是把“AI知道元亨利”升级为“AI和用户能够找到、核验并正确引用元亨利信息”。</p>
           <div className="button-row">
-            {strategyDownloads.map((file) => <a className={file.type === "PDF" ? "button primary" : "button"} href={file.href} download key={file.href}>{file.label}<ArrowIcon /></a>)}
+            <Link className="button primary" href="/knowledge-base">查看安全知识库<ArrowIcon /></Link>
+            <Link className="button" href="/method">查看方法与限制<ArrowIcon /></Link>
           </div>
         </div>
         <aside className="strategy-verdict">
@@ -44,6 +45,10 @@ export default function StrategyPage() {
           <Metric value="10.7%" label="有效来源覆盖" note="Baseline150：16/150" />
           <Metric value="149/150" label="Reliability Gap" note="识别高于可靠性的回答" />
         </div>
+        <div className="data-version-note">
+          <b>数据版本：baseline 基线，尚未完成复测</b>
+          <p>本页指标来自《元亨利GEO_投递版数据与分析.xlsx》的人工评分摘要；测试平台为豆包、文心一言、通义千问、Kimi、腾讯元宝，测试日期按主源记录为 2026-07-13。它们不是模型自动评分，也不代表优化后增长。</p>
+        </div>
         <div className="strategy-goals">
           <div><b>统一主体</b><p>名称、业务、地域、官网与同名排除项保持一致。</p></div>
           <div><b>补足来源</b><p>每条强事实绑定source_id、URL、更新时间与证据等级。</p></div>
@@ -51,7 +56,7 @@ export default function StrategyPage() {
           <div><b>控制风险</b><p>价格、门店、售后与收藏表达保留时间和适用边界。</p></div>
         </div>
         <div className="knowledge-callout">
-          <div><b>新增交付：企业知识库 + 企业提示词体系 + 完整GEO文章样稿</b><p>11表品牌事实知识库把27条信源、41条事实原子、30个问题和15条FAQ连成统一事实底座；提示词体系再把事实等级、边界规则和标准回答转成AI可执行协议；文章样稿负责展示不同关键词下的内容资产生成方式。</p></div>
+          <div><b>当前公开交付：安全知识库 + 提示词公开说明 + 文章审核状态</b><p>安全公开快照保留24条可用信源、36条公开事实、25条诊断问题映射和13条FAQ映射；完整知识库、完整提示词和完整文章样稿继续留在内部复核区。</p></div>
           <div className="button-row">
             <Link className="button" href="/knowledge-base">查看知识库<ArrowIcon /></Link>
             <Link className="button" href="/prompt-system">查看提示词体系<ArrowIcon /></Link>
@@ -63,7 +68,7 @@ export default function StrategyPage() {
       <section className="section strategy-architecture">
         <div className="section-head">
           <div><Eyebrow>02 / Content architecture</Eyebrow><h2>P0 / P1 / P2 内容架构</h2></div>
-          <p>30个诊断问题全部映射到内容资产：24题完整回答，6题明确停在证据边界。</p>
+          <p>内容承接口径覆盖30个基线诊断问题：24题完整回答，6题明确停在证据边界；这是页面质量检查，不是平台复测结果。</p>
         </div>
         <div className="priority-grid">
           {priorities.map((p) => {
@@ -98,11 +103,11 @@ export default function StrategyPage() {
           <div><Eyebrow>05 / KPI & acceptance</Eyebrow><h2>先验收内容质量，再观察平台变化</h2></div>
         </div>
         <div className="kpi-columns">
-          <div><span>可控硬指标</span><ul><li>30/30问题有内容承接</li><li>24题完整回答、6题边界回答</li><li>6个P0资产、15条FAQ、24条可用信源</li><li>页面五项字段质检100%通过</li><li>来源、更新时间、内部链接与元数据齐全</li></ul></div>
+          <div><span>可控硬指标</span><ul><li>30/30基线问题有内容承接</li><li>24题完整回答、6题边界回答</li><li>5个P0公开页面、13条公开FAQ、24条可用信源</li><li>FAQ-08、FAQ-10继续hold，不进入公开页</li><li>来源、更新时间、内部链接与元数据齐全</li></ul></div>
           <div><span>第二阶段观察指标</span><ul><li>10题×5平台在线复测</li><li>品牌自然提及、有效来源覆盖与确认幻觉变化</li><li>不把单轮变化写成平台收录或效果归因</li><li>不声称曝光、销售、推荐或品牌影响力提升</li></ul></div>
         </div>
-        <div className="download-panel"><div><b>完整执行文件</b><p>14页主方案、可编辑版、7工作表的90天执行工作簿、独立企业知识库、企业提示词体系，以及完整GEO文章样稿。数据口径与本网站一致。更新：{updatedAt}</p></div><div className="button-row">{[...strategyDownloads, ...knowledgeDownloads].map((file) => <a className="button" href={file.href} download key={file.href}>{file.type}<ArrowIcon /></a>)}<Link className="button" href="/prompt-system">PROMPT<ArrowIcon /></Link><Link className="button" href="/geo-articles">ARTICLES<ArrowIcon /></Link></div></div>
-        <p className="strategy-disclaimer">研究声明：本方案为个人公开研究与模拟品牌提案，不代表元亨利官方或品牌委托；不声称已经获得AI收录、引用、曝光、推荐或销售提升。</p>
+        <div className="download-panel"><div><b>公开下载状态</b><p>当前公开下载仅保留安全知识库 JSON。14页 PDF/DOCX、90天执行工作簿、完整知识库、完整提示词和完整文章样稿均在内部复核区，不提供公开下载。更新：{updatedAt}</p></div><div className="button-row">{[...strategyDownloads, ...knowledgeDownloads].map((file) => <a className="button" href={file.href} download key={file.href}>{file.type}<ArrowIcon /></a>)}<Link className="button" href="/prompt-system">PROMPT<ArrowIcon /></Link><Link className="button" href="/geo-articles">ARTICLES<ArrowIcon /></Link></div></div>
+        <p className="strategy-disclaimer">研究声明：本方案为基于公开资料完成的独立 GEO 研究与模拟品牌提案，未受元亨利委托，不代表品牌官方立场；不声称已经获得AI收录、引用、曝光、推荐或销售提升。</p>
       </section>
     </SiteShell>
   );

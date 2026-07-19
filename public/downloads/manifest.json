@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T14:40:43+08:00",
+  "generated_at": "2026-07-19T15:10:01+08:00",
   "publication_scope": "public downloads and internal-review inventory",
   "files": [
     {
@@ -12,40 +12,40 @@
       "derived_or_source": "derived",
       "publication_status": "public",
       "review_status": "approved",
-      "last_verified": "2026-07-19T14:40:43+08:00",
-      "disclaimer": "独立 GEO 研究与求职作品集，不代表元亨利官方立场，不承诺 AI 收录、引用、曝光、推荐或销售提升。",
-      "sha256": "889ab2738e42bdcb19946bd1998803ae4e4655c89949c8bba77bd4e53e1d583c",
+      "last_verified": "2026-07-19T15:10:01+08:00",
+      "disclaimer": "独立 GEO 研究与求职作品集，未受元亨利委托，不代表品牌官方立场，不承诺 AI 收录、引用、曝光、推荐或销售提升。",
+      "sha256": "379fbec902654f6daabd5cf5eb5ff856cd418f78e09ba5c772f6e69b8895c991",
       "public_url": "/downloads/yhl-geo-knowledge-base-public.json"
     },
     {
       "file_id": "PLAN-PDF-PUBLIC-001",
       "filename": "yhl-geo-brand-content-optimization-plan.pdf",
-      "title": "14页品牌内容优化方案 PDF",
+      "title": "14页品牌内容优化方案 PDF（内部复核）",
       "category": "strategy-report",
       "source_file": "/Users/lay/Documents/New project/outputs/yhl_geo_portfolio_delivery/strategy/rendered_strategy/元亨利红木家具GEO品牌内容优化方案_14页.pdf",
       "source_version": "f52cfa9b65c2decd09343c215900f21ab9534ef52f643d25450a2876d145e0d5",
       "derived_or_source": "delivery",
-      "publication_status": "public",
-      "review_status": "conditional",
-      "last_verified": "2026-07-19T14:40:43+08:00",
-      "disclaimer": "独立 GEO 研究与求职作品集，不代表元亨利官方立场，不承诺 AI 收录、引用、曝光、推荐或销售提升。",
+      "publication_status": "internal-review",
+      "review_status": "blocked",
+      "last_verified": "2026-07-19T15:10:01+08:00",
+      "disclaimer": "文件包含旧公开站地址，需重新制作并完成发布审核后再决定是否公开。",
       "sha256": "f52cfa9b65c2decd09343c215900f21ab9534ef52f643d25450a2876d145e0d5",
-      "public_url": "/downloads/yhl-geo-brand-content-optimization-plan.pdf"
+      "public_url": ""
     },
     {
       "file_id": "PLAN-DOCX-PUBLIC-001",
       "filename": "yhl-geo-brand-content-optimization-plan.docx",
-      "title": "14页品牌内容优化方案 DOCX",
+      "title": "14页品牌内容优化方案 DOCX（内部复核）",
       "category": "strategy-report",
       "source_file": "/Users/lay/Documents/New project/outputs/yhl_geo_portfolio_delivery/strategy/元亨利红木家具GEO品牌内容优化方案_14页.docx",
       "source_version": "09003be280ec4802657d98ed3b81a9d72541b25d269c024b957ca7f15ac34b52",
       "derived_or_source": "delivery",
-      "publication_status": "public",
-      "review_status": "conditional",
-      "last_verified": "2026-07-19T14:40:43+08:00",
-      "disclaimer": "独立 GEO 研究与求职作品集，不代表元亨利官方立场，不承诺 AI 收录、引用、曝光、推荐或销售提升。",
+      "publication_status": "internal-review",
+      "review_status": "blocked",
+      "last_verified": "2026-07-19T15:10:01+08:00",
+      "disclaimer": "文件包含旧公开站地址，需重新制作并完成发布审核后再决定是否公开。",
       "sha256": "09003be280ec4802657d98ed3b81a9d72541b25d269c024b957ca7f15ac34b52",
-      "public_url": "/downloads/yhl-geo-brand-content-optimization-plan.docx"
+      "public_url": ""
     },
     {
       "file_id": "PROMPT-MD-INTERNAL-001",
@@ -57,7 +57,7 @@
       "derived_or_source": "canonical",
       "publication_status": "internal-review",
       "review_status": "blocked",
-      "last_verified": "2026-07-19T14:40:43+08:00",
+      "last_verified": "2026-07-19T15:10:01+08:00",
       "disclaimer": "完整版本为内部研究资产，不公开展示或下载。",
       "sha256": "37b965072cdf133df04dc2e00336eeb057f4aa1b9da74f6a2755e54c94179b6c",
       "public_url": ""
@@ -72,7 +72,7 @@
       "derived_or_source": "canonical",
       "publication_status": "internal-review",
       "review_status": "blocked",
-      "last_verified": "2026-07-19T14:40:43+08:00",
+      "last_verified": "2026-07-19T15:10:01+08:00",
       "disclaimer": "含待补来源，需人工审核后再决定是否公开。",
       "sha256": "030b731e5df180c6f14c7a361153cd8452775bcaa6e1cd21c390d71f64fdcb20",
       "public_url": ""
@@ -87,7 +87,7 @@
       "derived_or_source": "canonical",
       "publication_status": "internal-review",
       "review_status": "blocked",
-      "last_verified": "2026-07-19T14:40:43+08:00",
+      "last_verified": "2026-07-19T15:10:01+08:00",
       "disclaimer": "样稿未完成公开发布审核，不公开下载。",
       "sha256": "2b22f26ff966f0f0cb8275b8d6d6240df47d6a722eb73913433af624ad08c46e",
       "public_url": ""
@@ -102,7 +102,7 @@
       "derived_or_source": "delivery",
       "publication_status": "internal-review",
       "review_status": "blocked",
-      "last_verified": "2026-07-19T14:40:43+08:00",
+      "last_verified": "2026-07-19T15:10:01+08:00",
       "disclaimer": "完整工作簿含待补记录，公开下载暂缓。",
       "sha256": "7924fb2cbd5c9424c020b71242cb3dafb9e5b3b262e23e08992621b7840953a5",
       "public_url": ""
@@ -117,7 +117,7 @@
       "derived_or_source": "delivery",
       "publication_status": "internal-review",
       "review_status": "blocked",
-      "last_verified": "2026-07-19T14:40:43+08:00",
+      "last_verified": "2026-07-19T15:10:01+08:00",
       "disclaimer": "工作簿含发布状态语义待复核内容，公开下载暂缓。",
       "sha256": "1fa3a1550678be10c1e7105e69ea7fa53526fc79375369f8f5191f5da30b10bb",
       "public_url": ""
@@ -132,7 +132,7 @@
       "derived_or_source": "derived",
       "publication_status": "internal-review",
       "review_status": "blocked",
-      "last_verified": "2026-07-19T14:40:43+08:00",
+      "last_verified": "2026-07-19T15:10:01+08:00",
       "disclaimer": "旧版包含待复核记录，已由安全过滤版替换。",
       "sha256": "7f29e60ab99e341545b0cb5985f7c5ac71de47d81c2fa7ecb3eb3a641b215cea",
       "public_url": ""
