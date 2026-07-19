@@ -1,0 +1,181 @@
+{
+  "stage": "07B",
+  "validation_status": "valid",
+  "draft_count": 2,
+  "checks": [
+    {
+      "id": "expected_two_drafts",
+      "status": "pass",
+      "detail": "exactly /facts and /buying-guide draft files are planned"
+    },
+    {
+      "id": "homepage_canonical_matches_html",
+      "status": "pass",
+      "detail": "homepage canonical matches rendered HTML and config"
+    },
+    {
+      "id": "stable_jsonld_generation",
+      "status": "pass",
+      "detail": "same config produces byte-stable JSON-LD draft content"
+    },
+    {
+      "id": "no_app_or_public_write_targets",
+      "status": "pass",
+      "detail": "planned outputs do not target app/ or public/"
+    },
+    {
+      "id": "/facts_jsonld_context",
+      "status": "pass",
+      "detail": "facts-breadcrumb.jsonld uses https://schema.org"
+    },
+    {
+      "id": "/facts_jsonld_type",
+      "status": "pass",
+      "detail": "facts-breadcrumb.jsonld uses BreadcrumbList only"
+    },
+    {
+      "id": "/facts_item_list_array",
+      "status": "pass",
+      "detail": "itemListElement is an array"
+    },
+    {
+      "id": "/facts_positions_continuous",
+      "status": "pass",
+      "detail": "positions are 1 and 2"
+    },
+    {
+      "id": "/facts_homepage_position_1",
+      "status": "pass",
+      "detail": "homepage is position 1"
+    },
+    {
+      "id": "/facts_target_position_2",
+      "status": "pass",
+      "detail": "target page is position 2"
+    },
+    {
+      "id": "/facts_canonical_matches_html",
+      "status": "pass",
+      "detail": "draft target URL matches rendered canonical"
+    },
+    {
+      "id": "/facts_page_name_matches_h1",
+      "status": "pass",
+      "detail": "draft page name matches rendered H1"
+    },
+    {
+      "id": "/facts_no_extra_levels",
+      "status": "pass",
+      "detail": "breadcrumb contains only homepage and target page"
+    },
+    {
+      "id": "/facts_list_items_complete",
+      "status": "pass",
+      "detail": "each ListItem has @type, name and item"
+    },
+    {
+      "id": "/facts_no_duplicate_base_path",
+      "status": "pass",
+      "detail": "no duplicated /yhl-geo-portfolio/ basePath"
+    },
+    {
+      "id": "/facts_no_forbidden_url_parts",
+      "status": "pass",
+      "detail": "no chatgpt.site, localhost, 127.0.0.1, local absolute path markers or duplicated basePath"
+    },
+    {
+      "id": "/facts_no_forbidden_schema_types",
+      "status": "pass",
+      "detail": "no Organization, Brand, Person, Article, FAQPage, Product, Offer, Review or AggregateRating"
+    },
+    {
+      "id": "/facts_no_forbidden_properties",
+      "status": "pass",
+      "detail": "only BreadcrumbList/ListItem properties are present"
+    },
+    {
+      "id": "/buying-guide_jsonld_context",
+      "status": "pass",
+      "detail": "buying-guide-breadcrumb.jsonld uses https://schema.org"
+    },
+    {
+      "id": "/buying-guide_jsonld_type",
+      "status": "pass",
+      "detail": "buying-guide-breadcrumb.jsonld uses BreadcrumbList only"
+    },
+    {
+      "id": "/buying-guide_item_list_array",
+      "status": "pass",
+      "detail": "itemListElement is an array"
+    },
+    {
+      "id": "/buying-guide_positions_continuous",
+      "status": "pass",
+      "detail": "positions are 1 and 2"
+    },
+    {
+      "id": "/buying-guide_homepage_position_1",
+      "status": "pass",
+      "detail": "homepage is position 1"
+    },
+    {
+      "id": "/buying-guide_target_position_2",
+      "status": "pass",
+      "detail": "target page is position 2"
+    },
+    {
+      "id": "/buying-guide_canonical_matches_html",
+      "status": "pass",
+      "detail": "draft target URL matches rendered canonical"
+    },
+    {
+      "id": "/buying-guide_page_name_matches_h1",
+      "status": "pass",
+      "detail": "draft page name matches rendered H1"
+    },
+    {
+      "id": "/buying-guide_no_extra_levels",
+      "status": "pass",
+      "detail": "breadcrumb contains only homepage and target page"
+    },
+    {
+      "id": "/buying-guide_list_items_complete",
+      "status": "pass",
+      "detail": "each ListItem has @type, name and item"
+    },
+    {
+      "id": "/buying-guide_no_duplicate_base_path",
+      "status": "pass",
+      "detail": "no duplicated /yhl-geo-portfolio/ basePath"
+    },
+    {
+      "id": "/buying-guide_no_forbidden_url_parts",
+      "status": "pass",
+      "detail": "no chatgpt.site, localhost, 127.0.0.1, local absolute path markers or duplicated basePath"
+    },
+    {
+      "id": "/buying-guide_no_forbidden_schema_types",
+      "status": "pass",
+      "detail": "no Organization, Brand, Person, Article, FAQPage, Product, Offer, Review or AggregateRating"
+    },
+    {
+      "id": "/buying-guide_no_forbidden_properties",
+      "status": "pass",
+      "detail": "only BreadcrumbList/ListItem properties are present"
+    }
+  ],
+  "drafts": [
+    {
+      "draft_id": "07B-BREADCRUMB-FACTS",
+      "route": "/facts",
+      "draft_file": "facts-breadcrumb.jsonld",
+      "status": "valid"
+    },
+    {
+      "draft_id": "07B-BREADCRUMB-BUYING-GUIDE",
+      "route": "/buying-guide",
+      "draft_file": "buying-guide-breadcrumb.jsonld",
+      "status": "valid"
+    }
+  ]
+}

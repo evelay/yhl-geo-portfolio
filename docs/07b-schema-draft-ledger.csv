@@ -1,0 +1,4 @@
+draft_id,schema_type,target_route,source_route,page_name,canonical_url,hierarchy,draft_file,validation_status,page_match_status,eligible_for_injection,requires_human_review,status,notes
+07B-BREADCRUMB-FACTS,BreadcrumbList,/facts,/,品牌事实与定位,https://evelay.github.io/yhl-geo-portfolio/facts/,首页 > 品牌事实与定位,tools/geo-skill/reports/schema-draft-pilot/facts-breadcrumb.jsonld,valid,match,no,yes,draft,页面 H1 与 metadata title 为“品牌事实与定位”；导航短标签为“品牌事实”；进入注入前需人工确认显示名。
+07B-BREADCRUMB-BUYING-GUIDE,BreadcrumbList,/buying-guide,/,购买核验指南,https://evelay.github.io/yhl-geo-portfolio/buying-guide/,首页 > 购买核验指南,tools/geo-skill/reports/schema-draft-pilot/buying-guide-breadcrumb.jsonld,valid,match,no,yes,draft,页面 H1 与 metadata title 为“购买核验指南”；导航短标签为“购买核验”；进入注入前需人工确认显示名。
+

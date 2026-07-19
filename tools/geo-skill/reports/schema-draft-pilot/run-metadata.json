@@ -1,0 +1,34 @@
+{
+  "stage": "07B",
+  "stage_name": "BreadcrumbList Schema isolated draft pilot",
+  "generated_date": "2026-07-19",
+  "script": "tools/geo-skill/adapters/schema-draft/build_breadcrumb_drafts.py",
+  "config": "tools/geo-skill/adapters/schema-draft/breadcrumb-config.json",
+  "python_standard_library_only": true,
+  "network_access": "not-used",
+  "api_calls": "none",
+  "model_calls": "none",
+  "internal_review_read": "no",
+  "archive_read": "no",
+  "page_injection": "no",
+  "app_public_write": "no",
+  "build_command": "not run in 07B; out/ was used as the current read-only build artifact after timestamp and clean-status checks",
+  "source_documents": [
+    "docs/07a2-human-decision-record.md",
+    "docs/07a2-schema-scope.csv",
+    "docs/07a2-schema-candidate-classification.csv",
+    "docs/07a2-07b-entry-gate.md",
+    "docs/07a-schema-input-candidates.csv",
+    "docs/07a-brand-graph-method.md",
+    "docs/06b2-canonical-remediation-report.md",
+    "docs/06b2-before-after-summary.csv"
+  ],
+  "outputs": [
+    "facts-breadcrumb.jsonld",
+    "buying-guide-breadcrumb.jsonld",
+    "breadcrumb-draft-report.md",
+    "breadcrumb-validation.json",
+    "run-metadata.json"
+  ],
+  "validation_status": "valid"
+}

@@ -1,0 +1,66 @@
+{
+  "stage": "07B",
+  "stage_name": "BreadcrumbList Schema isolated draft pilot",
+  "generated_date": "2026-07-19",
+  "schema_context": "https://schema.org",
+  "schema_type": "BreadcrumbList",
+  "allowed_output_dir": "tools/geo-skill/reports/schema-draft-pilot",
+  "root": {
+    "route": "/",
+    "name": "首页",
+    "canonical_url": "https://evelay.github.io/yhl-geo-portfolio/",
+    "html_path": "out/index.html",
+    "observed_public_names": {
+      "metadata_title": "公开研究首页",
+      "nav_label": "研究首页",
+      "brand_mark": "元亨利 GEO / 公开研究案例"
+    }
+  },
+  "pages": [
+    {
+      "draft_id": "07B-BREADCRUMB-FACTS",
+      "route": "/facts",
+      "source_route": "/",
+      "page_name": "品牌事实与定位",
+      "nav_label": "品牌事实",
+      "metadata_title": "品牌事实与定位",
+      "canonical_url": "https://evelay.github.io/yhl-geo-portfolio/facts/",
+      "hierarchy": [
+        "首页",
+        "品牌事实与定位"
+      ],
+      "draft_file": "facts-breadcrumb.jsonld",
+      "html_path": "out/facts/index.html",
+      "source_file": "app/facts/page.tsx",
+      "notes": "页面 H1 和 metadata.title 均为“品牌事实与定位”；导航短标签为“品牌事实”。"
+    },
+    {
+      "draft_id": "07B-BREADCRUMB-BUYING-GUIDE",
+      "route": "/buying-guide",
+      "source_route": "/",
+      "page_name": "购买核验指南",
+      "nav_label": "购买核验",
+      "metadata_title": "购买核验指南",
+      "canonical_url": "https://evelay.github.io/yhl-geo-portfolio/buying-guide/",
+      "hierarchy": [
+        "首页",
+        "购买核验指南"
+      ],
+      "draft_file": "buying-guide-breadcrumb.jsonld",
+      "html_path": "out/buying-guide/index.html",
+      "source_file": "app/buying-guide/page.tsx",
+      "notes": "页面 H1 和 metadata.title 均为“购买核验指南”；导航短标签为“购买核验”。"
+    }
+  ],
+  "source_documents": [
+    "docs/07a2-human-decision-record.md",
+    "docs/07a2-schema-scope.csv",
+    "docs/07a2-schema-candidate-classification.csv",
+    "docs/07a2-07b-entry-gate.md",
+    "docs/07a-schema-input-candidates.csv",
+    "docs/07a-brand-graph-method.md",
+    "docs/06b2-canonical-remediation-report.md",
+    "docs/06b2-before-after-summary.csv"
+  ]
+}
+
