@@ -114,6 +114,7 @@
 - `app/knowledge-base/knowledge-base-public.json`：公开知识库 JSON 的网站内派生副本。
 - `public/data/yhl-geo-knowledge-base-public.json`：公开知识库 JSON 的 public 数据副本。
 - `public/downloads/*`：仅存放 approved / conditional 的公开下载副本和下载清单。
+- `public/downloads/manifest.json`：浏览器可见的下载清单，只使用 `source_id`、`source_label`、`source_scope` 和 `source_version` 记录逻辑来源，不记录本地绝对路径。
 - `internal-review/downloads/*`：存放 blocked / internal-review 下载件和完整 Markdown canonical。
 - TSX 页面：展示副本或 presentation，不作为核心数据 canonical。
 
@@ -151,7 +152,7 @@
 4. 品牌事实知识库更新后，必须重新导出公开知识库 JSON。
 5. 90 天策略工作簿更新后，必须重新生成或复核网站策略页面、下载副本和相关截图/PDF。
 6. Markdown canonical 更新后，必须同步检查对应 TSX 页面展示内容。
-7. 每次导出 public 快照或下载副本后，必须记录来源路径、版本日期和哈希。
+7. 每次导出 public 快照或下载副本后，内部治理文档必须记录来源路径、版本日期和哈希；公开 manifest 只记录逻辑来源标识、来源版本和公开文件哈希。
 
 ## 8. 网站同步规则
 

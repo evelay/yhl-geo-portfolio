@@ -81,6 +81,8 @@
 
 `public/downloads/manifest.json` 与 `docs/download-manifest.md` 已同步。
 
+07B3 追加清理：公开 manifest 的来源追溯字段已改为逻辑来源 ID/标签/范围，真实本地路径只保留在内部治理文档。
+
 当前公开下载范围：
 
 - `public/downloads/yhl-geo-knowledge-base-public.json`
@@ -89,7 +91,7 @@
 公开文件哈希：
 
 - `yhl-geo-knowledge-base-public.json`：`379fbec902654f6daabd5cf5eb5ff856cd418f78e09ba5c772f6e69b8895c991`
-- `manifest.json`：`e252a867cb82e6f24173a1fa67caafb46e0062e7e687d171ad7845479858757c`
+- `manifest.json`：`dbfeca4ad231a0ad04a6a2d7d9a7e8d73a41a66e2952627121bea06f8a1d6932`
 
 当前 internal-review 下载范围：
 

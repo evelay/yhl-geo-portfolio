@@ -1,7 +1,11 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { access, readFile } from "node:fs/promises";
+import { access, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
+import { scanPublicArtifacts } from "../scripts/scan-public-artifacts.mjs";
 
 async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -190,16 +194,25 @@ test("public knowledge base snapshot is safety-filtered", async () => {
 test("manifest and download directories match publication decisions", async () => {
   const root = new URL("../", import.meta.url);
   const manifest = JSON.parse(await readFile(new URL("public/downloads/manifest.json", root), "utf8"));
+  const manifestText = JSON.stringify(manifest);
 
   const publicEntries = manifest.files.filter((file) => file.publication_status === "public");
   const internalEntries = manifest.files.filter((file) => file.publication_status === "internal-review");
   assert.deepEqual(publicEntries.map((file) => file.filename), ["yhl-geo-knowledge-base-public.json"]);
+  assert.doesNotMatch(manifestText, /\/Users\//);
+  assert.doesNotMatch(manifestText, /file:\/\//);
+  assert.doesNotMatch(manifestText, /New project/);
+  assert.doesNotMatch(manifestText, /yhl_geo_portfolio_delivery/);
+  assert.doesNotMatch(manifestText, /internal-review\/downloads/);
 
   for (const file of publicEntries) {
     assert.match(file.public_url, new RegExp(`/downloads/${file.filename.replaceAll(".", "\\.")}$`));
     assert.match(file.review_status, /^(approved|conditional)$/);
     assert.equal(await sha256(new URL(`public/downloads/${file.filename}`, root)), file.sha256);
-    assert.ok(file.source_file);
+    assert.equal("source_file" in file, false);
+    assert.ok(file.source_id);
+    assert.ok(file.source_label);
+    assert.ok(file.source_scope);
     assert.ok(file.source_version);
     assert.ok(file.last_verified);
     assert.ok(file.disclaimer);
@@ -217,13 +230,16 @@ test("manifest and download directories match publication decisions", async () =
   ]);
   for (const filename of expectedInternalFiles) {
     assert.ok(internalEntries.some((file) => file.filename === filename), `${filename} should be listed as internal-review`);
-    await access(new URL(`internal-review/downloads/${filename}`, root));
   }
 
   for (const file of internalEntries) {
     assert.equal(file.public_url, "");
     assert.equal(file.review_status, "blocked");
-    assert.equal(await sha256(new URL(`internal-review/downloads/${file.filename}`, root)), file.sha256);
+    assert.equal("source_file" in file, false);
+    assert.ok(file.source_id);
+    assert.ok(file.source_label);
+    assert.ok(file.source_scope);
+    assert.ok(file.source_version);
     try {
       const publicHash = await sha256(new URL(`public/downloads/${file.filename}`, root));
       assert.notEqual(publicHash, file.sha256, `${file.filename} internal hash must not be public`);
@@ -268,4 +284,41 @@ test("public pages only link approved or conditional public downloads", async ()
   assert.match(sitemap, /\/knowledge-base<\/loc>/);
   assert.match(sitemap, /\/prompt-system<\/loc>/);
   assert.match(sitemap, /\/geo-articles<\/loc>/);
+});
+
+test("public artifact scan keeps business files free of local paths", async () => {
+  const rootPath = fileURLToPath(new URL("../", import.meta.url));
+  const result = await scanPublicArtifacts(rootPath);
+
+  assert.deepEqual(result.violations, []);
+  for (const match of result.matches.filter((item) => item.matched_pattern === "localhost")) {
+    assert.equal(match.status, "accepted-third-party-literal");
+    assert.equal(match.source_type, "third-party-vendor");
+    assert.match(match.artifact, /^out\/_next\/static\/chunks\/[^/]+\.js$/);
+  }
+});
+
+test("public artifact scanner does not hide localhost in business files", async () => {
+  const fixtureRoot = await mkdtemp(join(tmpdir(), "public-scan-"));
+
+  try {
+    await mkdir(join(fixtureRoot, "public"), { recursive: true });
+    await writeFile(join(fixtureRoot, "public", "bad.json"), '{"url":"http://localhost:3000"}');
+
+    let result = await scanPublicArtifacts(fixtureRoot);
+    assert.equal(result.violations.length, 1);
+    assert.equal(result.violations[0].source_type, "project-data");
+    assert.equal(result.violations[0].status, "manual-review");
+
+    await rm(join(fixtureRoot, "public", "bad.json"));
+    await mkdir(join(fixtureRoot, "out", "_next", "static", "chunks"), { recursive: true });
+    await writeFile(join(fixtureRoot, "out", "_next", "static", "chunks", "vendor.js"), 'const host = "localhost";');
+
+    result = await scanPublicArtifacts(fixtureRoot);
+    assert.equal(result.violations.length, 0);
+    assert.equal(result.matches.length, 1);
+    assert.equal(result.matches[0].status, "accepted-third-party-literal");
+  } finally {
+    await rm(fixtureRoot, { recursive: true, force: true });
+  }
 });

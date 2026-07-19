@@ -3,7 +3,7 @@
 审计日期：2026-07-19
 
 适用阶段：阶段 0.4A 之后的修复阶段
-执行状态：阶段 0.4B 已隔离 P0 公开风险；阶段 0.4C 已完成 P1 作品集质量与发布一致性修复。本文件保留原计划，并追加当前完成状态。
+执行状态：阶段 0.4B 已隔离 P0 公开风险；阶段 0.4C 已完成 P1 作品集质量与发布一致性修复；阶段 07B3 已清理公开 manifest 本地路径。本文件保留原计划，并追加当前完成状态。
 
 ## P0：公开前必须修复
 
@@ -21,7 +21,7 @@
 | 目标文件 | 问题 ID | 需要修改的内容 | 应参考的 canonical | 是否需要人工决定 | 验收标准 |
 | --- | --- | --- | --- | --- | --- |
 | `app/page.tsx`; `app/method/page.tsx`; `app/strategy/page.tsx` | `CS-007` | 在方法说明或指标区补充测试日期、`test_mode`、`web_search_status`、模型版本缺失说明 | 主工作簿 `Baseline150`; `UserIntent75` | no | 指标旁或方法页能看到数据日期和缺失元数据说明；不把单轮测试写成稳定趋势 |
-| `public/downloads/`; 发布文档或 manifest 文件 | `CS-008` | 建立下载 manifest，记录文件名、来源 canonical 路径、版本日期、复制时间、哈希、公开状态 | `docs/data-sync-policy.md`; 本次哈希核验结果 | yes | 每个公开下载件可追溯来源、版本和哈希；人工审核者可确认是否最新 |
+| `public/downloads/`; 发布文档或 manifest 文件 | `CS-008` | 建立下载 manifest，记录文件名、逻辑来源 ID/标签/范围、版本日期、复制时间、哈希、公开状态；真实 canonical 路径只保留在内部治理文档 | `docs/data-sync-policy.md`; 本次哈希核验结果 | yes | 每个公开下载件可追溯来源、版本和哈希；公开 manifest 不暴露本地绝对路径 |
 | 外部报告 `reports/元亨利GEO_全面诊断报告_作品集版.md` | `CS-010` | 将数据来源更新为投递版主工作簿；早期 CSV 标为历史或 derived，不作为当前公开口径主来源 | `docs/data-governance-decisions.md`; `docs/data-source-inventory.csv`; 主工作簿 | yes | 报告数据源与当前 canonical 治理一致 |
 | 外部报告 `reports/元亨利GEO_全面诊断报告_作品集版.md` | `CS-011` | 统一 Schema、FAQ、页面实施状态与当前 V2 网站实现；未完成项改为建议或后续计划 | 当前网站路由；构建脚本；治理文档 | yes | 报告不再暗示未实施功能已经部署 |
 | 外部报告 `reports/元亨利GEO_摘要结论与方法论.md` | `CS-012` | 将“提高品牌被准确引用的概率”改为“降低无来源扩写风险”或“提升事实可核验性” | 主工作簿；网站非效果承诺声明 | yes | 报告不包含 AI 引用概率、收录率或推荐提升承诺 |
@@ -68,7 +68,7 @@
 | `CS-005` | resolved | 公开知识库 JSON 已过滤为 36 条公开事实、24 条可用信源和 13 条 FAQ 映射；完整 XLSX 继续内部复核。 |
 | `CS-006` | mitigated | 首页和策略页已区分内容承接、公开发布状态和复测结果；90 天执行工作簿继续内部复核。 |
 | `CS-007` | resolved | 首页、策略页和方法页已补充 baseline 数据版本、测试日期、平台范围、人工评分说明和主源说明。 |
-| `CS-008` | resolved | `public/downloads/manifest.json` 和 `docs/download-manifest.md` 已同步实际目录、哈希、发布状态、审核状态和验证日期。 |
+| `CS-008` | resolved | `public/downloads/manifest.json` 和 `docs/download-manifest.md` 已同步实际目录、哈希、发布状态、审核状态和验证日期；07B3 已将公开来源追溯改为逻辑 ID/标签/范围，不再暴露本地路径。 |
 | `CS-013` | mitigated | 三份 Markdown 已从公开下载范围移入内部复核；manifest 已记录 internal-review/blocked 状态。文件内审核字段仍待人工补齐后再决定是否公开。 |
 | `CS-014` | resolved | 全站页脚和 metadata description 已补充独立研究、基于公开资料、非官方委托和不代表品牌官方立场。 |
 
@@ -76,4 +76,4 @@
 
 - `yhl-geo-brand-content-optimization-plan.pdf` 和 `yhl-geo-brand-content-optimization-plan.docx` 经只读文本审计发现旧 `chatgpt.site` 地址，已移入 `internal-review/downloads`。
 - 公开页面已撤下 PDF/DOCX 下载入口；当前公开下载仅保留安全知识库 JSON 和机器可读 manifest。
-- 旧测试已替换为当前发布规则测试：内部文件不得进入 `public/downloads`，但必须存在于 `internal-review/downloads`；公开页面不得链接 blocked/internal-review 文件。
+- 旧测试已替换为当前发布规则测试：内部文件不得进入 `public/downloads`；公开页面不得链接 blocked/internal-review 文件；manifest 校验不读取 `internal-review` 内容。

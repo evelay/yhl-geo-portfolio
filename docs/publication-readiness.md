@@ -4,7 +4,7 @@
 
 分支：`refactor/portfolio-v2`
 
-本文件反映阶段 0.4C P1 作品集质量与发布一致性修复后的状态。本阶段未修改外部 canonical 工作簿、原始 AI 回答、人工评分、核心指标、sitemap、robots 或 canonical 设置。
+本文件反映阶段 0.4C P1 作品集质量与发布一致性修复后的状态，并追加阶段 07B3 公开 manifest 本地路径清理结果。本阶段未修改外部 canonical 工作簿、原始 AI 回答、人工评分、核心指标、sitemap、robots 或 canonical 设置。
 
 ## 状态定义
 
@@ -35,7 +35,7 @@
 | 文件 | 状态 | 审核状态 | 说明 |
 | --- | --- | --- | --- |
 | `public/downloads/yhl-geo-knowledge-base-public.json` | public | approved | 从品牌事实知识库工作簿只读生成的安全过滤版公开快照；SHA-256 `379fbec902654f6daabd5cf5eb5ff856cd418f78e09ba5c772f6e69b8895c991` |
-| `public/downloads/manifest.json` | public | approved | 机器可读下载清单；SHA-256 `e252a867cb82e6f24173a1fa67caafb46e0062e7e687d171ad7845479858757c` |
+| `public/downloads/manifest.json` | public | approved | 机器可读下载清单；使用逻辑来源 ID/标签/范围，不含本地绝对路径；SHA-256 `dbfeca4ad231a0ad04a6a2d7d9a7e8d73a41a66e2952627121bea06f8a1d6932` |
 
 ## 内部审核下载文件
 

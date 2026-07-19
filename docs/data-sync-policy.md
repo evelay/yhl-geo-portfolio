@@ -45,11 +45,14 @@
 
 下载文件发布前必须记录：
 
-- 来源 canonical 路径。
+- 内部治理文档中的来源 canonical 路径。
+- 公开 manifest 中的逻辑来源标识：`source_id`、`source_label`、`source_scope`。
 - 来源文件版本日期。
 - 导出或复制时间。
 - 文件哈希。
 - 是否为 derived、delivery 或 Markdown canonical。
+
+浏览器可见的 `public/downloads/manifest.json` 不记录 `/Users/`、`file://`、用户主目录、工作区目录名或 `internal-review/downloads` 真实路径；外部 canonical 绝对路径只保留在内部治理文档中。
 
 如果下载副本与 canonical 哈希或内容不一致，必须重新导出或重新复制，不得在下载副本中局部修补。
 
@@ -62,7 +65,7 @@
 3. 工作簿派生指标重新计算完成。
 4. 公开知识库 JSON 由知识库工作簿重新导出。
 5. `app/data.ts` 和 TSX 页面只接收已审核展示副本。
-6. `public/downloads` 文件标注并校验来源版本。
+6. `public/downloads` 文件标注并校验来源版本，公开 manifest 只使用逻辑来源标识且不含本地路径。
 7. 早期归档目录未被纳入计算或网站同步。
 8. 构建验证通过。
 9. `git diff` 只包含预期文件。

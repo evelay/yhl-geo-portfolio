@@ -7,7 +7,7 @@
 | 文件 | 状态 | 审核 | SHA-256 |
 | --- | --- | --- | --- |
 | `yhl-geo-knowledge-base-public.json` | public | approved | `379fbec902654f6daabd5cf5eb5ff856cd418f78e09ba5c772f6e69b8895c991` |
-| `manifest.json` | public | approved | `e252a867cb82e6f24173a1fa67caafb46e0062e7e687d171ad7845479858757c` |
+| `manifest.json` | public | approved | `dbfeca4ad231a0ad04a6a2d7d9a7e8d73a41a66e2952627121bea06f8a1d6932` |
 
 ## 内部审核
 
@@ -31,3 +31,16 @@
 ## 已由安全版本替换
 
 - `yhl-geo-knowledge-base-public.json` 已由 `public/downloads/yhl-geo-knowledge-base-public.json` 的安全过滤版替换。
+
+## 公开来源字段
+
+`public/downloads/manifest.json` 是浏览器可见文件，只记录逻辑来源标识，不记录本地文件系统路径。
+
+每个条目使用：
+
+- `source_id`：与治理台账或人工审核记录对应的逻辑来源 ID。
+- `source_label`：面向审核者可读的来源名称。
+- `source_scope`：来源范围，例如 `external-canonical`、`external-delivery-artifact` 或 `restricted-logical-canonical`。
+- `source_version`：来源版本、日期或哈希。
+
+公开 manifest 不使用 `source_file`，不得包含 `/Users/`、`file://`、本地工作区目录名或 `internal-review/downloads` 真实路径。外部 canonical 的绝对路径只保留在内部治理文档中。
