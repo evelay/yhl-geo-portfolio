@@ -311,9 +311,9 @@ def validate(
         )
         add_check(
             checks,
-            f"{page['route']}_page_name_matches_h1",
-            signals["h1"] == page["page_name"],
-            "draft page name matches rendered H1",
+            f"{page['route']}_h1_matches_current_page",
+            signals["h1"] == page.get("h1", page["page_name"]),
+            "rendered H1 matches current page config",
         )
         add_check(
             checks,
@@ -427,7 +427,7 @@ def build_report(
     )
     for page in config["pages"]:
         lines.append(
-            f"| `{page['route']}` | `{page['draft_file']}` | {' > '.join(page['hierarchy'])} | rendered H1 and metadata title |"
+            f"| `{page['route']}` | `{page['draft_file']}` | {' > '.join(page['hierarchy'])} | approved short breadcrumb name; current H1 tracked separately |"
         )
     lines.extend(
         [

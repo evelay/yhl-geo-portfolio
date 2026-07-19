@@ -1,0 +1,36 @@
+{
+  "stage": "07D1",
+  "stage_name": "Homepage Schema type evaluation and isolated draft pilot",
+  "generated_date": "2026-07-19",
+  "script": "tools/geo-skill/adapters/schema-draft/build_home_schema_drafts.py",
+  "config": "tools/geo-skill/adapters/schema-draft/home-schema-config.json",
+  "python_standard_library_only": true,
+  "network_access": "not-used",
+  "api_calls": "none",
+  "model_calls": "none",
+  "new_dependencies": "none",
+  "page_injection": "no",
+  "app_public_write": "no",
+  "internal_review_file_content_read": "no",
+  "archive_file_content_read": "no",
+  "source_documents": [
+    "docs/07a2-human-decision-record.md",
+    "docs/07a2-schema-scope.csv",
+    "docs/07a2-07b-entry-gate.md",
+    "docs/07b-breadcrumb-schema-method.md",
+    "docs/07b2-breadcrumb-injection-report.md",
+    "docs/07c1-page-blueprint-method.md",
+    "docs/07c2-h1-visible-breadcrumb-report.md",
+    "docs/06b-page-audit-findings.csv",
+    "tools/geo-skill/reports/page-audit-pilot-after-h1-visible-breadcrumb/report.md"
+  ],
+  "outputs": [
+    "website-only.jsonld",
+    "website-webpage-graph.jsonld",
+    "website-collectionpage-graph.jsonld",
+    "comparison-report.md",
+    "validation.json",
+    "run-metadata.json"
+  ],
+  "validation_status": "valid"
+}

@@ -22,6 +22,7 @@
       "route": "/facts",
       "source_route": "/",
       "page_name": "品牌事实与定位",
+      "h1": "元亨利品牌事实、来源与信息边界",
       "nav_label": "品牌事实",
       "metadata_title": "品牌事实与定位",
       "canonical_url": "https://evelay.github.io/yhl-geo-portfolio/facts/",
@@ -32,13 +33,14 @@
       "draft_file": "facts-breadcrumb.jsonld",
       "html_path": "out/facts/index.html",
       "source_file": "app/facts/page.tsx",
-      "notes": "页面 H1 和 metadata.title 均为“品牌事实与定位”；导航短标签为“品牌事实”。"
+      "notes": "07C2 后页面 H1 为“元亨利品牌事实、来源与信息边界”；BreadcrumbList name 保持短名称“品牌事实与定位”，与可见 breadcrumb 当前页短名一致。"
     },
     {
       "draft_id": "07B-BREADCRUMB-BUYING-GUIDE",
       "route": "/buying-guide",
       "source_route": "/",
       "page_name": "购买核验指南",
+      "h1": "元亨利红木家具购买核验指南",
       "nav_label": "购买核验",
       "metadata_title": "购买核验指南",
       "canonical_url": "https://evelay.github.io/yhl-geo-portfolio/buying-guide/",
@@ -49,7 +51,7 @@
       "draft_file": "buying-guide-breadcrumb.jsonld",
       "html_path": "out/buying-guide/index.html",
       "source_file": "app/buying-guide/page.tsx",
-      "notes": "页面 H1 和 metadata.title 均为“购买核验指南”；导航短标签为“购买核验”。"
+      "notes": "07C2 后页面 H1 为“元亨利红木家具购买核验指南”；BreadcrumbList name 保持短名称“购买核验指南”，与可见 breadcrumb 当前页短名一致。"
     }
   ],
   "source_documents": [
@@ -63,4 +65,3 @@
     "docs/06b2-before-after-summary.csv"
   ]
 }
-

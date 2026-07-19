@@ -1,0 +1,22 @@
+field_id,schema_type,field_name,proposed_value,page_source,source_status,publicly_visible,allowed,risk,notes
+FP-07D1-001,WebSite,@context,https://schema.org,07D1 stage requirement and existing schema-draft convention,metadata-confirmed,no,yes,low,Schema syntax only; not a brand or identity fact.
+FP-07D1-002,WebSite,@type,WebSite,07D1 option A/B/C type under evaluation,metadata-confirmed,no,yes,low,Allowed option type; does not imply official ownership.
+FP-07D1-003,WebSite,@id,https://evelay.github.io/yhl-geo-portfolio/#website,out/index.html canonical,metadata-confirmed,yes,yes,low,Derived from public canonical plus stable fragment.
+FP-07D1-004,WebSite,url,https://evelay.github.io/yhl-geo-portfolio/,out/index.html canonical and public/sitemap.xml,metadata-confirmed,yes,yes,low,Must remain identical to homepage canonical.
+FP-07D1-005,WebSite,name,元亨利红木家具 GEO 诊断与可核验内容体系,out/index.html h1 and app/page.tsx h1,page-confirmed,yes,yes,low,Matches current visible H1.
+FP-07D1-006,WebSite,description,本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。,out/index.html hero lede and app/page.tsx lede,page-confirmed,yes,yes,low,Uses visible summary verbatim to preserve non-official boundary.
+FP-07D1-007,WebSite,inLanguage,zh-CN,out/index.html html lang and app/layout.tsx html lang,metadata-confirmed,yes,yes,low,Matches rendered page language.
+FP-07D1-008,WebPage,@type,WebPage,07D1 option B type under evaluation,metadata-confirmed,no,yes,low,Generic page type; no unconfirmed brand entity.
+FP-07D1-009,WebPage,@id,https://evelay.github.io/yhl-geo-portfolio/#webpage,out/index.html canonical,metadata-confirmed,yes,yes,low,Derived from public canonical plus stable fragment.
+FP-07D1-010,WebPage,url,https://evelay.github.io/yhl-geo-portfolio/,out/index.html canonical and public/sitemap.xml,metadata-confirmed,yes,yes,low,Must remain identical to homepage canonical.
+FP-07D1-011,WebPage,name,元亨利红木家具 GEO 诊断与可核验内容体系,out/index.html h1 and app/page.tsx h1,page-confirmed,yes,yes,low,Matches current visible H1.
+FP-07D1-012,WebPage,description,本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。,out/index.html hero lede and app/page.tsx lede,page-confirmed,yes,yes,low,Uses visible summary verbatim.
+FP-07D1-013,WebPage,inLanguage,zh-CN,out/index.html html lang and app/layout.tsx html lang,metadata-confirmed,yes,yes,low,Matches rendered page language.
+FP-07D1-014,WebPage,isPartOf,https://evelay.github.io/yhl-geo-portfolio/#website,07D1 graph option and WebSite @id,metadata-confirmed,no,yes,low,Graph relation only; does not create publisher or owner.
+FP-07D1-015,CollectionPage,@type,CollectionPage,07D1 option C type under evaluation,metadata-confirmed,no,yes,medium,Allowed only as rejected draft option because page match is partial.
+FP-07D1-016,CollectionPage,@id,https://evelay.github.io/yhl-geo-portfolio/#collectionpage,out/index.html canonical,metadata-confirmed,yes,yes,medium,Derived from public canonical; page type remains rejected for current stage.
+FP-07D1-017,CollectionPage,url,https://evelay.github.io/yhl-geo-portfolio/,out/index.html canonical and public/sitemap.xml,metadata-confirmed,yes,yes,low,Must remain identical to homepage canonical.
+FP-07D1-018,CollectionPage,name,元亨利红木家具 GEO 诊断与可核验内容体系,out/index.html h1 and app/page.tsx h1,page-confirmed,yes,yes,low,Matches current visible H1.
+FP-07D1-019,CollectionPage,description,本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。,out/index.html hero lede and app/page.tsx lede,page-confirmed,yes,yes,low,Uses visible summary verbatim.
+FP-07D1-020,CollectionPage,inLanguage,zh-CN,out/index.html html lang and app/layout.tsx html lang,metadata-confirmed,yes,yes,low,Matches rendered page language.
+FP-07D1-021,CollectionPage,isPartOf,https://evelay.github.io/yhl-geo-portfolio/#website,07D1 graph option and WebSite @id,metadata-confirmed,no,yes,medium,Graph relation only; option rejected because CollectionPage over-models current homepage.

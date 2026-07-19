@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://evelay.github.io/yhl-geo-portfolio/#website",
+      "url": "https://evelay.github.io/yhl-geo-portfolio/",
+      "name": "元亨利红木家具 GEO 诊断与可核验内容体系",
+      "description": "本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。",
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://evelay.github.io/yhl-geo-portfolio/#collectionpage",
+      "url": "https://evelay.github.io/yhl-geo-portfolio/",
+      "name": "元亨利红木家具 GEO 诊断与可核验内容体系",
+      "description": "本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。",
+      "inLanguage": "zh-CN",
+      "isPartOf": {
+        "@id": "https://evelay.github.io/yhl-geo-portfolio/#website"
+      }
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "stage": "07D1",
+  "stage_name": "Homepage Schema type evaluation and isolated draft pilot",
+  "generated_date": "2026-07-19",
+  "schema_context": "https://schema.org",
+  "allowed_output_dir": "tools/geo-skill/reports/home-schema-draft-pilot",
+  "homepage": {
+    "route": "/",
+    "canonical_url": "https://evelay.github.io/yhl-geo-portfolio/",
+    "html_path": "out/index.html",
+    "source_file": "app/page.tsx",
+    "layout_file": "app/layout.tsx",
+    "components_file": "app/components.tsx",
+    "data_file": "app/data.ts",
+    "title": "公开研究首页",
+    "metadata_description": "元亨利红木家具GEO公开研究案例：225条AI回答、6项核心诊断、5个内容资产与13条公开FAQ。",
+    "h1": "元亨利红木家具 GEO 诊断与可核验内容体系",
+    "schema_description": "本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。",
+    "in_language": "zh-CN",
+    "identity_statement": "本项目为基于公开资料完成的独立 GEO 研究与求职作品集，未受元亨利委托，不代表品牌官方立场；不声称已提升 AI 收录、引用、曝光、推荐或销售。",
+    "has_site_search": false,
+    "modules": [
+      "hero and project summary",
+      "research design and baseline metrics",
+      "direct answers",
+      "six diagnostic findings",
+      "content asset entries",
+      "method and limits",
+      "brand content proposal entries",
+      "global research statement footer"
+    ]
+  },
+  "options": [
+    {
+      "option_id": "07D1-A",
+      "label": "WebSite only",
+      "schema_types": [
+        "WebSite"
+      ],
+      "draft_file": "website-only.jsonld",
+      "recommended_status": "alternative",
+      "summary": "Safest minimal site-level JSON-LD; it resolves the missing JSON-LD finding with the fewest page-confirmed fields, but does not explicitly model the homepage as a page."
+    },
+    {
+      "option_id": "07D1-B",
+      "label": "WebSite + WebPage",
+      "schema_types": [
+        "WebSite",
+        "WebPage"
+      ],
+      "draft_file": "website-webpage-graph.jsonld",
+      "recommended_status": "recommended",
+      "summary": "Best current fit: the homepage is both the site entry point and a concrete WebPage, and the graph can express that relationship without publisher, author, organization, brand, person or search fields."
+    },
+    {
+      "option_id": "07D1-C",
+      "label": "WebSite + CollectionPage",
+      "schema_types": [
+        "WebSite",
+        "CollectionPage"
+      ],
+      "draft_file": "website-collectionpage-graph.jsonld",
+      "recommended_status": "reject",
+      "summary": "The homepage links to content assets, but it is also a diagnostic dashboard and project narrative; CollectionPage overstates the collection semantics for the current page."
+    }
+  ],
+  "forbidden_schema_types": [
+    "Organization",
+    "Brand",
+    "Person",
+    "SearchAction"
+  ],
+  "forbidden_properties": [
+    "accountablePerson",
+    "aggregateRating",
+    "author",
+    "award",
+    "brand",
+    "copyrightHolder",
+    "creator",
+    "logo",
+    "offers",
+    "potentialAction",
+    "publisher",
+    "review",
+    "sameAs"
+  ],
+  "forbidden_text_fragments": [
+    "元亨利官方网站",
+    "元亨利官方 GEO 项目",
+    "已帮助元亨利提升 AI 引用",
+    "已取得商业增长",
+    "品牌官方知识库",
+    "本项目受元亨利委托",
+    "由元亨利委托",
+    "元亨利委托完成",
+    "代表元亨利官方立场",
+    "代表品牌官方发布",
+    "官方委托",
+    "AI 收录提升",
+    "AI 引用提升",
+    "销售提升"
+  ],
+  "source_documents": [
+    "docs/07a2-human-decision-record.md",
+    "docs/07a2-schema-scope.csv",
+    "docs/07a2-07b-entry-gate.md",
+    "docs/07b-breadcrumb-schema-method.md",
+    "docs/07b2-breadcrumb-injection-report.md",
+    "docs/07c1-page-blueprint-method.md",
+    "docs/07c2-h1-visible-breadcrumb-report.md",
+    "docs/06b-page-audit-findings.csv",
+    "tools/geo-skill/reports/page-audit-pilot-after-h1-visible-breadcrumb/report.md"
+  ]
+}

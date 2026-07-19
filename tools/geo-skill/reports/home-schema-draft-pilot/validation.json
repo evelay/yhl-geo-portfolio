@@ -1,0 +1,338 @@
+{
+  "stage": "07D1",
+  "validation_status": "valid",
+  "draft_count": 3,
+  "homepage_facts": {
+    "canonical": "https://evelay.github.io/yhl-geo-portfolio/",
+    "title": "公开研究首页",
+    "meta_description": "元亨利红木家具GEO公开研究案例：225条AI回答、6项核心诊断、5个内容资产与13条公开FAQ。",
+    "h1": "元亨利红木家具 GEO 诊断与可核验内容体系",
+    "summary": "本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。",
+    "language": "zh-CN",
+    "json_ld_count": 0,
+    "has_site_search": false
+  },
+  "drafts": [
+    {
+      "option_id": "07D1-A",
+      "schema_types": [
+        "WebSite"
+      ],
+      "draft_file": "website-only.jsonld",
+      "recommended_status": "alternative",
+      "status": "valid"
+    },
+    {
+      "option_id": "07D1-B",
+      "schema_types": [
+        "WebSite",
+        "WebPage"
+      ],
+      "draft_file": "website-webpage-graph.jsonld",
+      "recommended_status": "recommended",
+      "status": "valid"
+    },
+    {
+      "option_id": "07D1-C",
+      "schema_types": [
+        "WebSite",
+        "CollectionPage"
+      ],
+      "draft_file": "website-collectionpage-graph.jsonld",
+      "recommended_status": "reject",
+      "status": "valid"
+    }
+  ],
+  "checks": [
+    {
+      "id": "expected_three_drafts",
+      "status": "pass",
+      "detail": "exactly WebSite, WebSite+WebPage and WebSite+CollectionPage drafts are planned"
+    },
+    {
+      "id": "homepage_canonical_matches_html",
+      "status": "pass",
+      "detail": "homepage canonical matches rendered HTML and config"
+    },
+    {
+      "id": "homepage_title_matches_html",
+      "status": "pass",
+      "detail": "homepage title matches rendered HTML and config"
+    },
+    {
+      "id": "homepage_meta_description_matches_html",
+      "status": "pass",
+      "detail": "homepage meta description matches rendered HTML and config"
+    },
+    {
+      "id": "homepage_h1_matches_html",
+      "status": "pass",
+      "detail": "homepage has exactly one H1 and it matches config"
+    },
+    {
+      "id": "homepage_summary_matches_html",
+      "status": "pass",
+      "detail": "homepage public summary matches proposed Schema description"
+    },
+    {
+      "id": "homepage_language_matches_html",
+      "status": "pass",
+      "detail": "homepage html lang is zh-CN"
+    },
+    {
+      "id": "homepage_has_no_jsonld_now",
+      "status": "pass",
+      "detail": "current homepage still has no JSON-LD before any future injection"
+    },
+    {
+      "id": "homepage_has_no_site_search",
+      "status": "pass",
+      "detail": "no verified homepage site search or SearchAction input"
+    },
+    {
+      "id": "homepage_identity_statement_present",
+      "status": "pass",
+      "detail": "rendered homepage includes independent research and non-official statement"
+    },
+    {
+      "id": "homepage_html_has_no_forbidden_markers",
+      "status": "pass",
+      "detail": "rendered homepage has no local path, old domain or duplicate basePath marker"
+    },
+    {
+      "id": "stable_jsonld_generation",
+      "status": "pass",
+      "detail": "same config produces byte-stable JSON-LD draft content"
+    },
+    {
+      "id": "no_app_or_public_write_targets",
+      "status": "pass",
+      "detail": "planned outputs do not target app/ or public/"
+    },
+    {
+      "id": "finding_06b_pa_001_still_open",
+      "status": "pass",
+      "detail": "06B-PA-001 remains open because this stage does not inject homepage JSON-LD"
+    },
+    {
+      "id": "07D1-A_json_parseable",
+      "status": "pass",
+      "detail": "website-only.jsonld round-trips as JSON"
+    },
+    {
+      "id": "07D1-A_context",
+      "status": "pass",
+      "detail": "@context is https://schema.org"
+    },
+    {
+      "id": "07D1-A_schema_types",
+      "status": "pass",
+      "detail": "@type sequence is ['WebSite']"
+    },
+    {
+      "id": "07D1-A_ids_are_public",
+      "status": "pass",
+      "detail": "@id values use public GitHub Pages URL"
+    },
+    {
+      "id": "07D1-A_url_matches_canonical",
+      "status": "pass",
+      "detail": "all url values match homepage canonical"
+    },
+    {
+      "id": "07D1-A_name_matches_h1",
+      "status": "pass",
+      "detail": "all name values match current homepage H1"
+    },
+    {
+      "id": "07D1-A_description_matches_public_summary",
+      "status": "pass",
+      "detail": "description equals the rendered public homepage summary"
+    },
+    {
+      "id": "07D1-A_language",
+      "status": "pass",
+      "detail": "inLanguage is zh-CN"
+    },
+    {
+      "id": "07D1-A_no_local_or_old_urls",
+      "status": "pass",
+      "detail": "no local user-home, loopback, old-domain or duplicated basePath markers"
+    },
+    {
+      "id": "07D1-A_no_duplicate_base_path",
+      "status": "pass",
+      "detail": "no duplicated /yhl-geo-portfolio/ basePath"
+    },
+    {
+      "id": "07D1-A_no_forbidden_schema_types",
+      "status": "pass",
+      "detail": "no Organization, Brand, Person or SearchAction types"
+    },
+    {
+      "id": "07D1-A_no_forbidden_properties",
+      "status": "pass",
+      "detail": "only whitelisted properties are present"
+    },
+    {
+      "id": "07D1-A_no_search_action",
+      "status": "pass",
+      "detail": "SearchAction is absent because no verified site search exists"
+    },
+    {
+      "id": "07D1-A_no_false_effect_or_official_claim",
+      "status": "pass",
+      "detail": "no official-site, official-project, commissioned, growth or effect claims"
+    },
+    {
+      "id": "07D1-B_json_parseable",
+      "status": "pass",
+      "detail": "website-webpage-graph.jsonld round-trips as JSON"
+    },
+    {
+      "id": "07D1-B_context",
+      "status": "pass",
+      "detail": "@context is https://schema.org"
+    },
+    {
+      "id": "07D1-B_schema_types",
+      "status": "pass",
+      "detail": "@type sequence is ['WebSite', 'WebPage']"
+    },
+    {
+      "id": "07D1-B_ids_are_public",
+      "status": "pass",
+      "detail": "@id values use public GitHub Pages URL"
+    },
+    {
+      "id": "07D1-B_url_matches_canonical",
+      "status": "pass",
+      "detail": "all url values match homepage canonical"
+    },
+    {
+      "id": "07D1-B_name_matches_h1",
+      "status": "pass",
+      "detail": "all name values match current homepage H1"
+    },
+    {
+      "id": "07D1-B_description_matches_public_summary",
+      "status": "pass",
+      "detail": "description equals the rendered public homepage summary"
+    },
+    {
+      "id": "07D1-B_language",
+      "status": "pass",
+      "detail": "inLanguage is zh-CN"
+    },
+    {
+      "id": "07D1-B_no_local_or_old_urls",
+      "status": "pass",
+      "detail": "no local user-home, loopback, old-domain or duplicated basePath markers"
+    },
+    {
+      "id": "07D1-B_no_duplicate_base_path",
+      "status": "pass",
+      "detail": "no duplicated /yhl-geo-portfolio/ basePath"
+    },
+    {
+      "id": "07D1-B_no_forbidden_schema_types",
+      "status": "pass",
+      "detail": "no Organization, Brand, Person or SearchAction types"
+    },
+    {
+      "id": "07D1-B_no_forbidden_properties",
+      "status": "pass",
+      "detail": "only whitelisted properties are present"
+    },
+    {
+      "id": "07D1-B_no_search_action",
+      "status": "pass",
+      "detail": "SearchAction is absent because no verified site search exists"
+    },
+    {
+      "id": "07D1-B_no_false_effect_or_official_claim",
+      "status": "pass",
+      "detail": "no official-site, official-project, commissioned, growth or effect claims"
+    },
+    {
+      "id": "07D1-B_page_is_part_of_website",
+      "status": "pass",
+      "detail": "page node points to WebSite with isPartOf"
+    },
+    {
+      "id": "07D1-C_json_parseable",
+      "status": "pass",
+      "detail": "website-collectionpage-graph.jsonld round-trips as JSON"
+    },
+    {
+      "id": "07D1-C_context",
+      "status": "pass",
+      "detail": "@context is https://schema.org"
+    },
+    {
+      "id": "07D1-C_schema_types",
+      "status": "pass",
+      "detail": "@type sequence is ['WebSite', 'CollectionPage']"
+    },
+    {
+      "id": "07D1-C_ids_are_public",
+      "status": "pass",
+      "detail": "@id values use public GitHub Pages URL"
+    },
+    {
+      "id": "07D1-C_url_matches_canonical",
+      "status": "pass",
+      "detail": "all url values match homepage canonical"
+    },
+    {
+      "id": "07D1-C_name_matches_h1",
+      "status": "pass",
+      "detail": "all name values match current homepage H1"
+    },
+    {
+      "id": "07D1-C_description_matches_public_summary",
+      "status": "pass",
+      "detail": "description equals the rendered public homepage summary"
+    },
+    {
+      "id": "07D1-C_language",
+      "status": "pass",
+      "detail": "inLanguage is zh-CN"
+    },
+    {
+      "id": "07D1-C_no_local_or_old_urls",
+      "status": "pass",
+      "detail": "no local user-home, loopback, old-domain or duplicated basePath markers"
+    },
+    {
+      "id": "07D1-C_no_duplicate_base_path",
+      "status": "pass",
+      "detail": "no duplicated /yhl-geo-portfolio/ basePath"
+    },
+    {
+      "id": "07D1-C_no_forbidden_schema_types",
+      "status": "pass",
+      "detail": "no Organization, Brand, Person or SearchAction types"
+    },
+    {
+      "id": "07D1-C_no_forbidden_properties",
+      "status": "pass",
+      "detail": "only whitelisted properties are present"
+    },
+    {
+      "id": "07D1-C_no_search_action",
+      "status": "pass",
+      "detail": "SearchAction is absent because no verified site search exists"
+    },
+    {
+      "id": "07D1-C_no_false_effect_or_official_claim",
+      "status": "pass",
+      "detail": "no official-site, official-project, commissioned, growth or effect claims"
+    },
+    {
+      "id": "07D1-C_page_is_part_of_website",
+      "status": "pass",
+      "detail": "page node points to WebSite with isPartOf"
+    }
+  ]
+}
