@@ -4,6 +4,26 @@
 
 本清单用于决定是否进入 07C2 实施。本阶段未修改页面。
 
+审核状态：`approved-for-implementation`
+
+## 0. 07C2 实施确认
+
+已确认进入阶段 07C2 实施，最终决定如下：
+
+- 首页 H1：`元亨利红木家具 GEO 诊断与可核验内容体系`
+- `/facts` H1：`元亨利品牌事实、来源与信息边界`
+- `/buying-guide` H1：`元亨利红木家具购买核验指南`
+- 三页均增加或调整 40-90 字上下文独立摘要。
+- 可见 breadcrumb 使用简短导航名称。
+- `/facts` 可见 breadcrumb：`首页 -> 品牌事实与定位`
+- `/buying-guide` 可见 breadcrumb：`首页 -> 购买核验指南`
+- 现有 BreadcrumbList JSON-LD name 保持不变：`品牌事实与定位`、`购买核验指南`。
+- URL 与 canonical 保持不变。
+- 只在 `/facts` 和 `/buying-guide` 添加可见 breadcrumb。
+- 首页不添加可见 breadcrumb。
+- 不增加“知识中心”等不存在的中间层级。
+- 不修改品牌事实、核心指标、FAQ、公开知识库 JSON、sitemap、robots 或其他页面。
+
 ## 1. 首页最终 H1
 
 候选：

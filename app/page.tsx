@@ -32,8 +32,8 @@ export default function Home() {
         <div className="hero-grid">
           <div>
             <Eyebrow>GEO · Generative Engine Optimization</Eyebrow>
-            <h1>让红木家具信息<br />变得<em>可回答、可核验</em></h1>
-            <p className="lede">一个基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例：用225条AI回答识别实体、来源与高客单决策风险，再把诊断转化为可核验内容资产。</p>
+            <h1>元亨利红木家具 GEO 诊断与可核验内容体系</h1>
+            <p className="lede">本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。</p>
             <div className="button-row">
               <a className="button primary" href="#diagnoses">查看六项诊断<ArrowIcon /></a>
               <Link className="button" href="/strategy">品牌内容优化方案<ArrowIcon /></Link>

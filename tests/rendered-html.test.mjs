@@ -34,6 +34,23 @@ async function assertAccessible(pathname) {
   return response.text();
 }
 
+function stripTags(value) {
+  return value.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+}
+
+function extractH1s(html) {
+  return [...html.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((match) => stripTags(match[1]));
+}
+
+function extractJsonLd(html) {
+  return [...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+    .map((match) => JSON.parse(match[1]));
+}
+
+function extractBreadcrumbNavs(html) {
+  return [...html.matchAll(/<nav[^>]*aria-label="面包屑导航"[^>]*>[\s\S]*?<\/nav>/g)].map((match) => match[0]);
+}
+
 async function sha256(url) {
   const content = await readFile(url);
   return createHash("sha256").update(content).digest("hex");
@@ -78,6 +95,54 @@ test("homepage discloses project identity and baseline data version", async () =
   assert.match(html, /当前指标不代表优化后增长或长期趋势/);
   assert.match(html, /13条公开FAQ/);
   assert.match(html, /FAQ-08、FAQ-10继续hold/);
+});
+
+test("H1 summaries and visible breadcrumbs follow 07C2 decisions", async () => {
+  const home = await assertAccessible("/");
+  const facts = await assertAccessible("/facts");
+  const buyingGuide = await assertAccessible("/buying-guide");
+
+  assert.deepEqual(extractH1s(home), ["元亨利红木家具 GEO 诊断与可核验内容体系"]);
+  assert.match(home, /本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究/);
+  assert.equal(extractBreadcrumbNavs(home).length, 0);
+  assert.equal(extractJsonLd(home).filter((item) => item["@type"] === "BreadcrumbList").length, 0);
+
+  const expectedPages = [
+    {
+      route: "/facts",
+      html: facts,
+      h1: "元亨利品牌事实、来源与信息边界",
+      summary: "本页汇总元亨利可公开核验的品牌事实、来源与信息边界，并区分已确认、需谨慎表述和暂不应公开推断的内容。",
+      breadcrumbName: "品牌事实与定位",
+      canonical: "https://evelay.github.io/yhl-geo-portfolio/facts/",
+    },
+    {
+      route: "/buying-guide",
+      html: buyingGuide,
+      h1: "元亨利红木家具购买核验指南",
+      summary: "本页提供评估元亨利红木家具时可执行的核验框架，重点关注材质、工艺、来源、单件证据和信息边界，不构成购买或投资建议。",
+      breadcrumbName: "购买核验指南",
+      canonical: "https://evelay.github.io/yhl-geo-portfolio/buying-guide/",
+    },
+  ];
+
+  for (const page of expectedPages) {
+    assert.deepEqual(extractH1s(page.html), [page.h1], `${page.route} should have one exact H1`);
+    assert.match(page.html, new RegExp(page.summary.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.match(page.html, new RegExp(`<link rel="canonical" href="${page.canonical.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`));
+    assert.doesNotMatch(page.html, /\/Users\//);
+
+    const breadcrumbNavs = extractBreadcrumbNavs(page.html);
+    assert.equal(breadcrumbNavs.length, 1, `${page.route} should have one visible breadcrumb nav`);
+    assert.match(breadcrumbNavs[0], /<ol>/);
+    assert.match(breadcrumbNavs[0], /<li><a href="\/">首页<\/a><\/li>/);
+    assert.match(breadcrumbNavs[0], new RegExp(`<li aria-current="page">${page.breadcrumbName}</li>`));
+
+    const breadcrumbLists = extractJsonLd(page.html).filter((item) => item["@type"] === "BreadcrumbList");
+    assert.equal(breadcrumbLists.length, 1, `${page.route} should have one BreadcrumbList`);
+    assert.equal(breadcrumbLists[0].itemListElement[1].name, page.breadcrumbName);
+    assert.equal(breadcrumbLists[0].itemListElement[1].item, page.canonical);
+  }
 });
 
 test("knowledge base page only links the safety-filtered public JSON", async () => {

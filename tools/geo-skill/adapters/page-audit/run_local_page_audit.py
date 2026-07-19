@@ -95,6 +95,7 @@ class StaticHTMLParser(HTMLParser):
         self.table_column_counts: list[int] = []
         self.datetime_values: list[str] = []
         self.breadcrumb_markers: list[str] = []
+        self.visible_breadcrumbs: list[dict[str, Any]] = []
         self.text_parts: list[str] = []
         self.main_text_parts: list[str] = []
 
@@ -105,6 +106,9 @@ class StaticHTMLParser(HTMLParser):
         self._paragraph_stack: list[list[str]] = []
         self._json_ld_parts: list[str] | None = None
         self._current_row_cells: int | None = None
+        self._breadcrumb_nav: dict[str, Any] | None = None
+        self._breadcrumb_depth = 0
+        self._breadcrumb_current_parts: list[str] | None = None
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
@@ -149,6 +153,26 @@ class StaticHTMLParser(HTMLParser):
         ).lower()
         if "breadcrumb" in marker or "面包屑" in marker:
             self.breadcrumb_markers.append(marker)
+        if tag == "nav" and ("breadcrumb" in marker or "面包屑" in marker):
+            self._breadcrumb_nav = {
+                "marker": marker,
+                "ordered_list_count": 0,
+                "list_item_count": 0,
+                "links": [],
+                "current_texts": [],
+            }
+            self.visible_breadcrumbs.append(self._breadcrumb_nav)
+            self._breadcrumb_depth = 1
+        elif self._breadcrumb_nav is not None:
+            self._breadcrumb_depth += 1
+
+        if self._breadcrumb_nav is not None:
+            if tag == "ol":
+                self._breadcrumb_nav["ordered_list_count"] += 1
+            if tag == "li":
+                self._breadcrumb_nav["list_item_count"] += 1
+                if attrs_dict.get("aria-current") == "page":
+                    self._breadcrumb_current_parts = []
 
     def handle_endtag(self, tag: str) -> None:
         tag = tag.lower()
@@ -167,13 +191,27 @@ class StaticHTMLParser(HTMLParser):
             anchor = self._anchor_stack.pop()
             text = compact_text("".join(anchor["parts"]))
             self.links.append({"href": anchor["href"], "text": text})
+            if self._breadcrumb_nav is not None:
+                self._breadcrumb_nav["links"].append({"href": anchor["href"], "text": text})
         if tag == "p" and self._paragraph_stack:
             text = compact_text("".join(self._paragraph_stack.pop()))
             if text:
                 self.paragraphs.append(text)
+        if tag == "li" and self._breadcrumb_current_parts is not None:
+            text = compact_text("".join(self._breadcrumb_current_parts))
+            if text and self._breadcrumb_nav is not None:
+                self._breadcrumb_nav["current_texts"].append(text)
+            self._breadcrumb_current_parts = None
         if tag == "tr" and self._current_row_cells is not None:
             self.table_column_counts.append(self._current_row_cells)
             self._current_row_cells = None
+
+        if self._breadcrumb_nav is not None:
+            self._breadcrumb_depth -= 1
+            if self._breadcrumb_depth <= 0:
+                self._breadcrumb_nav = None
+                self._breadcrumb_depth = 0
+                self._breadcrumb_current_parts = None
 
         for index in range(len(self._tag_stack) - 1, -1, -1):
             if self._tag_stack[index] == tag:
@@ -195,6 +233,8 @@ class StaticHTMLParser(HTMLParser):
             self._anchor_stack[-1]["parts"].append(data)
         if self._paragraph_stack:
             self._paragraph_stack[-1].append(data)
+        if self._breadcrumb_current_parts is not None:
+            self._breadcrumb_current_parts.append(data)
 
         text = compact_text(data)
         if text and not any(tag in {"head", "title"} for tag in self._tag_stack):
@@ -331,6 +371,79 @@ def json_ld_type_count(items: list[dict[str, Any]], type_name: str) -> int:
     return count
 
 
+def json_ld_items_of_type(items: list[dict[str, Any]], type_name: str) -> list[dict[str, Any]]:
+    matches: list[dict[str, Any]] = []
+    for item in items:
+        value = item.get("@type")
+        if value == type_name or (isinstance(value, list) and type_name in [str(part) for part in value]):
+            matches.append(item)
+    return matches
+
+
+def breadcrumb_schema_names(items: list[dict[str, Any]]) -> list[str]:
+    names: list[str] = []
+    for breadcrumb in items:
+        elements = breadcrumb.get("itemListElement", [])
+        if isinstance(elements, list):
+            for element in elements:
+                if isinstance(element, dict) and element.get("name"):
+                    names.append(str(element["name"]))
+    return names
+
+
+def breadcrumb_schema_last_names(items: list[dict[str, Any]]) -> list[str]:
+    names: list[str] = []
+    for breadcrumb in items:
+        elements = breadcrumb.get("itemListElement", [])
+        if isinstance(elements, list) and elements:
+            last = elements[-1]
+            if isinstance(last, dict) and last.get("name"):
+                names.append(str(last["name"]))
+    return names
+
+
+def visible_breadcrumb_home_hrefs(visible_breadcrumbs: list[dict[str, Any]]) -> list[str]:
+    return [
+        link["href"]
+        for nav in visible_breadcrumbs
+        for link in nav.get("links", [])
+        if link.get("text") == "首页"
+    ]
+
+
+def visible_breadcrumb_current_texts(visible_breadcrumbs: list[dict[str, Any]]) -> list[str]:
+    return [
+        text
+        for nav in visible_breadcrumbs
+        for text in nav.get("current_texts", [])
+        if text
+    ]
+
+
+def visible_breadcrumb_structure_ok(visible_breadcrumbs: list[dict[str, Any]], base_path: str, base_url: str) -> bool:
+    if not visible_breadcrumbs:
+        return False
+    expected_home_hrefs = {"/", base_url.rstrip("/") + "/"}
+    if base_path:
+        expected_home_hrefs.add(base_path)
+        expected_home_hrefs.add(base_path + "/")
+    return any(
+        nav.get("ordered_list_count", 0) >= 1
+        and nav.get("list_item_count", 0) >= 2
+        and bool(nav.get("current_texts"))
+        and any(link.get("text") == "首页" and link.get("href") in expected_home_hrefs for link in nav.get("links", []))
+        for nav in visible_breadcrumbs
+    )
+
+
+def visible_breadcrumb_schema_consistent(visible_breadcrumbs: list[dict[str, Any]], breadcrumb_lists: list[dict[str, Any]]) -> bool | None:
+    if not visible_breadcrumbs or not breadcrumb_lists:
+        return None
+    schema_names = set(breadcrumb_schema_last_names(breadcrumb_lists))
+    current_texts = set(visible_breadcrumb_current_texts(visible_breadcrumbs))
+    return bool(schema_names and current_texts and current_texts <= schema_names)
+
+
 def has_sitemap_route(sitemap_xml: str, base_url: str, route: str) -> bool:
     return any(expected in sitemap_xml for expected in route_expected_urls(base_url, route))
 
@@ -441,7 +554,11 @@ def audit_page(ctx: AuditContext, route_config: dict[str, Any], robots_text: str
         for marker in ("独立 GEO 研究", "未受元亨利委托", "不代表品牌官方立场")
     )
     schema_types = json_ld_types(json_ld)
+    breadcrumb_lists = json_ld_items_of_type(json_ld, "BreadcrumbList")
     breadcrumb_list_count = json_ld_type_count(json_ld, "BreadcrumbList")
+    visible_breadcrumbs = parser.visible_breadcrumbs
+    visible_breadcrumb_ok = visible_breadcrumb_structure_ok(visible_breadcrumbs, base_path, base_url)
+    breadcrumb_schema_consistency = visible_breadcrumb_schema_consistent(visible_breadcrumbs, breadcrumb_lists)
     meta_robots = meta_content(parser, "name", "robots")
     description = meta_content(parser, "name", "description")
     og_tags = {
@@ -496,8 +613,13 @@ def audit_page(ctx: AuditContext, route_config: dict[str, Any], robots_text: str
             "tables": {"ok": table_count > 0, "count": table_count, "max_columns": max(parser.table_column_counts or [0]), "evidence_status": "observed"},
             "faq": {"ok": has_qa, "evidence_status": "observed"},
             "breadcrumbs": {
-                "ok": bool(parser.breadcrumb_markers) if expectations.get("requires_breadcrumb") else True,
+                "ok": visible_breadcrumb_ok if expectations.get("requires_breadcrumb") else True,
                 "markers": parser.breadcrumb_markers,
+                "nav_count": len(visible_breadcrumbs),
+                "ordered_list_count": sum(nav.get("ordered_list_count", 0) for nav in visible_breadcrumbs),
+                "list_item_count": sum(nav.get("list_item_count", 0) for nav in visible_breadcrumbs),
+                "current_texts": visible_breadcrumb_current_texts(visible_breadcrumbs),
+                "home_links": visible_breadcrumb_home_hrefs(visible_breadcrumbs),
                 "evidence_status": "observed" if expectations.get("requires_breadcrumb") else "not-applicable",
             },
             "internal_links": {"ok": bool(int_links), "count": len(int_links), "evidence_status": "observed"},
@@ -531,6 +653,12 @@ def audit_page(ctx: AuditContext, route_config: dict[str, Any], robots_text: str
             "json_ld_present": {"ok": bool(json_ld), "count": len(json_ld), "evidence_status": "observed"},
             "schema_types": {"ok": bool(schema_types), "types": schema_types, "evidence_status": "observed" if schema_types else "not-applicable"},
             "breadcrumb_list_present": {"ok": breadcrumb_list_count > 0, "count": breadcrumb_list_count, "evidence_status": "observed" if breadcrumb_list_count else "not-applicable"},
+            "breadcrumb_visible_consistency": {
+                "ok": breadcrumb_schema_consistency,
+                "visible_current_texts": visible_breadcrumb_current_texts(visible_breadcrumbs),
+                "schema_names": breadcrumb_schema_names(breadcrumb_lists),
+                "evidence_status": "observed" if breadcrumb_schema_consistency is not None else "not-applicable",
+            },
             "schema_body_consistency": {"ok": True if not json_ld else None, "evidence_status": "not-applicable" if not json_ld else "input-gap"},
             "missing_required_fields": {"ok": True if not json_ld else None, "evidence_status": "not-applicable" if not json_ld else "input-gap"},
             "schema_facts_absent_from_body": {"ok": False if json_ld and any("_parse_error" in item for item in json_ld) else True, "evidence_status": "not-applicable" if not json_ld else "inferred"},
@@ -561,6 +689,8 @@ def audit_page(ctx: AuditContext, route_config: dict[str, Any], robots_text: str
             "json_ld_count": len(json_ld),
             "json_ld_types": schema_types,
             "breadcrumb_list_count": breadcrumb_list_count,
+            "visible_breadcrumb_count": len(visible_breadcrumbs),
+            "visible_breadcrumb_current_texts": visible_breadcrumb_current_texts(visible_breadcrumbs),
             "internal_link_count": len(int_links),
             "external_source_link_count": len(ext_links),
             "updated": updated,
@@ -698,6 +828,7 @@ def build_findings(ctx: AuditContext, pages: list[dict[str, Any]]) -> list[dict[
             )
 
         if expectations.get("requires_breadcrumb") and not checks["semantic_structure"]["breadcrumbs"]["ok"]:
+            breadcrumb_check = checks["semantic_structure"]["breadcrumbs"]
             add_finding(
                 findings,
                 route=route,
@@ -706,12 +837,38 @@ def build_findings(ctx: AuditContext, pages: list[dict[str, Any]]) -> list[dict[
                 severity="low",
                 priority="P3",
                 owner="design",
-                observed_evidence="未发现 breadcrumb/面包屑标记。",
-                issue="子页面缺少面包屑，页面层级主要依赖全局导航表达。",
-                recommended_action="后续设计修复时为内容页补充可见或语义化面包屑。",
-                acceptance_test="构建后页面存在 breadcrumb 语义标记，且链接指向首页与上级页面。",
+                observed_evidence=(
+                    "visible_breadcrumb_navs="
+                    f"{breadcrumb_check['nav_count']}; ol={breadcrumb_check['ordered_list_count']}; "
+                    f"li={breadcrumb_check['list_item_count']}; current={breadcrumb_check['current_texts']}; "
+                    f"home_links={breadcrumb_check['home_links']}"
+                ),
+                issue="子页面缺少符合 nav/ol/li、首页链接与 aria-current 要求的可见 breadcrumb。",
+                recommended_action="后续设计修复时为内容页补充可见 breadcrumb，并保持真实两级层级。",
+                acceptance_test="构建后页面存在可见 breadcrumb，首页链接正确，当前页使用 aria-current=\"page\"。",
                 skill_source=skill_source,
                 requires_human_review=False,
+            )
+
+        breadcrumb_consistency = checks["schema"]["breadcrumb_visible_consistency"]
+        if expectations.get("requires_breadcrumb") and breadcrumb_consistency["ok"] is False:
+            add_finding(
+                findings,
+                route=route,
+                dimension="schema",
+                evidence_status="observed",
+                severity="low",
+                priority="P3",
+                owner="development",
+                observed_evidence=(
+                    f"visible_current={breadcrumb_consistency['visible_current_texts']}; "
+                    f"schema_names={breadcrumb_consistency['schema_names']}"
+                ),
+                issue="可见 breadcrumb 当前页名称与 BreadcrumbList JSON-LD 表达不一致。",
+                recommended_action="同步人工确认的短导航名，或在审核后同步修改 JSON-LD。",
+                acceptance_test="构建后可见 breadcrumb 当前页名称与 BreadcrumbList 最后一项 name 一致。",
+                skill_source=skill_source,
+                requires_human_review=True,
             )
 
         if expectations.get("requires_entity_in_h1") and not page["raw_counts"]["entity_in_h1"]:
@@ -812,6 +969,26 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
     breadcrumb_list_routes = [
         route for route, summary in summary_by_route.items() if summary.get("breadcrumb_list_count", 0)
     ]
+    h1_missing_entity_routes = [
+        page["route"]
+        for page in pages
+        if page["expectations"].get("requires_entity_in_h1") and not page["raw_counts"]["entity_in_h1"]
+    ]
+    visible_breadcrumb_routes = [
+        page["route"]
+        for page in pages
+        if page["expectations"].get("requires_breadcrumb") and page["checks"]["semantic_structure"]["breadcrumbs"]["ok"]
+    ]
+    missing_visible_breadcrumb_routes = [
+        page["route"]
+        for page in pages
+        if page["expectations"].get("requires_breadcrumb") and not page["checks"]["semantic_structure"]["breadcrumbs"]["ok"]
+    ]
+    breadcrumb_consistent_routes = [
+        page["route"]
+        for page in pages
+        if page["checks"]["schema"]["breadcrumb_visible_consistency"]["ok"] is True
+    ]
     schema_common_lines = []
     if json_ld_missing_routes:
         schema_common_lines.append(f"- 仍未发现 JSON-LD 的页面：{', '.join(json_ld_missing_routes)}。")
@@ -821,13 +998,21 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
         schema_common_lines.append(
             f"- 已识别 BreadcrumbList JSON-LD 的页面：{', '.join(breadcrumb_list_routes)}；这只表达页面层级，不代表 Organization、Article、FAQPage 或其他 Schema 已完成。"
         )
+    if visible_breadcrumb_routes:
+        schema_common_lines.append(f"- 已识别符合 nav/ol/li 与 aria-current 要求的可见 breadcrumb：{', '.join(visible_breadcrumb_routes)}。")
+    if breadcrumb_consistent_routes:
+        schema_common_lines.append(f"- 可见 breadcrumb 当前页名称与 BreadcrumbList JSON-LD 短名称一致：{', '.join(breadcrumb_consistent_routes)}。")
     if not schema_common_lines:
         schema_common_lines.append("- 三个审计页面均已存在 JSON-LD；仍需分别审核具体 Schema 类型和正文证据一致性。")
-    canonical_common_line = (
-        "- 两个内容子页面缺少页面级 canonical 和面包屑，页面路径与层级主要依赖全局导航表达。"
-        if canonical_routes
-        else "- 三个审计页面 canonical 均已指向对应公开 URL；内容子页面仍缺少可见 breadcrumb 标记。"
-    )
+    if canonical_routes:
+        canonical_common_line = "- 仍有页面 canonical 未指向对应公开 URL，需优先处理。"
+    elif missing_visible_breadcrumb_routes:
+        canonical_common_line = (
+            "- 三个审计页面 canonical 均已指向对应公开 URL；"
+            f"仍缺少合格可见 breadcrumb 的页面：{', '.join(missing_visible_breadcrumb_routes)}。"
+        )
+    else:
+        canonical_common_line = "- 三个审计页面 canonical 均已指向对应公开 URL；两个内容页均已存在合格可见 breadcrumb。"
 
     def page_specific_line(route: str) -> str:
         if route in canonical_routes:
@@ -839,9 +1024,16 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
             if breadcrumb_count
             else "仍未发现 JSON-LD"
         )
+        breadcrumb_check = next((page["checks"]["semantic_structure"]["breadcrumbs"] for page in pages if page["route"] == route), {})
+        h1_note = "H1 已包含元亨利品牌语境" if route not in h1_missing_entity_routes else "H1 实体表达仍未处理"
+        breadcrumb_note = (
+            f"可见 breadcrumb 当前页={breadcrumb_check.get('current_texts', [])}"
+            if breadcrumb_check.get("ok")
+            else "可见 breadcrumb 仍未处理"
+        )
         return (
             f"- `{route}`：canonical 已指向 `{canonical_by_route.get(route, '缺失')}`；"
-            f"{schema_note}；可见 breadcrumb 标记和 H1 实体表达仍未处理。"
+            f"{schema_note}；{breadcrumb_note}；{h1_note}。"
         )
 
     facts_specific = page_specific_line("/facts")
@@ -853,11 +1045,21 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
             "3. 最后处理 P2/P3 结构增强：人工审核后的 JSON-LD 候选和子页面面包屑。",
         ]
     else:
-        recommended_next_steps = [
-            "1. P1 canonical 已由本次复测确认解决。",
-            "2. 两个试点内容页的 BreadcrumbList 可单独复核；它不替代 Organization、Article、FAQPage 或可见 breadcrumb UI。",
-            "3. 后续再处理 P2 页面主题：让 H1 或紧邻摘要能独立识别元亨利品牌实体。",
-        ]
+        recommended_next_steps = ["1. P1 canonical 已由本次复测确认解决。"]
+        if missing_visible_breadcrumb_routes:
+            recommended_next_steps.append(
+                f"2. 继续处理可见 breadcrumb：{', '.join(missing_visible_breadcrumb_routes)}。"
+            )
+        else:
+            recommended_next_steps.append(
+                "2. 两个试点内容页的可见 breadcrumb 与 BreadcrumbList 已对齐；它不替代 Organization、Article、FAQPage 等其他 Schema。"
+            )
+        if h1_missing_entity_routes:
+            recommended_next_steps.append(
+                f"3. 后续再处理 H1 品牌语境不足页面：{', '.join(h1_missing_entity_routes)}。"
+            )
+        else:
+            recommended_next_steps.append("3. 本次不自动判断页面整体 GEO 已完成，其他 P2/P3 内容结构问题继续独立处理。")
     lines = [
         "# 阶段 06B 页面审计模块试点报告",
         "",
@@ -925,11 +1127,19 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
             "",
             "## 三个页面的共性问题",
             *schema_common_lines,
-            "- 三页 H1 都偏主题化，没有直接写出“元亨利”品牌实体，独立引用标题时语境不够完整。",
+            (
+                f"- H1 仍缺少“元亨利”品牌实体的页面：{', '.join(h1_missing_entity_routes)}。"
+                if h1_missing_entity_routes
+                else "- 三页 H1 均已包含“元亨利”品牌实体或完整品牌语境。"
+            ),
             canonical_common_line,
             "",
             "## 页面特有问题",
-            "- `/`：最重要的特有问题是 H1 未直接包含品牌实体，首页标题脱离上下文后偏泛化。",
+            (
+                "- `/`：首页 H1 仍未直接包含品牌实体，标题脱离上下文后偏泛化。"
+                if "/" in h1_missing_entity_routes
+                else "- `/`：首页 H1 已补足元亨利红木家具与 GEO 诊断语境；首页仍不生成 BreadcrumbList。"
+            ),
             facts_specific,
             buying_specific,
             "",

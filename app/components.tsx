@@ -95,20 +95,43 @@ export function SourceLinks({ ids }: { ids: string[] }) {
 }
 
 export type ArticleSection = { title: string; body: React.ReactNode };
+export type VisibleBreadcrumbItem = { label: string; href?: string };
+
+export function VisibleBreadcrumbs({ items }: { items: VisibleBreadcrumbItem[] }) {
+  return (
+    <nav className="visible-breadcrumbs" aria-label="面包屑导航">
+      <ol>
+        {items.map((item, index) => {
+          const href = item.href;
+          const isCurrent = index === items.length - 1 || !href;
+          return (
+            <li key={`${item.label}-${index}`} {...(isCurrent ? { "aria-current": "page" as const } : {})}>
+              {isCurrent ? item.label : <Link href={href}>{item.label}</Link>}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+}
 
 export function ArticlePage({
   index,
   title,
+  summary,
   directAnswer,
   boundary,
+  breadcrumbs,
   sections,
   sourceIds,
   related,
 }: {
   index: string;
   title: string;
+  summary?: string;
   directAnswer: string;
   boundary: string;
+  breadcrumbs?: VisibleBreadcrumbItem[];
   sections: ArticleSection[];
   sourceIds: string[];
   related: { label: string; href: string }[];
@@ -117,8 +140,9 @@ export function ArticlePage({
     <SiteShell>
       <section className="article-hero">
         <Eyebrow>内容资产 {index}</Eyebrow>
+        {breadcrumbs && <VisibleBreadcrumbs items={breadcrumbs} />}
         <h1>{title}</h1>
-        <p className="lede">{directAnswer}</p>
+        <p className="lede">{summary || directAnswer}</p>
         <div className="answer-box"><b>直接答案</b><p>{directAnswer}</p></div>
       </section>
       <div className="article-layout">

@@ -44,6 +44,17 @@ def page_html(title, description, route, h1, body, canonical=None, json_ld=""):
 </html>"""
 
 
+def visible_breadcrumb_html(current_name):
+    return f"""
+<nav class="visible-breadcrumbs" aria-label="面包屑导航">
+  <ol>
+    <li><a href="/yhl-geo-portfolio/">首页</a></li>
+    <li aria-current="page">{current_name}</li>
+  </ol>
+</nav>
+"""
+
+
 class PageAuditAdapterTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -317,6 +328,39 @@ class PageAuditAdapterTests(unittest.TestCase):
         self.assertFalse(
             any(
                 finding["route"] == "/facts" and finding["audit_dimension"] == "Schema"
+                for finding in report["findings"]
+            )
+        )
+
+    def test_visible_breadcrumb_can_use_short_name_while_h1_uses_entity_context(self):
+        breadcrumb_json_ld = """
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://evelay.github.io/yhl-geo-portfolio/"},{"@type":"ListItem","position":2,"name":"品牌事实与定位","item":"https://evelay.github.io/yhl-geo-portfolio/facts/"}]}</script>
+"""
+        (self.root / "out/facts/index.html").write_text(
+            page_html(
+                "品牌事实",
+                "品牌事实描述",
+                "/facts",
+                "元亨利品牌事实、来源与信息边界",
+                visible_breadcrumb_html("品牌事实与定位")
+                + """
+<article><section><h2>可核验来源</h2><p>直接答案：元亨利红木家具品牌事实需要区分事实、判断、建议和待核验项，source_id B-001 可追溯，更新时间 2026-07-17。</p><ul><li>事实层</li><li>品牌自述层</li></ul><a href="https://example.com/source">来源 B-001</a></section></article>
+""",
+                json_ld=breadcrumb_json_ld,
+            ),
+            encoding="utf-8",
+        )
+
+        report = self.run_adapter()
+        facts = next(page for page in report["pages"] if page["route"] == "/facts")
+        self.assertTrue(facts["checks"]["semantic_structure"]["breadcrumbs"]["ok"])
+        self.assertEqual(facts["checks"]["semantic_structure"]["breadcrumbs"]["current_texts"], ["品牌事实与定位"])
+        self.assertTrue(facts["checks"]["schema"]["breadcrumb_visible_consistency"]["ok"])
+        self.assertFalse(
+            any(
+                finding["route"] == "/facts"
+                and finding["audit_dimension"] in {"语义结构", "Schema"}
+                and "breadcrumb" in finding["observed_evidence"]
                 for finding in report["findings"]
             )
         )

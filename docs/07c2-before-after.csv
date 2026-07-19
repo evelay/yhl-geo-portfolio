@@ -1,0 +1,15 @@
+route,check,before_value,after_value,before_status,after_status,evidence_file,notes
+/,H1,让红木家具信息变得可回答、可核验,元亨利红木家具 GEO 诊断与可核验内容体系,open,resolved,out/index.html,06B-PA-002 resolved；首页 H1 已包含元亨利红木家具和 GEO 诊断语境。
+/facts,H1,品牌事实与定位,元亨利品牌事实、来源与信息边界,open,resolved,out/facts/index.html,06B-PA-006 resolved；H1 完整表达品牌事实来源与信息边界。
+/buying-guide,H1,购买核验指南,元亨利红木家具购买核验指南,open,resolved,out/buying-guide/index.html,06B-PA-010 resolved；H1 完整表达品牌品类和核验任务。
+/,summary,一个基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例：用225条AI回答识别实体、来源与高客单决策风险，再把诊断转化为可核验内容资产。,本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。,present,updated,out/index.html,摘要保持独立研究和非官方委托边界；不声称增长。
+/facts,summary,在本案例中“元亨利”指红木家具语境中的品牌/企业主体。可核验页面能说明其公开活动、受访身份和部分产品方向，但不足以支持统一的“行业第一”“顶级品牌”或永久排名。,本页汇总元亨利可公开核验的品牌事实、来源与信息边界，并区分已确认、需谨慎表述和暂不应公开推断的内容。,present-as-direct-answer,updated,out/facts/index.html,摘要与直接答案分离；直接答案保留在答案框。
+/buying-guide,summary,高客单红木家具不应依据AI给出的价格区间、门店地址或“保值升值”判断购买。把决策落到具体型号、主辅材、书面合同、证书、交付验收、发票和售后责任主体。,本页提供评估元亨利红木家具时可执行的核验框架，重点关注材质、工艺、来源、单件证据和信息边界，不构成购买或投资建议。,present-as-direct-answer,updated,out/buying-guide/index.html,摘要与直接答案分离；保持非购买建议边界。
+/facts,visible_breadcrumb,absent,首页 -> 品牌事实与定位,open,resolved,out/facts/index.html,06B-PA-005 resolved；使用 nav ol li；首页链接为 /yhl-geo-portfolio/；当前页 aria-current page。
+/buying-guide,visible_breadcrumb,absent,首页 -> 购买核验指南,open,resolved,out/buying-guide/index.html,06B-PA-009 resolved；使用 nav ol li；首页链接为 /yhl-geo-portfolio/；当前页 aria-current page。
+/facts,BreadcrumbList name,品牌事实与定位,品牌事实与定位,unchanged,unchanged,out/facts/index.html,按人工决定不因 H1 改动同步 JSON-LD name。
+/buying-guide,BreadcrumbList name,购买核验指南,购买核验指南,unchanged,unchanged,out/buying-guide/index.html,按人工决定不因 H1 改动同步 JSON-LD name。
+/,canonical,https://evelay.github.io/yhl-geo-portfolio/,https://evelay.github.io/yhl-geo-portfolio/,unchanged,unchanged,out/index.html,URL 与 canonical 保持不变。
+/facts,canonical,https://evelay.github.io/yhl-geo-portfolio/facts/,https://evelay.github.io/yhl-geo-portfolio/facts/,unchanged,unchanged,out/facts/index.html,URL 与 canonical 保持不变。
+/buying-guide,canonical,https://evelay.github.io/yhl-geo-portfolio/buying-guide/,https://evelay.github.io/yhl-geo-portfolio/buying-guide/,unchanged,unchanged,out/buying-guide/index.html,URL 与 canonical 保持不变。
+all,open_findings_count,6,1,open,resolved,docs/06b-page-audit-findings.csv,07C2 前 open 为 06B-PA-001 002 005 006 009 010；07C2 后仅 06B-PA-001 保持 open。

@@ -34,9 +34,11 @@ export default function BuyingGuidePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbSchemaJson }} />
       <ArticlePage
         index="05"
-        title="购买核验指南"
+        title="元亨利红木家具购买核验指南"
+        summary="本页提供评估元亨利红木家具时可执行的核验框架，重点关注材质、工艺、来源、单件证据和信息边界，不构成购买或投资建议。"
         directAnswer="高客单红木家具不应依据AI给出的价格区间、门店地址或“保值升值”判断购买。把决策落到具体型号、主辅材、书面合同、证书、交付验收、发票和售后责任主体。"
         boundary="门店、价格、库存和售后是动态信息，必须记录核验日期并向官方渠道或签约主体重新确认。本页不提供投资建议，也不承诺保值、升值或回购。"
+        breadcrumbs={[{ label: "首页", href: "/" }, { label: "购买核验指南" }]}
         sourceIds={["B-003","B-004","B-005"]}
         related={[{label:"材质证据怎么分层？",href:"/materials"},{label:"同名主体怎么确认？",href:"/disambiguation"},{label:"查看公开FAQ",href:"/faq"}]}
         sections={[

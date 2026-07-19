@@ -34,9 +34,11 @@ export default function FactsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbSchemaJson }} />
       <ArticlePage
         index="01"
-        title="品牌事实与定位"
+        title="元亨利品牌事实、来源与信息边界"
+        summary="本页汇总元亨利可公开核验的品牌事实、来源与信息边界，并区分已确认、需谨慎表述和暂不应公开推断的内容。"
         directAnswer="在本案例中，“元亨利”指红木家具语境中的品牌/企业主体。可核验页面能说明其公开活动、受访身份和部分产品方向，但不足以支持统一的“行业第一”“顶级品牌”或永久排名。"
         boundary="品牌官网可证明“品牌公开怎么说”，不能自动升级为第三方事实；荣誉、排名、成立时间和人物关系必须落到具体原页面、证书、评选主体和年份。当前无法闭环的项目继续标为待核验。"
+        breadcrumbs={[{ label: "首页", href: "/" }, { label: "品牌事实与定位" }]}
         sourceIds={["B-008","B-009","B-011"]}
         related={[{label:"如何区分同名主体？",href:"/disambiguation"},{label:"官网一定是第三方证据吗？",href:"/faq"},{label:"查看方法与来源",href:"/method"}]}
         sections={[

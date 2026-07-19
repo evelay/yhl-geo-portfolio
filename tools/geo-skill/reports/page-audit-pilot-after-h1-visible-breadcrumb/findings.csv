@@ -1,0 +1,2 @@
+finding_id,route,audit_dimension,evidence_status,severity,priority,owner,observed_evidence,issue,recommended_action,acceptance_test,skill_source,requires_human_review,status,notes
+06B-PA-001,/,Schema,observed,low,P2,development,未发现 application/ld+json。,当前页面没有 JSON-LD，机器只能依赖正文和链接结构理解页面实体与类型。,后续人工审核后再考虑页面级 JSON-LD 候选；本阶段不生成或写入 Schema。,后续若接入 Schema，JSON-LD 字段必须能逐项回溯到页面正文。,yao-geo-page-audit@dc10716d97c40fed0a0a08e538a236b5e16b4822,yes,open,本发现不代表 AI 引用概率或排名判断。
