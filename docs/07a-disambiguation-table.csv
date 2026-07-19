@@ -1,0 +1,8 @@
+ambiguity_id,mention,possible_entity_a,possible_entity_b,ambiguity_type,risk,safe_interpretation,unsafe_interpretation,evidence_ids,requires_human_decision,status,notes
+AMB-07A-001,元亨利,brand:yuanhengli,organization:beijing-yuanhengli-hardwood-furniture,品牌名称 / 企业主体,high,元亨利红木家具作为品牌识别对象，北京元亨利硬木家具有限公司作为企业主体候选，二者进入 07B 前需人工确认关系。,直接写成同一实体、补造工商号码、股权关系、成立时间或官方委托。,EV-006,yes,candidate,品牌、企业主体、官网和公开账号需分别核验。
+AMB-07A-002,京作家具 / 京作工艺,topic:jingzuo-unresolved,brand:yuanhengli,工艺传统 / 品牌官方身份,high,本阶段只记录京作关系缺证；不得创建品牌与京作的公开关系。,把涉及京作内容扩大为官方认定、独家代表、唯一传承或品牌身份。,,yes,evidence-gap,安全公开 JSON 中没有京作记录。
+AMB-07A-003,紫檀,material:zitan,category:redwood-furniture,材料 / 全部产品,high,紫檀是材料概念和内容主题；单件产品材质需证书、检测、合同或发票。,推断元亨利所有产品均为紫檀，或把紫檀主题写成全量产品事实。,EV-007|EV-008,yes,candidate,可保留材料术语边界，不进入品牌全量材质关系。
+AMB-07A-004,黄花梨,material:huanghuali,brand:yuanhengli,材料 / 品牌定位,high,黄花梨是材料概念与内容主题；品牌关系需要明确 evidence_id。,把元亨利直接等同于黄花梨品牌，或推断独家、主要、全部经营关系。,,yes,evidence-gap,MAP-Q-03 和 FAQ-03 没有 evidenceIds。
+AMB-07A-005,白酸枝,material:suanzhi,topic:baisuanzhi-term,材料俗称 / 产品关系,medium,白酸枝作为酸枝相关俗称治理对象，需回规范中文名并与合同、产品凭证一致。,把白酸枝俗称固定为某一树种或直接绑定到品牌全部产品。,EV-003,yes,candidate,只有内容主题可作为 07B 候选，产品关系需人工复核。
+AMB-07A-006,明式,style:ming-style-furniture,category:redwood-furniture,家具风格 / 具体年代,high,明式是家具史和审美风格概念；产品年代需单件资料。,由明式风格推导具体产品年代、文物年代或馆藏事实。,,yes,evidence-gap,FACT-0037 无 evidenceIds。
+AMB-07A-007,清式,style:qing-style-furniture,category:redwood-furniture,家具风格 / 具体年代,high,清式是家具史和审美风格概念；产品年代需单件资料。,由清式风格推导具体产品年代、文物年代或馆藏事实。,,yes,evidence-gap,FACT-0038 无 evidenceIds。

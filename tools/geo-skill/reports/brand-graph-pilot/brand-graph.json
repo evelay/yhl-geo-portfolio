@@ -1,0 +1,3991 @@
+{
+  "stage": "07A",
+  "run_id": "07a-brand-graph-20260719171753",
+  "generated_at": "2026-07-19T17:17:53+08:00",
+  "skill_source": {
+    "repo": "https://github.com/yaojingang/yao-geo-skills",
+    "commit": "dc10716d97c40fed0a0a08e538a236b5e16b4822",
+    "skill_path": "skills/yao-geo-brand-graph",
+    "license": "MIT"
+  },
+  "input": {
+    "path": "public/downloads/yhl-geo-knowledge-base-public.json",
+    "sha256": "379fbec902654f6daabd5cf5eb5ff856cd418f78e09ba5c772f6e69b8895c991",
+    "snapshot_validation": {
+      "version": "1.1-public-filtered",
+      "publication_scope": "public-filtered: reviewed public records with valid source_id only",
+      "record_count": 36,
+      "excluded_statuses": [
+        "level_three_review_required",
+        "source_review_required",
+        "unreviewed",
+        "non_public",
+        "missing_source_id",
+        "blocked_publication_status",
+        "restricted_internal_material"
+      ],
+      "fact_count": 36,
+      "source_count": 24,
+      "source_records_have_status": true,
+      "fact_records_have_evidence_level": true
+    }
+  },
+  "network_used": false,
+  "api_used": false,
+  "model_used": false,
+  "crawler_used": false,
+  "production_schema_generated": false,
+  "relations_auto_approved": false,
+  "counts": {
+    "entities_total": 98,
+    "entities_by_type": {
+      "BoundaryRule": 9,
+      "Brand": 1,
+      "ContentTopic": 5,
+      "CraftTradition": 1,
+      "FurnitureStyle": 2,
+      "Geography": 1,
+      "Material": 4,
+      "Organization": 6,
+      "ProductCategory": 1,
+      "PublicationAsset": 6,
+      "QuestionIntent": 38,
+      "Source": 24
+    },
+    "relations_total": 36,
+    "relations_by_publication_safety": {
+      "public-safe": 15,
+      "review-required": 21
+    },
+    "relations_by_evidence_status": {
+      "evidence-gap": 19,
+      "inferred": 1,
+      "snapshot-supported": 4,
+      "source-confirmed": 12
+    },
+    "public_safe_relations": 15,
+    "review_required_relations": 21,
+    "evidence_gap_relations": 19,
+    "schema_candidates_total": 121,
+    "schema_candidates_eligible_yes": 14,
+    "schema_candidates_eligible_no": 107
+  },
+  "entities": [
+    {
+      "entity_id": "brand:yuanhengli",
+      "canonical_name": "元亨利红木家具",
+      "display_name": "元亨利红木家具",
+      "entity_type": "Brand",
+      "aliases": [
+        "元亨利"
+      ],
+      "description": "红木家具语境中的品牌识别对象",
+      "evidence_ids": [
+        "EV-002",
+        "EV-004",
+        "EV-010"
+      ],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "high",
+      "recommended_usage": "仅作红木家具语境下的品牌识别对象；进入 Schema 前必须完成品牌/企业主体消歧。",
+      "notes": "与同名字号主体分开核验"
+    },
+    {
+      "entity_id": "organization:beijing-yuanhengli-hardwood-furniture",
+      "canonical_name": "北京元亨利硬木家具有限公司",
+      "display_name": "北京元亨利硬木家具有限公司",
+      "entity_type": "Organization",
+      "aliases": [],
+      "description": "官网与主体核验涉及的企业名称",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "high",
+      "recommended_usage": "可作为企业主体候选；不得自动与品牌、网站或其他同名字号视为同一实体。",
+      "notes": "工商细节以实时查询结果为准"
+    },
+    {
+      "entity_id": "asset:bjyuanhengli-com",
+      "canonical_name": "bjyuanhengli.com",
+      "display_name": "bjyuanhengli.com",
+      "entity_type": "PublicationAsset",
+      "aliases": [
+        "元亨利官网线索"
+      ],
+      "description": "项目用于识别官网和备案核验的域名",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为官网/域名公开线索；备案、主体和页面状态需按日期复核。",
+      "notes": "备案和域名状态需按日期复核"
+    },
+    {
+      "entity_id": "material:redwood",
+      "canonical_name": "红木",
+      "display_name": "红木",
+      "entity_type": "Material",
+      "aliases": [
+        "GB/T 18107-2017 语境"
+      ],
+      "description": "国家标准和红木家具内容的基础材料概念",
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "按国家标准解释红木术语，不证明任何单件材质。",
+      "notes": "标准术语不等于单件材质证明"
+    },
+    {
+      "entity_id": "material:huanghuali",
+      "canonical_name": "黄花梨",
+      "display_name": "黄花梨",
+      "entity_type": "Material",
+      "aliases": [
+        "花梨木相关俗称需回标准"
+      ],
+      "description": "明清家具与红木材料语境中出现的材料名称",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "材料概念和内容主题，不等同品牌定位或全部产品材质。",
+      "notes": "俗称和规范名称需分开"
+    },
+    {
+      "entity_id": "material:zitan",
+      "canonical_name": "紫檀",
+      "display_name": "紫檀",
+      "entity_type": "Material",
+      "aliases": [
+        "紫檀木相关俗称需回标准"
+      ],
+      "description": "明清家具与红木材料语境中出现的材料名称",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "材料概念和内容主题，不替代单件证书、检测或合同。",
+      "notes": "不能替代产品证书"
+    },
+    {
+      "entity_id": "material:suanzhi",
+      "canonical_name": "酸枝",
+      "display_name": "酸枝",
+      "entity_type": "Material",
+      "aliases": [
+        "白酸枝",
+        "白酸枝等俗称"
+      ],
+      "description": "红木材料语境中常见名称",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "材料概念及俗称治理对象，需回规范名称和书面资料。",
+      "notes": "商业俗称需回到规范名称"
+    },
+    {
+      "entity_id": "category:redwood-furniture",
+      "canonical_name": "红木家具",
+      "display_name": "红木家具",
+      "entity_type": "ProductCategory",
+      "aliases": [],
+      "description": "本项目内容承接的产品类别",
+      "evidence_ids": [
+        "EV-007",
+        "EV-008",
+        "EV-009",
+        "EV-010",
+        "EV-011",
+        "EV-012"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "可作为产品类别和购买核验主题，不作为品牌全量产品或单件材质结论。",
+      "notes": "购买需单件证据"
+    },
+    {
+      "entity_id": "craft:classical-process-terms",
+      "canonical_name": "古典工艺栏目术语",
+      "display_name": "古典工艺",
+      "entity_type": "CraftTradition",
+      "aliases": [
+        "刮磨",
+        "打磨",
+        "烫蜡",
+        "包浆"
+      ],
+      "description": "官网工艺栏目中出现的工艺术语集合；本阶段不扩写为非遗、纯手工或每件产品工艺事实。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只可作为待审工艺内容主题。",
+      "notes": "行业通用工艺和品牌一手自述需分开。"
+    },
+    {
+      "entity_id": "style:ming-style-furniture",
+      "canonical_name": "明式家具",
+      "display_name": "明式家具",
+      "entity_type": "FurnitureStyle",
+      "aliases": [
+        "明式风格"
+      ],
+      "description": "家具史与审美风格概念",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "high",
+      "recommended_usage": "只作为家具史与审美风格概念；不得推断具体年代、馆藏或文物年代。",
+      "notes": "不能由风格词推导年代"
+    },
+    {
+      "entity_id": "style:qing-style-furniture",
+      "canonical_name": "清式家具",
+      "display_name": "清式家具",
+      "entity_type": "FurnitureStyle",
+      "aliases": [
+        "清式风格"
+      ],
+      "description": "家具史与审美风格概念",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "high",
+      "recommended_usage": "只作为家具史与审美风格概念；不得推断具体年代、馆藏或文物年代。",
+      "notes": "不能由风格词推导馆藏"
+    },
+    {
+      "entity_id": "topic:huanghuali-relation",
+      "canonical_name": "黄花梨关系",
+      "display_name": "黄花梨关系",
+      "entity_type": "ContentTopic",
+      "aliases": [
+        "元亨利与黄花梨是什么关系？"
+      ],
+      "description": "材料与内容主题关系，不能写成品牌定位或经营事实。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为内容主题或待审意图，不作为经营范围、产品全量或官方身份事实。",
+      "notes": "主题关系必须与材料、品牌事实和单件证据分层。"
+    },
+    {
+      "entity_id": "topic:zitan-understanding",
+      "canonical_name": "紫檀家具理解",
+      "display_name": "紫檀家具理解",
+      "entity_type": "ContentTopic",
+      "aliases": [
+        "紫檀家具怎么理解？"
+      ],
+      "description": "材料、产品类别和单件证据边界主题。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为内容主题或待审意图，不作为经营范围、产品全量或官方身份事实。",
+      "notes": "主题关系必须与材料、品牌事实和单件证据分层。"
+    },
+    {
+      "entity_id": "topic:baisuanzhi-term",
+      "canonical_name": "白酸枝关联",
+      "display_name": "白酸枝关联",
+      "entity_type": "ContentTopic",
+      "aliases": [
+        "白酸枝等于某个固定树种吗？"
+      ],
+      "description": "俗称、规范名称和产品凭证一致性主题。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为内容主题或待审意图，不作为经营范围、产品全量或官方身份事实。",
+      "notes": "主题关系必须与材料、品牌事实和单件证据分层。"
+    },
+    {
+      "entity_id": "topic:ming-qing-style",
+      "canonical_name": "明式/清式意义",
+      "display_name": "明式/清式意义",
+      "entity_type": "ContentTopic",
+      "aliases": [
+        "明式、清式和品牌产品是什么关系？"
+      ],
+      "description": "风格教育主题，不证明具体产品年代。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为内容主题或待审意图，不作为经营范围、产品全量或官方身份事实。",
+      "notes": "主题关系必须与材料、品牌事实和单件证据分层。"
+    },
+    {
+      "entity_id": "topic:jingzuo-unresolved",
+      "canonical_name": "京作关系待证",
+      "display_name": "京作关系待证",
+      "entity_type": "ContentTopic",
+      "aliases": [
+        "京作家具",
+        "京作工艺"
+      ],
+      "description": "允许输入中未出现京作记录；仅记录待证消歧对象，不创建品牌官方身份事实。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "high",
+      "recommended_usage": "只作为内容主题或待审意图，不作为经营范围、产品全量或官方身份事实。",
+      "notes": "主题关系必须与材料、品牌事实和单件证据分层。"
+    },
+    {
+      "entity_id": "geography:beijing",
+      "canonical_name": "北京",
+      "display_name": "北京",
+      "entity_type": "Geography",
+      "aliases": [
+        "北京市"
+      ],
+      "description": "公开来源名称和企业名称中出现的地名语境；不证明实时门店、产地或销售范围。",
+      "evidence_ids": [
+        "EV-006",
+        "EV-009"
+      ],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作来源和主体核验语境，不作为地理经营事实。",
+      "notes": "门店、渠道和售后均需动态复核。"
+    },
+    {
+      "entity_id": "source:s0-001",
+      "canonical_name": "国家企业信用信息公示系统：北京元亨利硬木家具有限公司查询入口",
+      "display_name": "S0-001",
+      "entity_type": "Source",
+      "aliases": [
+        "工商核验入口"
+      ],
+      "description": "可证明工商主体相关信息是否存在及当前登记状态。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明品牌荣誉、产品材质、价格、馆藏、售后承诺。"
+    },
+    {
+      "entity_id": "source:s0-002",
+      "canonical_name": "工业和信息化部 ICP/IP 地址/域名信息备案管理系统",
+      "display_name": "S0-002",
+      "entity_type": "Source",
+      "aliases": [
+        "ICP备案核验入口"
+      ],
+      "description": "可证明官网域名是否有备案及备案主体。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明官网内容全部真实，也不能证明门店、价格或售后状态。"
+    },
+    {
+      "entity_id": "source:s0-003",
+      "canonical_name": "中国商标网：元亨利相关商标查询入口",
+      "display_name": "S0-003",
+      "entity_type": "Source",
+      "aliases": [
+        "商标核验入口"
+      ],
+      "description": "可证明商标注册主体和类别边界。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明公司经营状态、产品质量、荣誉或行业排名。"
+    },
+    {
+      "entity_id": "source:s0-004",
+      "canonical_name": "中国互联网信息中心 WHOIS 查询入口",
+      "display_name": "S0-004",
+      "entity_type": "Source",
+      "aliases": [],
+      "description": "可辅助证明域名注册状态和域名线索。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能单独证明官网主体或品牌事实。"
+    },
+    {
+      "entity_id": "source:a-001",
+      "canonical_name": "元亨利官网联系页",
+      "display_name": "A-001",
+      "entity_type": "Source",
+      "aliases": [
+        "官网"
+      ],
+      "description": "可证明官网联系页自述的主体名称和联系方式。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明工商登记、实时门店状态、售后承诺或产品真实性。"
+    },
+    {
+      "entity_id": "source:a-002",
+      "canonical_name": "元亨利官网产品页：珍品典藏",
+      "display_name": "A-002",
+      "entity_type": "Source",
+      "aliases": [
+        "官网"
+      ],
+      "description": "可证明官网展示过的产品类别、器型和页面结构。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明单件产品材质真伪、库存、价格、成交或收藏价值。"
+    },
+    {
+      "entity_id": "source:a-003",
+      "canonical_name": "元亨利官网关于页面",
+      "display_name": "A-003",
+      "entity_type": "Source",
+      "aliases": [
+        "官网"
+      ],
+      "description": "可证明官网存在关于品牌的结构化入口。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能直接证明其中所有人物、荣誉和背书均已第三方核验。"
+    },
+    {
+      "entity_id": "source:a-004",
+      "canonical_name": "元亨利官网企业介绍页",
+      "display_name": "A-004",
+      "entity_type": "Source",
+      "aliases": [
+        "官网自述"
+      ],
+      "description": "可证明官网自述中存在这些信息点。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明荣誉、排名、馆藏、协会、非遗等已由第三方确认。"
+    },
+    {
+      "entity_id": "source:a-005",
+      "canonical_name": "元亨利官网品牌介绍页",
+      "display_name": "A-005",
+      "entity_type": "Source",
+      "aliases": [
+        "官网自述"
+      ],
+      "description": "可证明官网自述包含人物相关资料。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明人物称号、职务和外部背书已由第三方确认。"
+    },
+    {
+      "entity_id": "source:a-006",
+      "canonical_name": "元亨利官网荣誉页",
+      "display_name": "A-006",
+      "entity_type": "Source",
+      "aliases": [],
+      "description": "可证明官网存在荣誉图片资料。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明证书文字、颁发机构、年份和有效性已被完整核验。"
+    },
+    {
+      "entity_id": "source:a-007",
+      "canonical_name": "元亨利官网古典工艺页",
+      "display_name": "A-007",
+      "entity_type": "Source",
+      "aliases": [
+        "官网"
+      ],
+      "description": "可证明官网已有这些工艺栏目和术语。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明每件产品均采用某工艺，也不能证明非遗或纯手工强背书。"
+    },
+    {
+      "entity_id": "source:a-008",
+      "canonical_name": "元亨利官网文化示范馆页",
+      "display_name": "A-008",
+      "entity_type": "Source",
+      "aliases": [
+        "官网自述"
+      ],
+      "description": "可证明官网存在文化示范馆相关自述。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明国家级馆藏、博物馆背书或外部展陈事实。"
+    },
+    {
+      "entity_id": "source:a-009",
+      "canonical_name": "元亨利官网全国门店页",
+      "display_name": "A-009",
+      "entity_type": "Source",
+      "aliases": [
+        "官网"
+      ],
+      "description": "可证明官网有门店或渠道信息入口。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明门店实时营业、库存、授权关系或当前价格。"
+    },
+    {
+      "entity_id": "source:a-010",
+      "canonical_name": "元亨利官方公众号资料",
+      "display_name": "A-010",
+      "entity_type": "Source",
+      "aliases": [],
+      "description": "可证明官方账号曾发布的具体内容。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能替代第三方核验，也不能证明所有历史信息仍然有效。"
+    },
+    {
+      "entity_id": "source:b-001",
+      "canonical_name": "国家标准 GB/T 18107-2017《红木》",
+      "display_name": "B-001",
+      "entity_type": "Source",
+      "aliases": [
+        "国家标准"
+      ],
+      "description": "可证明红木材质分类和标准依据。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明元亨利具体产品材质、证书或价格。"
+    },
+    {
+      "entity_id": "source:b-002",
+      "canonical_name": "国家标准 GB/T 35475-2017《红木制品用材规范》",
+      "display_name": "B-002",
+      "entity_type": "Source",
+      "aliases": [
+        "国家标准"
+      ],
+      "description": "可证明红木制品用材相关规范存在。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明某品牌某产品符合标准。"
+    },
+    {
+      "entity_id": "source:b-003",
+      "canonical_name": "国家标准 GB/T 28010-2011《红木家具通用技术条件》",
+      "display_name": "B-003",
+      "entity_type": "Source",
+      "aliases": [
+        "国家标准"
+      ],
+      "description": "可证明红木家具通用技术条件相关标准存在。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明品牌产品全部达标或售后承诺。"
+    },
+    {
+      "entity_id": "source:b-004",
+      "canonical_name": "中山市消委会：科学理性选购红木家具",
+      "display_name": "B-004",
+      "entity_type": "Source",
+      "aliases": [],
+      "description": "可作为标准修订和行业背景的媒体解释。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明元亨利品牌事实或单件产品信息。"
+    },
+    {
+      "entity_id": "source:b-005",
+      "canonical_name": "北京市家具买卖合同填写指南",
+      "display_name": "B-005",
+      "entity_type": "Source",
+      "aliases": [],
+      "description": "可证明红木家具消费风险在公共报道中存在。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明元亨利存在具体消费问题。"
+    },
+    {
+      "entity_id": "source:b-008",
+      "canonical_name": "中国家具协会官网",
+      "display_name": "B-008",
+      "entity_type": "Source",
+      "aliases": [
+        "行业协会"
+      ],
+      "description": "若检索到协会页面，可证明协会发布或会员/活动信息。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明品牌排名、产品质量或价格。"
+    },
+    {
+      "entity_id": "source:b-009",
+      "canonical_name": "北京家具行业协会：杨波红木行业主题演讲",
+      "display_name": "B-009",
+      "entity_type": "Source",
+      "aliases": [
+        "行业协会"
+      ],
+      "description": "若检索到具体协会页面，可证明行业活动或协会信息。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明单件产品材质、价格或收藏价值。"
+    },
+    {
+      "entity_id": "source:b-010",
+      "canonical_name": "中国林业科学研究院机构设置：木材工业研究所",
+      "display_name": "B-010",
+      "entity_type": "Source",
+      "aliases": [],
+      "description": "可作为材质知识和标准背景的权威线索。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明品牌产品材质或品牌荣誉。"
+    },
+    {
+      "entity_id": "source:b-011",
+      "canonical_name": "人民网采访：杨波谈元亨利产品结构调整",
+      "display_name": "B-011",
+      "entity_type": "Source",
+      "aliases": [
+        "媒体报道"
+      ],
+      "description": "若来源可靠，可为官网自述提供外部互证。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能直接证明实时经营状态、产品材质或价格。"
+    },
+    {
+      "entity_id": "source:b-012",
+      "canonical_name": "中国国家博物馆：大美木艺——中国明清家具珍品",
+      "display_name": "B-012",
+      "entity_type": "Source",
+      "aliases": [
+        "出版物"
+      ],
+      "description": "可证明行业术语和风格背景。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "作为来源账本节点，不自动把 source_id 改写为 relation evidence_id。",
+      "notes": "不能证明元亨利品牌专属事实。"
+    },
+    {
+      "entity_id": "organization:china-furniture-association",
+      "canonical_name": "中国家具协会",
+      "display_name": "中国家具协会",
+      "entity_type": "Organization",
+      "aliases": [],
+      "description": "行业信息入口",
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "仅作为来源或行业背景主体；不证明品牌排名、资质、背书或产品事实。",
+      "notes": "不直接证明品牌排名"
+    },
+    {
+      "entity_id": "organization:beijing-furniture-trade-association",
+      "canonical_name": "北京家具行业协会",
+      "display_name": "北京家具行业协会",
+      "entity_type": "Organization",
+      "aliases": [],
+      "description": "行业协会与公开活动来源",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "仅作为来源或行业背景主体；不证明品牌排名、资质、背书或产品事实。",
+      "notes": "只证明特定页面语境"
+    },
+    {
+      "entity_id": "organization:wood-industry-research-institute",
+      "canonical_name": "木材工业研究所",
+      "display_name": "木材工业研究所",
+      "entity_type": "Organization",
+      "aliases": [],
+      "description": "木材科研体系背景来源",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "仅作为来源或行业背景主体；不证明品牌排名、资质、背书或产品事实。",
+      "notes": "不证明品牌产品材质"
+    },
+    {
+      "entity_id": "organization:people-cn",
+      "canonical_name": "人民网",
+      "display_name": "人民网",
+      "entity_type": "Organization",
+      "aliases": [],
+      "description": "公开采访来源",
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "仅作为来源或行业背景主体；不证明品牌排名、资质、背书或产品事实。",
+      "notes": "只适用于报道时间与文本语境"
+    },
+    {
+      "entity_id": "organization:national-museum-of-china",
+      "canonical_name": "中国国家博物馆",
+      "display_name": "中国国家博物馆",
+      "entity_type": "Organization",
+      "aliases": [],
+      "description": "公开来源涉及的组织或媒体主体。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "仅作为来源或行业背景主体；不证明品牌排名、资质、背书或产品事实。",
+      "notes": ""
+    },
+    {
+      "entity_id": "asset:public-knowledge-base-json",
+      "canonical_name": "安全过滤版公开知识库快照",
+      "display_name": "安全过滤版公开知识库快照",
+      "entity_type": "PublicationAsset",
+      "aliases": [
+        "yhl-geo-knowledge-base-public.json"
+      ],
+      "description": "本阶段唯一品牌数据输入。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "只作为后续页面或 Schema 候选输入，不触发网站改写。",
+      "notes": "本阶段不写入 app/ 或 public/。"
+    },
+    {
+      "entity_id": "asset:faq-public-hub",
+      "canonical_name": "公开 FAQ 映射",
+      "display_name": "公开 FAQ 映射",
+      "entity_type": "PublicationAsset",
+      "aliases": [
+        "FAQ-P0-HUB"
+      ],
+      "description": "公开 JSON 中的 FAQ 映射与边界回答集合。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "只作为后续页面或 Schema 候选输入，不触发网站改写。",
+      "notes": "本阶段不写入 app/ 或 public/。"
+    },
+    {
+      "entity_id": "asset:p0-materials-page",
+      "canonical_name": "材料核验公开内容资产",
+      "display_name": "材料核验公开内容资产",
+      "entity_type": "PublicationAsset",
+      "aliases": [
+        "PAGE-P0-03"
+      ],
+      "description": "材料和单件证据边界相关页面资产候选。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "只作为后续页面或 Schema 候选输入，不触发网站改写。",
+      "notes": "本阶段不写入 app/ 或 public/。"
+    },
+    {
+      "entity_id": "asset:p0-jingzuo-page",
+      "canonical_name": "京作/明清风格公开内容资产",
+      "display_name": "京作/明清风格公开内容资产",
+      "entity_type": "PublicationAsset",
+      "aliases": [
+        "PAGE-P0-04"
+      ],
+      "description": "明式、清式和工艺教育相关页面资产候选；京作关系需补证。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为后续页面或 Schema 候选输入，不触发网站改写。",
+      "notes": "本阶段不写入 app/ 或 public/。"
+    },
+    {
+      "entity_id": "asset:p0-buying-guide",
+      "canonical_name": "购买核验公开内容资产",
+      "display_name": "购买核验公开内容资产",
+      "entity_type": "PublicationAsset",
+      "aliases": [
+        "PAGE-P0-05"
+      ],
+      "description": "合同、证书、渠道和动态信息核验相关页面资产候选。",
+      "evidence_ids": [],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "low",
+      "recommended_usage": "只作为后续页面或 Schema 候选输入，不触发网站改写。",
+      "notes": "本阶段不写入 app/ 或 public/。"
+    },
+    {
+      "entity_id": "boundary:no-brand-org-equivalence",
+      "canonical_name": "品牌与企业主体不得自动等同",
+      "display_name": "品牌与企业主体不得自动等同",
+      "entity_type": "BoundaryRule",
+      "aliases": [],
+      "description": "品牌名、企业主体、官网和公开账号必须分开核验。",
+      "evidence_ids": [
+        "EV-005",
+        "EV-006"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "high",
+      "recommended_usage": "作为内容、图谱和 07B 候选筛选规则。",
+      "notes": "边界规则不是品牌事实扩写。"
+    },
+    {
+      "entity_id": "boundary:no-material-generalization",
+      "canonical_name": "材料主题不得泛化为全部产品材质",
+      "display_name": "材料主题不得泛化为全部产品材质",
+      "entity_type": "BoundaryRule",
+      "aliases": [],
+      "description": "材料术语、材料主题和单件产品材质结论必须分层。",
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "high",
+      "recommended_usage": "作为内容、图谱和 07B 候选筛选规则。",
+      "notes": "边界规则不是品牌事实扩写。"
+    },
+    {
+      "entity_id": "boundary:single-item-evidence",
+      "canonical_name": "单件产品结论需要单件证据",
+      "display_name": "单件产品结论需要单件证据",
+      "entity_type": "BoundaryRule",
+      "aliases": [],
+      "description": "材质、价格、交付、证书、发票和售后以单件书面资料为准。",
+      "evidence_ids": [
+        "EV-007",
+        "EV-008",
+        "EV-009"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "作为内容、图谱和 07B 候选筛选规则。",
+      "notes": "边界规则不是品牌事实扩写。"
+    },
+    {
+      "entity_id": "boundary:no-style-as-date",
+      "canonical_name": "家具风格不得写成具体年代",
+      "display_name": "家具风格不得写成具体年代",
+      "entity_type": "BoundaryRule",
+      "aliases": [],
+      "description": "明式、清式是风格/历史语境，不自动证明产品年代或文物年代。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "high",
+      "recommended_usage": "作为内容、图谱和 07B 候选筛选规则。",
+      "notes": "边界规则不是品牌事实扩写。"
+    },
+    {
+      "entity_id": "boundary:no-ranking-claim",
+      "canonical_name": "不生成排名或顶级表述",
+      "display_name": "不生成排名或顶级表述",
+      "entity_type": "BoundaryRule",
+      "aliases": [],
+      "description": "无具体评选主体、年份和页面时不得输出排名、第一、顶级或领先。",
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "作为内容、图谱和 07B 候选筛选规则。",
+      "notes": "边界规则不是品牌事实扩写。"
+    },
+    {
+      "entity_id": "boundary:dynamic-channel-review",
+      "canonical_name": "动态渠道信息需要日期复核",
+      "display_name": "动态渠道信息需要日期复核",
+      "entity_type": "BoundaryRule",
+      "aliases": [],
+      "description": "门店、价格、渠道和售后需记录核验日期、适用条件和失效边界。",
+      "evidence_ids": [
+        "EV-009",
+        "EV-010"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "作为内容、图谱和 07B 候选筛选规则。",
+      "notes": "边界规则不是品牌事实扩写。"
+    },
+    {
+      "entity_id": "boundary:no-investment-return",
+      "canonical_name": "不承诺保值升值或投资回报",
+      "display_name": "不承诺保值升值或投资回报",
+      "entity_type": "BoundaryRule",
+      "aliases": [],
+      "description": "收藏、审美、工艺和材料价值不等于可实现的金融回报。",
+      "evidence_ids": [
+        "EV-011",
+        "EV-012"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "作为内容、图谱和 07B 候选筛选规则。",
+      "notes": "边界规则不是品牌事实扩写。"
+    },
+    {
+      "entity_id": "boundary:no-official-commission",
+      "canonical_name": "不写官方委托或官方立场",
+      "display_name": "不写官方委托或官方立场",
+      "entity_type": "BoundaryRule",
+      "aliases": [],
+      "description": "本项目为独立研究作品集，未受品牌委托，不代表官方立场。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "high",
+      "recommended_usage": "作为内容、图谱和 07B 候选筛选规则。",
+      "notes": "边界规则不是品牌事实扩写。"
+    },
+    {
+      "entity_id": "boundary:no-jingzuo-identity-without-evidence",
+      "canonical_name": "京作身份关系缺证不得扩写",
+      "display_name": "京作身份关系缺证不得扩写",
+      "entity_type": "BoundaryRule",
+      "aliases": [],
+      "description": "允许输入中没有京作实体或来源记录，不得把内容主题扩写为官方身份。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "high",
+      "recommended_usage": "作为内容、图谱和 07B 候选筛选规则。",
+      "notes": "边界规则不是品牌事实扩写。"
+    },
+    {
+      "entity_id": "intent:q01",
+      "canonical_name": "元亨利是什么品牌",
+      "display_name": "元亨利是什么品牌",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-01"
+      ],
+      "description": "主体与红木家具语境可直接回答",
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q03",
+      "canonical_name": "黄花梨关系",
+      "display_name": "黄花梨关系",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-03"
+      ],
+      "description": "说明材质语境和单件核验边界",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q04",
+      "canonical_name": "紫檀理解",
+      "display_name": "紫檀理解",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-04"
+      ],
+      "description": "说明材质、工艺和证据边界",
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q05",
+      "canonical_name": "白酸枝关联",
+      "display_name": "白酸枝关联",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-05"
+      ],
+      "description": "避免把材质泛化为品牌全部产品",
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q06",
+      "canonical_name": "购买评估",
+      "display_name": "购买评估",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-06"
+      ],
+      "description": "合同、证书、售后、渠道核验路径",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q07",
+      "canonical_name": "北京品牌对比",
+      "display_name": "北京品牌对比",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-07"
+      ],
+      "description": "使用中性维度替代排名",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q09",
+      "canonical_name": "明式/清式意义",
+      "display_name": "明式/清式意义",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-09"
+      ],
+      "description": "风格语义与品牌事实分开",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q10",
+      "canonical_name": "AI误判风险",
+      "display_name": "AI误判风险",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-10"
+      ],
+      "description": "覆盖同名、人物、荣誉和价格风险",
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q11",
+      "canonical_name": "同名主体区分",
+      "display_name": "同名主体区分",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-11"
+      ],
+      "description": "区分家具、珠宝、钟表等主体",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q12",
+      "canonical_name": "公司主体表述",
+      "display_name": "公司主体表述",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-12"
+      ],
+      "description": "官网主体名称并提示工商核验",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q13",
+      "canonical_name": "官网和公开来源",
+      "display_name": "官网和公开来源",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-13"
+      ],
+      "description": "来源层级和核验入口",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q14",
+      "canonical_name": "成立时间/人物",
+      "display_name": "成立时间/人物",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-14"
+      ],
+      "description": "人物和时间不写成无来源强事实",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q16",
+      "canonical_name": "材质证书",
+      "display_name": "材质证书",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-16"
+      ],
+      "description": "单件材质证据路径",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q17",
+      "canonical_name": "价格",
+      "display_name": "价格",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-17"
+      ],
+      "description": "不编造价格区间",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q18",
+      "canonical_name": "门店/展厅/渠道",
+      "display_name": "门店/展厅/渠道",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-18"
+      ],
+      "description": "给官方核验路径，不断言实时状态",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q19",
+      "canonical_name": "合同/发票/售后",
+      "display_name": "合同/发票/售后",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-19"
+      ],
+      "description": "可直接作为决策清单",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q20",
+      "canonical_name": "可信渠道",
+      "display_name": "可信渠道",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-20"
+      ],
+      "description": "建立来源等级和写作规则",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q22",
+      "canonical_name": "明式/清式/产品事实",
+      "display_name": "明式/清式/产品事实",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-22"
+      ],
+      "description": "风格知识与品牌产品事实分开",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q23",
+      "canonical_name": "榫卯/手工雕刻",
+      "display_name": "榫卯/手工雕刻",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-23"
+      ],
+      "description": "行业工艺与品牌事实分开",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q24",
+      "canonical_name": "北京品牌中性对比",
+      "display_name": "北京品牌中性对比",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-24"
+      ],
+      "description": "使用证据维度替代榜单",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q26",
+      "canonical_name": "购买避坑",
+      "display_name": "购买避坑",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-26"
+      ],
+      "description": "覆盖高客单价购买风险",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q27",
+      "canonical_name": "空间搭配",
+      "display_name": "空间搭配",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-27"
+      ],
+      "description": "给出原则，不冒充品牌产品事实",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q28",
+      "canonical_name": "收藏/投资价值",
+      "display_name": "收藏/投资价值",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-28"
+      ],
+      "description": "明确不承诺保值增值",
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q29",
+      "canonical_name": "需要补哪些内容页",
+      "display_name": "需要补哪些内容页",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-29"
+      ],
+      "description": "五页与FAQ已成体系",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:q30",
+      "canonical_name": "GEO内容策略",
+      "display_name": "GEO内容策略",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-Q-30"
+      ],
+      "description": "形成事实核验优先策略",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为用户问题意图和内容覆盖线索，不作为品牌事实来源。",
+      "notes": "重复 AI 回答或问题覆盖不确认品牌事实。"
+    },
+    {
+      "entity_id": "intent:faq-01",
+      "canonical_name": "元亨利是什么品牌？",
+      "display_name": "元亨利是什么品牌？",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-F-01"
+      ],
+      "description": "不从字号直接推导公司关系、人物和历史。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为 FAQ 意图候选，不生成 FAQ JSON-LD。",
+      "notes": "FAQ 映射不替代事实主源或人工审核。"
+    },
+    {
+      "entity_id": "intent:faq-02",
+      "canonical_name": "它是不是行业第一或顶级品牌？",
+      "display_name": "它是不是行业第一或顶级品牌？",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-F-02"
+      ],
+      "description": "无第三方评选主体、时间和原页时不发布排名。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为 FAQ 意图候选，不生成 FAQ JSON-LD。",
+      "notes": "FAQ 映射不替代事实主源或人工审核。"
+    },
+    {
+      "entity_id": "intent:faq-03",
+      "canonical_name": "元亨利与黄花梨是什么关系？",
+      "display_name": "元亨利与黄花梨是什么关系？",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-F-03"
+      ],
+      "description": "不判断单件真伪、等级、价格或保值。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为 FAQ 意图候选，不生成 FAQ JSON-LD。",
+      "notes": "FAQ 映射不替代事实主源或人工审核。"
+    },
+    {
+      "entity_id": "intent:faq-04",
+      "canonical_name": "紫檀家具怎么理解？",
+      "display_name": "紫檀家具怎么理解？",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-F-04"
+      ],
+      "description": "不直接断言树种、产地、稀缺性和收藏价值。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为 FAQ 意图候选，不生成 FAQ JSON-LD。",
+      "notes": "FAQ 映射不替代事实主源或人工审核。"
+    },
+    {
+      "entity_id": "intent:faq-05",
+      "canonical_name": "白酸枝等于某个固定树种吗？",
+      "display_name": "白酸枝等于某个固定树种吗？",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-F-05"
+      ],
+      "description": "不把俗称直接绑定到品牌全部产品。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为 FAQ 意图候选，不生成 FAQ JSON-LD。",
+      "notes": "FAQ 映射不替代事实主源或人工审核。"
+    },
+    {
+      "entity_id": "intent:faq-06",
+      "canonical_name": "怎么判断一件红木家具值不值得买？",
+      "display_name": "怎么判断一件红木家具值不值得买？",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-F-06"
+      ],
+      "description": "不替用户做确定购买建议。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为 FAQ 意图候选，不生成 FAQ JSON-LD。",
+      "notes": "FAQ 映射不替代事实主源或人工审核。"
+    },
+    {
+      "entity_id": "intent:faq-07",
+      "canonical_name": "可以直接做北京红木品牌排名吗？",
+      "display_name": "可以直接做北京红木品牌排名吗？",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-F-07"
+      ],
+      "description": "不输出第一、首选、唯一等结论。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为 FAQ 意图候选，不生成 FAQ JSON-LD。",
+      "notes": "FAQ 映射不替代事实主源或人工审核。"
+    },
+    {
+      "entity_id": "intent:faq-09",
+      "canonical_name": "明式、清式和品牌产品是什么关系？",
+      "display_name": "明式、清式和品牌产品是什么关系？",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-F-09"
+      ],
+      "description": "不由商品名推导年代、馆藏或收藏价值。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为 FAQ 意图候选，不生成 FAQ JSON-LD。",
+      "notes": "FAQ 映射不替代事实主源或人工审核。"
+    },
+    {
+      "entity_id": "intent:faq-11",
+      "canonical_name": "元亨利和珠宝等同名主体是一家公司吗？",
+      "display_name": "元亨利和珠宝等同名主体是一家公司吗？",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-F-11"
+      ],
+      "description": "不补造工商号码、股权或旗下关系。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为 FAQ 意图候选，不生成 FAQ JSON-LD。",
+      "notes": "FAQ 映射不替代事实主源或人工审核。"
+    },
+    {
+      "entity_id": "intent:faq-12",
+      "canonical_name": "官网信息一定可以当第三方证据吗？",
+      "display_name": "官网信息一定可以当第三方证据吗？",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-F-12"
+      ],
+      "description": "不把品牌自述写成行业认证。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为 FAQ 意图候选，不生成 FAQ JSON-LD。",
+      "notes": "FAQ 映射不替代事实主源或人工审核。"
+    },
+    {
+      "entity_id": "intent:faq-13",
+      "canonical_name": "成立时间、创始人怎么写才稳妥？",
+      "display_name": "成立时间、创始人怎么写才稳妥？",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-F-13"
+      ],
+      "description": "不从AI回答或二手转载反推。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为 FAQ 意图候选，不生成 FAQ JSON-LD。",
+      "notes": "FAQ 映射不替代事实主源或人工审核。"
+    },
+    {
+      "entity_id": "intent:faq-14",
+      "canonical_name": "门店、展厅和价格在哪里确认？",
+      "display_name": "门店、展厅和价格在哪里确认？",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-F-14"
+      ],
+      "description": "历史AI回答不承担实时查询责任。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为 FAQ 意图候选，不生成 FAQ JSON-LD。",
+      "notes": "FAQ 映射不替代事实主源或人工审核。"
+    },
+    {
+      "entity_id": "intent:faq-15",
+      "canonical_name": "红木家具能保值或升值吗？",
+      "display_name": "红木家具能保值或升值吗？",
+      "entity_type": "QuestionIntent",
+      "aliases": [
+        "MAP-F-15"
+      ],
+      "description": "不承诺保值、升值或收益。",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "ambiguity_risk": "medium",
+      "recommended_usage": "只作为 FAQ 意图候选，不生成 FAQ JSON-LD。",
+      "notes": "FAQ 映射不替代事实主源或人工审核。"
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "REL-07A-0001",
+      "subject_id": "organization:beijing-yuanhengli-hardwood-furniture",
+      "predicate": "has_subject_verification_source",
+      "object_id": "source:s0-001",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "工商系统可作为该企业主体信息的核验入口。",
+      "prohibited_interpretation": "不能证明品牌荣誉、产品材质、门店数量或实时经营结论。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 FACT-0001；这是核验入口关系，不是实时工商结果。"
+    },
+    {
+      "relation_id": "REL-07A-0002",
+      "subject_id": "brand:yuanhengli",
+      "predicate": "must_be_disambiguated_from",
+      "object_id": "organization:beijing-yuanhengli-hardwood-furniture",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "evidence_status": "inferred",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "relation_interpretation": "品牌与企业主体存在核验关系但不能自动等同。",
+      "prohibited_interpretation": "不得把品牌名、企业主体、官网和公开账号自动写成同一法律主体。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "基于主体核验和同名消歧需求形成的治理关系。"
+    },
+    {
+      "relation_id": "REL-07A-0003",
+      "subject_id": "brand:yuanhengli",
+      "predicate": "has_contact_subject_candidate",
+      "object_id": "organization:beijing-yuanhengli-hardwood-furniture",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "relation_interpretation": "官网联系页显示该主体名称，可作为联系主体候选。",
+      "prohibited_interpretation": "不得自动确认品牌与企业主体完全同一或补造工商细节。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0005 没有 evidenceIds；只保留候选。"
+    },
+    {
+      "relation_id": "REL-07A-0004",
+      "subject_id": "brand:yuanhengli",
+      "predicate": "has_website_candidate",
+      "object_id": "asset:bjyuanhengli-com",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "relation_interpretation": "公开快照将 bjyuanhengli.com 作为官网线索。",
+      "prohibited_interpretation": "不得用域名线索证明官网主体、备案结果或所有页面事实。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0006 没有 evidenceIds；备案需按日期复核。"
+    },
+    {
+      "relation_id": "REL-07A-0005",
+      "subject_id": "brand:yuanhengli",
+      "predicate": "has_product_content_entry",
+      "object_id": "category:redwood-furniture",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "relation_interpretation": "官网产品栏目显示家具内容入口。",
+      "prohibited_interpretation": "不得写成全部产品均为某材料、当前库存、价格或成交事实。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0007 没有 evidenceIds；产品栏目不是单件证据。"
+    },
+    {
+      "relation_id": "REL-07A-0006",
+      "subject_id": "brand:yuanhengli",
+      "predicate": "has_self_description_source",
+      "object_id": "source:a-004",
+      "evidence_ids": [
+        "EV-002",
+        "EV-004"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "官网企业介绍是品牌一手自述来源。",
+      "prohibited_interpretation": "不得把官网自述改写成第三方认证、排名、国家级资质或奖项确认。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "只作为来源关系；具体自述仍需分层引用。"
+    },
+    {
+      "relation_id": "REL-07A-0007",
+      "subject_id": "brand:yuanhengli",
+      "predicate": "has_media_context_source",
+      "object_id": "source:b-011",
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "人民网 2016 年采访可作为公开报道语境来源。",
+      "prohibited_interpretation": "不得证明实时经营状态、当前产品材质、价格或官方委托关系。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 FACT-0031；使用时必须保留报道日期语境。"
+    },
+    {
+      "relation_id": "REL-07A-0008",
+      "subject_id": "brand:yuanhengli",
+      "predicate": "process_column_mentions",
+      "object_id": "craft:classical-process-terms",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "relation_interpretation": "官网工艺栏目出现刮磨、打磨、烫蜡、包浆等术语。",
+      "prohibited_interpretation": "不得扩写为每件产品均采用该工艺、非遗身份或纯手工强背书。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0012 至 FACT-0015 均无 evidenceIds。"
+    },
+    {
+      "relation_id": "REL-07A-0009",
+      "subject_id": "brand:yuanhengli",
+      "predicate": "dynamic_channel_info_requires",
+      "object_id": "boundary:dynamic-channel-review",
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "relation_interpretation": "官网有渠道入口时，门店和渠道信息仍需动态复核。",
+      "prohibited_interpretation": "不得生成门店数量、实时营业、授权关系、价格或售后承诺。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "来自 FACT-0018；动态信息不直接进入 Schema。"
+    },
+    {
+      "relation_id": "REL-07A-0010",
+      "subject_id": "material:redwood",
+      "predicate": "defined_by_standard",
+      "object_id": "source:b-001",
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "红木术语和树种边界应回到 GB/T 18107-2017。",
+      "prohibited_interpretation": "不能证明元亨利具体产品材质或所有产品材料。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 FACT-0021。"
+    },
+    {
+      "relation_id": "REL-07A-0011",
+      "subject_id": "material:redwood",
+      "predicate": "usage_expression_governed_by",
+      "object_id": "source:b-002",
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "红木制品用材表达应回到 GB/T 35475-2017。",
+      "prohibited_interpretation": "不能证明某品牌某产品符合标准或单件真伪。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 FACT-0022。"
+    },
+    {
+      "relation_id": "REL-07A-0012",
+      "subject_id": "category:redwood-furniture",
+      "predicate": "technical_condition_background",
+      "object_id": "source:b-003",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "relation_interpretation": "红木家具通用技术条件可作为核验背景。",
+      "prohibited_interpretation": "不得证明品牌产品全部达标、售后承诺或单件材质。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0023 无 evidenceIds。"
+    },
+    {
+      "relation_id": "REL-07A-0013",
+      "subject_id": "category:redwood-furniture",
+      "predicate": "purchase_should_preserve_vouchers",
+      "object_id": "boundary:single-item-evidence",
+      "evidence_ids": [
+        "EV-011",
+        "EV-012"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "购买红木家具时应保留检测报告、票据、合同等凭证。",
+      "prohibited_interpretation": "不得替用户做确定购买建议、真伪判断、价格判断或升值承诺。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 FACT-0024。"
+    },
+    {
+      "relation_id": "REL-07A-0014",
+      "subject_id": "category:redwood-furniture",
+      "predicate": "contract_fields_should_be_written",
+      "object_id": "source:b-005",
+      "evidence_ids": [
+        "EV-009",
+        "EV-010"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "主材、价格、交付、验收等应写入书面合同。",
+      "prohibited_interpretation": "不得生成当前价格、销售额、客户数量、门店数量或品牌售后承诺。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 FACT-0025。"
+    },
+    {
+      "relation_id": "REL-07A-0015",
+      "subject_id": "organization:china-furniture-association",
+      "predicate": "information_entry_not_ranking",
+      "object_id": "boundary:no-ranking-claim",
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "中国家具协会可作行业信息入口，但不直接证明品牌排名。",
+      "prohibited_interpretation": "不得输出第一、顶级、领先、首选或榜单结论。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 FACT-0028。"
+    },
+    {
+      "relation_id": "REL-07A-0016",
+      "subject_id": "organization:beijing-furniture-trade-association",
+      "predicate": "activity_context_source",
+      "object_id": "source:b-009",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "relation_interpretation": "协会页面可作为特定活动语境线索。",
+      "prohibited_interpretation": "不得证明品牌排名、单件产品材质、价格或收藏价值。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0029 无 evidenceIds。"
+    },
+    {
+      "relation_id": "REL-07A-0017",
+      "subject_id": "source:b-012",
+      "predicate": "provides_background_for",
+      "object_id": "style:ming-style-furniture",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "relation_interpretation": "中国国家博物馆文章可作为明清家具、材料和榫卯背景来源。",
+      "prohibited_interpretation": "不得证明元亨利品牌专属事实、具体产品年代或馆藏事实。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0032 无 evidenceIds；背景与品牌事实分开。"
+    },
+    {
+      "relation_id": "REL-07A-0018",
+      "subject_id": "source:b-012",
+      "predicate": "provides_background_for",
+      "object_id": "style:qing-style-furniture",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "relation_interpretation": "中国国家博物馆文章可作为明清家具、材料和榫卯背景来源。",
+      "prohibited_interpretation": "不得证明元亨利品牌专属事实、具体产品年代或馆藏事实。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0032 无 evidenceIds；背景与品牌事实分开。"
+    },
+    {
+      "relation_id": "REL-07A-0019",
+      "subject_id": "source:b-012",
+      "predicate": "provides_background_for",
+      "object_id": "material:huanghuali",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "relation_interpretation": "中国国家博物馆文章可作为明清家具、材料和榫卯背景来源。",
+      "prohibited_interpretation": "不得证明元亨利品牌专属事实、具体产品年代或馆藏事实。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0032 无 evidenceIds；背景与品牌事实分开。"
+    },
+    {
+      "relation_id": "REL-07A-0020",
+      "subject_id": "source:b-012",
+      "predicate": "provides_background_for",
+      "object_id": "material:zitan",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "relation_interpretation": "中国国家博物馆文章可作为明清家具、材料和榫卯背景来源。",
+      "prohibited_interpretation": "不得证明元亨利品牌专属事实、具体产品年代或馆藏事实。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0032 无 evidenceIds；背景与品牌事实分开。"
+    },
+    {
+      "relation_id": "REL-07A-0021",
+      "subject_id": "material:huanghuali",
+      "predicate": "requires_standard_and_item_evidence",
+      "object_id": "boundary:no-material-generalization",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "relation_interpretation": "黄花梨相关表达需按标准、权威背景和单件资料分层。",
+      "prohibited_interpretation": "不得将品牌直接等同于黄花梨品牌，或推断独家、主要、全部经营关系。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0033 无 evidenceIds。"
+    },
+    {
+      "relation_id": "REL-07A-0022",
+      "subject_id": "material:zitan",
+      "predicate": "requires_single_item_evidence",
+      "object_id": "boundary:no-material-generalization",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "relation_interpretation": "紫檀相关表达需先解释术语，再核对单件主辅材、证书和检测。",
+      "prohibited_interpretation": "不得推断所有产品均为紫檀或把紫檀主题写成全量产品事实。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0034 无 evidenceIds。"
+    },
+    {
+      "relation_id": "REL-07A-0023",
+      "subject_id": "material:suanzhi",
+      "predicate": "vernacular_name_requires_normalization",
+      "object_id": "boundary:single-item-evidence",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "relation_interpretation": "酸枝或白酸枝等俗称需回到规范名称，并与合同和产品凭证一致。",
+      "prohibited_interpretation": "不得把白酸枝俗称直接绑定到品牌全部产品或固定树种。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0035 无 evidenceIds。"
+    },
+    {
+      "relation_id": "REL-07A-0024",
+      "subject_id": "style:ming-style-furniture",
+      "predicate": "must_not_be_used_as_product_date",
+      "object_id": "boundary:no-style-as-date",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "relation_interpretation": "明式风格属于家具史和审美风格概念。",
+      "prohibited_interpretation": "不得由风格名称推导具体产品年代、文物年代或馆藏事实。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0037 无 evidenceIds。"
+    },
+    {
+      "relation_id": "REL-07A-0025",
+      "subject_id": "style:qing-style-furniture",
+      "predicate": "must_not_be_used_as_product_date",
+      "object_id": "boundary:no-style-as-date",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "relation_interpretation": "清式风格属于家具史和审美风格概念。",
+      "prohibited_interpretation": "不得由风格名称推导具体产品年代、文物年代或馆藏事实。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "FACT-0038 无 evidenceIds。"
+    },
+    {
+      "relation_id": "REL-07A-0026",
+      "subject_id": "category:redwood-furniture",
+      "predicate": "item_material_conclusion_requires",
+      "object_id": "boundary:single-item-evidence",
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "单件材质结论需要产品标识、合同、证书、检测或发票等证据。",
+      "prohibited_interpretation": "不得将材料主题、官网栏目或标准背景写成具体产品材质结论。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 FACT-0039。"
+    },
+    {
+      "relation_id": "REL-07A-0027",
+      "subject_id": "category:redwood-furniture",
+      "predicate": "dynamic_info_requires_date",
+      "object_id": "boundary:dynamic-channel-review",
+      "evidence_ids": [
+        "EV-009",
+        "EV-010"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "门店、价格、渠道和售后属于动态信息，需记录核验日期和适用条件。",
+      "prohibited_interpretation": "不得生成实时门店状态、当前价格、授权关系或售后承诺。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 FACT-0040。"
+    },
+    {
+      "relation_id": "REL-07A-0028",
+      "subject_id": "category:redwood-furniture",
+      "predicate": "must_not_promise_investment_return",
+      "object_id": "boundary:no-investment-return",
+      "evidence_ids": [
+        "EV-011",
+        "EV-012"
+      ],
+      "evidence_status": "source-confirmed",
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "审美、工艺和材料价值不等于可实现的金融回报。",
+      "prohibited_interpretation": "不得承诺收藏升值、保值、收益、投资回报或替代专业评估。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 FACT-0041。"
+    },
+    {
+      "relation_id": "REL-07A-0029",
+      "subject_id": "topic:zitan-understanding",
+      "predicate": "uses_material_boundary",
+      "object_id": "material:zitan",
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "紫檀家具理解主题可连接到紫檀材料边界。",
+      "prohibited_interpretation": "不得把内容主题写成经营事实、全部产品事实或收藏价值结论。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 MAP-Q-04 的公开快照映射。"
+    },
+    {
+      "relation_id": "REL-07A-0030",
+      "subject_id": "topic:baisuanzhi-term",
+      "predicate": "uses_material_boundary",
+      "object_id": "material:suanzhi",
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "白酸枝关联主题应连接到酸枝俗称和规范名称边界。",
+      "prohibited_interpretation": "不得把白酸枝俗称绑定到品牌全部产品或固定树种结论。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 MAP-Q-05 的公开快照映射。"
+    },
+    {
+      "relation_id": "REL-07A-0031",
+      "subject_id": "intent:q11",
+      "predicate": "governed_by_boundary",
+      "object_id": "boundary:no-brand-org-equivalence",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "同名主体区分问题由品牌/企业主体不得自动等同的边界治理。",
+      "prohibited_interpretation": "不得补造工商号码、股权关系、旗下关系或跨行业主体关系。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 MAP-Q-11。"
+    },
+    {
+      "relation_id": "REL-07A-0032",
+      "subject_id": "intent:q28",
+      "predicate": "governed_by_boundary",
+      "object_id": "boundary:no-investment-return",
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "evidence_status": "snapshot-supported",
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "relation_interpretation": "收藏/投资价值问题必须受不承诺保值升值规则约束。",
+      "prohibited_interpretation": "不得输出收藏升值保证、投资回报或确定购买建议。",
+      "requires_human_review": false,
+      "status": "candidate",
+      "notes": "来自 MAP-Q-28。"
+    },
+    {
+      "relation_id": "REL-07A-0033",
+      "subject_id": "topic:huanghuali-relation",
+      "predicate": "requires_material_boundary",
+      "object_id": "material:huanghuali",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "relation_interpretation": "黄花梨关系只可作为内容主题，需要补充明确 evidence_id 后再进入候选 Schema。",
+      "prohibited_interpretation": "不得把元亨利直接定位为黄花梨品牌、独家经营或主要经营。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "MAP-Q-03 和 FAQ-03 当前没有 evidenceIds。"
+    },
+    {
+      "relation_id": "REL-07A-0034",
+      "subject_id": "topic:ming-qing-style",
+      "predicate": "requires_style_boundary",
+      "object_id": "style:ming-style-furniture",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "relation_interpretation": "明式/清式主题需先连接到风格边界，而非品牌产品年代事实。",
+      "prohibited_interpretation": "不得由风格名称推导具体产品年代、文物年代或馆藏事实。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "MAP-Q-09、MAP-Q-22 和 FAQ-09 当前没有 evidenceIds。"
+    },
+    {
+      "relation_id": "REL-07A-0035",
+      "subject_id": "topic:ming-qing-style",
+      "predicate": "requires_style_boundary",
+      "object_id": "style:qing-style-furniture",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "relation_interpretation": "明式/清式主题需先连接到风格边界，而非品牌产品年代事实。",
+      "prohibited_interpretation": "不得由风格名称推导具体产品年代、文物年代或馆藏事实。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "MAP-Q-09、MAP-Q-22 和 FAQ-09 当前没有 evidenceIds。"
+    },
+    {
+      "relation_id": "REL-07A-0036",
+      "subject_id": "brand:yuanhengli",
+      "predicate": "no_public_jingzuo_identity_evidence_in_allowed_input",
+      "object_id": "boundary:no-jingzuo-identity-without-evidence",
+      "evidence_ids": [],
+      "evidence_status": "evidence-gap",
+      "confidence": "unknown",
+      "publication_safety": "review-required",
+      "relation_interpretation": "允许输入未包含京作实体或明确关系，只能记录为待证消歧。",
+      "prohibited_interpretation": "不得把涉及京作内容扩大为官方认定、独家代表或唯一传承关系。",
+      "requires_human_review": true,
+      "status": "candidate",
+      "notes": "安全公开 JSON 中没有京作记录。"
+    }
+  ],
+  "disambiguation": [
+    {
+      "ambiguity_id": "AMB-07A-001",
+      "mention": "元亨利",
+      "possible_entity_a": "brand:yuanhengli",
+      "possible_entity_b": "organization:beijing-yuanhengli-hardwood-furniture",
+      "ambiguity_type": "品牌名称 / 企业主体",
+      "risk": "high",
+      "safe_interpretation": "元亨利红木家具作为品牌识别对象，北京元亨利硬木家具有限公司作为企业主体候选，二者进入 07B 前需人工确认关系。",
+      "unsafe_interpretation": "直接写成同一实体、补造工商号码、股权关系、成立时间或官方委托。",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "requires_human_decision": true,
+      "status": "candidate",
+      "notes": "品牌、企业主体、官网和公开账号需分别核验。"
+    },
+    {
+      "ambiguity_id": "AMB-07A-002",
+      "mention": "京作家具 / 京作工艺",
+      "possible_entity_a": "topic:jingzuo-unresolved",
+      "possible_entity_b": "brand:yuanhengli",
+      "ambiguity_type": "工艺传统 / 品牌官方身份",
+      "risk": "high",
+      "safe_interpretation": "本阶段只记录京作关系缺证；不得创建品牌与京作的公开关系。",
+      "unsafe_interpretation": "把涉及京作内容扩大为官方认定、独家代表、唯一传承或品牌身份。",
+      "evidence_ids": [],
+      "requires_human_decision": true,
+      "status": "evidence-gap",
+      "notes": "安全公开 JSON 中没有京作记录。"
+    },
+    {
+      "ambiguity_id": "AMB-07A-003",
+      "mention": "紫檀",
+      "possible_entity_a": "material:zitan",
+      "possible_entity_b": "category:redwood-furniture",
+      "ambiguity_type": "材料 / 全部产品",
+      "risk": "high",
+      "safe_interpretation": "紫檀是材料概念和内容主题；单件产品材质需证书、检测、合同或发票。",
+      "unsafe_interpretation": "推断元亨利所有产品均为紫檀，或把紫檀主题写成全量产品事实。",
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ],
+      "requires_human_decision": true,
+      "status": "candidate",
+      "notes": "可保留材料术语边界，不进入品牌全量材质关系。"
+    },
+    {
+      "ambiguity_id": "AMB-07A-004",
+      "mention": "黄花梨",
+      "possible_entity_a": "material:huanghuali",
+      "possible_entity_b": "brand:yuanhengli",
+      "ambiguity_type": "材料 / 品牌定位",
+      "risk": "high",
+      "safe_interpretation": "黄花梨是材料概念与内容主题；品牌关系需要明确 evidence_id。",
+      "unsafe_interpretation": "把元亨利直接等同于黄花梨品牌，或推断独家、主要、全部经营关系。",
+      "evidence_ids": [],
+      "requires_human_decision": true,
+      "status": "evidence-gap",
+      "notes": "MAP-Q-03 和 FAQ-03 没有 evidenceIds。"
+    },
+    {
+      "ambiguity_id": "AMB-07A-005",
+      "mention": "白酸枝",
+      "possible_entity_a": "material:suanzhi",
+      "possible_entity_b": "topic:baisuanzhi-term",
+      "ambiguity_type": "材料俗称 / 产品关系",
+      "risk": "medium",
+      "safe_interpretation": "白酸枝作为酸枝相关俗称治理对象，需回规范中文名并与合同、产品凭证一致。",
+      "unsafe_interpretation": "把白酸枝俗称固定为某一树种或直接绑定到品牌全部产品。",
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "requires_human_decision": true,
+      "status": "candidate",
+      "notes": "只有内容主题可作为 07B 候选，产品关系需人工复核。"
+    },
+    {
+      "ambiguity_id": "AMB-07A-006",
+      "mention": "明式",
+      "possible_entity_a": "style:ming-style-furniture",
+      "possible_entity_b": "category:redwood-furniture",
+      "ambiguity_type": "家具风格 / 具体年代",
+      "risk": "high",
+      "safe_interpretation": "明式是家具史和审美风格概念；产品年代需单件资料。",
+      "unsafe_interpretation": "由明式风格推导具体产品年代、文物年代或馆藏事实。",
+      "evidence_ids": [],
+      "requires_human_decision": true,
+      "status": "evidence-gap",
+      "notes": "FACT-0037 无 evidenceIds。"
+    },
+    {
+      "ambiguity_id": "AMB-07A-007",
+      "mention": "清式",
+      "possible_entity_a": "style:qing-style-furniture",
+      "possible_entity_b": "category:redwood-furniture",
+      "ambiguity_type": "家具风格 / 具体年代",
+      "risk": "high",
+      "safe_interpretation": "清式是家具史和审美风格概念；产品年代需单件资料。",
+      "unsafe_interpretation": "由清式风格推导具体产品年代、文物年代或馆藏事实。",
+      "evidence_ids": [],
+      "requires_human_decision": true,
+      "status": "evidence-gap",
+      "notes": "FACT-0038 无 evidenceIds。"
+    }
+  ],
+  "schema_input_candidates": [
+    {
+      "candidate_id": "SC-07A-0001",
+      "schema_target": "Brand or Organization page entity",
+      "entity_or_relation_id": "brand:yuanhengli",
+      "evidence_ids": [
+        "EV-002",
+        "EV-004",
+        "EV-010"
+      ],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0002",
+      "schema_target": "Organization candidate",
+      "entity_or_relation_id": "organization:beijing-yuanhengli-hardwood-furniture",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "confidence": "high",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0003",
+      "schema_target": "Article or FAQ topic entity",
+      "entity_or_relation_id": "material:redwood",
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0004",
+      "schema_target": "Article or FAQ topic entity",
+      "entity_or_relation_id": "material:huanghuali",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0005",
+      "schema_target": "Article or FAQ topic entity",
+      "entity_or_relation_id": "material:zitan",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0006",
+      "schema_target": "Article or FAQ topic entity",
+      "entity_or_relation_id": "material:suanzhi",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "publication_safety_not_public_safe",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0007",
+      "schema_target": "ProductCategory topic entity",
+      "entity_or_relation_id": "category:redwood-furniture",
+      "evidence_ids": [
+        "EV-007",
+        "EV-008",
+        "EV-009",
+        "EV-010",
+        "EV-011",
+        "EV-012"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0008",
+      "schema_target": "Article topic entity",
+      "entity_or_relation_id": "style:ming-style-furniture",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0009",
+      "schema_target": "Article topic entity",
+      "entity_or_relation_id": "style:qing-style-furniture",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0010",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:s0-001",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0011",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:s0-002",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0012",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:s0-003",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0013",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:s0-004",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0014",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:a-001",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0015",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:a-002",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0016",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:a-003",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0017",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:a-004",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0018",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:a-005",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0019",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:a-006",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0020",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:a-007",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0021",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:a-008",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0022",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:a-009",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0023",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:a-010",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0024",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:b-001",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0025",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:b-002",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0026",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:b-003",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0027",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:b-004",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0028",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:b-005",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0029",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:b-008",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0030",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:b-009",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0031",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:b-010",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0032",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:b-011",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0033",
+      "schema_target": "citation/source evidence node",
+      "entity_or_relation_id": "source:b-012",
+      "evidence_ids": [],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0034",
+      "schema_target": "Organization candidate",
+      "entity_or_relation_id": "organization:china-furniture-association",
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0035",
+      "schema_target": "Organization candidate",
+      "entity_or_relation_id": "organization:beijing-furniture-trade-association",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0036",
+      "schema_target": "Organization candidate",
+      "entity_or_relation_id": "organization:wood-industry-research-institute",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0037",
+      "schema_target": "Organization candidate",
+      "entity_or_relation_id": "organization:people-cn",
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0038",
+      "schema_target": "Organization candidate",
+      "entity_or_relation_id": "organization:national-museum-of-china",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "missing_evidence_id",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0039",
+      "schema_target": "FAQ or Article safety boundary",
+      "entity_or_relation_id": "boundary:no-brand-org-equivalence",
+      "evidence_ids": [
+        "EV-005",
+        "EV-006"
+      ],
+      "confidence": "high",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "publication_safety_not_public_safe",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0040",
+      "schema_target": "FAQ or Article safety boundary",
+      "entity_or_relation_id": "boundary:no-material-generalization",
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0041",
+      "schema_target": "FAQ or Article safety boundary",
+      "entity_or_relation_id": "boundary:single-item-evidence",
+      "evidence_ids": [
+        "EV-007",
+        "EV-008",
+        "EV-009"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0042",
+      "schema_target": "FAQ or Article safety boundary",
+      "entity_or_relation_id": "boundary:no-style-as-date",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0043",
+      "schema_target": "FAQ or Article safety boundary",
+      "entity_or_relation_id": "boundary:no-ranking-claim",
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0044",
+      "schema_target": "FAQ or Article safety boundary",
+      "entity_or_relation_id": "boundary:dynamic-channel-review",
+      "evidence_ids": [
+        "EV-009",
+        "EV-010"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0045",
+      "schema_target": "FAQ or Article safety boundary",
+      "entity_or_relation_id": "boundary:no-investment-return",
+      "evidence_ids": [
+        "EV-011",
+        "EV-012"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0046",
+      "schema_target": "FAQ or Article safety boundary",
+      "entity_or_relation_id": "boundary:no-official-commission",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0047",
+      "schema_target": "FAQ or Article safety boundary",
+      "entity_or_relation_id": "boundary:no-jingzuo-identity-without-evidence",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0048",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q01",
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "publication_safety_not_public_safe",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0049",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q03",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0050",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q04",
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "publication_safety_not_public_safe",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0051",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q05",
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "publication_safety_not_public_safe",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0052",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q06",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0053",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q07",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0054",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q09",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0055",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q10",
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "publication_safety_not_public_safe",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0056",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q11",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "publication_safety_not_public_safe",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0057",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q12",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0058",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q13",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0059",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q14",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0060",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q16",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0061",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q17",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0062",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q18",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0063",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q19",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0064",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q20",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0065",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q22",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0066",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q23",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0067",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q24",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0068",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q26",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0069",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q27",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0070",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q28",
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "publication_safety_not_public_safe",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0071",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q29",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0072",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:q30",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0073",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:faq-01",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0074",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:faq-02",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0075",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:faq-03",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0076",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:faq-04",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0077",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:faq-05",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0078",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:faq-06",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0079",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:faq-07",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0080",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:faq-09",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0081",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:faq-11",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0082",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:faq-12",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0083",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:faq-13",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0084",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:faq-14",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0085",
+      "schema_target": "FAQPage candidate input",
+      "entity_or_relation_id": "intent:faq-15",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "evidence_status_not_eligible",
+      "requires_human_review": "yes",
+      "notes": "Entity candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0086",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0001",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0087",
+      "schema_target": "Organization/Brand relationship candidate",
+      "entity_or_relation_id": "REL-07A-0002",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0088",
+      "schema_target": "Organization/Brand relationship candidate",
+      "entity_or_relation_id": "REL-07A-0003",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0089",
+      "schema_target": "Organization/Brand relationship candidate",
+      "entity_or_relation_id": "REL-07A-0004",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0090",
+      "schema_target": "Organization/Brand relationship candidate",
+      "entity_or_relation_id": "REL-07A-0005",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "forbidden_fact_risk",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0091",
+      "schema_target": "Organization/Brand relationship candidate",
+      "entity_or_relation_id": "REL-07A-0006",
+      "evidence_ids": [
+        "EV-002",
+        "EV-004"
+      ],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0092",
+      "schema_target": "Organization/Brand relationship candidate",
+      "entity_or_relation_id": "REL-07A-0007",
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0093",
+      "schema_target": "Organization/Brand relationship candidate",
+      "entity_or_relation_id": "REL-07A-0008",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0094",
+      "schema_target": "Organization/Brand relationship candidate",
+      "entity_or_relation_id": "REL-07A-0009",
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0095",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0010",
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0096",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0011",
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0097",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0012",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0098",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0013",
+      "evidence_ids": [
+        "EV-011",
+        "EV-012"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0099",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0014",
+      "evidence_ids": [
+        "EV-009",
+        "EV-010"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0100",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0015",
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0101",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0016",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "forbidden_fact_risk",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0102",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0017",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0103",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0018",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0104",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0019",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0105",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0020",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0106",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0021",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "forbidden_fact_risk",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0107",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0022",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "forbidden_fact_risk",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0108",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0023",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "forbidden_fact_risk",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0109",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0024",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0110",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0025",
+      "evidence_ids": [],
+      "confidence": "medium",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0111",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0026",
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0112",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0027",
+      "evidence_ids": [
+        "EV-009",
+        "EV-010"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0113",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0028",
+      "evidence_ids": [
+        "EV-011",
+        "EV-012"
+      ],
+      "confidence": "high",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0114",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0029",
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0115",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0030",
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0116",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0031",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0117",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0032",
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "confidence": "medium",
+      "publication_safety": "public-safe",
+      "eligible_for_07b": "yes",
+      "block_reason": "",
+      "requires_human_review": "no",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0118",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0033",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "forbidden_fact_risk",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0119",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0034",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0120",
+      "schema_target": "Article or FAQ relationship input",
+      "entity_or_relation_id": "REL-07A-0035",
+      "evidence_ids": [],
+      "confidence": "low",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "disambiguation_conflict",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    },
+    {
+      "candidate_id": "SC-07A-0121",
+      "schema_target": "Organization/Brand relationship candidate",
+      "entity_or_relation_id": "REL-07A-0036",
+      "evidence_ids": [],
+      "confidence": "unknown",
+      "publication_safety": "review-required",
+      "eligible_for_07b": "no",
+      "block_reason": "forbidden_fact_risk",
+      "requires_human_review": "yes",
+      "notes": "Relation candidate only; this stage does not generate Schema."
+    }
+  ],
+  "mermaid_public_graph_policy": "source-confirmed or snapshot-supported and public-safe only",
+  "validation": {
+    "status": "pass",
+    "issues": []
+  }
+}

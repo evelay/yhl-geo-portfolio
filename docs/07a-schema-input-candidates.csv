@@ -1,0 +1,122 @@
+candidate_id,schema_target,entity_or_relation_id,evidence_ids,confidence,publication_safety,eligible_for_07b,block_reason,requires_human_review,notes
+SC-07A-0001,Brand or Organization page entity,brand:yuanhengli,EV-002|EV-004|EV-010,medium,review-required,no,disambiguation_conflict,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0002,Organization candidate,organization:beijing-yuanhengli-hardwood-furniture,EV-006,high,review-required,no,disambiguation_conflict,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0003,Article or FAQ topic entity,material:redwood,EV-007,high,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
+SC-07A-0004,Article or FAQ topic entity,material:huanghuali,,medium,review-required,no,disambiguation_conflict,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0005,Article or FAQ topic entity,material:zitan,,medium,review-required,no,disambiguation_conflict,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0006,Article or FAQ topic entity,material:suanzhi,,medium,review-required,no,publication_safety_not_public_safe,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0007,ProductCategory topic entity,category:redwood-furniture,EV-007|EV-008|EV-009|EV-010|EV-011|EV-012,high,public-safe,no,disambiguation_conflict,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0008,Article topic entity,style:ming-style-furniture,,medium,review-required,no,disambiguation_conflict,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0009,Article topic entity,style:qing-style-furniture,,medium,review-required,no,disambiguation_conflict,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0010,citation/source evidence node,source:s0-001,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0011,citation/source evidence node,source:s0-002,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0012,citation/source evidence node,source:s0-003,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0013,citation/source evidence node,source:s0-004,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0014,citation/source evidence node,source:a-001,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0015,citation/source evidence node,source:a-002,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0016,citation/source evidence node,source:a-003,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0017,citation/source evidence node,source:a-004,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0018,citation/source evidence node,source:a-005,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0019,citation/source evidence node,source:a-006,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0020,citation/source evidence node,source:a-007,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0021,citation/source evidence node,source:a-008,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0022,citation/source evidence node,source:a-009,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0023,citation/source evidence node,source:a-010,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0024,citation/source evidence node,source:b-001,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0025,citation/source evidence node,source:b-002,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0026,citation/source evidence node,source:b-003,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0027,citation/source evidence node,source:b-004,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0028,citation/source evidence node,source:b-005,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0029,citation/source evidence node,source:b-008,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0030,citation/source evidence node,source:b-009,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0031,citation/source evidence node,source:b-010,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0032,citation/source evidence node,source:b-011,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0033,citation/source evidence node,source:b-012,,high,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0034,Organization candidate,organization:china-furniture-association,EV-002,medium,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
+SC-07A-0035,Organization candidate,organization:beijing-furniture-trade-association,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0036,Organization candidate,organization:wood-industry-research-institute,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0037,Organization candidate,organization:people-cn,EV-001,medium,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
+SC-07A-0038,Organization candidate,organization:national-museum-of-china,,medium,public-safe,no,missing_evidence_id,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0039,FAQ or Article safety boundary,boundary:no-brand-org-equivalence,EV-005|EV-006,high,review-required,no,publication_safety_not_public_safe,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0040,FAQ or Article safety boundary,boundary:no-material-generalization,EV-007|EV-008,high,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
+SC-07A-0041,FAQ or Article safety boundary,boundary:single-item-evidence,EV-007|EV-008|EV-009,high,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
+SC-07A-0042,FAQ or Article safety boundary,boundary:no-style-as-date,,medium,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0043,FAQ or Article safety boundary,boundary:no-ranking-claim,EV-002,high,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
+SC-07A-0044,FAQ or Article safety boundary,boundary:dynamic-channel-review,EV-009|EV-010,high,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
+SC-07A-0045,FAQ or Article safety boundary,boundary:no-investment-return,EV-011|EV-012,high,public-safe,yes,,no,Entity candidate only; this stage does not generate Schema.
+SC-07A-0046,FAQ or Article safety boundary,boundary:no-official-commission,,medium,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0047,FAQ or Article safety boundary,boundary:no-jingzuo-identity-without-evidence,,medium,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0048,FAQPage candidate input,intent:q01,EV-001,medium,review-required,no,publication_safety_not_public_safe,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0049,FAQPage candidate input,intent:q03,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0050,FAQPage candidate input,intent:q04,EV-007,medium,review-required,no,publication_safety_not_public_safe,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0051,FAQPage candidate input,intent:q05,EV-003,medium,review-required,no,publication_safety_not_public_safe,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0052,FAQPage candidate input,intent:q06,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0053,FAQPage candidate input,intent:q07,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0054,FAQPage candidate input,intent:q09,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0055,FAQPage candidate input,intent:q10,EV-005,medium,review-required,no,publication_safety_not_public_safe,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0056,FAQPage candidate input,intent:q11,EV-006,medium,review-required,no,publication_safety_not_public_safe,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0057,FAQPage candidate input,intent:q12,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0058,FAQPage candidate input,intent:q13,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0059,FAQPage candidate input,intent:q14,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0060,FAQPage candidate input,intent:q16,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0061,FAQPage candidate input,intent:q17,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0062,FAQPage candidate input,intent:q18,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0063,FAQPage candidate input,intent:q19,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0064,FAQPage candidate input,intent:q20,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0065,FAQPage candidate input,intent:q22,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0066,FAQPage candidate input,intent:q23,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0067,FAQPage candidate input,intent:q24,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0068,FAQPage candidate input,intent:q26,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0069,FAQPage candidate input,intent:q27,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0070,FAQPage candidate input,intent:q28,EV-012,medium,review-required,no,publication_safety_not_public_safe,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0071,FAQPage candidate input,intent:q29,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0072,FAQPage candidate input,intent:q30,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0073,FAQPage candidate input,intent:faq-01,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0074,FAQPage candidate input,intent:faq-02,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0075,FAQPage candidate input,intent:faq-03,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0076,FAQPage candidate input,intent:faq-04,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0077,FAQPage candidate input,intent:faq-05,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0078,FAQPage candidate input,intent:faq-06,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0079,FAQPage candidate input,intent:faq-07,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0080,FAQPage candidate input,intent:faq-09,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0081,FAQPage candidate input,intent:faq-11,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0082,FAQPage candidate input,intent:faq-12,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0083,FAQPage candidate input,intent:faq-13,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0084,FAQPage candidate input,intent:faq-14,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0085,FAQPage candidate input,intent:faq-15,,low,review-required,no,evidence_status_not_eligible,yes,Entity candidate only; this stage does not generate Schema.
+SC-07A-0086,Article or FAQ relationship input,REL-07A-0001,EV-006,high,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0087,Organization/Brand relationship candidate,REL-07A-0002,EV-006,medium,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0088,Organization/Brand relationship candidate,REL-07A-0003,,low,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0089,Organization/Brand relationship candidate,REL-07A-0004,,low,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0090,Organization/Brand relationship candidate,REL-07A-0005,,low,review-required,no,forbidden_fact_risk,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0091,Organization/Brand relationship candidate,REL-07A-0006,EV-002|EV-004,medium,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0092,Organization/Brand relationship candidate,REL-07A-0007,EV-001,medium,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0093,Organization/Brand relationship candidate,REL-07A-0008,,low,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0094,Organization/Brand relationship candidate,REL-07A-0009,EV-010,medium,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0095,Article or FAQ relationship input,REL-07A-0010,EV-007,high,public-safe,yes,,no,Relation candidate only; this stage does not generate Schema.
+SC-07A-0096,Article or FAQ relationship input,REL-07A-0011,EV-007,high,public-safe,yes,,no,Relation candidate only; this stage does not generate Schema.
+SC-07A-0097,Article or FAQ relationship input,REL-07A-0012,,medium,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0098,Article or FAQ relationship input,REL-07A-0013,EV-011|EV-012,high,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0099,Article or FAQ relationship input,REL-07A-0014,EV-009|EV-010,high,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0100,Article or FAQ relationship input,REL-07A-0015,EV-002,medium,public-safe,yes,,no,Relation candidate only; this stage does not generate Schema.
+SC-07A-0101,Article or FAQ relationship input,REL-07A-0016,,low,review-required,no,forbidden_fact_risk,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0102,Article or FAQ relationship input,REL-07A-0017,,medium,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0103,Article or FAQ relationship input,REL-07A-0018,,medium,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0104,Article or FAQ relationship input,REL-07A-0019,,medium,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0105,Article or FAQ relationship input,REL-07A-0020,,medium,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0106,Article or FAQ relationship input,REL-07A-0021,,medium,review-required,no,forbidden_fact_risk,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0107,Article or FAQ relationship input,REL-07A-0022,,medium,review-required,no,forbidden_fact_risk,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0108,Article or FAQ relationship input,REL-07A-0023,,medium,review-required,no,forbidden_fact_risk,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0109,Article or FAQ relationship input,REL-07A-0024,,medium,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0110,Article or FAQ relationship input,REL-07A-0025,,medium,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0111,Article or FAQ relationship input,REL-07A-0026,EV-007|EV-008,high,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0112,Article or FAQ relationship input,REL-07A-0027,EV-009|EV-010,high,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0113,Article or FAQ relationship input,REL-07A-0028,EV-011|EV-012,high,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0114,Article or FAQ relationship input,REL-07A-0029,EV-007,medium,public-safe,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0115,Article or FAQ relationship input,REL-07A-0030,EV-003,medium,public-safe,yes,,no,Relation candidate only; this stage does not generate Schema.
+SC-07A-0116,Article or FAQ relationship input,REL-07A-0031,EV-006,medium,public-safe,yes,,no,Relation candidate only; this stage does not generate Schema.
+SC-07A-0117,Article or FAQ relationship input,REL-07A-0032,EV-012,medium,public-safe,yes,,no,Relation candidate only; this stage does not generate Schema.
+SC-07A-0118,Article or FAQ relationship input,REL-07A-0033,,low,review-required,no,forbidden_fact_risk,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0119,Article or FAQ relationship input,REL-07A-0034,,low,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0120,Article or FAQ relationship input,REL-07A-0035,,low,review-required,no,disambiguation_conflict,yes,Relation candidate only; this stage does not generate Schema.
+SC-07A-0121,Organization/Brand relationship candidate,REL-07A-0036,,unknown,review-required,no,forbidden_fact_risk,yes,Relation candidate only; this stage does not generate Schema.

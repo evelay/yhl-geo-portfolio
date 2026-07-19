@@ -1,0 +1,92 @@
+{
+  "stage": "07A",
+  "adapter_name": "yhl-brand-graph-pilot",
+  "input_json": "public/downloads/yhl-geo-knowledge-base-public.json",
+  "report_dir": "tools/geo-skill/reports/brand-graph-pilot",
+  "docs_outputs": {
+    "entity_ledger": "docs/07a-entity-ledger.csv",
+    "relation_ledger": "docs/07a-relation-ledger.csv",
+    "disambiguation_table": "docs/07a-disambiguation-table.csv",
+    "schema_input_candidates": "docs/07a-schema-input-candidates.csv",
+    "method_doc": "docs/07a-brand-graph-method.md"
+  },
+  "skill_source": {
+    "repo": "https://github.com/yaojingang/yao-geo-skills",
+    "commit": "dc10716d97c40fed0a0a08e538a236b5e16b4822",
+    "skill_path": "skills/yao-geo-brand-graph",
+    "license": "MIT"
+  },
+  "allowed_snapshot_markers": {
+    "version": "1.1-public-filtered",
+    "publication_scope_contains": "public-filtered",
+    "required_metadata_keys": [
+      "publication_scope",
+      "excluded_statuses",
+      "record_count",
+      "excluded_fact_count"
+    ]
+  },
+  "blocked_input_fragments": [
+    "internal-review",
+    "first_setup",
+    "yhl_geo_portfolio_final",
+    "archive",
+    ".xlsx",
+    ".docx",
+    ".pdf"
+  ],
+  "blocked_publication_status_terms": [
+    "L3",
+    "pending",
+    "prohibited",
+    "internal-only",
+    "level_three_review_required",
+    "source_review_required",
+    "unreviewed",
+    "non_public",
+    "blocked_publication_status",
+    "restricted_internal_material"
+  ],
+  "allowed_evidence_status": [
+    "source-confirmed",
+    "snapshot-supported",
+    "inferred",
+    "evidence-gap"
+  ],
+  "allowed_confidence": [
+    "high",
+    "medium",
+    "low",
+    "unknown"
+  ],
+  "allowed_publication_safety": [
+    "public-safe",
+    "review-required",
+    "internal-only",
+    "reject"
+  ],
+  "disambiguation_focus": [
+    "元亨利品牌 / 企业主体",
+    "京作工艺 / 品牌官方身份",
+    "紫檀材料 / 全部产品",
+    "黄花梨材料 / 品牌定位",
+    "白酸枝材料 / 产品关系",
+    "明式风格 / 具体年代",
+    "清式风格 / 具体年代"
+  ],
+  "forbidden_fact_categories": [
+    "founder",
+    "founded_year",
+    "national_qualification",
+    "ranking",
+    "award",
+    "sales_volume",
+    "customer_count",
+    "store_count",
+    "all_product_material",
+    "exclusive_material",
+    "investment_return",
+    "official_commission",
+    "geo_growth_result"
+  ]
+}

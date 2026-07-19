@@ -1,7 +1,8 @@
 # GEO Skill Isolated Tooling
 
-本目录用于隔离接入外部 GEO Skill 方法。当前只包含阶段 06B 的
-`yao-geo-page-audit` 页面审计试点。
+本目录用于隔离接入外部 GEO Skill 方法。当前包含阶段 06B 的
+`yao-geo-page-audit` 页面审计试点，以及阶段 07A 的
+`yao-geo-brand-graph` 品牌实体图谱试点。
 
 ## 边界
 
@@ -15,8 +16,11 @@
 ## 目录
 
 - `upstream/yao-geo-page-audit/`：裁剪后的上游 Skill 契约、参考方法和 MIT LICENSE。
+- `upstream/yao-geo-brand-graph/`：裁剪后的上游 Skill 契约、参考方法、相关脚本和 MIT LICENSE。
 - `adapters/page-audit/`：本项目离线适配脚本、配置和测试。
+- `adapters/brand-graph/`：本项目品牌实体图谱离线适配脚本、配置和测试。
 - `reports/page-audit-pilot/`：阶段 06B 三页试点审计报告。
+- `reports/brand-graph-pilot/`：阶段 07A 品牌实体图谱试点报告。
 
 ## 当前试点
 
@@ -33,3 +37,11 @@ python3 tools/geo-skill/adapters/page-audit/run_local_page_audit.py
 ```
 
 脚本默认读取 `out/` 中的静态 HTML，生成 Markdown、JSON、run metadata 和 findings CSV。
+
+阶段 07A 运行方式：
+
+```bash
+python3 tools/geo-skill/adapters/brand-graph/build_brand_graph.py
+```
+
+脚本默认只读取 `public/downloads/yhl-geo-knowledge-base-public.json`，生成实体账本、关系账本、消歧表、Schema 候选输入清单、Mermaid 公开子图和 evidence-gap 报告。

@@ -1,0 +1,72 @@
+{
+  "stage": "07A",
+  "run_id": "07a-brand-graph-20260719171753",
+  "generated_at": "2026-07-19T17:17:53+08:00",
+  "branch": "refactor/portfolio-v2",
+  "git_commit": "71dd2a69ae901517eaa06334d12c938418f3ef68",
+  "adapter": "tools/geo-skill/adapters/brand-graph/build_brand_graph.py",
+  "config": "tools/geo-skill/adapters/brand-graph/graph-config.json",
+  "input": "public/downloads/yhl-geo-knowledge-base-public.json",
+  "input_sha256": "379fbec902654f6daabd5cf5eb5ff856cd418f78e09ba5c772f6e69b8895c991",
+  "outputs": {
+    "entity_ledger": "docs/07a-entity-ledger.csv",
+    "relation_ledger": "docs/07a-relation-ledger.csv",
+    "disambiguation_table": "docs/07a-disambiguation-table.csv",
+    "schema_input_candidates": "docs/07a-schema-input-candidates.csv",
+    "method_doc": "docs/07a-brand-graph-method.md",
+    "report": "tools/geo-skill/reports/brand-graph-pilot/report.md",
+    "brand_graph_json": "tools/geo-skill/reports/brand-graph-pilot/brand-graph.json",
+    "brand_graph_mermaid": "tools/geo-skill/reports/brand-graph-pilot/brand-graph.mmd",
+    "evidence_gap_report": "tools/geo-skill/reports/brand-graph-pilot/evidence-gap-report.md"
+  },
+  "network_used": false,
+  "api_used": false,
+  "model_used": false,
+  "crawler_used": false,
+  "read_internal_review": false,
+  "read_external_workbook": false,
+  "read_archive": false,
+  "wrote_app": false,
+  "wrote_public": false,
+  "production_schema_generated": false,
+  "json_ld_generated": false,
+  "rdf_generated": false,
+  "validation": {
+    "status": "pass",
+    "issues": []
+  },
+  "counts": {
+    "entities_total": 98,
+    "entities_by_type": {
+      "BoundaryRule": 9,
+      "Brand": 1,
+      "ContentTopic": 5,
+      "CraftTradition": 1,
+      "FurnitureStyle": 2,
+      "Geography": 1,
+      "Material": 4,
+      "Organization": 6,
+      "ProductCategory": 1,
+      "PublicationAsset": 6,
+      "QuestionIntent": 38,
+      "Source": 24
+    },
+    "relations_total": 36,
+    "relations_by_publication_safety": {
+      "public-safe": 15,
+      "review-required": 21
+    },
+    "relations_by_evidence_status": {
+      "evidence-gap": 19,
+      "inferred": 1,
+      "snapshot-supported": 4,
+      "source-confirmed": 12
+    },
+    "public_safe_relations": 15,
+    "review_required_relations": 21,
+    "evidence_gap_relations": 19,
+    "schema_candidates_total": 121,
+    "schema_candidates_eligible_yes": 14,
+    "schema_candidates_eligible_no": 107
+  }
+}

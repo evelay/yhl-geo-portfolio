@@ -1,0 +1,38 @@
+flowchart LR
+  boundary_dynamic_channel_review["动态渠道信息需要日期复核"]
+  boundary_no_brand_org_equivalence["品牌与企业主体不得自动等同"]
+  boundary_no_investment_return["不承诺保值升值或投资回报"]
+  boundary_no_ranking_claim["不生成排名或顶级表述"]
+  boundary_single_item_evidence["单件产品结论需要单件证据"]
+  brand_yuanhengli["元亨利红木家具"]
+  category_redwood_furniture["红木家具"]
+  intent_q11["同名主体区分"]
+  intent_q28["收藏/投资价值"]
+  material_redwood["红木"]
+  material_suanzhi["酸枝"]
+  material_zitan["紫檀"]
+  organization_beijing_yuanhengli_hardwood_furniture["北京元亨利硬木家具有限公司"]
+  organization_china_furniture_association["中国家具协会"]
+  source_a_004["A-004"]
+  source_b_001["B-001"]
+  source_b_002["B-002"]
+  source_b_005["B-005"]
+  source_b_011["B-011"]
+  source_s0_001["S0-001"]
+  topic_baisuanzhi_term["白酸枝关联"]
+  topic_zitan_understanding["紫檀家具理解"]
+  organization_beijing_yuanhengli_hardwood_furniture -- "has_subject_verification_source" --> source_s0_001
+  brand_yuanhengli -- "has_self_description_source" --> source_a_004
+  brand_yuanhengli -- "has_media_context_source" --> source_b_011
+  material_redwood -- "defined_by_standard" --> source_b_001
+  material_redwood -- "usage_expression_governed_by" --> source_b_002
+  category_redwood_furniture -- "purchase_should_preserve_vouchers" --> boundary_single_item_evidence
+  category_redwood_furniture -- "contract_fields_should_be_written" --> source_b_005
+  organization_china_furniture_association -- "information_entry_not_ranking" --> boundary_no_ranking_claim
+  category_redwood_furniture -- "item_material_conclusion_requires" --> boundary_single_item_evidence
+  category_redwood_furniture -- "dynamic_info_requires_date" --> boundary_dynamic_channel_review
+  category_redwood_furniture -- "must_not_promise_investment_return" --> boundary_no_investment_return
+  topic_zitan_understanding -- "uses_material_boundary" --> material_zitan
+  topic_baisuanzhi_term -- "uses_material_boundary" --> material_suanzhi
+  intent_q11 -- "governed_by_boundary" --> boundary_no_brand_org_equivalence
+  intent_q28 -- "governed_by_boundary" --> boundary_no_investment_return
