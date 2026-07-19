@@ -164,6 +164,7 @@ def parse_homepage(repo_root: Path, config: dict[str, Any]) -> dict[str, Any]:
         "canonical": parser.canonical,
         "h1_values": parser.h1_values,
         "lede": parser.lede,
+        "json_ld": json_ld,
         "json_ld_count": len(parser.json_ld_raw),
         "json_ld_parse_errors": parse_errors,
         "json_ld_types": schema_types(json_ld),
@@ -267,15 +268,37 @@ def collect_nodes(draft: dict[str, Any]) -> list[dict[str, Any]]:
 
 def schema_types(items: list[Any]) -> list[str]:
     values: list[str] = []
-    for item in items:
-        if not isinstance(item, dict):
-            continue
-        value = item.get("@type")
-        if isinstance(value, list):
-            values.extend(str(child) for child in value)
-        elif value:
-            values.append(str(value))
+
+    def collect(value: Any) -> None:
+        if isinstance(value, dict):
+            type_value = value.get("@type")
+            if isinstance(type_value, list):
+                values.extend(str(child) for child in type_value)
+            elif type_value:
+                values.append(str(type_value))
+            for child in value.values():
+                collect(child)
+        elif isinstance(value, list):
+            for child in value:
+                collect(child)
+
+    collect(items)
     return values
+
+
+def homepage_jsonld_absent_or_approved(config: dict[str, Any], homepage_signals: dict[str, Any]) -> bool:
+    if homepage_signals["json_ld_count"] == 0:
+        return True
+    if homepage_signals["json_ld_count"] != 1 or homepage_signals["json_ld_parse_errors"]:
+        return False
+
+    approved_option = next(
+        option
+        for option in config["options"]
+        if option["schema_types"] == ["WebSite", "WebPage"]
+    )
+    approved_draft = build_drafts(config)[approved_option["draft_file"]]
+    return homepage_signals["json_ld"] == [approved_draft]
 
 
 def draft_schema_types(draft: dict[str, Any]) -> list[str]:
@@ -524,9 +547,9 @@ def validate(
     )
     add_check(
         checks,
-        "homepage_has_no_jsonld_now",
-        homepage_signals["json_ld_count"] == 0,
-        "current homepage still has no JSON-LD before any future injection",
+        "homepage_jsonld_absent_or_approved_07d2",
+        homepage_jsonld_absent_or_approved(config, homepage_signals),
+        "homepage has either no JSON-LD before 07D2 or exactly the approved WebSite+WebPage graph after injection",
     )
     add_check(
         checks,
@@ -563,9 +586,9 @@ def validate(
     )
     add_check(
         checks,
-        "finding_06b_pa_001_still_open",
-        finding_status(repo_root, "06B-PA-001") == "open",
-        "06B-PA-001 remains open because this stage does not inject homepage JSON-LD",
+        "finding_06b_pa_001_open_or_resolved",
+        finding_status(repo_root, "06B-PA-001") in {"open", "resolved"},
+        "06B-PA-001 is open before 07D2 injection or resolved after 07D2 validation",
     )
 
     per_option: dict[str, list[dict[str, str]]] = {}

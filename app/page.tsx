@@ -17,6 +17,33 @@ export const metadata: Metadata = {
   description: "元亨利红木家具GEO公开研究案例：225条AI回答、6项核心诊断、5个内容资产与13条公开FAQ。",
 };
 
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://evelay.github.io/yhl-geo-portfolio/#website",
+      url: "https://evelay.github.io/yhl-geo-portfolio/",
+      name: "元亨利红木家具 GEO 诊断与可核验内容体系",
+      description: "本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。",
+      inLanguage: "zh-CN",
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://evelay.github.io/yhl-geo-portfolio/#webpage",
+      url: "https://evelay.github.io/yhl-geo-portfolio/",
+      name: "元亨利红木家具 GEO 诊断与可核验内容体系",
+      description: "本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。",
+      inLanguage: "zh-CN",
+      isPartOf: {
+        "@id": "https://evelay.github.io/yhl-geo-portfolio/#website",
+      },
+    },
+  ],
+};
+
+const homeSchemaJson = JSON.stringify(homeSchema).replace(/</g, "\\u003c");
+
 const assets = [
   ["01", "品牌事实与定位", "把主体、公开定位、品牌自述与待核验项分层。", "/facts"],
   ["02", "同名主体消歧", "先确认完整主体、业务、地域和官网，再回答品牌问题。", "/disambiguation"],
@@ -28,6 +55,7 @@ const assets = [
 export default function Home() {
   return (
     <SiteShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: homeSchemaJson }} />
       <section className="hero">
         <div className="hero-grid">
           <div>

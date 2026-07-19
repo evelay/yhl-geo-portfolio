@@ -332,6 +332,59 @@ class PageAuditAdapterTests(unittest.TestCase):
             )
         )
 
+    def test_identifies_homepage_website_webpage_graph_and_body_consistency(self):
+        h1 = "元亨利红木家具 GEO 作品集"
+        summary = "直接答案：元亨利红木家具 GEO 作品集说明基线样本、人工评分、公开资料边界和研究声明。"
+        schema = {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebSite",
+                    "@id": f"{BASE_URL}/#website",
+                    "url": f"{BASE_URL}/",
+                    "name": h1,
+                    "description": summary,
+                    "inLanguage": "zh-CN",
+                },
+                {
+                    "@type": "WebPage",
+                    "@id": f"{BASE_URL}/#webpage",
+                    "url": f"{BASE_URL}/",
+                    "name": h1,
+                    "description": summary,
+                    "inLanguage": "zh-CN",
+                    "isPartOf": {"@id": f"{BASE_URL}/#website"},
+                },
+            ],
+        }
+        json_ld = f'<script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>'
+        body = f"""
+<section><p>{summary}</p></section>
+<section><h2>数据版本</h2><p>更新时间 2026-07-17，Baseline150 和 UserIntent75 只是研究口径，不是效果承诺。</p><ul><li>人工评分</li><li>公开资料</li></ul></section>
+"""
+        (self.root / "out/index.html").write_text(
+            page_html("首页", "首页描述", "/", h1, body, json_ld=json_ld),
+            encoding="utf-8",
+        )
+
+        report = self.run_adapter()
+        home = next(page for page in report["pages"] if page["route"] == "/")
+        self.assertEqual(home["summary"]["json_ld_types"], ["WebPage", "WebSite"])
+        self.assertEqual(home["summary"]["website_count"], 1)
+        self.assertEqual(home["summary"]["webpage_count"], 1)
+        self.assertTrue(home["summary"]["homepage_schema_consistency"])
+        self.assertTrue(home["checks"]["schema"]["homepage_website_webpage_consistency"]["ok"])
+        self.assertTrue(home["checks"]["schema"]["schema_body_consistency"]["ok"])
+        self.assertEqual(home["checks"]["schema"]["forbidden_entity_schema_types"]["types"], [])
+        self.assertNotIn(
+            "首页 `/` 仍未发现 JSON-LD",
+            (self.root / "tools/geo-skill/reports/page-audit-pilot/report.md").read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "首页 `/` 已识别 WebSite + WebPage @graph",
+            (self.root / "tools/geo-skill/reports/page-audit-pilot/report.md").read_text(encoding="utf-8"),
+        )
+
     def test_visible_breadcrumb_can_use_short_name_while_h1_uses_entity_context(self):
         breadcrumb_json_ld = """
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://evelay.github.io/yhl-geo-portfolio/"},{"@type":"ListItem","position":2,"name":"品牌事实与定位","item":"https://evelay.github.io/yhl-geo-portfolio/facts/"}]}</script>

@@ -1,0 +1,14 @@
+route,check,before_value,after_value,before_status,after_status,evidence_file,notes
+/,homepage JSON-LD,0 scripts,1 script,open,resolved,out/index.html,after script contains one WebSite plus WebPage @graph
+/,WebSite,absent,1 node,missing,present,out/index.html,@id=https://evelay.github.io/yhl-geo-portfolio/#website
+/,WebPage,absent,1 node,missing,present,out/index.html,@id=https://evelay.github.io/yhl-geo-portfolio/#webpage and isPartOf points to WebSite
+/,Organization,absent,absent,pass,pass,out/index.html,not generated
+/,publisher,absent,absent,pass,pass,out/index.html,not set
+/,SearchAction,absent,absent,pass,pass,out/index.html,no real site search exists
+/,homepage H1,元亨利红木家具 GEO 诊断与可核验内容体系,元亨利红木家具 GEO 诊断与可核验内容体系,pass,pass,out/index.html,unchanged
+/,homepage summary,本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。,本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。,pass,pass,out/index.html,unchanged
+/,canonical,https://evelay.github.io/yhl-geo-portfolio/,https://evelay.github.io/yhl-geo-portfolio/,pass,pass,out/index.html,unchanged
+/,06B-PA-001 status,open,resolved,open,resolved,docs/06b-page-audit-findings.csv,resolved only after build tests and page audit passed
+/,three-page audit open findings,1,0,open,passed,tools/geo-skill/reports/page-audit-pilot-after-home-schema/report.json,before from page-audit-pilot-after-h1-visible-breadcrumb and after from 07D2 retest
+/facts,audit open findings,0,0,passed,passed,tools/geo-skill/reports/page-audit-pilot-after-home-schema/report.json,BreadcrumbList remains present
+/buying-guide,audit open findings,0,0,passed,passed,tools/geo-skill/reports/page-audit-pilot-after-home-schema/report.json,BreadcrumbList remains present

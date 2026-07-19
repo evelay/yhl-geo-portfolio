@@ -59,6 +59,32 @@ FORBIDDEN_PUBLIC_CONCLUSIONS = (
     "优化后提升预测",
 )
 
+FORBIDDEN_ENTITY_SCHEMA_TYPES = {
+    "Organization",
+    "Brand",
+    "Person",
+    "SearchAction",
+    "Article",
+    "FAQPage",
+    "Product",
+    "Offer",
+    "Review",
+    "AggregateRating",
+}
+
+FORBIDDEN_HOME_SCHEMA_TYPES = FORBIDDEN_ENTITY_SCHEMA_TYPES | {"BreadcrumbList"}
+
+FORBIDDEN_HOME_SCHEMA_PROPERTIES = {
+    "publisher",
+    "author",
+    "creator",
+    "copyrightHolder",
+    "accountablePerson",
+    "logo",
+    "sameAs",
+    "potentialAction",
+}
+
 
 def compact_text(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
@@ -349,9 +375,20 @@ def parse_json_ld(raw_values: list[str]) -> list[dict[str, Any]]:
     return parsed
 
 
+def json_ld_nodes(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    nodes: list[dict[str, Any]] = []
+    for item in items:
+        graph = item.get("@graph")
+        if isinstance(graph, list):
+            nodes.extend(node for node in graph if isinstance(node, dict))
+        else:
+            nodes.append(item)
+    return nodes
+
+
 def json_ld_types(items: list[dict[str, Any]]) -> list[str]:
     types: list[str] = []
-    for item in items:
+    for item in json_ld_nodes(items):
         value = item.get("@type")
         if isinstance(value, list):
             types.extend(str(part) for part in value)
@@ -362,7 +399,7 @@ def json_ld_types(items: list[dict[str, Any]]) -> list[str]:
 
 def json_ld_type_count(items: list[dict[str, Any]], type_name: str) -> int:
     count = 0
-    for item in items:
+    for item in json_ld_nodes(items):
         value = item.get("@type")
         if isinstance(value, list):
             count += sum(1 for part in value if str(part) == type_name)
@@ -373,11 +410,83 @@ def json_ld_type_count(items: list[dict[str, Any]], type_name: str) -> int:
 
 def json_ld_items_of_type(items: list[dict[str, Any]], type_name: str) -> list[dict[str, Any]]:
     matches: list[dict[str, Any]] = []
-    for item in items:
+    for item in json_ld_nodes(items):
         value = item.get("@type")
         if value == type_name or (isinstance(value, list) and type_name in [str(part) for part in value]):
             matches.append(item)
     return matches
+
+
+def collect_schema_keys(value: Any) -> set[str]:
+    if isinstance(value, dict):
+        keys = set(value)
+        for child in value.values():
+            keys.update(collect_schema_keys(child))
+        return keys
+    if isinstance(value, list):
+        keys: set[str] = set()
+        for child in value:
+            keys.update(collect_schema_keys(child))
+        return keys
+    return set()
+
+
+def homepage_website_webpage_consistency(
+    *,
+    route: str,
+    json_ld: list[dict[str, Any]],
+    canonical: str,
+    h1s: list[str],
+    visible_summary: str,
+    language: str,
+) -> dict[str, Any]:
+    if route != "/":
+        return {"ok": None, "evidence_status": "not-applicable"}
+
+    nodes = json_ld_nodes(json_ld)
+    website = json_ld_items_of_type(json_ld, "WebSite")
+    webpage = json_ld_items_of_type(json_ld, "WebPage")
+    graph_nodes = json_ld[0].get("@graph", []) if len(json_ld) == 1 and isinstance(json_ld[0], dict) else []
+    website_id = website[0].get("@id") if len(website) == 1 else ""
+    forbidden_types = sorted(FORBIDDEN_HOME_SCHEMA_TYPES & set(json_ld_types(json_ld)))
+    forbidden_properties = sorted(FORBIDDEN_HOME_SCHEMA_PROPERTIES & collect_schema_keys(json_ld))
+
+    expected_h1 = h1s[0] if len(h1s) == 1 else ""
+    expected_summary = visible_summary
+    field_matches = []
+    for node in website + webpage:
+        field_matches.append(node.get("url") == canonical)
+        field_matches.append(node.get("name") == expected_h1)
+        field_matches.append(node.get("description") == expected_summary)
+        field_matches.append(node.get("inLanguage") == language)
+
+    is_part_of_ok = len(webpage) == 1 and webpage[0].get("isPartOf") == {"@id": website_id}
+    ok = (
+        len(json_ld) == 1
+        and isinstance(json_ld[0].get("@graph"), list)
+        and len(graph_nodes) == 2
+        and [node.get("@type") for node in graph_nodes if isinstance(node, dict)] == ["WebSite", "WebPage"]
+        and len(nodes) == 2
+        and len(website) == 1
+        and len(webpage) == 1
+        and all(field_matches)
+        and is_part_of_ok
+        and not forbidden_types
+        and not forbidden_properties
+    )
+
+    return {
+        "ok": ok,
+        "script_count": len(json_ld),
+        "graph_node_count": len(graph_nodes) if isinstance(graph_nodes, list) else 0,
+        "website_count": len(website),
+        "webpage_count": len(webpage),
+        "is_part_of_ok": is_part_of_ok,
+        "fields_match_visible_page": all(field_matches),
+        "forbidden_types": forbidden_types,
+        "forbidden_properties": forbidden_properties,
+        "evidence_status": "observed" if json_ld else "not-applicable",
+    }
 
 
 def breadcrumb_schema_names(items: list[dict[str, Any]]) -> list[str]:
@@ -576,6 +685,18 @@ def audit_page(ctx: AuditContext, route_config: dict[str, Any], robots_text: str
     paragraph_lengths = [len(item) for item in parser.paragraphs]
     dense_paragraphs = [length for length in paragraph_lengths if length > 260]
     too_short_anchors = [link for link in int_links if len(link["text"]) <= 1]
+    visible_summary = parser.paragraphs[0] if parser.paragraphs else ""
+    website_count = json_ld_type_count(json_ld, "WebSite")
+    webpage_count = json_ld_type_count(json_ld, "WebPage")
+    homepage_schema_consistency = homepage_website_webpage_consistency(
+        route=route,
+        json_ld=json_ld,
+        canonical=canonical,
+        h1s=h1s,
+        visible_summary=visible_summary,
+        language=parser.lang,
+    )
+    forbidden_entity_schema_types = sorted(FORBIDDEN_ENTITY_SCHEMA_TYPES & set(schema_types))
 
     checks = {
         "discovery_crawl": {
@@ -652,6 +773,13 @@ def audit_page(ctx: AuditContext, route_config: dict[str, Any], robots_text: str
         "schema": {
             "json_ld_present": {"ok": bool(json_ld), "count": len(json_ld), "evidence_status": "observed"},
             "schema_types": {"ok": bool(schema_types), "types": schema_types, "evidence_status": "observed" if schema_types else "not-applicable"},
+            "forbidden_entity_schema_types": {
+                "ok": not forbidden_entity_schema_types,
+                "types": forbidden_entity_schema_types,
+                "evidence_status": "observed" if json_ld else "not-applicable",
+            },
+            "website_present": {"ok": website_count > 0, "count": website_count, "evidence_status": "observed" if website_count else "not-applicable"},
+            "webpage_present": {"ok": webpage_count > 0, "count": webpage_count, "evidence_status": "observed" if webpage_count else "not-applicable"},
             "breadcrumb_list_present": {"ok": breadcrumb_list_count > 0, "count": breadcrumb_list_count, "evidence_status": "observed" if breadcrumb_list_count else "not-applicable"},
             "breadcrumb_visible_consistency": {
                 "ok": breadcrumb_schema_consistency,
@@ -659,7 +787,11 @@ def audit_page(ctx: AuditContext, route_config: dict[str, Any], robots_text: str
                 "schema_names": breadcrumb_schema_names(breadcrumb_lists),
                 "evidence_status": "observed" if breadcrumb_schema_consistency is not None else "not-applicable",
             },
-            "schema_body_consistency": {"ok": True if not json_ld else None, "evidence_status": "not-applicable" if not json_ld else "input-gap"},
+            "homepage_website_webpage_consistency": homepage_schema_consistency,
+            "schema_body_consistency": {
+                "ok": True if not json_ld else homepage_schema_consistency["ok"] if route == "/" else None,
+                "evidence_status": "not-applicable" if not json_ld else "observed" if route == "/" else "input-gap",
+            },
             "missing_required_fields": {"ok": True if not json_ld else None, "evidence_status": "not-applicable" if not json_ld else "input-gap"},
             "schema_facts_absent_from_body": {"ok": False if json_ld and any("_parse_error" in item for item in json_ld) else True, "evidence_status": "not-applicable" if not json_ld else "inferred"},
         },
@@ -685,10 +817,14 @@ def audit_page(ctx: AuditContext, route_config: dict[str, Any], robots_text: str
             "description": description,
             "canonical": canonical,
             "h1": h1s,
+            "visible_summary": visible_summary,
             "main_text_length": len(main_text),
             "json_ld_count": len(json_ld),
             "json_ld_types": schema_types,
+            "website_count": website_count,
+            "webpage_count": webpage_count,
             "breadcrumb_list_count": breadcrumb_list_count,
+            "homepage_schema_consistency": homepage_schema_consistency["ok"],
             "visible_breadcrumb_count": len(visible_breadcrumbs),
             "visible_breadcrumb_current_texts": visible_breadcrumb_current_texts(visible_breadcrumbs),
             "internal_link_count": len(int_links),
@@ -969,6 +1105,18 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
     breadcrumb_list_routes = [
         route for route, summary in summary_by_route.items() if summary.get("breadcrumb_list_count", 0)
     ]
+    homepage_schema_routes = [
+        page["route"]
+        for page in pages
+        if page["route"] == "/" and page["checks"]["schema"]["homepage_website_webpage_consistency"]["ok"] is True
+    ]
+    homepage_schema_mismatch_routes = [
+        page["route"]
+        for page in pages
+        if page["route"] == "/"
+        and page["summary"].get("json_ld_count", 0)
+        and page["checks"]["schema"]["homepage_website_webpage_consistency"]["ok"] is not True
+    ]
     h1_missing_entity_routes = [
         page["route"]
         for page in pages
@@ -994,6 +1142,10 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
         schema_common_lines.append(f"- 仍未发现 JSON-LD 的页面：{', '.join(json_ld_missing_routes)}。")
     if "/" in json_ld_missing_routes:
         schema_common_lines.append("- 首页 `/` 仍未发现 JSON-LD；原首页 Schema finding 保持 open。")
+    if homepage_schema_routes:
+        schema_common_lines.append("- 首页 `/` 已识别 WebSite + WebPage @graph；字段与首页 H1、可见摘要、canonical 和语言一致。")
+    if homepage_schema_mismatch_routes:
+        schema_common_lines.append("- 首页 `/` 已发现 JSON-LD，但 WebSite + WebPage 字段一致性仍需复核。")
     if breadcrumb_list_routes:
         schema_common_lines.append(
             f"- 已识别 BreadcrumbList JSON-LD 的页面：{', '.join(breadcrumb_list_routes)}；这只表达页面层级，不代表 Organization、Article、FAQPage 或其他 Schema 已完成。"
@@ -1035,6 +1187,16 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
             f"- `{route}`：canonical 已指向 `{canonical_by_route.get(route, '缺失')}`；"
             f"{schema_note}；{breadcrumb_note}；{h1_note}。"
         )
+
+    home_page = next((page for page in pages if page["route"] == "/"), None)
+    if home_page and home_page["checks"]["schema"]["homepage_website_webpage_consistency"]["ok"] is True:
+        home_specific = "- `/`：首页已识别 WebSite + WebPage @graph，字段与可见页面一致；首页仍不生成 BreadcrumbList。"
+    elif "/" in h1_missing_entity_routes:
+        home_specific = "- `/`：首页 H1 仍未直接包含品牌实体，标题脱离上下文后偏泛化。"
+    elif home_page and home_page["summary"].get("json_ld_count", 0):
+        home_specific = "- `/`：首页已发现 JSON-LD，但字段一致性或禁用类型检查仍需复核；首页仍不生成 BreadcrumbList。"
+    else:
+        home_specific = "- `/`：首页 H1 已补足元亨利红木家具与 GEO 诊断语境；首页仍不生成 BreadcrumbList。"
 
     facts_specific = page_specific_line("/facts")
     buying_specific = page_specific_line("/buying-guide")
@@ -1086,7 +1248,7 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
                 f"- canonical：{summary['canonical'] or '缺失'}",
                 f"- H1：{', '.join(summary['h1']) if summary['h1'] else '缺失'}",
                 f"- 静态 main 正文长度：{summary['main_text_length']}",
-                f"- JSON-LD 类型：{', '.join(summary['json_ld_types']) if summary['json_ld_types'] else '未发现'}；BreadcrumbList 数量：{summary['breadcrumb_list_count']}",
+                f"- JSON-LD 类型：{', '.join(summary['json_ld_types']) if summary['json_ld_types'] else '未发现'}；WebSite 数量：{summary['website_count']}；WebPage 数量：{summary['webpage_count']}；BreadcrumbList 数量：{summary['breadcrumb_list_count']}",
                 f"- 内链数量：{summary['internal_link_count']}；外部来源链接数量：{summary['external_source_link_count']}",
             ]
         )
@@ -1135,11 +1297,7 @@ def build_report_markdown(ctx: AuditContext, pages: list[dict[str, Any]], findin
             canonical_common_line,
             "",
             "## 页面特有问题",
-            (
-                "- `/`：首页 H1 仍未直接包含品牌实体，标题脱离上下文后偏泛化。"
-                if "/" in h1_missing_entity_routes
-                else "- `/`：首页 H1 已补足元亨利红木家具与 GEO 诊断语境；首页仍不生成 BreadcrumbList。"
-            ),
+            home_specific,
             facts_specific,
             buying_specific,
             "",

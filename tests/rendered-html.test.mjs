@@ -47,6 +47,28 @@ function extractJsonLd(html) {
     .map((match) => JSON.parse(match[1]));
 }
 
+function jsonLdNodes(items) {
+  return items.flatMap((item) => Array.isArray(item["@graph"]) ? item["@graph"] : [item]);
+}
+
+function nodesOfType(items, typeName) {
+  return jsonLdNodes(items).filter((item) => item["@type"] === typeName);
+}
+
+function collectKeys(value, keys = new Set()) {
+  if (Array.isArray(value)) {
+    for (const item of value) collectKeys(item, keys);
+    return keys;
+  }
+  if (value && typeof value === "object") {
+    for (const [key, item] of Object.entries(value)) {
+      keys.add(key);
+      collectKeys(item, keys);
+    }
+  }
+  return keys;
+}
+
 function extractBreadcrumbNavs(html) {
   return [...html.matchAll(/<nav[^>]*aria-label="面包屑导航"[^>]*>[\s\S]*?<\/nav>/g)].map((match) => match[0]);
 }
@@ -105,7 +127,7 @@ test("H1 summaries and visible breadcrumbs follow 07C2 decisions", async () => {
   assert.deepEqual(extractH1s(home), ["元亨利红木家具 GEO 诊断与可核验内容体系"]);
   assert.match(home, /本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究/);
   assert.equal(extractBreadcrumbNavs(home).length, 0);
-  assert.equal(extractJsonLd(home).filter((item) => item["@type"] === "BreadcrumbList").length, 0);
+  assert.equal(nodesOfType(extractJsonLd(home), "BreadcrumbList").length, 0);
 
   const expectedPages = [
     {
@@ -142,6 +164,65 @@ test("H1 summaries and visible breadcrumbs follow 07C2 decisions", async () => {
     assert.equal(breadcrumbLists.length, 1, `${page.route} should have one BreadcrumbList`);
     assert.equal(breadcrumbLists[0].itemListElement[1].name, page.breadcrumbName);
     assert.equal(breadcrumbLists[0].itemListElement[1].item, page.canonical);
+  }
+});
+
+test("homepage renders the approved WebSite and WebPage JSON-LD graph", async () => {
+  const html = await assertAccessible("/");
+  const jsonLd = extractJsonLd(html);
+  const nodes = jsonLdNodes(jsonLd);
+  const website = nodesOfType(jsonLd, "WebSite");
+  const webpage = nodesOfType(jsonLd, "WebPage");
+  const expectedName = "元亨利红木家具 GEO 诊断与可核验内容体系";
+  const expectedDescription = "本页呈现基于公开资料完成、未受元亨利委托且不代表品牌官方立场的独立 GEO 研究案例，围绕 AI 回答基线、品牌事实治理、内容体系和页面技术优化，诊断认知与证据缺口。";
+  const expectedCanonical = "https://evelay.github.io/yhl-geo-portfolio/";
+  const forbiddenTypes = new Set([
+    "Organization",
+    "Brand",
+    "Person",
+    "SearchAction",
+    "BreadcrumbList",
+    "Article",
+    "FAQPage",
+    "Product",
+    "Offer",
+    "Review",
+    "AggregateRating",
+  ]);
+  const forbiddenProperties = new Set([
+    "publisher",
+    "author",
+    "creator",
+    "copyrightHolder",
+    "accountablePerson",
+    "logo",
+    "sameAs",
+    "potentialAction",
+  ]);
+
+  assert.equal(jsonLd.length, 1);
+  assert.equal(jsonLd[0]["@context"], "https://schema.org");
+  assert.equal(jsonLd[0]["@graph"].length, 2);
+  assert.deepEqual(jsonLd[0]["@graph"].map((node) => node["@type"]), ["WebSite", "WebPage"]);
+  assert.equal(website.length, 1);
+  assert.equal(webpage.length, 1);
+
+  for (const node of nodes) {
+    assert.equal(node.url, expectedCanonical);
+    assert.equal(node.name, expectedName);
+    assert.equal(node.description, expectedDescription);
+    assert.equal(node.inLanguage, "zh-CN");
+  }
+
+  assert.equal(website[0]["@id"], "https://evelay.github.io/yhl-geo-portfolio/#website");
+  assert.equal(webpage[0]["@id"], "https://evelay.github.io/yhl-geo-portfolio/#webpage");
+  assert.deepEqual(webpage[0].isPartOf, { "@id": website[0]["@id"] });
+
+  for (const node of nodes) {
+    assert.equal(forbiddenTypes.has(node["@type"]), false);
+  }
+  for (const key of collectKeys(jsonLd)) {
+    assert.equal(forbiddenProperties.has(key), false);
   }
 });
 
