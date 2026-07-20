@@ -196,3 +196,21 @@ batch1、old10、早期汇总 CSV、早期复测模板和检查快照统一按 a
 - 品牌事实工作簿与公开 JSON 冲突：以工作簿为准，重新导出 JSON。
 - Markdown canonical 与 TSX 页面冲突：以 Markdown 为准，同步 TSX 展示副本。
 - archive 与当前 delivery 体系冲突：archive 不参与裁决。
+
+## 7. 08C 问题库版本关系
+
+| 角色 | 文件或位置 | 状态 |
+|---|---|---|
+| current canonical | `redwood_geo/data/redwood_question_bank_30.csv` | v1，仍为当前 canonical |
+| versioned release candidate | `data/question-bank/redwood_question_bank_v2_rc1.csv` | v2-rc1，未切换 |
+| version manifest | `data/question-bank/question_bank_versions.json` | 记录 v1 与 v2-rc1 关系 |
+| ID mapping | `docs/08c-question-id-mapping.csv` | 记录 q31 至 q39 与 08B 候选 ID 的映射 |
+| exclusion record | `docs/08c-excluded-candidates.csv` | 记录未进入 v2 的候选 |
+
+确认关系：
+
+- v1 仍为当前 canonical。
+- v2-rc1 是版本化候选，尚未进入网站、测试或生产流程。
+- v2 经过验证和人工最终批准后，才可以切换 canonical。
+- 网站不得直接读取 v2-rc1。
+- v2-rc1 不得反向覆盖外部 v1 文件。

@@ -182,3 +182,12 @@
 - 品牌事实工作簿与公开 JSON 冲突：以工作簿为准，重新导出 JSON。
 - Markdown canonical 与 TSX 页面冲突：以 Markdown 为准，TSX 进入展示同步状态。
 - archive 与任何当前文件冲突：archive 不参与裁决，只能作为历史参考。
+
+## 10. 08C 问题库 v2-rc1 版本化候选决定
+
+- 问题库 v1 仍为当前 canonical。
+- `data/question-bank/redwood_question_bank_v2_rc1.csv` 是版本化 release candidate，不是当前 canonical。
+- v2-rc1 尚未进入网站、测试或生产流程。
+- v2 只有经过验证和人工最终批准后，才可以切换 canonical。
+- 网站不得直接读取 v2-rc1。
+- v2-rc1 不得反向覆盖外部 v1 文件。

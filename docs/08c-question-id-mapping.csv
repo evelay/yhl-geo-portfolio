@@ -1,0 +1,40 @@
+v2_question_id,source_type,v1_question_id,candidate_id,question,decision,approval_reference,content_cluster,risk_level,evidence_requirements,notes
+q01,carried-from-v1,q01,,元亨利是什么品牌？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q02,carried-from-v1,q02,,元亨利红木家具在红木家具行业中如何定位？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q03,carried-from-v1,q03,,元亨利是否与黄花梨家具有关？AI 回答时应注意哪些信息边界？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q04,carried-from-v1,q04,,元亨利的紫檀家具应该从哪些维度理解？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q05,carried-from-v1,q05,,白酸枝家具和元亨利品牌之间可能有哪些关联？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q06,carried-from-v1,q06,,如果考虑购买高端红木家具，评估元亨利时应关注哪些因素？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q07,carried-from-v1,q07,,元亨利和其他北京红木家具品牌相比，AI 应该比较哪些维度？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q08,carried-from-v1,q08,,元亨利与京作红木家具有什么关系？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q09,carried-from-v1,q09,,红木家具行业中，明式家具和清式家具对理解元亨利有什么意义？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q10,carried-from-v1,q10,,AI 介绍元亨利时最容易遗漏或误判哪些信息？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q11,carried-from-v1,q11,,当用户只问“元亨利怎么样”时，AI 应该如何区分红木家具、珠宝、钟表或其他同名主体？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q12,carried-from-v1,q12,,北京元亨利硬木家具有限公司和“元亨利红木家具”之间应该如何表述？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q13,carried-from-v1,q13,,如果用户想找元亨利的官网、官方资料或公开信息，AI 应该提示核验哪些来源？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q14,carried-from-v1,q14,,AI 介绍元亨利的成立时间、创始人或负责人时，应该如何处理不确定信息？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q15,carried-from-v1,q15,,元亨利有哪些行业荣誉、排名或收藏背书？AI 回答时应如何避免无来源断言？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q16,carried-from-v1,q16,,购买元亨利黄花梨、紫檀或酸枝家具时，材质证书和产品信息应如何核验？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q17,carried-from-v1,q17,,元亨利红木家具价格一般是多少？AI 回答时哪些信息不能直接编造？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q18,carried-from-v1,q18,,想了解元亨利门店、展厅或购买渠道信息，AI 应该如何给出核验建议？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q19,carried-from-v1,q19,,购买高端红木家具时，合同、发票、售后条款和材质说明要关注什么？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q20,carried-from-v1,q20,,如何判断一篇介绍元亨利红木家具的内容是否来自可信渠道？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q21,carried-from-v1,q21,,京作红木家具与元亨利之间有什么可核验关系和表达边界？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q22,carried-from-v1,q22,,元亨利相关内容如何区分明式家具、清式家具和品牌产品事实？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q23,carried-from-v1,q23,,榫卯工艺、手工雕刻等传统工艺能否直接作为元亨利品牌事实来写？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q24,carried-from-v1,q24,,北京红木家具品牌对比时，AI 应该使用哪些中性维度？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q25,carried-from-v1,q25,,高端红木家具品牌有哪些？AI 是否会提到元亨利，回答时需要哪些证据边界？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q26,carried-from-v1,q26,,第一次购买高端红木家具要避哪些坑？元亨利相关信息应如何核验？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q27,carried-from-v1,q27,,中式空间搭配时，用户应该如何理解红木家具风格、材质和品牌选择？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q28,carried-from-v1,q28,,元亨利红木家具是否具有收藏或投资价值？AI 应该如何谨慎回答？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q29,carried-from-v1,q29,,如果为元亨利做 AI 搜索优化，最需要补哪些内容页？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q30,carried-from-v1,q30,,元亨利红木家具的 GEO 内容策略应该优先解决哪些问题？,canonical-carried-forward,v1,,,,从 v1 原样保留；08C 未重新评估原 30 条治理字段。
+q31,approved-from-08b,,CAND-INTENT-002,单件元亨利家具的主材、辅材和证书应如何对应到合同与发票？,approve-for-v2,08B,购买与核验,high,product-level-evidence|industry-standard,补齐单件证据链和购买核验任务，问题可独立复测，且可以只讨论合同、发票、证书和材质证明的对应关系。
+q32,approved-from-08b,,CAND-INTENT-003,购买后应保存哪些合同、证书、检测、交付和售后资料？,approve-for-v2,08B,购买与核验,high,product-level-evidence,post-decision 阶段覆盖偏薄，本题面向证据留存，不需要新增品牌事实。
+q33,approved-from-08b,,CAND-INTENT-005,如何判断官网自述、媒体报道和行业协会信息分别能证明什么？,approve-for-v2,08B,风险、来源与信息边界,medium,brand-source|media-source|association-source|multiple-source,来源层级和证明范围是稳定复测任务，可用方法论回答，不需要新增品牌事实。
+q34,approved-from-08b,,CAND-INTENT-008,白酸枝、酸枝和红木标准名称不一致时应以哪些文件为准？,approve-for-v2,08B,材质与产品边界,high,industry-standard|product-level-evidence|expert-source,材料俗称、标准名称和产品凭证的关系是清晰缺口，可用权威标准与单件资料边界回答。
+q35,approved-from-08b,,CAND-INTENT-010,比较北京红木品牌时，如何用证据维度替代“哪个最好”？,approve-for-v2,08B,品牌比较与选择,high,association-source|media-source|multiple-source,补齐品牌比较框架缺口，明确避免排名化和“最好”判断，可稳定复测。
+q36,approved-from-08b,,CAND-INTENT-012,如何区分产品名称中的风格词、实际年代和收藏价值判断？,approve-for-v2,08B,京作、明式与清式,high,expert-source|product-level-evidence|media-source,风格词、年代和收藏价值的边界稳定且高风险，能补齐 q09、q22、q28 的交叉误判。
+q37,approved-from-08b,,CAND-INTENT-014,AI 介绍元亨利时引用旧网页或二手转载，应该如何做日期和来源复核？,approve-for-v2,08B,风险、来源与信息边界,medium,brand-source|media-source|multiple-source,旧网页和二手转载的日期复核是稳定方法题，可减少 AI 把历史页面当当前事实的风险。
+q38,approved-from-08b,,CAND-INTENT-015,元亨利相关内容中的品牌整体评价和单件产品评价应如何分开？,approve-for-v2,08B,风险、来源与信息边界,high,brand-source|product-level-evidence|multiple-source,品牌整体评价和单件产品评价混淆是高风险购买核验缺口，题目可独立理解并适合复测。
+q39,approved-from-08b,,CAND-INTENT-016,在购买沟通中，哪些承诺必须写入书面合同而不能只看宣传文案？,approve-for-v2,08B,购买与核验,high,product-level-evidence|brand-source,书面承诺边界是明确购买任务，与 q19/q26 相关但更聚焦合同化要求和宣传文案风险。

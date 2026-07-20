@@ -78,3 +78,12 @@
 - Markdown canonical 与 TSX 页面冲突时，以 Markdown 为准。
 - CSV 问题库与 `CategoryMap` 的 `question_id` 或问题文本冲突时，标记 `decision-pending` 并等待人工确认。
 - 归档目录与当前 delivery 体系冲突时，归档目录不得参与裁决。
+
+## 8. 08C v2-rc1 同步边界
+
+- 问题库 v1 仍为当前 canonical。
+- v2-rc1 是版本化候选，只能用于后续人工最终验证。
+- v2-rc1 尚未进入网站、测试或生产流程。
+- v2 经过验证和人工最终批准后，才可以切换 canonical。
+- 网站不得直接读取 v2-rc1。
+- v2-rc1 不得反向覆盖外部 v1 文件。

@@ -1,0 +1,40 @@
+id,category,intent_level,target_gap,question,expected_focus,version,record_status,source_candidate_id,primary_intent,user_stage,risk_level,evidence_requirements,content_cluster,recommended_route,added_in_version,approval_reference,notes
+q01,品牌认知,品牌认知,Entity Ambiguity Gap,元亨利是什么品牌？,测试 AI 是否能识别元亨利为红木家具 / 硬木家具 / 明清古典家具相关品牌，并能关联北京元亨利硬木家具有限公司。,v1,canonical-carried-forward,,,,,,,,v1,,
+q02,品牌认知,行业定位,Reliability Gap,元亨利红木家具在红木家具行业中如何定位？,测试 AI 是否能从红木家具、京作家具、明清古典家具、高端中式硬木家具等角度描述品牌定位，并避免无来源排名。,v1,canonical-carried-forward,,,,,,,,v1,,
+q03,材质-黄花梨,材质理解,Attribute Gap,元亨利是否与黄花梨家具有关？AI 回答时应注意哪些信息边界？,测试 AI 是否能把黄花梨作为红木家具核心材质理解，同时避免编造具体产品、价格、库存或未经核验的品牌事实。,v1,canonical-carried-forward,,,,,,,,v1,,
+q04,材质-紫檀,材质理解,Attribute Gap,元亨利的紫檀家具应该从哪些维度理解？,测试 AI 是否能从材质属性、明清古典家具、工艺、收藏属性和信息核验边界等维度组织回答。,v1,canonical-carried-forward,,,,,,,,v1,,
+q05,材质-白酸枝,材质理解,Attribute Gap,白酸枝家具和元亨利品牌之间可能有哪些关联？,测试 AI 是否能识别白酸枝为红木 / 酸枝类材质语境，并说明其与中式硬木家具、材质辨识和产品体系的关系。,v1,canonical-carried-forward,,,,,,,,v1,,
+q06,购买决策,购买决策,Decision Gap,如果考虑购买高端红木家具，评估元亨利时应关注哪些因素？,测试 AI 是否能从材质、工艺、款式、公司主体、售后、证书、门店或展厅信息、公开口碑等维度给出中性评估框架。,v1,canonical-carried-forward,,,,,,,,v1,,
+q07,品牌对比,对比评估,Comparison Gap,元亨利和其他北京红木家具品牌相比，AI 应该比较哪些维度？,测试 AI 是否能提出可比较维度，如品牌主体、产品材质、工艺风格、京作属性、代表产品、公开资料完整度和用户口碑，而不是输出主观排名。,v1,canonical-carried-forward,,,,,,,,v1,,
+q08,行业认知,行业语义,Attribute Gap,元亨利与京作红木家具有什么关系？,测试 AI 是否能理解北京地域、京作红木、明清宫廷家具审美和传统中式家具工艺之间的语义关系。,v1,canonical-carried-forward,,,,,,,,v1,,
+q09,行业认知,行业语义,Attribute Gap,红木家具行业中，明式家具和清式家具对理解元亨利有什么意义？,测试 AI 是否能用明式家具、清式家具、造型风格、雕刻装饰、榫卯结构和陈设场景解释品牌相关语义。,v1,canonical-carried-forward,,,,,,,,v1,,
+q10,AI误判风险,误判诊断,Reliability Gap,AI 介绍元亨利时最容易遗漏或误判哪些信息？,测试 AI 是否能识别品牌名称歧义、公司主体缺失、人物信息待核验、材质与产品关系误判、京作红木关联不足等 GEO gap。,v1,canonical-carried-forward,,,,,,,,v1,,
+q11,同名歧义,品牌认知,Entity Ambiguity Gap,当用户只问“元亨利怎么样”时，AI 应该如何区分红木家具、珠宝、钟表或其他同名主体？,测试 AI 是否会主动识别同名实体风险，并先限定红木家具语境。,v1,canonical-carried-forward,,,,,,,,v1,,
+q12,主体核验,主体核验,Entity Detail Gap,北京元亨利硬木家具有限公司和“元亨利红木家具”之间应该如何表述？,测试 AI 是否能区分公司主体、品牌名称、别名和行业语境。,v1,canonical-carried-forward,,,,,,,,v1,,
+q13,主体核验,来源核验,Reliability Gap,如果用户想找元亨利的官网、官方资料或公开信息，AI 应该提示核验哪些来源？,测试 AI 是否能给出工商信息、官网、公开报道、行业协会、产品资料等核验路径，而不是直接编造地址。,v1,canonical-carried-forward,,,,,,,,v1,,
+q14,可靠性验证,事实核验,Reliability Gap,AI 介绍元亨利的成立时间、创始人或负责人时，应该如何处理不确定信息？,测试 AI 是否能主动区分成立时间、品牌创立、负责人、法定代表人等概念。,v1,canonical-carried-forward,,,,,,,,v1,,
+q15,可靠性验证,事实核验,Reliability Gap,元亨利有哪些行业荣誉、排名或收藏背书？AI 回答时应如何避免无来源断言？,测试 AI 是否会输出未经核验的荣誉、排名、收藏价值，并记录强断言风险。,v1,canonical-carried-forward,,,,,,,,v1,,
+q16,购买决策,购买决策,Decision Gap,购买元亨利黄花梨、紫檀或酸枝家具时，材质证书和产品信息应如何核验？,测试 AI 是否能围绕材质证书、合同、单件产品信息、销售渠道和售后给出可执行核验清单。,v1,canonical-carried-forward,,,,,,,,v1,,
+q17,购买决策,高商业价值,Reliability Gap,元亨利红木家具价格一般是多少？AI 回答时哪些信息不能直接编造？,测试 AI 是否会编造价格区间、库存或产品 SKU，并是否提示价格需以单件产品和渠道核验为准。,v1,canonical-carried-forward,,,,,,,,v1,,
+q18,购买决策,高商业价值,Decision Gap,想了解元亨利门店、展厅或购买渠道信息，AI 应该如何给出核验建议？,测试 AI 是否能避免编造门店地址，并提示以官方渠道、地图信息、工商信息或品牌公开资料为准。,v1,canonical-carried-forward,,,,,,,,v1,,
+q19,购买决策,购买决策,Decision Gap,购买高端红木家具时，合同、发票、售后条款和材质说明要关注什么？,测试 AI 是否能给出通用高客单价家具购买决策框架，并说明与品牌事实之间的边界。,v1,canonical-carried-forward,,,,,,,,v1,,
+q20,来源可信,来源核验,Reliability Gap,如何判断一篇介绍元亨利红木家具的内容是否来自可信渠道？,测试 AI 是否能提出来源层级、证据类型、引用边界和待核验信息分类。,v1,canonical-carried-forward,,,,,,,,v1,,
+q21,京作与工艺,行业语义,Attribute Gap,京作红木家具与元亨利之间有什么可核验关系和表达边界？,测试 AI 是否会把地域、工艺体系、风格标签和品牌事实混为一谈。,v1,canonical-carried-forward,,,,,,,,v1,,
+q22,风格语义,行业语义,Attribute Gap,元亨利相关内容如何区分明式家具、清式家具和品牌产品事实？,测试 AI 是否能把风格、器型、工艺、审美与品牌可核验产品信息分开。,v1,canonical-carried-forward,,,,,,,,v1,,
+q23,工艺语义,事实边界,Attribute Gap,榫卯工艺、手工雕刻等传统工艺能否直接作为元亨利品牌事实来写？,测试 AI 是否能说明行业通用工艺和品牌专属事实之间需要来源支持。,v1,canonical-carried-forward,,,,,,,,v1,,
+q24,品牌对比,对比评估,Comparison Gap,北京红木家具品牌对比时，AI 应该使用哪些中性维度？,测试 AI 是否能提出非排名化维度，如公开资料完整度、公司主体、材质证据、工艺风格、售后信息等。,v1,canonical-carried-forward,,,,,,,,v1,,
+q25,推荐场景,高商业价值,Comparison Gap,高端红木家具品牌有哪些？AI 是否会提到元亨利，回答时需要哪些证据边界？,测试 AI 在推荐类问题中是否提及品牌，并是否避免无来源排名或“首选”等强推荐。,v1,canonical-carried-forward,,,,,,,,v1,,
+q26,购买避坑,高商业价值,Decision Gap,第一次购买高端红木家具要避哪些坑？元亨利相关信息应如何核验？,测试 AI 是否能结合高客单价购买风险、材质核验、合同售后、公开来源给出决策支持。,v1,canonical-carried-forward,,,,,,,,v1,,
+q27,空间搭配,内容扩展,Intent Gap,中式空间搭配时，用户应该如何理解红木家具风格、材质和品牌选择？,测试 AI 是否能覆盖空间审美、材质风格、使用场景，并避免直接把搭配建议变成品牌事实。,v1,canonical-carried-forward,,,,,,,,v1,,
+q28,收藏投资,高风险问题,Reliability Gap,元亨利红木家具是否具有收藏或投资价值？AI 应该如何谨慎回答？,测试 AI 是否会过度承诺收藏、保值、投资价值，并是否提示单件产品、材质、工艺和市场证据差异。,v1,canonical-carried-forward,,,,,,,,v1,,
+q29,内容策略,GEO策略,Content Gap,如果为元亨利做 AI 搜索优化，最需要补哪些内容页？,测试 AI 是否能识别实体澄清、公开信息核验、材质专题、购买指南、对比维度等内容资产。,v1,canonical-carried-forward,,,,,,,,v1,,
+q30,内容策略,GEO策略,Content Gap,元亨利红木家具的 GEO 内容策略应该优先解决哪些问题？,测试 AI 是否能把同名歧义、事实核验、材质边界、购买决策和内容发布策略连成完整优化路线。,v1,canonical-carried-forward,,,,,,,,v1,,
+q31,购买与核验,process-how-to,产品级证据,单件元亨利家具的主材、辅材和证书应如何对应到合同与发票？,,v2-rc1,approved-candidate,CAND-INTENT-002,process-how-to,decision,high,product-level-evidence|industry-standard,购买与核验,new-page:single-item-evidence,v2-rc1,08B,补齐单件证据链和购买核验任务，问题可独立复测，且可以只讨论合同、发票、证书和材质证明的对应关系。
+q32,购买与核验,process-how-to,购买后证据留存,购买后应保存哪些合同、证书、检测、交付和售后资料？,,v2-rc1,approved-candidate,CAND-INTENT-003,process-how-to,post-decision,high,product-level-evidence,购买与核验,new-page:single-item-evidence,v2-rc1,08B,post-decision 阶段覆盖偏薄，本题面向证据留存，不需要新增品牌事实。
+q33,风险、来源与信息边界,source-verification,来源可靠性,如何判断官网自述、媒体报道和行业协会信息分别能证明什么？,,v2-rc1,approved-candidate,CAND-INTENT-005,source-verification,research,medium,brand-source|media-source|association-source|multiple-source,风险、来源与信息边界,/method,v2-rc1,08B,来源层级和证明范围是稳定复测任务，可用方法论回答，不需要新增品牌事实。
+q34,材质与产品边界,material-understanding,材料标准与常见误区,白酸枝、酸枝和红木标准名称不一致时应以哪些文件为准？,,v2-rc1,approved-candidate,CAND-INTENT-008,material-understanding,consideration,high,industry-standard|product-level-evidence|expert-source,材质与产品边界,/materials,v2-rc1,08B,材料俗称、标准名称和产品凭证的关系是清晰缺口，可用权威标准与单件资料边界回答。
+q35,品牌比较与选择,comparison,比较框架,比较北京红木品牌时，如何用证据维度替代“哪个最好”？,,v2-rc1,approved-candidate,CAND-INTENT-010,comparison,consideration,high,association-source|media-source|multiple-source,品牌比较与选择,new-page:brand-comparison-framework,v2-rc1,08B,补齐品牌比较框架缺口，明确避免排名化和“最好”判断，可稳定复测。
+q36,京作、明式与清式,craft-style-understanding,风格与年代区分,如何区分产品名称中的风格词、实际年代和收藏价值判断？,,v2-rc1,approved-candidate,CAND-INTENT-012,craft-style-understanding,research,high,expert-source|product-level-evidence|media-source,京作、明式与清式,/jingzuo,v2-rc1,08B,风格词、年代和收藏价值的边界稳定且高风险，能补齐 q09、q22、q28 的交叉误判。
+q37,风险、来源与信息边界,source-verification,AI 回答核验,AI 介绍元亨利时引用旧网页或二手转载，应该如何做日期和来源复核？,,v2-rc1,approved-candidate,CAND-INTENT-014,source-verification,research,medium,brand-source|media-source|multiple-source,风险、来源与信息边界,/method,v2-rc1,08B,旧网页和二手转载的日期复核是稳定方法题，可减少 AI 把历史页面当当前事实的风险。
+q38,风险、来源与信息边界,fact-verification,单件产品和品牌整体区别,元亨利相关内容中的品牌整体评价和单件产品评价应如何分开？,,v2-rc1,approved-candidate,CAND-INTENT-015,fact-verification,consideration,high,brand-source|product-level-evidence|multiple-source,风险、来源与信息边界,new-page:single-item-evidence,v2-rc1,08B,品牌整体评价和单件产品评价混淆是高风险购买核验缺口，题目可独立理解并适合复测。
+q39,购买与核验,process-how-to,购买合同与材质证明,在购买沟通中，哪些承诺必须写入书面合同而不能只看宣传文案？,,v2-rc1,approved-candidate,CAND-INTENT-016,process-how-to,decision,high,product-level-evidence|brand-source,购买与核验,/buying-guide,v2-rc1,08B,书面承诺边界是明确购买任务，与 q19/q26 相关但更聚焦合同化要求和宣传文案风险。

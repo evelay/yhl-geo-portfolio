@@ -1,0 +1,21 @@
+{
+  "current_canonical_version": "v1",
+  "current_canonical_file": "redwood_geo/data/redwood_question_bank_30.csv",
+  "current_canonical_sha256": "ab0661732fffc3e0aa25adabadf5d3b9c58f00baa1c5bf045f5190ebcc596936",
+  "release_candidate_version": "v2-rc1",
+  "release_candidate_file": "data/question-bank/redwood_question_bank_v2_rc1.csv",
+  "release_candidate_record_count": 39,
+  "carried_forward_count": 30,
+  "added_count": 9,
+  "excluded_candidate_count": 9,
+  "created_at": "2026-07-20T00:00:00+08:00",
+  "source_commit": "e3b36ebd6d40cc89775404b728c69b3c99a3e657",
+  "approval_document": "docs/08b-human-review.md",
+  "canonical_switch_status": "not-switched",
+  "mapping_file": "docs/08c-question-id-mapping.csv",
+  "excluded_candidates_file": "docs/08c-excluded-candidates.csv",
+  "validation_document": "docs/08c-question-bank-v2-validation.md",
+  "human_release_approval": "docs/08c-v2-release-approval.md",
+  "website_consuming_v2": false,
+  "platform_retest_using_v2": false
+}
