@@ -1,0 +1,2 @@
+run_id,run_name,question_set_version,question_count,platform_set_version,platform_count,platforms,planned_rounds,expected_response_rows,expected_score_rows,run_status,collection_method,raw_answers_collected,scoring_completed,created_at,notes
+V2-CORE24-FIVE-R1,v2 core24 五平台第一轮人工采集,v2-core24-rc1,24,five-platform-v1,5,豆包|文心一言|通义千问|Kimi|腾讯元宝,1,120,120,template-ready-not-started,manual-copy,0,0,2026-07-20,Template prepared only; real platform testing has not started.

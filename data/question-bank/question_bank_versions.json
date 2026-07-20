@@ -24,6 +24,11 @@
   "core_test_candidate_version": "v2-core24-rc1",
   "core_test_candidate_file": "data/question-bank/redwood_question_bank_v2_core24_rc1.csv",
   "core_test_candidate_count": 24,
-  "core_test_review_status": "pending",
-  "platform_retest_status": "not-started"
+  "core_test_review_status": "approved",
+  "platform_retest_status": "not-started",
+  "core_test_approved_version": "v2-core24-rc1",
+  "main_platform_set_version": "five-platform-v1",
+  "main_platforms": "doubao|wenxin|qwen|kimi|yuanbao",
+  "test_template_version": "v2-core24-five-platform-r1",
+  "expected_response_count": 120
 }
