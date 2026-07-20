@@ -1,0 +1,63 @@
+{
+  "stage": "08B",
+  "generated_at": "2026-07-20",
+  "timezone": "Asia/Shanghai",
+  "branch": "refactor/portfolio-v2",
+  "upstream": "origin/refactor/portfolio-v2",
+  "ahead_behind": "0\t0",
+  "working_tree_clean_at_start": true,
+  "canonical_question_bank": "/Users/lay/Documents/New project/redwood_geo/data/redwood_question_bank_30.csv",
+  "canonical_sha256_before": "ab0661732fffc3e0aa25adabadf5d3b9c58f00baa1c5bf045f5190ebcc596936",
+  "canonical_sha256_after": "ab0661732fffc3e0aa25adabadf5d3b9c58f00baa1c5bf045f5190ebcc596936",
+  "canonical_hash_unchanged": true,
+  "inputs_read": [
+    "docs/08a-question-intent-audit.csv",
+    "docs/08a-follow-up-chains.csv",
+    "docs/08a-candidate-questions.csv",
+    "docs/08a-intent-coverage-matrix.csv",
+    "docs/08a-question-route-map.csv",
+    "docs/08a-intent-miner-method.md",
+    "tools/geo-skill/reports/intent-miner-pilot/report.md",
+    "docs/07a2-human-decision-record.md",
+    "docs/data-governance-decisions.md",
+    "docs/data-sync-policy.md",
+    "docs/publication-readiness.md",
+    "/Users/lay/Documents/New project/redwood_geo/data/redwood_question_bank_30.csv"
+  ],
+  "outputs_written": {
+    "candidate_question_decisions": "docs/08b-candidate-question-decisions.csv",
+    "follow_up_decisions": "docs/08b-follow-up-decisions.csv",
+    "page_candidate_decisions": "docs/08b-page-candidate-decisions.csv",
+    "question_bank_v2_proposal": "docs/08b-question-bank-v2-proposal.csv",
+    "human_review": "docs/08b-human-review.md",
+    "method": "docs/08b-candidate-adjudication-method.md",
+    "report_md": "tools/geo-skill/reports/intent-adjudication/report.md",
+    "report_json": "tools/geo-skill/reports/intent-adjudication/report.json",
+    "run_metadata": "tools/geo-skill/reports/intent-adjudication/run-metadata.json"
+  },
+  "candidate_decisions": {
+    "candidate_questions_reviewed": 18,
+    "follow_up_candidates_reviewed": 24,
+    "page_candidates_reviewed": 6,
+    "provisionally_approved_candidates": 9,
+    "v2_proposal_total": 39
+  },
+  "constraints": {
+    "canonical_written": false,
+    "formal_v2_canonical_created": false,
+    "app_written": false,
+    "public_written": false,
+    "internal_review_read": false,
+    "archive_read": false,
+    "api_used": false,
+    "model_api_used": false,
+    "crawler_used": false,
+    "network_used": false,
+    "new_pages_created": false,
+    "answers_generated": false,
+    "main_branch_checked_out": false,
+    "pull_request_created": false,
+    "push_performed": false
+  },
+  "notes": "08B records governance decisions only. All candidate additions use temporary V2-CAND IDs and require final human approval before 08C."
+}

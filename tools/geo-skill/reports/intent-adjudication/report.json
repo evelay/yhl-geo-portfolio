@@ -1,0 +1,201 @@
+{
+  "stage": "08B",
+  "report_type": "candidate-intent-adjudication",
+  "generated_at": "2026-07-20",
+  "branch": "refactor/portfolio-v2",
+  "canonical_question_bank": {
+    "path": "/Users/lay/Documents/New project/redwood_geo/data/redwood_question_bank_30.csv",
+    "sha256_expected": "ab0661732fffc3e0aa25adabadf5d3b9c58f00baa1c5bf045f5190ebcc596936",
+    "modified": false
+  },
+  "counts": {
+    "candidate_questions_reviewed": 18,
+    "follow_up_candidates_reviewed": 24,
+    "page_candidates_reviewed": 6,
+    "canonical_existing_in_v2_proposal": 30,
+    "candidate_additions_in_v2_proposal": 9,
+    "v2_proposal_total": 39
+  },
+  "candidate_question_distribution": {
+    "approve-for-v2": 9,
+    "merge-with-existing": 2,
+    "hold-evidence": 4,
+    "page-follow-up-only": 2,
+    "reject": 0,
+    "manual-review": 1
+  },
+  "follow_up_distribution": {
+    "formal-question-candidate": 3,
+    "page-follow-up": 10,
+    "merge-with-parent": 6,
+    "hold-evidence": 5,
+    "reject": 0
+  },
+  "page_candidate_distribution": {
+    "approve-for-planning": 5,
+    "evidence-first": 1,
+    "merge-with-existing-page": 0,
+    "defer": 0,
+    "reject": 0
+  },
+  "priority_distribution": {
+    "P0": 0,
+    "P1": 4,
+    "P2": 2,
+    "P3": 0
+  },
+  "build_phase_distribution": {
+    "next-content-pilot": 3,
+    "later-content-cluster": 2,
+    "research-first": 1,
+    "not-planned": 0
+  },
+  "provisionally_approved_candidates": [
+    {
+      "candidate_id": "CAND-INTENT-002",
+      "temporary_v2_id": "V2-CAND-001",
+      "question": "单件元亨利家具的主材、辅材和证书应如何对应到合同与发票？"
+    },
+    {
+      "candidate_id": "CAND-INTENT-003",
+      "temporary_v2_id": "V2-CAND-002",
+      "question": "购买后应保存哪些合同、证书、检测、交付和售后资料？"
+    },
+    {
+      "candidate_id": "CAND-INTENT-005",
+      "temporary_v2_id": "V2-CAND-003",
+      "question": "如何判断官网自述、媒体报道和行业协会信息分别能证明什么？"
+    },
+    {
+      "candidate_id": "CAND-INTENT-008",
+      "temporary_v2_id": "V2-CAND-004",
+      "question": "白酸枝、酸枝和红木标准名称不一致时应以哪些文件为准？"
+    },
+    {
+      "candidate_id": "CAND-INTENT-010",
+      "temporary_v2_id": "V2-CAND-005",
+      "question": "比较北京红木品牌时，如何用证据维度替代“哪个最好”？"
+    },
+    {
+      "candidate_id": "CAND-INTENT-012",
+      "temporary_v2_id": "V2-CAND-006",
+      "question": "如何区分产品名称中的风格词、实际年代和收藏价值判断？"
+    },
+    {
+      "candidate_id": "CAND-INTENT-014",
+      "temporary_v2_id": "V2-CAND-007",
+      "question": "AI 介绍元亨利时引用旧网页或二手转载，应该如何做日期和来源复核？"
+    },
+    {
+      "candidate_id": "CAND-INTENT-015",
+      "temporary_v2_id": "V2-CAND-008",
+      "question": "元亨利相关内容中的品牌整体评价和单件产品评价应如何分开？"
+    },
+    {
+      "candidate_id": "CAND-INTENT-016",
+      "temporary_v2_id": "V2-CAND-009",
+      "question": "在购买沟通中，哪些承诺必须写入书面合同而不能只看宣传文案？"
+    }
+  ],
+  "merge_with_existing": [
+    {
+      "candidate_id": "CAND-INTENT-006",
+      "merge_target": "q08|q21|q22"
+    },
+    {
+      "candidate_id": "CAND-INTENT-007",
+      "merge_target": "q03|q16"
+    }
+  ],
+  "hold_evidence": [
+    "CAND-INTENT-001",
+    "CAND-INTENT-004",
+    "CAND-INTENT-009",
+    "CAND-INTENT-011"
+  ],
+  "page_follow_up_only": [
+    "CAND-INTENT-017",
+    "CAND-INTENT-018"
+  ],
+  "manual_review": [
+    "CAND-INTENT-013"
+  ],
+  "reject": [],
+  "page_candidates": [
+    {
+      "page_candidate_id": "PAGE-CAND-001",
+      "page_title": "产品与单件证据核验",
+      "decision": "approve-for-planning",
+      "priority": "P1",
+      "build_phase": "next-content-pilot"
+    },
+    {
+      "page_candidate_id": "PAGE-CAND-002",
+      "page_title": "品牌主体与公开渠道核验",
+      "decision": "evidence-first",
+      "priority": "P1",
+      "build_phase": "research-first"
+    },
+    {
+      "page_candidate_id": "PAGE-CAND-003",
+      "page_title": "红木材料标准与常见误区",
+      "decision": "approve-for-planning",
+      "priority": "P1",
+      "build_phase": "next-content-pilot"
+    },
+    {
+      "page_candidate_id": "PAGE-CAND-004",
+      "page_title": "风格、年代与产品描述的区别",
+      "decision": "approve-for-planning",
+      "priority": "P2",
+      "build_phase": "later-content-cluster"
+    },
+    {
+      "page_candidate_id": "PAGE-CAND-005",
+      "page_title": "AI 回答事实核验方法",
+      "decision": "approve-for-planning",
+      "priority": "P1",
+      "build_phase": "next-content-pilot"
+    },
+    {
+      "page_candidate_id": "PAGE-CAND-006",
+      "page_title": "品牌比较框架",
+      "decision": "approve-for-planning",
+      "priority": "P2",
+      "build_phase": "later-content-cluster"
+    }
+  ],
+  "evidence_collection_priorities": [
+    "品牌与企业主体的直接关系证据",
+    "官方网站、公众号或公开渠道的归属证据",
+    "京作关系的直接公开证据",
+    "单件产品材质与产品资料的证据类型样例",
+    "动态价格、门店、售后信息的日期核验规则"
+  ],
+  "final_human_confirmation_required": [
+    "which provisionally approved candidates enter v2",
+    "which candidates merge with existing questions",
+    "which candidates remain hold-evidence",
+    "which candidates remain page-follow-up-only",
+    "how to handle CAND-INTENT-013 manual review",
+    "final v2 target count",
+    "which pages enter next planning",
+    "evidence collection priorities",
+    "whether 08C may create formal v2 files",
+    "whether canonical v1 remains unchanged"
+  ],
+  "constraints_observed": {
+    "canonical_modified": false,
+    "formal_question_ids_created": false,
+    "app_modified": false,
+    "public_modified": false,
+    "internal_review_read": false,
+    "archive_read": false,
+    "api_used": false,
+    "model_api_used": false,
+    "crawler_used": false,
+    "network_used": false,
+    "answers_generated": false,
+    "pages_created": false
+  }
+}
