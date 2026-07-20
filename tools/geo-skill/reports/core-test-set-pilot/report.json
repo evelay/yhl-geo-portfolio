@@ -1,0 +1,127 @@
+{
+  "stage": "08D1",
+  "version": "v2-core24-rc1",
+  "status": "pending-human-review",
+  "source_version": "v2-rc1",
+  "core_count": 24,
+  "non_core_count": 15,
+  "selected_question_ids": [
+    "q01",
+    "q02",
+    "q03",
+    "q04",
+    "q05",
+    "q06",
+    "q07",
+    "q08",
+    "q10",
+    "q12",
+    "q13",
+    "q16",
+    "q20",
+    "q22",
+    "q24",
+    "q25",
+    "q28",
+    "q31",
+    "q32",
+    "q34",
+    "q35",
+    "q36",
+    "q37",
+    "q39"
+  ],
+  "selected_added_question_ids": [
+    "q31",
+    "q32",
+    "q34",
+    "q35",
+    "q36",
+    "q37",
+    "q39"
+  ],
+  "non_selected_added_question_ids": [
+    "q33",
+    "q38"
+  ],
+  "distributions": {
+    "content_cluster": {
+      "品牌认知与事实": 3,
+      "材质与产品边界": 4,
+      "京作、明式与清式": 3,
+      "购买与核验": 5,
+      "品牌比较与选择": 4,
+      "风险、来源与信息边界": 5
+    },
+    "primary_intent": {
+      "brand-definition": 2,
+      "fact-verification": 1,
+      "material-understanding": 4,
+      "craft-style-understanding": 3,
+      "comparison": 3,
+      "purchase-evaluation": 1,
+      "risk-boundary": 2,
+      "source-verification": 3,
+      "recommendation": 1,
+      "process-how-to": 4
+    },
+    "user_stage": {
+      "awareness": 3,
+      "consideration": 8,
+      "decision": 5,
+      "post-decision": 1,
+      "research": 7
+    },
+    "risk_level": {
+      "high": 22,
+      "medium": 1,
+      "low": 1
+    }
+  },
+  "non_core_future_use": {
+    "evidence-backlog": 2,
+    "extended-test-set": 6,
+    "page-content": 3,
+    "periodic-dynamic-check": 2,
+    "retained-in-v2": 2
+  },
+  "evidence_tasks": [
+    {
+      "evidence_task_id": "EVID-001",
+      "priority": "P0",
+      "blocking_scope": "blocks-schema",
+      "current_status": "not-started"
+    },
+    {
+      "evidence_task_id": "EVID-002",
+      "priority": "P0",
+      "blocking_scope": "blocks-page",
+      "current_status": "not-started"
+    },
+    {
+      "evidence_task_id": "EVID-003",
+      "priority": "P1",
+      "blocking_scope": "blocks-answer",
+      "current_status": "not-started"
+    },
+    {
+      "evidence_task_id": "EVID-004",
+      "priority": "P1",
+      "blocking_scope": "blocks-retest-scoring",
+      "current_status": "not-started"
+    },
+    {
+      "evidence_task_id": "EVID-005",
+      "priority": "P1",
+      "blocking_scope": "blocks-retest-scoring",
+      "current_status": "not-started"
+    }
+  ],
+  "limits": {
+    "platform_tests_started": false,
+    "evidence_search_started": false,
+    "answers_generated": false,
+    "website_modified": false,
+    "canonical_switched": false
+  }
+}

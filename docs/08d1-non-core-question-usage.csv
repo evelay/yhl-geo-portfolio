@@ -1,0 +1,16 @@
+question_id,question,reason_not_selected,future_use,recommended_frequency,evidence_dependency,page_use,reopen_condition,notes
+q09,红木家具行业中，明式家具和清式家具对理解元亨利有什么意义？,与 q22、q36 在明清风格理解上重合，核心集保留更能检验边界的题。,page-content,content-cycle,EVID-003|EVID-004,/jingzuo,需要扩展风格教育内容或复测明清风格基础理解时重开。,未入选不代表删除，保留为风格内容补充题。
+q11,当用户只问“元亨利怎么样”时，AI 应该如何区分红木家具、珠宝、钟表或其他同名主体？,同名消歧价值高，但 q01、q12 已覆盖品牌定义和主体边界，核心集避免 awareness 过密。,extended-test-set,major-retest,EVID-001|EVID-002,/disambiguation,平台出现同名主体混淆时加入复测。,适合作为扩展测试集中专测消歧的题。
+q14,AI 介绍元亨利的成立时间、创始人或负责人时，应该如何处理不确定信息？,成立时间、创始人和负责人需要主体证据补采，核心集由 q12、q13 先覆盖主体和来源框架。,evidence-backlog,evidence-gate,EVID-001|EVID-002,new-page:brand-source-verification,主体、负责人或公开资料证据登记后重开。,补采前可用于边界观察，但不列入 core24。
+q15,元亨利有哪些行业荣誉、排名或收藏背书？AI 回答时应如何避免无来源断言？,荣誉、排名和背书属于证据优先项，当前核心集用 q10、q28 覆盖风险边界。,evidence-backlog,evidence-gate,EVID-001|EVID-002|EVID-003,/facts,取得原始颁发主体、年份、证书或公开报道后重开。,不得把未入选解读为荣誉问题被删除。
+q17,元亨利红木家具价格一般是多少？AI 回答时哪些信息不能直接编造？,价格高度依赖单件、渠道和日期，不适合固定核心基线反复提问。,periodic-dynamic-check,quarterly-or-before-publication,EVID-005,new-page:dynamic-info-review,动态信息日期核验规则批准后重开。,未来用于动态信息专项检查。
+q18,想了解元亨利门店、展厅或购买渠道信息，AI 应该如何给出核验建议？,门店、展厅和购买渠道需要日期化核验，当前不作为固定核心题。,periodic-dynamic-check,quarterly-or-channel-change,EVID-002|EVID-005,new-page:dynamic-info-review,官方渠道归属和日期复核规则完成后重开。,保留为动态渠道专项题。
+q19,购买高端红木家具时，合同、发票、售后条款和材质说明要关注什么？,合同、发票和售后已由 q31、q32、q39 更细地拆分覆盖。,extended-test-set,major-retest,EVID-004,/buying-guide,需要测试综合合同售后题时重开。,作为购买后综合题保留。
+q21,京作红木家具与元亨利之间有什么可核验关系和表达边界？,与 q08 的京作关系边界高度接近，核心集保留更短、更适合统一提问的 q08。,extended-test-set,major-retest,EVID-003,/jingzuo,京作直接公开证据补采后重开。,适合京作关系专项复测。
+q23,榫卯工艺、手工雕刻等传统工艺能否直接作为元亨利品牌事实来写？,榫卯和手工雕刻是工艺子主题，核心集优先选择 q22、q36 的更大边界。,page-content,content-cycle,EVID-003|EVID-004,/jingzuo,建设工艺术语页面或发现平台将通用工艺写成品牌事实时重开。,保留为页面模块和误判样例。
+q26,第一次购买高端红木家具要避哪些坑？元亨利相关信息应如何核验？,避坑题用户价值高，但与 q06、q16、q31、q39 的购买核验框架重合。,extended-test-set,major-retest,EVID-004|EVID-005,/buying-guide,需要更贴近首次购买者语境的复测时重开。,保留为购买决策扩展题。
+q27,中式空间搭配时，用户应该如何理解红木家具风格、材质和品牌选择？,空间搭配更偏内容教育和审美建议，核心集已由 q25 覆盖 recommendation 意图。,page-content,content-cycle,EVID-004,/jingzuo,规划中式空间搭配内容或需要测试审美建议边界时重开。,不用于品牌背书式推荐。
+q29,如果为元亨利做 AI 搜索优化，最需要补哪些内容页？,这是内部 GEO 内容策略题，不是三平台外部用户基线的优先题。,retained-in-v2,planning-review,none,/strategy,进入内容策略复盘或方法页治理时重开。,保留在 v2，不作为 core24。
+q30,元亨利红木家具的 GEO 内容策略应该优先解决哪些问题？,GEO 路线图题更适合项目方法展示，不适合作为品牌事实基线题。,retained-in-v2,planning-review,none,/strategy,进入内容策略复盘或治理流程说明时重开。,保留在 v2，不作为 core24。
+q33,如何判断官网自述、媒体报道和行业协会信息分别能证明什么？,来源证明范围很重要，但核心集已由 q13、q20、q37 覆盖来源层级、可信度和转载日期。,extended-test-set,major-retest,EVID-001|EVID-002,/method,需要细测官网、媒体、协会证明范围时重开。,q31-q39 新增题中未入选；不代表删除。
+q38,评价元亨利时，品牌整体信息与单件产品的材质、工艺和来源应如何区分？,品牌整体与单件产品区分已被 q12、q16、q31 覆盖，核心集避免重复。,extended-test-set,major-retest,EVID-001|EVID-004,new-page:single-item-evidence,发现平台从单件经验反推品牌全量事实时重开。,q31-q39 新增题中未入选；适合扩展测试集。

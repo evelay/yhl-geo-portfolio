@@ -1,0 +1,44 @@
+{
+  "stage": "08D1",
+  "run_id": "core-test-set-pilot",
+  "generated_at": "2026-07-20T00:00:00+08:00",
+  "mode": "offline-planning-only",
+  "script": "tools/geo-skill/adapters/intent-miner/build_core_test_set_rc1.py",
+  "source_files": [
+    "data/question-bank/redwood_question_bank_v2_rc1.csv",
+    "data/question-bank/question_bank_versions.json",
+    "docs/08b-question-bank-v2-proposal.csv",
+    "docs/08a-question-route-map.csv",
+    "docs/08b-candidate-question-decisions.csv",
+    "docs/08c-v2-release-approval.md",
+    "docs/08c2-v2-rc1-approval-record.md",
+    "docs/07a2-human-decision-record.md",
+    "docs/data-governance-decisions.md",
+    "docs/data-sync-policy.md"
+  ],
+  "source_hashes": {
+    "v2_rc1_sha256": "de9726f7b1fe8bf0b9e77358e2a8e6b6ab422c754a03a4e171d249104581b538",
+    "canonical_v1_sha256": "ab0661732fffc3e0aa25adabadf5d3b9c58f00baa1c5bf045f5190ebcc596936"
+  },
+  "outputs": [
+    "data/question-bank/redwood_question_bank_v2_core24_rc1.csv",
+    "docs/08d1-non-core-question-usage.csv",
+    "docs/08d1-core-test-selection.csv",
+    "docs/08d1-test-objective-matrix.csv",
+    "docs/08d1-evidence-acquisition-backlog.csv",
+    "docs/08d1-evidence-acquisition-plan.md",
+    "docs/08d1-core-test-protocol.md",
+    "docs/08d1-human-review.md",
+    "docs/08d1-core-test-set-method.md",
+    "tools/geo-skill/reports/core-test-set-pilot/report.md",
+    "tools/geo-skill/reports/core-test-set-pilot/report.json",
+    "tools/geo-skill/reports/core-test-set-pilot/run-metadata.json"
+  ],
+  "prohibited_actions": {
+    "platform_tests": "not-started",
+    "evidence_acquisition": "not-started",
+    "api_calls": "not-used",
+    "crawler": "not-used",
+    "website_runtime_changes": "none"
+  }
+}

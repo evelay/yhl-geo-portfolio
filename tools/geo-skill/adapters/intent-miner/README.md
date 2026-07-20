@@ -16,6 +16,7 @@
 
 ```bash
 python3 tools/geo-skill/adapters/intent-miner/audit_question_intents.py
+python3 tools/geo-skill/adapters/intent-miner/build_core_test_set_rc1.py
 ```
 
 ## Outputs
@@ -32,8 +33,27 @@ python3 tools/geo-skill/adapters/intent-miner/audit_question_intents.py
 
 All candidate questions remain `candidate`; none are written into canonical.
 
+## 08D1 Core Test Set Outputs
+
+- `data/question-bank/redwood_question_bank_v2_core24_rc1.csv`
+- `docs/08d1-non-core-question-usage.csv`
+- `docs/08d1-core-test-selection.csv`
+- `docs/08d1-test-objective-matrix.csv`
+- `docs/08d1-evidence-acquisition-backlog.csv`
+- `docs/08d1-evidence-acquisition-plan.md`
+- `docs/08d1-core-test-protocol.md`
+- `docs/08d1-human-review.md`
+- `docs/08d1-core-test-set-method.md`
+- `tools/geo-skill/reports/core-test-set-pilot/report.md`
+- `tools/geo-skill/reports/core-test-set-pilot/report.json`
+- `tools/geo-skill/reports/core-test-set-pilot/run-metadata.json`
+
+08D1 remains planning-only: no platform tests, no evidence search, no answers,
+and no website runtime changes.
+
 ## Test
 
 ```bash
+python3 tools/geo-skill/adapters/intent-miner/validate_core_test_set_rc1.py
 python3 -m unittest discover tools/geo-skill/adapters/intent-miner/tests
 ```

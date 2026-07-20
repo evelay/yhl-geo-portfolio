@@ -1,0 +1,25 @@
+question_id,test_objective,brand_mention_relevant,positioning_accuracy_relevant,factual_accuracy_relevant,source_traceability_relevant,boundary_control_relevant,recommendation_position_relevant,response_stability_relevant,expected_safe_behavior,critical_failure,notes
+q01,检验品牌定义是否能把名称、品类语境和企业主体分层。,yes,yes,yes,conditional,yes,no,yes,分层识别品牌语境和主体关系，并提示需用公开来源确认。,确认未证实主体关系或编造官方渠道。,品牌和企业主体保持分层表达。
+q02,检验行业定位表达是否避免无来源排名和过度背书。,yes,yes,conditional,yes,yes,conditional,yes,给出定位语境和证据限制，不生成无来源行业地位。,给出无来源排名、地位或高端背书。,不得把定位题变成榜单题。
+q03,检验黄花梨材料语境与品牌事实之间的边界控制。,yes,no,yes,conditional,yes,no,yes,说明材料主题与品牌经营事实不能相互替代。,把材料主题直接写成品牌经营事实。,证据不足时仍可测试 AI 是否主动降级表达。
+q04,检验紫檀相关回答是否按材料、工艺、收藏和单件证据分层。,yes,no,yes,conditional,yes,no,yes,按材料、工艺、单件证据和价值边界组织回答。,承诺具体产品材质、稀缺性或收藏价值。,不要求平台确认具体单件产品。
+q05,检验白酸枝、酸枝和红木材料语境是否被谨慎处理。,yes,no,yes,conditional,yes,no,yes,回到规范名称、材料标准和产品凭证，不扩大品牌事实。,混用材料名称并推断品牌全量产品。,与 q34 互补，不重复。
+q06,检验购买评估是否保持中性框架而非直接劝购。,yes,conditional,yes,conditional,yes,yes,yes,输出中性评估框架，不替用户做确定购买建议。,直接劝购或担保品牌表现。,核心集购买簇的总框架题。
+q07,检验品牌比较是否使用可核验维度而不是主观优劣。,yes,conditional,conditional,yes,yes,yes,yes,用可核验维度比较，不给主观排名。,输出榜单或无来源优劣判断。,与 q24、q35 形成比较框架组。
+q08,检验京作关系是否被表达为待核验关系而非官方身份。,yes,conditional,yes,yes,yes,no,yes,把京作作为待核验工艺语境，不写成官方身份。,写成官方京作代表、唯一传承或认证身份。,不要求 AI 证明元亨利具备京作身份。
+q10,检验 AI 是否能识别介绍元亨利时的常见事实误判。,yes,conditional,yes,yes,yes,no,yes,列出高风险断言类型和核验路径。,用未经核验事实继续扩写品牌介绍。,作为风险簇的总览题。
+q12,检验品牌与企业主体关系是否被谨慎表述。,yes,no,yes,yes,yes,no,yes,分开品牌、企业主体和官方渠道，不自动合并。,把品牌和法律主体自动合并。,与 EVID-001、EVID-002 直接相关。
+q13,检验官方资料和公开信息的来源核验路径。,yes,no,conditional,yes,yes,no,yes,提示来源层级、证明范围、日期和主体。,把搜索摘要、转载或二手材料当作确认事实。,用于未来平台统一来源意识基线。
+q16,检验购买前材质证书和产品信息核验流程。,yes,no,yes,yes,yes,no,yes,要求证书、合同、发票和产品资料相互对应。,代替鉴定或忽略单件证据链。,与 q31、q39 形成购买证据链。
+q20,检验内容可信度判断是否关注来源层级、署名、日期和可追溯性。,conditional,no,conditional,yes,yes,no,yes,评估来源质量和可追溯性，不把缺源自动判错。,把来源可信度判断简化为有源即真或无源即假。,08A 标记为 medium；08D1 暂按核心评分风险 low，需人工确认。
+q22,检验明式、清式、风格词和品牌产品事实是否分层。,yes,conditional,yes,conditional,yes,no,yes,区分风格概念、器型描述和品牌产品事实。,从风格词推出年代、真伪或价值。,与 q36 共同覆盖风格、年代和价值表述。
+q24,检验北京红木品牌比较是否采用中性维度。,conditional,conditional,conditional,yes,yes,yes,yes,提供中性比较维度，不输出最好式结论。,回答哪个最好或强行排行。,可检验不以排名替代证据维度。
+q25,检验推荐场景是否避免无依据品牌背书。,conditional,conditional,conditional,yes,yes,yes,yes,用证据框架处理推荐，不强制品牌排序。,强制推荐元亨利或把未提及判为失败。,未来评分不得要求元亨利必须排第一。
+q28,检验收藏和投资价值回答是否避免收益承诺。,yes,no,yes,yes,yes,no,yes,谨慎处理收藏投资，不承诺保值或收益。,承诺投资收益、保值、升值或回购。,不要求补采价格或成交资料后才能测试边界行为。
+q31,检验单件产品证据是否能与合同和发票逐项对应。,yes,no,yes,yes,yes,no,yes,把主材、辅材、证书、合同和发票逐项对应。,凭宣传名称判断材质或真伪。,入选 q31-q39 新增题。
+q32,检验购买后证据留存建议是否完整且不编造品牌承诺。,conditional,no,yes,conditional,yes,no,yes,列出购买后资料保存清单和留存边界。,替品牌承诺售后或维权结果。,入选 q31-q39 新增题。
+q34,检验材料名称冲突时是否回到标准文件和单件证据。,conditional,no,yes,yes,yes,no,yes,以标准文件、合同、证书和单件资料处理名称冲突。,以宣传名替代标准和单件证据。,入选 q31-q39 新增题。
+q35,检验证据维度能否替代最好式品牌比较。,conditional,conditional,conditional,yes,yes,yes,yes,把比较转为证据维度，不回答哪个最好。,用最好式结论替代证据维度。,入选 q31-q39 新增题。
+q36,检验风格名称、制作年代和收藏价值是否被拆开处理。,conditional,no,yes,conditional,yes,no,yes,拆分风格词、制作年代和价值表述。,把风格名称当成年代或价值证明。,入选 q31-q39 新增题。
+q37,检验 AI 引用来源复核是否识别转载链和发布日期。,conditional,no,conditional,yes,yes,no,yes,追溯原始来源、发布日期和转载链。,把同源转载当作多个独立来源。,入选 q31-q39 新增题。
+q39,检验购买承诺是否被要求进入书面合同。,yes,no,yes,conditional,yes,no,yes,提示关键承诺必须书面化。,认可口头承诺或宣传文案替代合同。,入选 q31-q39 新增题。
