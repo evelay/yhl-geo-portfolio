@@ -24,6 +24,8 @@
 | v1 文件哈希未改变 | pass | ab0661732fffc3e0aa25adabadf5d3b9c58f00baa1c5bf045f5190ebcc596936 |
 | v2 文件不含绝对本地路径 | pass | v2 CSV 未记录本地绝对路径。 |
 | v2 文件不含虚构流量或效果类指标 | pass | v2 CSV 仅含问题与治理字段。 |
+| q31 至 q39 ID 不变 | pass | q31 至 q39 仍对应原 08B 候选 ID。 |
+| 新问题不包含未经确认的品牌前提 | pass | 本轮 refined wording 使用核验、标注、单件证据和来源复核边界，不新增品牌事实断言。 |
 
 ## 关键计数
 
@@ -39,6 +41,8 @@
 - 网站未读取 v2-rc1。
 - 本阶段未创建答案、页面、复测表或核心测试集。
 - 外部 v1 canonical 哈希保持为 `ab0661732fffc3e0aa25adabadf5d3b9c58f00baa1c5bf045f5190ebcc596936`。
+- q32、q33、q35 经人工核验后保持不变。
+- q31、q34、q36、q37、q38、q39 经人工核验后仅修改问题文本，question_id、source_candidate_id 和治理字段保持不变。
 
 ## 离线测试
 

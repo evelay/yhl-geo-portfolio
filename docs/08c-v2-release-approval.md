@@ -8,9 +8,17 @@
 - platform retest using v2: no
 - human review status: pending-final-validation
 
+## 本轮人工核验记录
+
+- q32, q33, q35: reviewed, unchanged
+- q31, q34, q36, q37, q38, q39: reviewed, wording refined
+- question_id changed: no
+- source_candidate_id changed: no
+- human review status remains: pending-final-validation
+
 ## 需要用户后续确认
 
-1. 39 条问题最终文本
+1. 39 条问题最终验证
 2. q31 至 q39 ID
 3. 新增问题分类
 4. 风险标签
