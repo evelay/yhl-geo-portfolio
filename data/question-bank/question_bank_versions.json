@@ -16,6 +16,9 @@
   "excluded_candidates_file": "docs/08c-excluded-candidates.csv",
   "validation_document": "docs/08c-question-bank-v2-validation.md",
   "human_release_approval": "docs/08c-v2-release-approval.md",
+  "release_candidate_review_status": "approved",
+  "release_candidate_approved_at": "2026-07-20T13:40:16+08:00",
+  "release_candidate_approval_document": "docs/08c2-v2-rc1-approval-record.md",
   "website_consuming_v2": false,
   "platform_retest_using_v2": false
 }
