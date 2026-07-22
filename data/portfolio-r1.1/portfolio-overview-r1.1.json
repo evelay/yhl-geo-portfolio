@@ -1,0 +1,50 @@
+{
+  "sample": {
+    "question_count": 24,
+    "platform_count": 5,
+    "response_count": 120,
+    "per_platform_response_count": 24,
+    "platforms": [
+      "豆包",
+      "文心一言",
+      "通义千问",
+      "Kimi",
+      "腾讯元宝"
+    ]
+  },
+  "publication_boundaries": [
+    "不发布增长类结论",
+    "不发布单一 GEO 成绩",
+    "不发布平台综合排序",
+    "不发布平台能力普遍性排序",
+    "不发布未经核实的品牌事实背书"
+  ],
+  "publication_status": "public_summary",
+  "data_scope": "aggregated case-study metrics only",
+  "headline_metrics": [
+    {
+      "label": "统一采集样本",
+      "value": "120 条",
+      "denominator": "24 questions x 5 platforms",
+      "safe_claim": "本轮完成 120 条五平台统一采集并冻结。"
+    },
+    {
+      "label": "高/严重风险",
+      "value": "73/120",
+      "rate": "60.8%",
+      "safe_claim": "按项目自定义量表统计 high 或 critical 风险。"
+    },
+    {
+      "label": "可见 URL",
+      "value": "96/120",
+      "rate": "80.0%",
+      "safe_claim": "仅代表平台界面显示 URL，不代表来源质量。"
+    },
+    {
+      "label": "品牌提及",
+      "value": "85/120",
+      "rate": "70.8%",
+      "safe_claim": "提及率只表示回答指向元亨利，不代表事实准确。"
+    }
+  ]
+}

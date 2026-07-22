@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-07-22T00:00:00+08:00",
+  "publication_scope": "public downloads only",
+  "files": [
+    {
+      "file_id": "KB-JSON-PUBLIC-001",
+      "filename": "yhl-geo-knowledge-base-public.json",
+      "title": "安全过滤版公开知识库快照",
+      "category": "knowledge-base",
+      "source_label": "公开资料版品牌事实库",
+      "source_scope": "public-reviewed aggregate",
+      "derived_or_source": "derived",
+      "publication_status": "public",
+      "review_status": "approved",
+      "last_verified": "2026-07-22T00:00:00+08:00",
+      "disclaimer": "独立 GEO 研究与求职作品集，未受元亨利委托，不代表品牌官方立场，不承诺 AI 收录、引用、曝光、推荐或销售提升。",
+      "public_url": "/downloads/yhl-geo-knowledge-base-public.json"
+    }
+  ]
+}

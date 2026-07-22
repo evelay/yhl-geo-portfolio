@@ -1,0 +1,303 @@
+{
+  "status": "draft",
+  "denominator": "Each question has 5 platform responses.",
+  "top_risk_questions": [
+    {
+      "question_id": "q10",
+      "core_order": 9,
+      "question_text": "AI 介绍元亨利时最容易遗漏或误判哪些信息？",
+      "content_cluster": "风险、来源与信息边界",
+      "high_critical_count": 5,
+      "critical_count": 4,
+      "visible_url_response_count": 5,
+      "main_failure_patterns": "对象识别错误(4)；来源证据链不足(2)；品牌与企业主体混淆(1)",
+      "safe_use": "Use to explain content-governance priorities, not platform ranking."
+    },
+    {
+      "question_id": "q08",
+      "core_order": 8,
+      "question_text": "元亨利与京作红木家具有什么关系？",
+      "content_cluster": "京作、明式与清式",
+      "high_critical_count": 5,
+      "critical_count": 0,
+      "visible_url_response_count": 5,
+      "main_failure_patterns": "京作身份过度断言(5)；强背书或动态榜单(5)；来源证据链不足(5)",
+      "safe_use": "Use to explain content-governance priorities, not platform ranking."
+    },
+    {
+      "question_id": "q04",
+      "core_order": 4,
+      "question_text": "元亨利的紫檀家具应该从哪些维度理解？",
+      "content_cluster": "材质与产品边界",
+      "high_critical_count": 5,
+      "critical_count": 0,
+      "visible_url_response_count": 4,
+      "main_failure_patterns": "材质关系扩大(5)；强背书或动态榜单(5)；收藏投资判断(5)",
+      "safe_use": "Use to explain content-governance priorities, not platform ranking."
+    },
+    {
+      "question_id": "q02",
+      "core_order": 2,
+      "question_text": "元亨利红木家具在红木家具行业中如何定位？",
+      "content_cluster": "品牌认知与事实",
+      "high_critical_count": 5,
+      "critical_count": 0,
+      "visible_url_response_count": 5,
+      "main_failure_patterns": "京作身份过度断言(5)；材质关系扩大(5)；强背书或动态榜单(5)",
+      "safe_use": "Use to explain content-governance priorities, not platform ranking."
+    },
+    {
+      "question_id": "q05",
+      "core_order": 5,
+      "question_text": "白酸枝家具和元亨利品牌之间可能有哪些关联？",
+      "content_cluster": "材质与产品边界",
+      "high_critical_count": 5,
+      "critical_count": 0,
+      "visible_url_response_count": 5,
+      "main_failure_patterns": "材质关系扩大(5)；强背书或动态榜单(4)；收藏投资判断(4)",
+      "safe_use": "Use to explain content-governance priorities, not platform ranking."
+    }
+  ],
+  "all_questions": [
+    {
+      "question_id": "q01",
+      "core_order": 1,
+      "content_cluster": "品牌认知与事实",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 4,
+      "critical_count": 0,
+      "visible_url_response_count": 5
+    },
+    {
+      "question_id": "q02",
+      "core_order": 2,
+      "content_cluster": "品牌认知与事实",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 5,
+      "critical_count": 0,
+      "visible_url_response_count": 5
+    },
+    {
+      "question_id": "q03",
+      "core_order": 3,
+      "content_cluster": "材质与产品边界",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 2,
+      "critical_count": 0,
+      "visible_url_response_count": 4
+    },
+    {
+      "question_id": "q04",
+      "core_order": 4,
+      "content_cluster": "材质与产品边界",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 5,
+      "critical_count": 0,
+      "visible_url_response_count": 4
+    },
+    {
+      "question_id": "q05",
+      "core_order": 5,
+      "content_cluster": "材质与产品边界",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 5,
+      "critical_count": 0,
+      "visible_url_response_count": 5
+    },
+    {
+      "question_id": "q06",
+      "core_order": 6,
+      "content_cluster": "购买与核验",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 5,
+      "critical_count": 0,
+      "visible_url_response_count": 4
+    },
+    {
+      "question_id": "q07",
+      "core_order": 7,
+      "content_cluster": "品牌比较与选择",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 4,
+      "critical_count": 0,
+      "visible_url_response_count": 5
+    },
+    {
+      "question_id": "q08",
+      "core_order": 8,
+      "content_cluster": "京作、明式与清式",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 5,
+      "critical_count": 0,
+      "visible_url_response_count": 5
+    },
+    {
+      "question_id": "q10",
+      "core_order": 9,
+      "content_cluster": "风险、来源与信息边界",
+      "response_count": 5,
+      "brand_reference_rate": 0.2,
+      "high_critical_count": 5,
+      "critical_count": 4,
+      "visible_url_response_count": 5
+    },
+    {
+      "question_id": "q12",
+      "core_order": 10,
+      "content_cluster": "品牌认知与事实",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 3,
+      "critical_count": 0,
+      "visible_url_response_count": 4
+    },
+    {
+      "question_id": "q13",
+      "core_order": 11,
+      "content_cluster": "风险、来源与信息边界",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 1,
+      "critical_count": 0,
+      "visible_url_response_count": 4
+    },
+    {
+      "question_id": "q16",
+      "core_order": 12,
+      "content_cluster": "购买与核验",
+      "response_count": 5,
+      "brand_reference_rate": 0.8,
+      "high_critical_count": 5,
+      "critical_count": 0,
+      "visible_url_response_count": 5
+    },
+    {
+      "question_id": "q20",
+      "core_order": 13,
+      "content_cluster": "风险、来源与信息边界",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 2,
+      "critical_count": 0,
+      "visible_url_response_count": 3
+    },
+    {
+      "question_id": "q22",
+      "core_order": 14,
+      "content_cluster": "京作、明式与清式",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 2,
+      "critical_count": 0,
+      "visible_url_response_count": 4
+    },
+    {
+      "question_id": "q24",
+      "core_order": 15,
+      "content_cluster": "品牌比较与选择",
+      "response_count": 5,
+      "brand_reference_rate": 0,
+      "high_critical_count": 0,
+      "critical_count": 0,
+      "visible_url_response_count": 3
+    },
+    {
+      "question_id": "q25",
+      "core_order": 16,
+      "content_cluster": "品牌比较与选择",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 5,
+      "critical_count": 0,
+      "visible_url_response_count": 5
+    },
+    {
+      "question_id": "q28",
+      "core_order": 17,
+      "content_cluster": "风险、来源与信息边界",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 3,
+      "critical_count": 0,
+      "visible_url_response_count": 5
+    },
+    {
+      "question_id": "q31",
+      "core_order": 18,
+      "content_cluster": "购买与核验",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 5,
+      "critical_count": 0,
+      "visible_url_response_count": 4
+    },
+    {
+      "question_id": "q32",
+      "core_order": 19,
+      "content_cluster": "购买与核验",
+      "response_count": 5,
+      "brand_reference_rate": 0,
+      "high_critical_count": 2,
+      "critical_count": 0,
+      "visible_url_response_count": 2
+    },
+    {
+      "question_id": "q34",
+      "core_order": 20,
+      "content_cluster": "材质与产品边界",
+      "response_count": 5,
+      "brand_reference_rate": 0,
+      "high_critical_count": 0,
+      "critical_count": 0,
+      "visible_url_response_count": 5
+    },
+    {
+      "question_id": "q35",
+      "core_order": 21,
+      "content_cluster": "品牌比较与选择",
+      "response_count": 5,
+      "brand_reference_rate": 0,
+      "high_critical_count": 0,
+      "critical_count": 0,
+      "visible_url_response_count": 3
+    },
+    {
+      "question_id": "q36",
+      "core_order": 22,
+      "content_cluster": "京作、明式与清式",
+      "response_count": 5,
+      "brand_reference_rate": 0,
+      "high_critical_count": 0,
+      "critical_count": 0,
+      "visible_url_response_count": 1
+    },
+    {
+      "question_id": "q37",
+      "core_order": 23,
+      "content_cluster": "风险、来源与信息边界",
+      "response_count": 5,
+      "brand_reference_rate": 0,
+      "high_critical_count": 0,
+      "critical_count": 0,
+      "visible_url_response_count": 3
+    },
+    {
+      "question_id": "q39",
+      "core_order": 24,
+      "content_cluster": "购买与核验",
+      "response_count": 5,
+      "brand_reference_rate": 1,
+      "high_critical_count": 5,
+      "critical_count": 0,
+      "visible_url_response_count": 3
+    }
+  ]
+}

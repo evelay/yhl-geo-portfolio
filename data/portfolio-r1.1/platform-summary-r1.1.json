@@ -1,0 +1,107 @@
+{
+  "status": "public_summary",
+  "display_order_note": "Project fixed display order; not a ranking.",
+  "denominator": "Each platform has 24 responses.",
+  "platforms": [
+    {
+      "platform_name": "豆包",
+      "response_count": 24,
+      "brand_reference_count": 17,
+      "brand_reference_rate": 0.7083,
+      "high_critical_count": 16,
+      "high_critical_rate": 0.6667,
+      "critical_count": 1,
+      "visible_url_response_count": 16,
+      "visible_url_response_rate": 0.6667,
+      "typical_risks": "high/critical 风险集中；事实准确性承压",
+      "safe_use": "Show per-metric diagnostic differences only; do not rank platforms.",
+      "public_metric_averages": {
+        "factReliability": 1,
+        "answerCompleteness": 1.8333,
+        "sourceSupport": 1.4167,
+        "boundaryControl": 1.125,
+        "recommendationUsefulness": 1
+      }
+    },
+    {
+      "platform_name": "文心一言",
+      "response_count": 24,
+      "brand_reference_count": 16,
+      "brand_reference_rate": 0.6667,
+      "high_critical_count": 15,
+      "high_critical_rate": 0.625,
+      "critical_count": 1,
+      "visible_url_response_count": 24,
+      "visible_url_response_rate": 1,
+      "typical_risks": "high/critical 风险集中；边界控制偏弱",
+      "safe_use": "Show per-metric diagnostic differences only; do not rank platforms.",
+      "public_metric_averages": {
+        "factReliability": 1.2083,
+        "answerCompleteness": 1.5417,
+        "sourceSupport": 1.5,
+        "boundaryControl": 0.875,
+        "recommendationUsefulness": 1.4
+      }
+    },
+    {
+      "platform_name": "通义千问",
+      "response_count": 24,
+      "brand_reference_count": 17,
+      "brand_reference_rate": 0.7083,
+      "high_critical_count": 16,
+      "high_critical_rate": 0.6667,
+      "critical_count": 1,
+      "visible_url_response_count": 20,
+      "visible_url_response_rate": 0.8333,
+      "typical_risks": "high/critical 风险集中；边界控制偏弱；事实准确性承压",
+      "safe_use": "Show per-metric diagnostic differences only; do not rank platforms.",
+      "public_metric_averages": {
+        "factReliability": 1.0833,
+        "answerCompleteness": 1.6667,
+        "sourceSupport": 1.25,
+        "boundaryControl": 0.8333,
+        "recommendationUsefulness": 1
+      }
+    },
+    {
+      "platform_name": "Kimi",
+      "response_count": 24,
+      "brand_reference_count": 18,
+      "brand_reference_rate": 0.75,
+      "high_critical_count": 13,
+      "high_critical_rate": 0.5417,
+      "critical_count": 0,
+      "visible_url_response_count": 13,
+      "visible_url_response_rate": 0.5417,
+      "typical_risks": "主要风险来自强背书和来源支撑不足",
+      "safe_use": "Show per-metric diagnostic differences only; do not rank platforms.",
+      "public_metric_averages": {
+        "factReliability": 1.2917,
+        "answerCompleteness": 1.875,
+        "sourceSupport": 0.875,
+        "boundaryControl": 1.25,
+        "recommendationUsefulness": 1.2
+      }
+    },
+    {
+      "platform_name": "腾讯元宝",
+      "response_count": 24,
+      "brand_reference_count": 17,
+      "brand_reference_rate": 0.7083,
+      "high_critical_count": 13,
+      "high_critical_rate": 0.5417,
+      "critical_count": 1,
+      "visible_url_response_count": 23,
+      "visible_url_response_rate": 0.9583,
+      "typical_risks": "主要风险来自强背书和来源支撑不足",
+      "safe_use": "Show per-metric diagnostic differences only; do not rank platforms.",
+      "public_metric_averages": {
+        "factReliability": 1.1667,
+        "answerCompleteness": 1.7083,
+        "sourceSupport": 1.4583,
+        "boundaryControl": 1.1667,
+        "recommendationUsefulness": 1
+      }
+    }
+  ]
+}

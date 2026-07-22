@@ -1,0 +1,102 @@
+{
+  "status": "public_summary",
+  "privacy_note": "No full answer text or full manual-review notes are included.",
+  "cases": [
+    {
+      "public_case_id": "CASE-01",
+      "platform_name": "豆包",
+      "question_theme": "风险、来源与信息边界",
+      "sanitized_short_summary": "回答转向《周易》“元亨利贞”，没有完成红木品牌风险识别任务。",
+      "risk_type": "高风险/典型错误",
+      "content_governance_insight": "歧义问题必须先锁定业务对象；对同音/典故召回应先澄清而非直接改题。"
+    },
+    {
+      "public_case_id": "CASE-02",
+      "platform_name": "通义千问",
+      "question_theme": "品牌认知与事实",
+      "sanitized_short_summary": "把公司主体与“元亨利红木家具”直接表述为旗下品牌或简称。",
+      "risk_type": "高风险/典型错误",
+      "content_governance_insight": "需要区分企业名称、品牌名、商标、字号、产品系列和俗称。"
+    },
+    {
+      "public_case_id": "CASE-03",
+      "platform_name": "通义千问",
+      "question_theme": "京作、明式与清式",
+      "sanitized_short_summary": "将元亨利断言为京作正宗传承者，并扩展到非遗、指定合作等身份。",
+      "risk_type": "高风险/典型错误",
+      "content_governance_insight": "京作关系应采用“风格/地域/产品语境/待核验证据”分层表达。"
+    },
+    {
+      "public_case_id": "CASE-04",
+      "platform_name": "豆包",
+      "question_theme": "材质与产品边界",
+      "sanitized_short_summary": "把白酸枝描述为品牌核心战略、开创性产品线并加入销量、获奖、维保等结论。",
+      "risk_type": "高风险/典型错误",
+      "content_governance_insight": "材质主题不能自动推出当前经营事实；历史报道、单件产品与全量事实要分开。"
+    },
+    {
+      "public_case_id": "CASE-05",
+      "platform_name": "豆包",
+      "question_theme": "品牌比较与选择",
+      "sanitized_short_summary": "在高端品牌清单中把元亨利放在京作高端首位，并使用头部、收藏级、馆藏、回购等强背书。",
+      "risk_type": "高风险/典型错误",
+      "content_governance_insight": "比较/推荐回答应给出名单口径、来源日期和中性维度，不应生成无统一标准的排序。"
+    },
+    {
+      "public_case_id": "CASE-06",
+      "platform_name": "通义千问",
+      "question_theme": "风险、来源与信息边界",
+      "sanitized_short_summary": "将品牌、材质和市场表现推导为收藏与投资属性，并提到流通性、升值潜力。",
+      "risk_type": "高风险/典型错误",
+      "content_governance_insight": "收藏价值必须回到单件鉴定、成交证据和风险提示，避免形成投资建议。"
+    },
+    {
+      "public_case_id": "CASE-07",
+      "platform_name": "通义千问",
+      "question_theme": "风险、来源与信息边界",
+      "sanitized_short_summary": "直接认定多个网址为官网，同时附带成立年份、荣誉和收藏等结论。",
+      "risk_type": "高风险/典型错误",
+      "content_governance_insight": "官网判断应依赖 ICP、企业登记主体、官方账号和交叉验证，不应只凭搜索结果。"
+    },
+    {
+      "public_case_id": "CASE-08",
+      "platform_name": "豆包",
+      "question_theme": "材质与产品边界",
+      "sanitized_short_summary": "围绕紫檀家具加入区块链存证、榫卯误差、回购机制和升值等品牌级断言。",
+      "risk_type": "高风险/典型错误",
+      "content_governance_insight": "单件产品、宣传样本和品牌整体能力之间需要明确证据层级。"
+    },
+    {
+      "public_case_id": "CASE-09",
+      "platform_name": "文心一言",
+      "question_theme": "购买与核验",
+      "sanitized_short_summary": "展示 30+ 个链接但回答偏向房产、车辆等通用场景，未聚焦红木家具核验。",
+      "risk_type": "高风险/典型错误",
+      "content_governance_insight": "来源数量不能替代相关性；证据链要能支撑题目对象和主要结论。"
+    },
+    {
+      "public_case_id": "CASE-10",
+      "platform_name": "豆包",
+      "question_theme": "京作、明式与清式",
+      "sanitized_short_summary": "主动区分明式/清式风格、品牌产品事实和古文物事实，提示核验边界。",
+      "risk_type": "正向案例",
+      "content_governance_insight": "可沉淀为内容模板：先分层定义，再给证据要求，最后提示不可越界结论。"
+    },
+    {
+      "public_case_id": "CASE-11",
+      "platform_name": "腾讯元宝",
+      "question_theme": "风险、来源与信息边界",
+      "sanitized_short_summary": "提出 ICP、国家企业信用、认证账号、司法信用等交叉核验路径并提示同名主体风险。",
+      "risk_type": "正向案例",
+      "content_governance_insight": "官网/官方资料问题应优先输出核验流程，而非直接给定单一结论。"
+    },
+    {
+      "public_case_id": "CASE-12",
+      "platform_name": "Kimi",
+      "question_theme": "风险、来源与信息边界",
+      "sanitized_short_summary": "指出多引用同源和二手转载不代表多重独立信源，要求追踪原始来源。",
+      "risk_type": "正向案例",
+      "content_governance_insight": "来源治理应识别“伪多源”，把首发、转载、聚合和引用日期分开。"
+    }
+  ]
+}
