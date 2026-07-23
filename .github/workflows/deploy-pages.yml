@@ -26,18 +26,31 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.9.0
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.13.0"
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build static site
+        run: pnpm run build:github
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
-
-      - name: Unpack static site
-        run: |
-          mkdir public-site
-          unzip -q yhl-geo-pages-out.zip -d public-site
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: public-site
+          path: ./out
 
       - name: Deploy to GitHub Pages
         id: deployment

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowIcon, Eyebrow, SiteShell, VisibleBreadcrumbs } from "../components";
-import { governanceAssets, siteUrl } from "../data";
+import { governanceAssets, siteAssetPath, siteUrl } from "../data";
 
 export const metadata: Metadata = {
   title: "内容策略",
@@ -156,7 +156,7 @@ export default function ContentGovernancePage() {
               </div>
               <Link className="strategy-preview-card" href={section.href}>
                 <div className="page-preview-frame">
-                  <img src={section.image} alt={`${section.pageName}缩略图`} loading="lazy" />
+                  <img src={siteAssetPath(section.image)} alt={`${section.pageName}缩略图`} loading="lazy" />
                 </div>
                 <h3>{section.pageName}</h3>
                 <span>查看页面<ArrowIcon /></span>

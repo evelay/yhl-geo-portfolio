@@ -10,6 +10,19 @@ export const updatedAt = "2026-07-22";
 
 export const siteUrl = "https://evelay.github.io/yhl-geo-portfolio";
 
+function normalizeBasePath(value: string | undefined) {
+  if (!value) return "";
+  const trimmed = value.trim().replace(/^\/+|\/+$/g, "");
+  return trimmed ? `/${trimmed}` : "";
+}
+
+export const siteBasePath = normalizeBasePath(process.env.NEXT_PUBLIC_BASE_PATH);
+
+export function siteAssetPath(path: string) {
+  if (!siteBasePath || /^https?:\/\//.test(path)) return path;
+  return `${siteBasePath}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 export const portfolioOverview = portfolioOverviewJson;
 export const platformSummary = platformSummaryJson;
 export const questionRiskSummary = questionRiskSummaryJson;

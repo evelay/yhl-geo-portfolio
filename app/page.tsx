@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowIcon, Eyebrow, SiteShell } from "./components";
-import { coreFindings, headlineMetrics, metricDisclaimers, projectFlow, siteUrl } from "./data";
+import { coreFindings, headlineMetrics, metricDisclaimers, projectFlow, siteAssetPath, siteUrl } from "./data";
 
 export const metadata: Metadata = {
   title: { absolute: "元亨利红木家具 GEO 诊断与内容优化项目" },
@@ -212,7 +212,7 @@ export default function Home() {
           {outputPreviews.map((item) => (
             <Link className="page-preview-card" href={item.href} key={item.href}>
               <div className="page-preview-frame">
-                <img src={item.image} alt={`${item.title}缩略图`} loading="lazy" />
+                <img src={siteAssetPath(item.image)} alt={`${item.title}缩略图`} loading="lazy" />
               </div>
               <h3>{item.title}</h3>
               <p>{item.body}</p>
